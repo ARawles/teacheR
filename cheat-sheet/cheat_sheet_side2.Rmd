@@ -1,0 +1,112 @@
+---
+title: "R Cheat Sheet"
+author: "Adam Rawles"
+output: html_document
+css: cheat_sheet.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+<div class="col_3_out">
+<div class ="col1">
+
+
+###For loops
+
+Use for loops to do something with every value in a vector/list or to do something a certain number of times
+
+```{r for_loops, eval = FALSE}
+for (identifier in vector/list){
+  do something
+}
+
+for (identifier in 1:somenumber){
+  do something
+}
+```
+
+
+<hr></hr>
+###If else statements
+
+Use if else statements to only do something if one criteria (or more) is fulfilled
+
+```{r if_else, eval = FALSE}
+if (value1 == value2){
+  do this
+}
+else if (value1 < value3){
+  do this
+}
+else {
+  do something else
+}
+```
+</div>
+<div class = "col2side2">
+
+
+###Connecting to SQL Databases
+
+```{r sql, eval = FALSE}
+library(obdc)
+con <- dbConnect(odbc(), Driver = "SQL Server", Server = e.g "PSADS004", Database = e.g. "TrailBlazer", trusted_connection = TRUE)
+```
+
+
+<hr></hr>
+
+###Querying SQL Databases
+Note: you must connect to a database first
+
+```{r querying, eval = FALSE}
+result <- dbGetQuery(conn = con, statement = "SELECT * FROM table1...")
+```
+
+
+<hr></hr>
+###Summary statistics
+
+```{r summary_statistics, eval = FALSE}
+mean(df$column) #Returns the mean
+median(df$column) #Returns the median
+sd(df$column) #Returns the standard deviation
+quantile(df$column) #Returns the 0, 25th, 50th, 100th quantiles
+```
+
+</div>
+<div class = "col3side2">
+
+```{r summary_statistics_2, eval = FALSE}
+summary(df) #Returns summary stats for all
+#columns in df
+```
+
+```{r summary_statistics_3, eval = FALSE}
+library(psych)
+describeBy(df, group) #Returns statistics by group
+```
+The group argument should be a factor
+
+
+<hr></hr>
+
+###Functions
+
+Use functions to repeat common actions and to help compartmentalise your code
+
+```{r functions, eval = FALSE}
+function_name <- function(argument_1, argument_2, ...){
+  do something
+  return(return_value)
+}
+```
+
+
+
+
+</div>
+</div>

@@ -1,0 +1,92 @@
+body{
+}
+
+code.r{
+font-size: 6pt;
+}
+
+pre{
+line-height: 1.2em;
+}
+
+h1.title{
+font-size: 24pt;
+}
+
+h4{
+font-size: 11pt;
+}
+h3{
+font-size: 12pt;
+font-weight: bold;
+}
+
+
+.col1 {
+font-size: 10pt;
+line-height: 1em;
+margin-top: 2em;
+margin-bottom: 2em;
+}
+
+.col2 {
+font-size: 10pt;
+line-height: 1em;
+margin-top: 2em;
+margin-bottom: 10em;
+padding-top: 5em;
+}
+
+
+.col2side2 {
+font-size: 10pt;
+line-height: 1em;
+margin-top: 2em;
+margin-bottom: 10em;
+padding-top: 5em;
+}
+
+.col3 {
+font-size: 10pt;
+line-height: 1em;
+margin-top: 4em;
+margin-bottom: 2em;
+padding-top: 2em;
+}
+
+.col3side2 {
+font-size: 10pt;
+line-height: 1em;
+margin-top: 4em;
+margin-bottom: 2em;
+padding-top: 6em;
+}
+
+  .col_2_out {
+    columns: 2;       /* number of columns and width in pixels*/
+    -webkit-columns: 2; /* chrome, safari */
+    -moz-columns: 2;    /* firefox */
+  }
+  .col_3_out {
+    column-count: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+  }
+
+.main-container {
+max-width: 297mm !important;
+max-height: 210mm !important;
+}
+
+.fluid-row {
+text-align: center;
+}
+
+hr {
+margin-top: 0.8em;
+margin-bottom: 0.8em;
+}
+
+.hljs-comment {
+white-space: nowrap;
+}
