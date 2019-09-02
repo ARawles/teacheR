@@ -1,17 +1,17 @@
-Introduction to R
-========================================================
-author: Adam Rawles
-date: 
-autosize: true
-incremental: true
-css: H:/R/Training/r_training.css
+---
+output:
+  pdf_document: default
+  ioslides_presentation:
+    incremental: true
+  md_document: default
+---
+
+# Introduction to R
+
+Adam Rawles
 
 
-Overview
-========================================================
-
-<hr></hr>
-
+## Overview
 
 - What is R and RStudio?
 - Basic arithmetic operators
@@ -21,19 +21,17 @@ Overview
 - Functions
 
 
-Learning Objectives
-========================================================
-<hr></hr>
+## Learning Objectives
+
 
 - Understand the basics of RStudio
 - Know the difference between the data types and structures in R
 - Understand the concepts of how functions operate in R
 - Know where/how to look things up!
 
-What is R?
-========================================================
 
-<hr></hr>
+## What is R?
+
 
 - Background
     - Public license programming language
@@ -44,18 +42,12 @@ What is R?
     - R uses a command-line interface
     - But there are many GUIs available (such as RStudio)
     
-RStudio
-========================================================
-
-<hr></hr>
+## RStudio
 
 - RStudio is one of the most popular R environments
 - RStudio has 4 main panes:
         
-RStudio
-========================================================
-
-<hr></hr>
+## RStudio
 
 - Source
     - This is where your scripts (pre-written lines of codes) are displayed
@@ -66,10 +58,7 @@ RStudio
     - This is where the commands are actually executed
     - When you run a script from the source, it is passed to the console line by line
     
-RStudio
-========================================================
-
-<hr></hr>
+## RStudio
 
 - Environment
     - This pane displays any variables or data structures you've created
@@ -82,10 +71,7 @@ RStudio
     - and the Plots tab, which will show any plots that you've created
 
 
-Basic arithmetic
-========================================================
-
-<hr></hr>
+## Basic arithmetic
 
 - The basic arithmetic operators in R are very similar to Excel
 
@@ -96,10 +82,7 @@ Basic arithmetic
 
 ```
 
-Basic arithmetic
-========================================================
-
-<hr></hr>
+## Basic arithmetic
 
 ```{r basic_arithmetic_2, echo = TRUE}
 
@@ -109,10 +92,7 @@ Basic arithmetic
 ```
 
 
-Logical operators
-========================================================
-
-<hr></hr>
+## Logical operators
 
 - Logical operators in R are a bit different
 
@@ -127,10 +107,7 @@ Logical operators
 
 ```
 
-Logical operators
-========================================================
-
-<hr></hr>
+## Logical operators
 
 ```{r logical_operators_2, echo = TRUE}
 
@@ -144,10 +121,8 @@ Logical operators
 
 
 
-Variable assignment
-========================================================
+## Variable assignment
 
-<hr></hr>
 
 - Assigning variables allows you store values for later use
 
@@ -165,10 +140,8 @@ print(variable_3)
 - But it's better to use "<-"
 - Note: the value of a variable is not printed when it is assigned
 
-Variable assigment
-========================================================
+## Variable assigment
 
-<hr></hr>
 
 - Variables can also be modified after they've been assigned
 
@@ -183,10 +156,7 @@ print(variable_1)
 ```
 
 
-Data types
-========================================================
-
-<hr></hr>
+## Data types
 
 - Data comes in lots of different forms
 - Is "True" equal to TRUE?
@@ -196,10 +166,7 @@ Data types
     - integer; 2L, 34L, 1294L
     - character; "hello world", "True"
 
-Data types
-========================================================
-
-<hr></hr>
+## Data types
 
 - Assigning the right data type is important, as it determines how the data is stored and how data can be manipulated
 
@@ -212,10 +179,7 @@ variable_1 + variable_2
 ```
 
 
-Data types
-========================================================
-
-<hr></hr>
+## Data types
 
 - R will automatically decide the data type when you assign a variable, but you can force R to store the value as a different data type using the as.xxxxx functions
 
@@ -232,31 +196,23 @@ variable_1 <- as.numeric("hello world")
 variable_1
 ```
 
-Data types - Factors
-========================================================
-
-<hr></hr>
+## Data types - Factors
 
 - There is another data type which is fairly common in R called a factor
 - A factor is made up of one or more levels that represent some form of grouping
 - For example, if we had a dataframe containing information about all the meters in a GSP Group, we might store "Measurement Class" as a factor, with the levels A, C, E, F, G
 - Note: when importing data into R, R will automatically try and convert columns containing strings into factors (unless you specify otherwise)
 
-Data structures
-========================================================
-
-<hr></hr>
+## Data structures
 
 - Values in R need to be stored in a specific way
 - There are 4 main data structures in R:
 
-Data structures - Vectors
-========================================================
-
-<hr></hr>
+## Data structures - Vectors
 
 - Vectors
     - Vectors in R are arrays of data in one dimension
+    - They are atomic (not recursive)
     - Even variables with a single value will be stored as a vector with length 1
 
 ```{r data_structures_vectors, echo = TRUE}
@@ -269,10 +225,7 @@ print(vector_2)
 ```
 
 
-Data structures - Matrices
-========================================================
-
-<hr></hr>
+## Data structures - Matrices
 
 - Matrices
     - Matrices are two-dimensional arrays that hold values of the same type
@@ -285,10 +238,7 @@ print(matrix_1)
 
 ```
 
-Data structures - Data frames
-========================================================
-class: small-code
-<hr></hr>
+## Data structures - Data frames
 
 - Data frames
     - Most data you'll be working with in R will be held in a data frame
@@ -304,10 +254,7 @@ print(dataframe1)
     - Each column must have the same number of rows
     
 
-Data structures - Lists
-========================================================
-class:small-code
-<hr></hr>
+## Data structures - Lists
 
 - Lists
     - Lists are similar to vectors
@@ -322,10 +269,7 @@ print(list_1)
 ```
 
 
-Subsetting data structures
-========================================================
-
-<hr></hr>
+## Subsetting data structures
 
 - More often than not, you'll only want to access one or more of the values in a data structure
 - For example, you may only want to see the first 10 values of a very long vector
@@ -336,21 +280,17 @@ values <- c(6,45,7,54,99,31,12,15,67,100)
 values[1]
 ```
 
-Subsetting data structures
-========================================================
+## Subsetting data structures
 
-<hr></hr>
 
 ```{r subsetting_data_structures_2, echo = TRUE}
 values[c(1,10)]
-values[1:5] #this is the same as values[c(1,2,3,4,5)]
+values[1:5] ##this is the same as values[c(1,2,3,4,5)]
 
 ```
 
 
-Subsetting vectors - exercise
-========================================================
-<hr></hr>
+## Subsetting vectors - exercise
 
 - Create a vector
     - Return the 5th value
@@ -366,10 +306,8 @@ vector1[c(1:5, 7)]
 
 
 
-Subsetting matrices
-========================================================
+## Subsetting matrices
 
-<hr></hr>
 
 - For data structures with more that one-dimension, we have to provide some more information
 - In these cases, we specify an index for each dimension, starting with the row
@@ -383,10 +321,8 @@ matrix_1[,2]
 
 - Matrices can also be subsetted by providing the names of the row/column instead of the number
 
-Subsetting data frames
-========================================================
-class: small-code
-<hr></hr>
+## Subsetting data frames
+
 
 - Unlike matrices, data frame columns can be referred to be name using the $ operator
 - You can combine the $ and [] operators to access specific values in a column
@@ -399,9 +335,8 @@ dataframe_1$character_col[1]
 
 - Note: data frames can also be subsetted using the [x, y] format, with names or indices
 
-Subsetting dataframes - exercise
-========================================================
-<hr></hr>
+## Subsetting dataframes - exercise
+
 
 - Create a data frame with 2 columns
     - Return one column using the $ operator
@@ -416,10 +351,8 @@ df1[,2]
 
 
 
-Subsetting lists
-========================================================
+## Subsetting lists
 
-<hr></hr>
 
 - Because lists have named values, they can also be subsetted using the $ and [] operators
 
@@ -431,10 +364,7 @@ list_1$characters[1]
 
 ```
 
-Subsetting lists
-========================================================
-
-<hr></hr>
+## Subsetting lists
 
 - Although lists are two-dimensional, they do not have rows and columns and so cannot be subsetted using the [x, y] format
 - Instead, lists are subsetted using the [[]] operator
@@ -447,10 +377,7 @@ list_1[[1]][2]
 ```
 
 
-Functions
-========================================================
-
-<hr></hr>
+## Functions
 
 - Any operation, such as loading a dataset or finding the mean, are defined as functions in R
 - A function is a set of steps that takes an input, does some form of computation, and returns an output
@@ -463,46 +390,35 @@ mean(values)
 ```
  - You may have noticed that "c()" also acts as a function, creating a vector with the provided values
  
-Functions - input parameters/arguments
-========================================================
+## Functions - input parameters/arguments
 
-<hr></hr>
 
 - Almost all functions will require some input to produce an output
 - These are the function's input parameters or arguments
 - For example, in the previous slide, the mean() function required a vector of values to calculate the mean
 
-Functions - input parameters/arguments
-========================================================
-
-<hr></hr>
+## Functions - input parameters/arguments
 
 - Some functions will have optional input parameters
 - To see what arguments/parameters a function requires, type the function name preceded by a "?" in the R console (e.g. ?mean)
 
-Functions - exercise
-========================================================
+## Functions - exercise
 
-<hr></hr>
 
 - Find the help page for the "sample" function
 - Use the "sample" function
 
 
-Functions - naming input parameters
-========================================================
+## Functions - naming input parameters
 
-<hr></hr>
 
 - When you provide unnamed values to a function, R will automatically assign them to an input argument in the order they appear on the function's help page
 - This can be hard to keep track of if you're providing multiple arguments
 - Best practice, therefore, is to be explicit when providing your input arguments
 - Let's use the substr() function as an example
     
-Functions - naming input parameters
-========================================================
+## Functions - naming input parameters
 
-<hr></hr>
 
 - The substr() function returns part of a string from a start and stop index
 
@@ -517,10 +433,7 @@ substr(string1, 1,5)
     - The end point (stop)
 - As shown above, we can just pass those arguments without naming them, in that order
 
-Functions - naming input parameters
-========================================================
-
-<hr></hr>
+## Functions - naming input parameters
 
 - It's best practice, however, to name the arguments as you pass them...
 
@@ -530,10 +443,7 @@ substr(x = string1, start = 1, stop = 5)
 ```
 
 
-Recap
-========================================================
-
-<hr></hr>
+## Recap
 
 - R is a free statistical programming language
 - One of the most popular environments for R is RStudio
