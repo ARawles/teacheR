@@ -1,0 +1,140 @@
+---
+title: "R Cheat Sheet"
+author: "Adam Rawles"
+output:
+  html_document: default
+  pdf_document: default
+css: cheat_sheet.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+<div class="col_3_out">
+<div class ="col1">
+
+###Defining variables
+
+There are three different ways to define variables:
+
+```{r defining_variables, eval = FALSE}
+x <- 1
+y = 2
+assign("z", 3)
+```
+<hr></hr>
+###Testing data types
+
+```{r testing_date_type, eval = FALSE}
+x <- 1
+is.xxxxxx(x) #Tests if value is of a specific type
+is(x) #The first value returned is the data type
+```
+
+
+<hr></hr>
+###Converting data types
+
+```{r converting_data, eval = FALSE}
+x <- as.xxxxxxxx(value)
+```
+
+Valid types include integer, numeric, character, logical and factor
+<hr></hr>
+###Logical operators
+
+```{r logical_operators, eval = FALSE}
+x == y #Is equal to
+x != y #Is not equal to
+x > y #Is greater than
+x < y  #Is less than
+x <! y #Is not less than
+x >! y #Is not greater than
+x == y | x == z #Or
+x == y & x == z #And
+x %in% vector/list
+```
+
+</div>
+<div class = "col2">
+
+###Converting to date
+
+```{r converting_to_date, eval = FALSE}
+df$column <- as.Date(df$column, format = "%d/%m/%Y") #Use this if the column is a character
+df$column <- as.Date(df$column, origin = as.Date("01/01/1970", format = "%d/%m/%Y")) #Use this if the column is a number
+```
+Date format codes can be found online
+
+
+<hr></hr>
+
+###Installing & loading packages
+
+```{r packages, eval = FALSE}
+install.packages("name of package") #You only need to call this once
+library(nameofpackage) #Put this line in
+#any script that uses the package
+```
+
+
+
+<hr></hr>
+###Creating & subsetting vectors
+
+```{r vectors, eval = FALSE}
+x <- c(10,20,30,40,50)
+x[1:3] #Returns values at indices 1 to 3
+x[c(1,2,4)] #Returns values at indices 1, 2, and 4
+```
+
+<hr></hr>
+###Creating & subsetting dataframes
+
+```{r dataframes, eval = FALSE}
+df <- data.frame(numeric_col = c(1,2,3), character_col = c("My", "name", "is"), stringsAsFactors = TRUE/FALSE)
+df$numeric_col #Returns just numeric_col
+df[,1] #Returns all rows in the first column
+df[1,] #Returns only the first row
+```
+
+</div>
+<div class = "col3">
+###Loading data
+
+Load data via .csv or .xlsx
+
+```{r load_data, eval = FALSE}
+read.csv("path_to_file", stringsAsFactors = TRUE/FALSE, header = TRUE/FALSE) #Specify whether you want columns
+#with strings as factors and
+#if the file has headers
+library(readxl) #read_excel requires the readxl package
+read_excel("path_to_file", col_names = TRUE/FALSE, sheet = "sheetname"/sheet_index)
+```
+<hr></hr>
+
+###Filtering
+
+```{r filtering, eval = FALSE}
+dataframe[dataframe$column ==/!=/</>/%in% value,]
+subset(dataframe, dataframe$column ==/!=/</>/%in% value)
+```
+ You can use any logical operator in your filter criteria
+ Note: subset and the [] method may return the results in different data structures!
+
+<hr></hr>
+
+###Plotting
+
+Use plots to visualise data and its relationships
+
+```{r plotting, eval = FALSE}
+plot(x = df$column, y = df$column, main = "Title of plot", xlab = "X axis label", ylab = "Y axis label", pch = 1-25) #Creates a plot of x against y
+hist(df$column) #Creates a histogram from df$column
+```
+
+
+</div>
+</div>
