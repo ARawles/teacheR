@@ -1,18 +1,25 @@
-Advanced Analysis and Programming in R
-========================================================
-author: Adam Rawles
-date: 
-autosize: true
-incremental: true
-css: H:/R/Training/r_training.css
+---
+output:
+  ioslides_presentation:
+    incremental: true
+    widescreen: true
+    fullscreen: true
+  pdf_document: default
+  md_document: default
+---
+
+
+# Advanced Analysis and Programming in R
+
+
+Adam Rawles
 
 
 ```{r_setup, echo = FALSE, eval = TRUE}
 
 ```
 
-Recap
-========================================================
+## Recap
 
 - Loading data from .csv and .xlsx
 - Cleaning data
@@ -25,16 +32,16 @@ Recap
     - plot()
     - hist()
   
-Overview
-========================================================
+## Overview
+
 
 - User-defined functions
 - For loops
 - If/else statements
 
 
-Functions
-========================================================
+## Functions
+
 
 - Functions are how we perform any action in R
 - We pass arguments to a function as an input, there is some form of transformation, and we get an output
@@ -43,8 +50,8 @@ Functions
 - But often, you'll need a specific function for a specific task...
 - And that's where user-defined functions come in
 
-User-defined functions - basics
-========================================================
+## User-defined functions - basics
+
 
 - Functions can have multiple inputs, but only one output
 - Functions are named, and are always followed by () (even if it's blank)
@@ -52,8 +59,8 @@ User-defined functions - basics
 - Functions should be as simple and applicable as possible
 - Functions will return the last calculated (not assigned) variable, or whatever is included in the return() call
 
-User-defined functions - structure
-========================================================
+## User-defined functions - structure
+
 
 - Functions are created with the following structure:
 
@@ -67,8 +74,8 @@ some_function <- function(some_input,...){
 
 - We name the function, define what inputs we want, and then what we want to do with those inputs
 
-User-defined functions - example
-========================================================
+## User-defined functions - example
+
 
 ```{r user_defined_functin_example, eval = TRUE}
 sum_custom <- function(x, y){
@@ -79,8 +86,8 @@ sum_custom <- function(x, y){
 sum_custom(1,2)
 ```
 
-User-defined functions - example
-========================================================
+## User-defined functions - example
+
 
 - You can specify default values for any of your input parameters, making that argument optional
 
@@ -96,8 +103,8 @@ combine_custom(string1 = "hello", string2 = "world")
 
 
 
-User-defined functions - example
-========================================================
+## User-defined functions - example
+
 
 ```{r user_defined_functin_example_2, eval = TRUE}
 combine_custom <- function(string1, string2, delimiter = "") {
@@ -109,8 +116,8 @@ combine_custom <- function(string1, string2, delimiter = "") {
 combine_custom(string1 = "hello", string2 = "world", delimiter = "!")
 ```
 
-User-defined functions - exercise
-========================================================
+## User-defined functions - exercise
+
 
 - Option 1 (easy)
     - Write a function that takes 2 numbers, multiplies them together and divides the result by 2
@@ -121,8 +128,8 @@ User-defined functions - exercise
 - Option 4 (theoretical)
     - Think of how you would write a function that takes 1,000 numbers, and calculates a running average
   
-User-defined functions - answers
-========================================================
+## User-defined functions - answers
+
 
 - Option 1
     - Write a function that takes 2 numbers, multiplies them together and divides the result by 2
@@ -136,8 +143,7 @@ option1_function <- function(x,y){
 option1_function(4,4)
 ```
 
-User-defined functions - answers
-========================================================
+## User-defined functions - answers
 
 - Option 2
     - Write a function that takes 2 vectors, and multiplies that largest value of vector 1 by the smallest value in vector 2
@@ -152,8 +158,8 @@ option2_function(v1 = c(1,2,3,4), v2 = c(1,2,3,4,5))
 ```
 
 
-User-defined functions - answers
-========================================================
+## User-defined functions - answers
+
 
 - Option 3
     - Write a function that takes 2 strings, and returns the 1st and 2nd values of each one
@@ -170,8 +176,7 @@ option3_function <- function(string1, string2){
 option3_function("hello", "world")
 ```
 
-User-defined functions
-========================================================
+## User-defined functions
 
 - In some cases, you may want to provide a variable number of inputs to a function
 - For example, if you have a function that combines strings, you may want to accept any number of strings to combine
@@ -187,8 +192,8 @@ some_function("hello", "world")
 some_function("hello", "world", "again")
 ```
 
-User-defined functions - environment
-========================================================
+## User-defined functions - environment
+
 - Functions have a local environment, meaning that anything calculated in the function is not accessible outside the function (except the value is returned via return())
 
 ```{r user_defined_functions_environment, error = TRUE}
@@ -204,14 +209,14 @@ print(s)
 
 - Note: when using return(), the value of the object is returned, rather than the object itself
 
-For loops
-========================================================
+## For loops
+
 
 - Sometimes, we may want to repeat an action for every item in a list or vector
 - For example, we might want a function to add 4 to every item in a vector, or get the mean for every column in a dataframe
 
-For loops
-========================================================
+## For loops
+
 
 - With a for loop, you can iterate over ever item in a list or vector and perform a function
 - For loops follow a basic structure:
@@ -225,8 +230,8 @@ for (identifier in list or vector){
 - The identifier becomes the variable name for accessing the current value in the body of the loop
 - On each iteration, the identifier variable will take on a new value
 
-For loops - structure
-========================================================
+## For loops - structure
+
 
 - You can also perform a for loop a defined number of times rather than iterating through a list/vector:
 
@@ -239,8 +244,8 @@ for (identifier in 1:some number){
 - In this case, the value of our identifier variable will change to the next number in our set of numbers
 
 
-For loops - example
-========================================================
+## For loops - example
+
 
 - Say we want to loop through a vector and print each value...
 
@@ -253,8 +258,8 @@ for (i in vector1){
 
 
 
-For loops - excercise
-========================================================
+## For loops - excercise
+
 
 - Option 1 (easy)
     - Write a for loop that divides each number in a vector of numbers by 2
@@ -264,8 +269,8 @@ For loops - excercise
     -  Write a for loop that adds each value from one vector to the value at the next index in a second vector
 
 
-For loops - answers
-========================================================
+## For loops - answers
+
 
 - Option 1
     - Write a for loop that divides each number in a vector of numbers by 2
@@ -278,8 +283,8 @@ for (i in vector1){
 
 ```
 
-For loops - answers
-========================================================
+## For loops - answers
+
 
 - Option 2
     - Write a for loop that produces a running average from a vector of numbers
@@ -295,8 +300,8 @@ for (i in vector1){
 }
 ```
 
-For loops - answers
-========================================================
+## For loops - answers
+
 
 - Option 3
     -  Write a for loop that adds each value from one vector to the value at the next index in a second vector
@@ -311,15 +316,15 @@ for (i in 1:length(vector1)){
 ```
 
 
-If else statements
-========================================================
+## If else statements
+
 
 - Sometimes, you'll only want to perform an action if a certain criteria is met
 - For example, you may only want to add 4 to a number if it's greater than 10
 - To perform an action based on a criteria, you use an if else statement
 
-If else statements - structure
-========================================================
+## If else statements - structure
+
 
 - There are 3 main 'types' of if else statements
 - Simple if statements
@@ -339,8 +344,8 @@ if (criteria){
 }
 ``` 
     
-If else statements - structure
-========================================================
+## If else statements - structure
+
 
 - If and if else statements
     - If the criteria is fulfilled perform the action, otherwise if a different criteria is fulfilled do something else, otherwise do nothing:
@@ -354,8 +359,8 @@ if (criteria){
 ``` 
 
 
-If else statements - criteria
-========================================================
+## If else statements - criteria
+
 
 - You can include multiple criteria in one if or else statement...
 
@@ -371,8 +376,8 @@ if (criteria 1 & criteria 2){
 
 
 
-If else statements - example
-========================================================
+## If else statements - example
+
 
 ```{r if_else_example}
 vector1 <- c(1,2,3,4,5)
@@ -392,8 +397,8 @@ for (i in vector1){
 ```
 
 
-Final - exercise
-========================================================
+## Final - exercise
+
 
 - Option 1 (easy)
     - Write a function that loops through a vector of numbers and prints the value if it is even
@@ -405,8 +410,8 @@ Final - exercise
     - Write a function that loops through a vector of numbers and square it if it is a multiple of 4, otherwise replace the value with the previous value in the vector or 0 if the value is first in the vector and then print
     - Hint: use x %% y to check for factors
     
-Final - answers
-========================================================
+## Final - answers
+
 
 - Option 1
     - Write a function that loops through a vector of numbers and prints the value if it is even
@@ -424,8 +429,8 @@ option1_function <- function(v) {
 option1_function(v = c(1,2,3,4,5,6,7,8))
 ```
 
-Final - answers
-========================================================
+## Final - answers
+
 
 - Option 2
     - Write a function that loops through a vector of numbers and prints the value if it's smaller than the value at the same index in a second vector
@@ -443,9 +448,8 @@ option2_function <- function(v1, v2) {
 option2_function(v1 = c(1,2,3,4,5,6,7,8), v2 = c(2,1,4,5,2,1,1,1))
 ```
 
-Final - answers
-========================================================
-class: small-text
+## Final - answers
+
 
 - Option 3
     - Write a function that loops through a vector of numbers and squares it if it is a multiple of 4, otherwise replace the value with the previous value in the vector or 0 if the value is first in the vector, and then print
@@ -470,8 +474,7 @@ option3_function(v = c(1,2,3,4,5,6,7,8))
 ```
 
 
-Conclusion
-========================================================
+## Conclusion
 
 - User-defined functions
     - We use functions to perform repeatable and generalizable tasks
@@ -480,8 +483,8 @@ Conclusion
 - If else statements
     - With if, else if, and else statements, we can perform actions only when a certain criteria is met
     
-Future modules (optional)
-========================================================
+## Future modules (optional)
+
 
 - Statistical analysis
 - Advanced plotting (ggplot2)
