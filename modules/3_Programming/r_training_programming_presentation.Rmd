@@ -9,7 +9,7 @@ output:
 ---
 
 
-# Advanced Analysis and Programming in R
+# Programming in R
 
 
 Adam Rawles
@@ -187,7 +187,11 @@ some_function <- function(...){
   new_string <- unlist(list(...))
   return(new_string)
 }
+```
 
+## User-defined functions
+
+```{r}
 some_function("hello", "world")
 some_function("hello", "world", "again")
 ```
@@ -453,6 +457,9 @@ option2_function(v1 = c(1,2,3,4,5,6,7,8), v2 = c(2,1,4,5,2,1,1,1))
 
 - Option 3
     - Write a function that loops through a vector of numbers and squares it if it is a multiple of 4, otherwise replace the value with the previous value in the vector or 0 if the value is first in the vector, and then print
+
+
+## Final - answers
 
 ```{r final_option_3_answer}
 option3_function <- function(v) {

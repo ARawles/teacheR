@@ -94,7 +94,7 @@ slide:not(.current) .plotly.html-widget{
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Advanced Analysis and Programming in R</h2></hgroup><article  id="advanced-analysis-and-programming-in-r">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Programming in R</h2></hgroup><article  id="programming-in-r">
 
 <p>Adam Rawles</p>
 
@@ -299,9 +299,11 @@ option3_function(&quot;hello&quot;, &quot;world&quot;)</pre>
 <pre class = 'prettyprint lang-r'>some_function &lt;- function(...){
   new_string &lt;- unlist(list(...))
   return(new_string)
-}
+}</pre>
 
-some_function(&quot;hello&quot;, &quot;world&quot;)</pre>
+</article></slide><slide class=""><hgroup><h2>User-defined functions</h2></hgroup><article  id="user-defined-functions-1">
+
+<pre class = 'prettyprint lang-r'>some_function(&quot;hello&quot;, &quot;world&quot;)</pre>
 
 <pre >## [1] &quot;hello&quot; &quot;world&quot;</pre>
 
@@ -649,6 +651,8 @@ option2_function(v1 = c(1,2,3,4,5,6,7,8), v2 = c(2,1,4,5,2,1,1,1))</pre>
 <li>Write a function that loops through a vector of numbers and squares it if it is a multiple of 4, otherwise replace the value with the previous value in the vector or 0 if the value is first in the vector, and then print</li>
 </ul></li>
 </ul>
+
+</article></slide><slide class=""><hgroup><h2>Final - answers</h2></hgroup><article  id="final---answers-3">
 
 <pre class = 'prettyprint lang-r'>option3_function &lt;- function(v) {
   for (i in 1:length(v)){

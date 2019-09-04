@@ -1,5 +1,5 @@
-Advanced Analysis and Programming in R
-======================================
+Programming in R
+================
 
 Adam Rawles
 
@@ -194,6 +194,9 @@ User-defined functions
       new_string <- unlist(list(...))
       return(new_string)
     }
+
+User-defined functions
+----------------------
 
     some_function("hello", "world")
 
@@ -536,7 +539,8 @@ Final - answers
         with the previous value in the vector or 0 if the value is first
         in the vector, and then print
 
-<!-- -->
+Final - answers
+---------------
 
     option3_function <- function(v) {
       for (i in 1:length(v)){
