@@ -3,6 +3,8 @@ output:
   pdf_document: default
   ioslides_presentation:
     incremental: true
+    widescreen: true
+    fullscreen: true
   md_document: default
 ---
 
