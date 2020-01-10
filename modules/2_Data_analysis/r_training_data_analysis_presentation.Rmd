@@ -37,7 +37,7 @@ Adam Rawles
 
 - Installing packages with RStudio is easy to do
 - RStudio has a built-in interface for installing packages...
-- Or, you can use the R function "install.packages()", and provide the name of the package(s) you want to install to the function
+- Or, you can use the R function `install.packages()`, and provide the name of the package(s) you want to install to the function
 
 ```{r installing_packages, eval = FALSE}
 install.packages("ggplot2")
@@ -45,7 +45,7 @@ install.packages(c("ggplot2", "dplyr"))
 ```
 
 
-- Packages must be loaded before they are available, via the library() function
+- Packages must be loaded before they are available, via the `library()` function
 
 ```{r load_packages, eval = FALSE}
 library(ggplot2)
@@ -69,7 +69,7 @@ library(ggplot2)
 
 
 - The second is to use RStudio's built in "Import Dataset" interface
-    - This interface essentially just acts as a wrapper to the read.csv()/xlsx() functions
+    - This interface essentially just acts as a wrapper to the `read.csv()/xlsx()` functions
 
 ## Loading data - example
 
@@ -92,7 +92,7 @@ head(consdata, n = 2)
 ## Loading data - exercise
 
 
-- Using RStudio's "Import Dataset" or the read.csv() function, load the cons_data dataset
+- Using RStudio's "Import Dataset" or the `read.csv()` function, load the cons_data dataset
 
 ## Data cleaning
 
@@ -101,7 +101,7 @@ head(consdata, n = 2)
     - You can either click on the dataframe in the Environment pane, which will open the dataframe in the Source pane
         - From here, you can hover over the column headers to see what type the data is stored as
     - Or, you can use the is.xxxxx functions to check from the console.
-        - To do this, you choose the appropriate function for the type you want (e.g. is.numeric()), and include the column you want to check as an argument
+        - To do this, you choose the appropriate function for the type you want (e.g. `is.numeric()`), and include the column you want to check as an argument
         
 ## Data cleaning
 
@@ -181,8 +181,8 @@ dataframe$column <- as.numeric(as.character(dataframe$column))
 - Dates in R can be tricky
     - R will not import date values in as dates unless you specify that it should
         - But RStudio's "Import Dataset" feature can be pretty handy here...
-    - If you don't, R will import them as characters (which means they'll be converted to factors unless you specify stringsAsFactors = FALSE)
-- To convert a character to a date, use the as.Date() function...
+    - If you don't, R will import them as characters (which means they'll be converted to factors unless you specify `stringsAsFactors = FALSE`)
+- To convert a character to a date, use the `as.Date()` function...
 
 ## Data cleaning - dates (example)
 
@@ -198,7 +198,7 @@ is(datetest)
 ## Data cleaning - dates (exercise)
 
 
-- Our consdata$settlement_date column is currently a factor, convert it to date
+- Our `consdata$settlement_date` column is currently a factor, convert it to date
 - Remeber to convert the column to character first!
 
 ```{r data_cleaning_dates_exercise, echo = TRUE, eval = TRUE}
@@ -216,7 +216,7 @@ consdata$settlement_date <- as.Date(as.character(consdata$settlement_date), form
 
 - Dates can also come in numeric form, calculated as the number of days from a particular origin
 - For example, a numeric value of 1, with an origin of 12/12/2018 would correspond to a date value of 13/12/2018
-- If your date values are in numeric format, you need to specify the origin in the as.Date() function...
+- If your date values are in numeric format, you need to specify the origin in the `as.Date()` function...
 
 ## Data cleaning - dates (example)
 
@@ -232,18 +232,18 @@ datetest
 
 
 - With dates, always specify the format (format codes can be found online and are included in your help sheet)
-- There's no is.Date() function in base R
-- So to check whether a value is a date, use is()
+- There's no `is.Date()` function in base R
+- So to check whether a value is a date, use `is()`
 
 
 ## Data cleaning - conclusion
 
 
-- To find out the type of a column, use the is() function
+- To find out the type of a column, use the `is()` function
 - Otherwise, you can (usually) test if a column is a specific type via the is.xxxxx functions
 - Converting between datatypes (except from numeric -> factor) is easy with the as.xxxxx functions
 - When converting numbers to factors, convert them to characters first
-- When converting from characters or numeric to dates, as.Date() requires "format" or "origin" parameters respectively 
+- When converting from characters or numeric to dates, `as.Date()` requires "format" or "origin" parameters respectively 
 
 ## Summary statistics
 
@@ -275,7 +275,7 @@ quantile(consdata$meter_reading)
 
 
 - More often than not however, you'll want summary statistics for more than one column, or maybe broken down by group
-- R includes a function that will give you summary statistics for each column (the summary() function):
+- R includes a function that will give you summary statistics for each column (the `summary()` function):
 
 ```{r summary_statistics_3, echo = TRUE}
 summary(consdata)
@@ -285,29 +285,23 @@ summary(consdata)
 
 
 
-- Summary statistics by group are a little bit more complicated as they require the "psych" package
-- Once the "psych" package is installed, you can use the describeBy() function to give you summary statistics for each level of a factor in your dataset:
+- Summary statistics by group are a little bit more complicated as they require as to `apply` the function twice, once for each group
+- To do that, we use the tapply function, say that we want to use the consdata dataset, split it by group, and then use the summary function
 - Note: You'll likely get some error messages if one of your columns isn't numeric, but you can ignore them
 
 ```{r summary_statistics_by_group_1_hidden, eval = FALSE}
-
-describeBy(consdata, consdata$actual_estimate)
+tapply(consdata, consdata$actual_estimate, summary)
 ```
 
 ## Summary statistics by group - exercise
 
-- Install the "psych" package
 - Produce summary statistics by Settlement Date
 
 ## Summary statistics by group - answer
 
-```{r summary_stats_answer, eval = FALSE}
-install.packages("psych")
-```
 
 ```{r summary_stats_answer_2, eval = FALSE}
-library(psych)
-describeBy(consdata, consdata$settlement_date)
+tapply(consdata, consdata$actual_estimate, summary)
 ```
 
 
@@ -316,17 +310,16 @@ describeBy(consdata, consdata$settlement_date)
 
 
 ```{r summary_statistics_by_group_2, eval = TRUE, echo = FALSE}
-library(psych)
-describeBy(consdata, consdata$actual_estimate)
+tapply(consdata, consdata$actual_estimate, summary)
 ```
 
 
 ## Summary statistics - conclusion
 
 
-- Producing summary statistics for columns in a dataframe can be done through the mean(), median(), sd(), and quartile() functions
-- Producing summary statistics for multiple columns can be done with the summary() function
-- Producing summary statistics by group requires the "psych" package, and the describeBy() function
+- Producing summary statistics for columns in a dataframe can be done through the `mean()`, `median()`, `sd()`, and `quartile()` functions
+- Producing summary statistics for multiple columns can be done with the `summary()` function
+- Producing summary statistics by group requires us to `apply` the `summary()` function to each group
 
 
 ## Plotting
@@ -342,9 +335,9 @@ describeBy(consdata, consdata$actual_estimate)
 ## Plotting
 
 
-- R's main plotting function is plot()
+- R's main plotting function is `plot()`
 - This function takes the data you want to visualise as it's only required argument, with optional arguments to specify what kind of plot you want
-- If you don't specify what kind of plot you want, plot() tries to guess the most appropriate type of plot for your data, and creates it
+- If you don't specify what kind of plot you want, `plot()` tries to guess the most appropriate type of plot for your data, and creates it
 
 ## Plotting - example
 
@@ -364,8 +357,8 @@ plot(x = consdata$actual_estimate, y = consdata$meter_reading)
 ## Plotting - example
 
 - As you can see, we've specified our x and y axis, but not what type of plot we want
-- But the plot() function has guessed that we probably want a boxplot
-- Note: you can also force R to create a boxplot using the boxplot() function
+- But the `plot()` function has guessed that we probably want a boxplot
+- Note: you can also force R to create a boxplot using the `boxplot()` function
 
 ## Plotting - example
 
@@ -405,7 +398,7 @@ plot(x = consdata$settlement_period, y = consdata$meter_reading)
 
 
 - One of the best features of the plotting system in R is how easy it is to make histograms
-- You can either use the plot() function and specify "h" as the type, or we can use the hist() function and provide one variable to produce a simple histogram...
+- You can either use the `plot()` function and specify "h" as the type, or we can use the `hist()` function and provide one variable to produce a simple histogram...
 
 ```{r histograms, echo = TRUE, eval = FALSE}
 hist(consdata$meter_reading)
@@ -480,7 +473,7 @@ plot(consdata$meter_reading, consdata$avg_temperature_c,
 
 
 - In addition to the previous customization options, for histograms, we can change the size of the bins
-    - To do this, we specify the "breaks" parameter in our hist() function
+    - To do this, we specify the "breaks" parameter in our `hist()` function
     - This splits up out our data into x number of bins of equal size
     
 ```{r customizing_graphs_hist, eval = FALSE}
@@ -509,15 +502,15 @@ hist(consdata$meter_reading)
 
 
 - Installing packages
-    - install.packages(), library()
+    - `install.packages()`, `library()`
 - Loading data
-    - read.csv()/read.xlsx()
+    - `read.csv()`/`read.xlsx()`
 - Cleaning data
     - Data type checks
     - Data type conversion
         - Look out for dates and factors!
 - Plotting
-    - plot()/hist()
+    - `plot()`/`hist()`
 - Customization
     - "main", "xlab", "ylab", "pch", "breaks"
 - Next time...
