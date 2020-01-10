@@ -21,7 +21,7 @@ Adam Rawles
 
 
 - What is the tidyverse?
-    - A series of packages created by Hadley Wickham
+    - A series of packages created by Hadley Wickham and RStudio
     - Used for data analysis and science
     - All based on an underlying philosophy and structure
 
@@ -89,30 +89,32 @@ tribble(~settlement_date, ~fuel_type, ~output_mwh,
 ## tidyr - Reshaping
 
 
-- gather()
-    - Use this function to convert multiple columns into a key and value column
+- `pivot_longer()`
+    - Use this function to convert multiple columns into a key and value column (i.e. decrease the number of columns and increase the number of rows, thus lengthening the data)
+    - There is also a worse version in the tidyr package called `gather()` that does the same thing
     
-- spread()
-    - Use this function to convert a key column into multiple columns
-    - Basically the opposite of gather()
+- `pivot_wider()`
+    - Use this function to convert a key column into multiple columns (i.e decrease the number of rows and increase the number of columns, thus widening the data)
+    - The inverse of `pivot_longer()`
+    - There is also a worse version in the tidyr package called `spread()` that does the same thing
     
-## gather()
+## pivot_longer()
 
 
-- gather()
-    - Parameters:
+- `pivot_longer`()
+    - (Some of the) parameters:
         - data: the data frame
-        - key: the name of the new "key" column
-        - value: the name of the new "value" column
-        - ...: the columns to be converted
-```{r gather_example, echo = FALSE}
+        - cols: columns to pivot into longer format
+        - names_to: the name of the new column to be created from the column names of cols
+        - values_to: the name of the new column to be created from the values in cols
+```{r pivot_longer_example, echo = FALSE}
 tribble(~settlement_date, ~coal, ~wind, ~solar,
                     "10 Jun 2018", 240, 120, 90,
                     "11 Jun 2018", 200, 150, 100,
                     "12 Jun 2018", 190, 125, 85)
 ```
 
-## gather()
+## pivot_longer()
 
       
 ```{r}
@@ -121,14 +123,15 @@ untidy_data <- tribble(~settlement_date, ~coal, ~wind, ~solar,
                     "11 Jun 2018", 200, 150, 100,
                     "12 Jun 2018", 190, 125, 85)
 
-tidy_data <- gather(untidy_data, key = "fuel_type", value = "output_mwh", coal:solar) #we could also use c(coal, wind, solar)
+tidy_data <- pivot_longer(untidy_data, cols = c(coal:solar), names_to = "fuel", values_to = "mw")
+# we could also use c(coal, wind, solar)
 
 tidy_data
 
 ```
 
 
-## gather() - exercise
+## pivot_longer() - exercise
 
 
 - Import the .csv file I sent you
@@ -140,12 +143,12 @@ tidy_data
 
 - You can also use tidyr to handle missing values, and split or concatenate cells
 - Missing values
-    - drop_na(data, ...) removes all rows with NA in ... columns
-    - fill(data, ...) replaces all NAs with most recent values in ...columns
-    - replace_na(data, replace, ...) replaces all NAs with the values in replace in ...columns
+    - `drop_na(data, ...)` removes all rows with NA in ... columns
+    - `fill(data, ...)` replaces all NAs with most recent values in ...columns
+    - `replace_na(data, replace, ...)` replaces all NAs with the values in replace in ...columns
 - Split/join
-    - seperate/_rows(data, col, into, sep) separates values into several columns/rows
-    - unite(data, col, ..., sep) unites ...columns into a single column with a separator
+    - `seperate/_rows(data, col, into, sep)` separates values into several columns/rows
+    - `unite(data, col, ..., sep)` unites ...columns into a single column with a separator
     
 ## tidyr - value manipulation example
 
@@ -208,7 +211,7 @@ print(sum(c(1,2,3,4)))
 ## dplyr - aggregate
 
 
-- summarise()
+- `summarise()`
     - This is the main aggregation function
     - Parameters
         - .data: the data frame to be summarised
@@ -238,8 +241,8 @@ output_data %>% summarise(output_mean = mean(output_mwh))
 
 
 - Alone, this functionality isn't particularly powerful
-- However, when you combine with the group_by() function, you can produce more useful summaries
-- The group_by() function does exactly what it says: it groups the values based a key field
+- However, when you combine with the `group_by()` function, you can produce more useful summaries
+- The `group_by()` function does exactly what it says: it groups the values based a key field
 
 ```{r group_by_example}
 output_data %>% group_by(settlement_date) %>% summarise(output_mean = mean(output_mwh))
@@ -252,12 +255,12 @@ output_data %>% group_by(settlement_date) %>% summarise(output_mean = mean(outpu
 
 
 - Another feature of the dplyr package is the ability to produce calculated columns more easily
-- The mutate() function does this for us
+- The `mutate()` function does this for us
 
 ## dplyr - mutate()
 
 
-- mutate()
+- `mutate()`
     - Parameters
         - .data: the data frame to which the column will be added
         - ...: name-value pairs of expressions. Name will be the column name and value will be the calculated value
@@ -272,7 +275,7 @@ output_data %>% mutate(cum_output = cumsum(output_mwh))
 ## dplyr - mutate() example
 
 
-- With a group_by() clause...
+- With a `group_by()` clause...
 
 ```{r mutate_group_by_example}
 output_data %>% group_by(fuel_type) %>% mutate(cum_output = cumsum(output_mwh))
@@ -283,7 +286,7 @@ output_data %>% group_by(fuel_type) %>% mutate(cum_output = cumsum(output_mwh))
 
 
 - Using your tidied data set...
-- Create a new column of the next value (lead()), grouped by consumption/generation
+- Create a new column of the next value (`lead()`), grouped by consumption/generation
 - Summarise the dataset (your choice of function) by settlement date
 
 ## stringr
@@ -311,7 +314,7 @@ output_data %>% group_by(fuel_type) %>% mutate(cum_output = cumsum(output_mwh))
 
 - To create a layer, we need a data set, our mappings, and our objects
 - To do this, we employ ggplot2's hierarchical structure
-- First, we start with the ggplot() function where we define our dataset and optionally your aesthetics...
+- First, we start with the `ggplot()` function where we define our dataset and optionally your aesthetics...
 
 ```{r echo = FALSE}
 output_data$settlement_date <- as.Date(output_data$settlement_date, format = "%d %b %Y")
@@ -333,7 +336,7 @@ ggplot(data = output_data, aes(x = settlement_date, y = output_mwh))
 
 ## ggplot2 - layer
 
-- To add a geometric object, we use the appropriate geom_x function for the plot we want...
+- To add a geometric object, we use the appropriate `geom_...()` function for the plot we want...
 
 ```{r ggplot2_geom}
 ggplot(data = output_data, aes(x = settlement_date, y = output_mwh)) + geom_point()
@@ -388,7 +391,7 @@ ggplot(data = output_data) + geom_histogram(aes(x = output_mwh))
 
 - The default scales in ggplot2 are usually pretty good
 - However, there will always be aspects that you want to change
-- To change a scale, we use the scale_x_datatype functions...
+- To change a scale, we use the `scale_x_datatype()` functions...
 
 ```{r ggplot2_scales_example, eval = FALSE}
 ... + scale_x_continuous()
@@ -399,7 +402,7 @@ ggplot(data = output_data) + geom_histogram(aes(x = output_mwh))
 ## ggplot2 - scales
 
 
-- Each of these scale_x_datatype function accept slightly different parameters, but there are some common ones...
+- Each of these `scale_x_datatype()` functions accept slightly different parameters, but there are some common ones...
     - name; character string with the scale title
     - breaks; a vector of the scale breaks
     - labels; a vector of character strings the same length as breaks
@@ -420,12 +423,11 @@ ggplot(data = output_data) + geom_histogram(aes(x = output_mwh))
     - the gridlines
     - the text rotation
     - the text size
-- Currently, I've got a theme_elexon(), but it needs some improvement so suggestions are welcome
 
 ## Conclusion
 
 
-- The tidyverse is a collection of packages to help with data manipulation
+- The tidyverse is a collection of packages to help with data manipulation and analysis
 - Use tidyr for cleaning, dplyr for manipulation, and ggplot2 for plotting
-- All packages use a common philosophy, pioneered by Hadley Wickham
+- All packages use a common philosophy, pioneered by Hadley Wickham and the RStudio team
 - All packages are open source, and very well documented on Github
