@@ -4,7 +4,7 @@ A collection of training materials for an introduction to the R statistical comp
 
 # Modules
 
-## Module 1 (Introduction)
+## [Module 1 (Introduction)](modules/1_Intro/r_training_intro_presentation.html)
 
 * What is R and RStudio?
 * Basic arithmetic operators
