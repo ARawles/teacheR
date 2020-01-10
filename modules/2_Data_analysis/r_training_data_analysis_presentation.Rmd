@@ -71,7 +71,7 @@ ggplot2::ggplot()
 - Data can be loaded into R in many formats
 - The easiest of which are .xlsx or .csv files
 - These can be loaded into R two different ways
-    - The first is by using the read.csv()/read.xlsx() functions
+    - The first is by using the `read.csv()`/`read.xlsx()` functions
         - The read.csv() function takes a string of the file's path as it's only required input argument
             - But there are a number of optional arguments (e.g. header, stringsAsFactor,...)
         - The read.xlsx() function requires both a path, and the index of the sheet you want from the workbook
