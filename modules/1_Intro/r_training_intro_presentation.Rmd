@@ -167,6 +167,8 @@ print(variable_1)
     - numeric; 12.5, 1, 999
     - integer; 2L, 34L, 1294L
     - character; "hello world", "True"
+    - dates; 2019-06-01
+    - datetimes; 2019-06-01 12:00:00
 
 ## Data types
 
@@ -273,6 +275,12 @@ print(list_1)
 ## Data structures - Lists
 
 - Due to this difference between lists and vectors, we refer to a list as being *recursive* and vectors as *atomic*
+- Atomic
+    - "of or forming a single irreducible unit or component in a larger system."
+    - Cannot hold objects of their own type (i.e. you can't have a vector object in a vector)
+- Recursive
+    - "characterized by recurrence or repetition."
+    - Can hold objects of their own type (i.e you can have a list, in a list, in a list...)
     
 
 ## Subsetting data structures
