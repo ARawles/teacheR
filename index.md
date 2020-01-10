@@ -4,7 +4,7 @@ A collection of training materials for an introduction to the R statistical comp
 
 # Modules
 
-## Module 1 (Introduction)
+## [Module 1 (Introduction)](modules/1_Intro/r_training_intro_presentation.html)
 
 * What is R and RStudio?
 * Basic arithmetic operators
@@ -13,7 +13,7 @@ A collection of training materials for an introduction to the R statistical comp
 * Data structures (including subsetting)
 * Functions
 
-## Module 2 (Data Analysis with Base R)
+## [Module 2 (Data Analysis with Base R)](modules/2_Data_analysis/r_training_data_analysis_presentation.html)
 
 * Installing packages
 * Loading data
@@ -21,13 +21,13 @@ A collection of training materials for an introduction to the R statistical comp
 * Summary statistics
 * Graphs and plots
 
-## Module 3 (Programming)
+## [Module 3 (Programming)](modules/3_Programming/r_training_programming_presentation.html)
 
 * User-defined functions
 * For loops
 * If/else statements
 
-## Module 4 (Tidyverse)
+## [Module 4 (Tidyverse)](modules/4_Tidyverse/r_training_tidyverse.html)
 
 * tidyr
 * dplyr
