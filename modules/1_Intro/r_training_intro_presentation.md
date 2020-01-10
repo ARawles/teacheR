@@ -1,9 +1,3 @@
----
-layout: page
-title: Introduction to R
----
-
-
 Introduction to R
 =================
 
