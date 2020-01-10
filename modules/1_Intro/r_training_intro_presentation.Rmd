@@ -212,7 +212,7 @@ variable_1
 
 - Vectors
     - Vectors in R are arrays of data in one dimension
-    - They are atomic (not recursive)
+    - They are atomic (not recursive), but can have named values
     - Even variables with a single value will be stored as a vector with length 1
 
 ```{r data_structures_vectors, echo = TRUE}
@@ -220,7 +220,7 @@ variable_1
 vector_1 <- c(1,2,3,4,5,6)
 print(vector_1)
 
-vector_2 <- 1
+vector_2 <- c("first_value" = 1)
 print(vector_2)
 ```
 
@@ -257,7 +257,7 @@ print(dataframe1)
 ## Data structures - Lists
 
 - Lists
-    - Lists are similar to vectors
+    - Lists are similar to vectors in that they can contain multiple named values
     - However, lists can contain values of any type, including other lists
     - This means you can have a list of data frames, or a list of lists of data frames!
     
@@ -268,12 +268,16 @@ print(list_1)
 
 ```
 
+## Data structures - Lists
+
+- Due to this difference between lists and vectors, we refer to a list as being *recursive* and vectors as *atomic*
+    
 
 ## Subsetting data structures
 
 - More often than not, you'll only want to access one or more of the values in a data structure
 - For example, you may only want to see the first 10 values of a very long vector
-- For vectors, this is done by suffixing the variable with a [] containing the index of values you want
+- For vectors, this is done by suffixing the variable with a [] containing the index or indices of values you want
 
 ```{r subsetting_data_structures, echo = TRUE}
 values <- c(6,45,7,54,99,31,12,15,67,100)
@@ -285,10 +289,20 @@ values[1]
 
 ```{r subsetting_data_structures_2, echo = TRUE}
 values[c(1,10)]
-values[1:5] ##this is the same as values[c(1,2,3,4,5)]
+values[1:5] # this is the same as values[c(1,2,3,4,5)]
 
 ```
 
+## Subsetting data structures
+
+- In R, you can also subset most data structures using [[]] instead of [], but there are two important differences
+- [] returns the *container* of the value, not the value
+    - This will include the name of the value
+    - In a list, this will return a named list, rather than a single value (an example to follow)
+ - [] can be used with more than one index
+    - e.g. [c(1,2,3,4,5)]
+ - [[]] returns the *value* at that index, not the container
+ - [[]] will only accept a single index
 
 ## Subsetting vectors - exercise
 
@@ -299,12 +313,10 @@ values[1:5] ##this is the same as values[c(1,2,3,4,5)]
 
 ```{r subsetting_vectors_exercise}
 vector1 <- c(1,5,8,9,67,5,3,2,5,6)
-vector1[5]
+vector1[[5]]
 vector1[c(1,3)]
 vector1[c(1:5, 7)]
 ```
-
-
 
 ## Subsetting matrices
 
@@ -319,10 +331,9 @@ matrix_1[1,2]
 matrix_1[,2]
 ```
 
-- Matrices can also be subsetted by providing the names of the row/column instead of the number
+- Matrices can also be subsetted by providing the names of the row/column instead of the number, or by using [[]]
 
 ## Subsetting data frames
-
 
 - Unlike matrices, data frame columns can be referred to be name using the $ operator
 - You can combine the $ and [] operators to access specific values in a column
@@ -349,8 +360,6 @@ df1[,2]
 
 ```
 
-
-
 ## Subsetting lists
 
 
@@ -361,14 +370,15 @@ list_1 <- list(numbers = c(1,2,3,4), characters = (c("hello", "world")))
 
 list_1$numbers
 list_1$characters[1]
-
 ```
+
+- NB: the `$` operator cannot be used on atomic data structures (like vectors or matrices)
 
 ## Subsetting lists
 
 - Although lists are two-dimensional, they do not have rows and columns and so cannot be subsetted using the [x, y] format
-- Instead, lists are subsetted using the [[]] operator
-- This [[]] operator can then be combined with whatever operator is appropriate for the type of structure in the list (e.g. $ for a data frame, or [] for a vector)
+- Instead, lists are subsetted using the [] and [[]] operators
+- These operators can then be combined with whatever operator is appropriate for the type of structure in the list (e.g. $ for a data frame, or [] for a vector)
 
 ```{r subsetting_lists_2, echo = TRUE}
 list_1 <- list(numbers = c(1,2,3,4), characters = (c("hello", "world")))
@@ -392,7 +402,6 @@ mean(values)
  
 ## Functions - input parameters/arguments
 
-
 - Almost all functions will require some input to produce an output
 - These are the function's input parameters or arguments
 - For example, in the previous slide, the mean() function required a vector of values to calculate the mean
@@ -404,13 +413,10 @@ mean(values)
 
 ## Functions - exercise
 
-
 - Find the help page for the "sample" function
 - Use the "sample" function
 
-
 ## Functions - naming input parameters
-
 
 - When you provide unnamed values to a function, R will automatically assign them to an input argument in the order they appear on the function's help page
 - This can be hard to keep track of if you're providing multiple arguments
