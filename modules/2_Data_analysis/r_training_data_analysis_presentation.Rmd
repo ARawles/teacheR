@@ -53,6 +53,18 @@ library(ggplot2)
 
 - Note: if you close RStudio, you'll need to reload your packages
 
+## Using packages
+
+- If you've loaded a pacakge via `library()`, then you don't need to do anything else before you use it.
+- However, then using a non-base R function, it's always a good idea to make it explicit what package it came from.
+- We do that using `::`
+
+```{r, eval = FALSE}
+ggplot2::ggplot()
+```
+- This will mean that anyone reading your code will know exactly what package a function came from
+- It'll also ensure that you're using the function you mean to in the event that two packages have functions with the same name
+
 ## Loading data
 
 
