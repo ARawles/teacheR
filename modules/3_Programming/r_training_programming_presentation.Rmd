@@ -56,7 +56,7 @@ Adam Rawles
 - Functions are named, and are always followed by () when used (even if it's blank)
 - Functions names should be unique but memorable/logical
 - Functions should be as simple and applicable as possible
-- Functions will return the last calculated (not assigned) variable, or whatever is included in the return() call
+- Functions will return the last evaluated (not assigned) variable, or whatever is included in the return() call
 
 ## User-defined functions - structure
 
@@ -198,23 +198,53 @@ some_function("hello", "world", "again")
 some_function <- function(x, y){
   m <- x * y
   s <- x + y
+  return(m)
 }
 
 some_function(1, 2)
-print(m)
 print(s)
 ```
+
+
+## User-defined functions - returning
+
+- As previously mentioned, a function will return the last evaluated object, or whatever is returned via the `return()` function.
+- What's really important to remember however, is that a function will return a *copy* of the return value, not the return object
+- Example:
+
+```{r user_defined_function_returning, error = TRUE}
+some_function <- function(x) {
+  return(x + 1)
+}
+
+x <- 1
+some_function(x)
+x
+```
+
+## User-defined functions - returning
+
+- To change the original object, we need to reassign the result of the function back to the object...
+
+```{r user_defined_function_returning_2}
+x <- 1
+x <- some_function(x)
+x
+```
+
 
 ## For loops
 
 
-- Sometimes, we may want to repeat an action for every item in a list or vector
+- Sometimes, we may want to repeat the same action more than once
 - For example, we might want a function to add 4 to every item in a vector, or get the mean for every column in a dataframe
+- You could copy and paste the code required each time, or you could use a for loop
 
 ## For loops
 
 
 - With a for loop, you can iterate over ever item in a list or vector and perform a function
+- While loops (which iterate until a condition is met) also exist, but we're going to focus on for loops
 - For loops follow a basic structure:
 
 ```{r for_loops_structure, eval = FALSE}
@@ -486,7 +516,5 @@ option3_function(v = c(1,2,3,4,5,6,7,8))
 
 
 - Statistical analysis
-- Advanced plotting (ggplot2)
 - Simulations
 - Improving efficiency
-- ELEXON use-cases
