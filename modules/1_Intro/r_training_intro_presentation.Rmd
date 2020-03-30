@@ -158,9 +158,12 @@ Adam Rawles
 
    + The most useful of which are the Files tab, which displays all the files in the folder you're working in and the Plots tab, which will show any plots that you've created
 
+
 --
 
-Note: You can move which pane shows which windows via the Tools -> Global Options dialog
+
+   <b>Note</b>: You can move which pane shows which windows via the Tools -> Global Options dialog
+
 ---
 
 ## Basic arithmetic
@@ -360,7 +363,7 @@ variable_1
 
 --
 
-- Note: when importing data into R, R will automatically try and convert columns containing strings into factors (unless you specify otherwise)
+- <b>Note</b>: when importing data into R, R will automatically try and convert columns containing strings into factors (unless you specify otherwise)
 
 ---
 
@@ -632,7 +635,7 @@ dataframe_1$character_col[1]
 
 --
 
-- Note: data frames can also be subsetted using the [x, y] format, with names or indices
+- <b>Note</b>: data frames can also be subsetted using the [x, y] format, with names or indices
 
 ---
 
