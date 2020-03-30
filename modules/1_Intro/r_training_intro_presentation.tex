@@ -162,29 +162,20 @@ Adam Rawles
 \subsection{What is R?}\label{what-is-r}
 
 \begin{itemize}
-\tightlist
 \item
   Background
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Public license programming language
-  \item
-    Used mostly for statistical computing
-  \item
-    Supported with many packages
-  \end{itemize}
+\item
+  Public license programming language
+\item
+  Used mostly for statistical computing
+\item
+  Supported with many packages
 \item
   Interface
-
-  \begin{itemize}
-  \tightlist
-  \item
-    R uses a command-line interface
-  \item
-    But there are many GUIs available (such as RStudio)
-  \end{itemize}
+\item
+  R uses a command-line interface
+\item
+  But there are many GUIs available (such as RStudio)
 \end{itemize}
 
 \subsection{RStudio}\label{rstudio}
@@ -200,60 +191,41 @@ Adam Rawles
 \subsection{RStudio}\label{rstudio-1}
 
 \begin{itemize}
-\tightlist
 \item
   Source
-
-  \begin{itemize}
-  \tightlist
-  \item
-    This is where your scripts (pre-written lines of codes) are
-    displayed
-  \item
-    If you click on a variable in the Environment pane, this will also
-    be displayed in the source window
-  \end{itemize}
+\item
+  This is where your scripts (pre-written lines of codes) are displayed
+\item
+  If you click on a variable in the Environment pane, this will also be
+  displayed in the source window
 \item
   Console
-
-  \begin{itemize}
-  \tightlist
-  \item
-    This is where the commands are actually executed
-  \item
-    When you run a script from the source, it is passed to the console
-    line by line
-  \end{itemize}
+\item
+  This is where the commands are actually executed
+\item
+  When you run a script from the source, it is passed to the console
+  line by line
 \end{itemize}
 
 \subsection{RStudio}\label{rstudio-2}
 
 \begin{itemize}
-\tightlist
 \item
   Environment
-
-  \begin{itemize}
-  \tightlist
-  \item
-    This pane displays any variables or data structures you've created
-  \item
-    This pane will also display any custom functions you've created,
-    which we'll move onto in later modules
-  \end{itemize}
+\item
+  This pane displays any variables or data structures you've created
+\item
+  This pane will also display any custom functions you've created, which
+  we'll move onto in later modules
 \item
   History/Files/Plots/Help
-
-  \begin{itemize}
-  \tightlist
-  \item
-    This pane can display a number of things
-  \item
-    The most useful of which are the Files tab, which displays all the
-    files in the folder you're working in
-  \item
-    and the Plots tab, which will show any plots that you've created
-  \end{itemize}
+\item
+  This pane can display a number of things
+\item
+  The most useful of which are the Files tab, which displays all the
+  files in the folder you're working in
+\item
+  and the Plots tab, which will show any plots that you've created
 \end{itemize}
 
 \subsection{Basic arithmetic}\label{basic-arithmetic}
@@ -284,7 +256,7 @@ Adam Rawles
 ## [1] 6
 \end{verbatim}
 
-Basic arithmetic
+\subsection{Basic arithmetic}\label{basic-arithmetic-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -449,18 +421,18 @@ Basic arithmetic
   Is ``True'' equal to TRUE?
 \item
   The main data types are:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    logical; TRUE, FALSE
-  \item
-    numeric; 12.5, 1, 999
-  \item
-    integer; 2L, 34L, 1294L
-  \item
-    character; ``hello world'', ``True''
-  \end{itemize}
+\item
+  logical; TRUE, FALSE
+\item
+  numeric; 12.5, 1, 999
+\item
+  integer; 2L, 34L, 1294L
+\item
+  character; ``hello world'', ``True''
+\item
+  dates; 2019-06-01
+\item
+  datetimes; 2019-06-01 12:00:00
 \end{itemize}
 
 \subsection{Data types}\label{data-types-1}
@@ -562,17 +534,13 @@ Basic arithmetic
 \tightlist
 \item
   Vectors
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Vectors in R are arrays of data in one dimension
-  \item
-    They are atomic (not recursive)
-  \item
-    Even variables with a single value will be stored as a vector with
-    length 1
-  \end{itemize}
+\item
+  Vectors in R are arrays of data in one dimension
+\item
+  They are atomic (not recursive), but can have named values
+\item
+  Even variables with a single value will be stored as a vector with
+  length 1
 \end{itemize}
 
 \begin{Shaded}
@@ -588,13 +556,14 @@ Basic arithmetic
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{vector_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\DecValTok{1}
+\NormalTok{vector_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"first_value"}\NormalTok{ =}\StringTok{ }\DecValTok{1}\NormalTok{)}
 \KeywordTok{print}\NormalTok{(vector_}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1
+## first_value 
+##           1
 \end{verbatim}
 
 \subsection{Data structures -
@@ -604,16 +573,11 @@ Matrices}\label{data-structures---matrices}
 \tightlist
 \item
   Matrices
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Matrices are two-dimensional arrays that hold values of the same
-    type
-  \item
-    Matrices can have named rows or columns, but they cannot be
-    subsetted by those names (more later on)
-  \end{itemize}
+\item
+  Matrices are two-dimensional arrays that hold values of the same type
+\item
+  Matrices can have named rows or columns, but they cannot be subsetted
+  by those names (more later on)
 \end{itemize}
 
 \begin{Shaded}
@@ -636,15 +600,11 @@ frames}\label{data-structures---data-frames}
 \tightlist
 \item
   Data frames
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Most data you'll be working with in R will be held in a data frame
-  \item
-    Data frames are two dimensional arrays that can hold values of
-    different types and have named columns and rows
-  \end{itemize}
+\item
+  Most data you'll be working with in R will be held in a data frame
+\item
+  Data frames are two dimensional arrays that can hold values of
+  different types and have named columns and rows
 \end{itemize}
 
 \begin{Shaded}
@@ -664,14 +624,10 @@ frames}\label{data-structures---data-frames}
 \tightlist
 \item
   Important notes:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Values in the same column must be of the same type
-  \item
-    Each column must have the same number of rows
-  \end{itemize}
+\item
+  Values in the same column must be of the same type
+\item
+  Each column must have the same number of rows
 \end{itemize}
 
 \subsection{Data structures - Lists}\label{data-structures---lists}
@@ -680,17 +636,14 @@ frames}\label{data-structures---data-frames}
 \tightlist
 \item
   Lists
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Lists are similar to vectors
-  \item
-    However, lists can contain values of any type, including other lists
-  \item
-    This means you can have a list of data frames, or a list of lists of
-    data frames!
-  \end{itemize}
+\item
+  Lists are similar to vectors in that they can contain multiple named
+  values
+\item
+  However, lists can contain values of any type, including other lists
+\item
+  This means you can have a list of data frames, or a list of lists of
+  data frames!
 \end{itemize}
 
 \begin{Shaded}
@@ -708,6 +661,30 @@ frames}\label{data-structures---data-frames}
 ## [1] "hello" "world"
 \end{verbatim}
 
+\subsection{Data structures - Lists}\label{data-structures---lists-1}
+
+\begin{itemize}
+\tightlist
+\item
+  Due to this difference between lists and vectors, we refer to a list
+  as being \emph{recursive} and vectors as \emph{atomic}
+\item
+  Atomic
+\item
+  ``of or forming a single irreducible unit or component in a larger
+  system.''
+\item
+  Cannot hold objects of their own type (i.e.~you can't have a vector
+  object in a vector)
+\item
+  Recursive
+\item
+  ``characterized by recurrence or repetition.''
+\item
+  Can hold objects of their own type (i.e you can have a list, in a
+  list, in a list\ldots{})
+\end{itemize}
+
 \subsection{Subsetting data
 structures}\label{subsetting-data-structures}
 
@@ -721,7 +698,7 @@ structures}\label{subsetting-data-structures}
   long vector
 \item
   For vectors, this is done by suffixing the variable with a {[}{]}
-  containing the index of values you want
+  containing the index or indices of values you want
 \end{itemize}
 
 \begin{Shaded}
@@ -750,13 +727,38 @@ structures}\label{subsetting-data-structures-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{values[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{] ##this is the same as values[c(1,2,3,4,5)]}
+\NormalTok{values[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{] }\CommentTok{# this is the same as values[c(1,2,3,4,5)]}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## [1]  6 45  7 54 99
 \end{verbatim}
+
+\subsection{Subsetting data
+structures}\label{subsetting-data-structures-2}
+
+\begin{itemize}
+\tightlist
+\item
+  In R, you can also subset most data structures using {[}{[}{]}{]}
+  instead of {[}{]}, but there are two important differences
+\item
+  {[}{]} returns the \emph{container} of the value, not the value
+\item
+  This will include the name of the value
+\item
+  In a list, this will return a named list, rather than a single value
+  (an example to follow)
+\item
+  {[}{]} can be used with more than one index
+\item
+  e.g. {[}c(1,2,3,4,5){]}
+\item
+  {[}{[}{]}{]} returns the \emph{value} at that index, not the container
+\item
+  {[}{[}{]}{]} will only accept a single index
+\end{itemize}
 
 \subsection{Subsetting vectors -
 exercise}\label{subsetting-vectors---exercise}
@@ -765,22 +767,18 @@ exercise}\label{subsetting-vectors---exercise}
 \tightlist
 \item
   Create a vector
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Return the 5th value
-  \item
-    Return the 1st and 3rd value
-  \item
-    Return the 1st, 2nd, 3rd, 4th, 5th and 7th value
-  \end{itemize}
+\item
+  Return the 5th value
+\item
+  Return the 1st and 3rd value
+\item
+  Return the 1st, 2nd, 3rd, 4th, 5th and 7th value
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{vector1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{)}
-\NormalTok{vector1[}\DecValTok{5}\NormalTok{]}
+\NormalTok{vector1[[}\DecValTok{5}\NormalTok{]]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -845,7 +843,7 @@ exercise}\label{subsetting-vectors---exercise}
 \tightlist
 \item
   Matrices can also be subsetted by providing the names of the
-  row/column instead of the number
+  row/column instead of the number, or by using {[}{[}{]}{]}
 \end{itemize}
 
 \subsection{Subsetting data frames}\label{subsetting-data-frames}
@@ -895,14 +893,10 @@ exercise}\label{subsetting-dataframes---exercise}
 \tightlist
 \item
   Create a data frame with 2 columns
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Return one column using the \$ operator
-  \item
-    Return the other column using the {[},{]} approach
-  \end{itemize}
+\item
+  Return one column using the \$ operator
+\item
+  Return the other column using the {[},{]} approach
 \end{itemize}
 
 \begin{Shaded}
@@ -957,6 +951,13 @@ exercise}\label{subsetting-dataframes---exercise}
 ## [1] "hello"
 \end{verbatim}
 
+\begin{itemize}
+\tightlist
+\item
+  NB: the \texttt{\$} operator cannot be used on atomic data structures
+  (like vectors or matrices)
+\end{itemize}
+
 \subsection{Subsetting lists}\label{subsetting-lists-1}
 
 \begin{itemize}
@@ -965,11 +966,12 @@ exercise}\label{subsetting-dataframes---exercise}
   Although lists are two-dimensional, they do not have rows and columns
   and so cannot be subsetted using the {[}x, y{]} format
 \item
-  Instead, lists are subsetted using the {[}{[}{]}{]} operator
+  Instead, lists are subsetted using the {[}{]} and {[}{[}{]}{]}
+  operators
 \item
-  This {[}{[}{]}{]} operator can then be combined with whatever operator
-  is appropriate for the type of structure in the list (e.g. \$ for a
-  data frame, or {[}{]} for a vector)
+  These operators can then be combined with whatever operator is
+  appropriate for the type of structure in the list (e.g. \$ for a data
+  frame, or {[}{]} for a vector)
 \end{itemize}
 
 \begin{Shaded}
@@ -1096,16 +1098,12 @@ parameters}\label{functions---naming-input-parameters-1}
 \tightlist
 \item
   The substr() function expects 3 arguments;
-
-  \begin{itemize}
-  \tightlist
-  \item
-    The string (x)
-  \item
-    The start point (start)
-  \item
-    The end point (stop)
-  \end{itemize}
+\item
+  The string (x)
+\item
+  The start point (start)
+\item
+  The end point (stop)
 \item
   As shown above, we can just pass those arguments without naming them,
   in that order
