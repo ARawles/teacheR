@@ -249,9 +249,9 @@ Variable assignment
 
 –
 
--   Note: the value of a variable is not printed when it is assigned
-    (i.e. when we assign `5` to `variable_1`, we don’t get any output in
-    the console)
+-   <b>Note</b>: the value of a variable is not printed when it is
+    assigned (i.e. when we assign `5` to `variable_1`, we don’t get any
+    output in the console)
 
 ------------------------------------------------------------------------
 
