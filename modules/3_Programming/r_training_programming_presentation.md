@@ -108,6 +108,11 @@ User-defined functions - basics
 
 –
 
+-   Functions can only return *one* thing (but vectors and lists still
+    count as one thing)
+
+–
+
 \* There are unnamed functions called “anonymous functions” but that’s
 for a different module
 
@@ -716,14 +721,14 @@ Final - exercise
 
 -   Option 1 (easy)
     -   Write a function that loops through a vector of numbers and
-        prints the value if it is even
-    -   Hint: use x %% y to check if a number is even
+        returns only the even ones
+    -   Hint: you can use x %% y to check if a number is even
 
 –
 
 -   Option 2 (intermediate)
     -   Write a function that loops through a vector of numbers and
-        prints the value if it’s smaller than the value at the same
+        returns the values that are smaller than the value at the same
         index in a second vector
     -   You can assume that the two vectors will always be the same
         length
@@ -734,8 +739,8 @@ Final - exercise
     -   Write a function that loops through a vector of numbers and
         square it if it is a multiple of 4, otherwise replace the value
         with the previous value in the vector or 0 if the value is first
-        in the vector and then print
-    -   Hint: use x %% y to check for factors
+        in the vector and return
+    -   Hint: use x / y %% 2 to check for multiples
 
 ------------------------------------------------------------------------
 
@@ -744,24 +749,20 @@ Final - answers
 
 -   Option 1
     -   Write a function that loops through a vector of numbers and
-        prints the value if it is even
+        returns only the even ones
 
 <!-- -->
 
     option1_function <- function(v) {
+      return_vector <- c()
       for (i in v){
         if (i %% 2 == 0){
-          print(i)
+          return_vector <- append(return_vector, i)
         }
       }
     }
 
     option1_function(v = c(1,2,3,4,5,6,7,8))
-
-    ## [1] 2
-    ## [1] 4
-    ## [1] 6
-    ## [1] 8
 
 ------------------------------------------------------------------------
 
@@ -770,24 +771,21 @@ Final - answers
 
 -   Option 2
     -   Write a function that loops through a vector of numbers and
-        prints the value if it’s smaller than the value at the same
+        returns the values that are smaller than the value at the same
         index in a second vector
 
 <!-- -->
 
     option2_function <- function(v1, v2) {
+      return_vector <- c()
       for (i in seq_along(v1)){
         if (v1[i] < v2[i]){
-          print(v1[i])
+          return_vector <- append(return_vector, v1[i])
           }
       }
     }
 
     option2_function(v1 = c(1,2,3,4,5,6,7,8), v2 = c(2,1,4,5,2,1,1,1))
-
-    ## [1] 1
-    ## [1] 3
-    ## [1] 4
 
 ------------------------------------------------------------------------
 
@@ -798,7 +796,7 @@ Final - answers
     -   Write a function that loops through a vector of numbers and
         squares it if it is a multiple of 4, otherwise replace the value
         with the previous value in the vector or 0 if the value is first
-        in the vector, and then print
+        in the vector and return
 
 ------------------------------------------------------------------------
 
@@ -807,28 +805,22 @@ Final - answers
 
     option3_function <- function(v) {
       for (i in seq_along(v)){
-        if (v[i] %% 4 == 0){
-          print(v[i])
+        if ((v[i] / 4) %% 2 == 0){
+          v[i] <- v[i]^2
         } else {
             if (i == 1){
              v[i] = 0 
             } else {
               v[i] = v[i-1]
-              print(v[i])
             }
         }
       }
+      return(v)
     }
 
     option3_function(v = c(1,2,3,4,5,6,7,8))
 
-    ## [1] 0
-    ## [1] 0
-    ## [1] 4
-    ## [1] 4
-    ## [1] 4
-    ## [1] 4
-    ## [1] 8
+    ## [1]  0  0  0  0  0  0  0 64
 
 ------------------------------------------------------------------------
 

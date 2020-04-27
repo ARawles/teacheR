@@ -322,6 +322,15 @@ basics}\label{user-defined-functions---basics}}
 
 --
 
+\begin{itemize}
+\tightlist
+\item
+  Functions can only return \emph{one} thing (but vectors and lists
+  still count as one thing)
+\end{itemize}
+
+--
+
 * There are unnamed functions called ``anonymous functions'' but that's
 for a different module
 
@@ -1325,10 +1334,10 @@ example}\label{if-else-statements---example}}
   \begin{itemize}
   \tightlist
   \item
-    Write a function that loops through a vector of numbers and prints
-    the value if it is even
+    Write a function that loops through a vector of numbers and returns
+    only the even ones
   \item
-    Hint: use x \%\% y to check if a number is even
+    Hint: you can use x \%\% y to check if a number is even
   \end{itemize}
 \end{itemize}
 
@@ -1342,8 +1351,8 @@ example}\label{if-else-statements---example}}
   \begin{itemize}
   \tightlist
   \item
-    Write a function that loops through a vector of numbers and prints
-    the value if it's smaller than the value at the same index in a
+    Write a function that loops through a vector of numbers and returns
+    the values that are smaller than the value at the same index in a
     second vector
   \item
     You can assume that the two vectors will always be the same length
@@ -1363,9 +1372,9 @@ example}\label{if-else-statements---example}}
     Write a function that loops through a vector of numbers and square
     it if it is a multiple of 4, otherwise replace the value with the
     previous value in the vector or 0 if the value is first in the
-    vector and then print
+    vector and return
   \item
-    Hint: use x \%\% y to check for factors
+    Hint: use x / y \%\% 2 to check for multiples
   \end{itemize}
 \end{itemize}
 
@@ -1382,17 +1391,18 @@ example}\label{if-else-statements---example}}
   \begin{itemize}
   \tightlist
   \item
-    Write a function that loops through a vector of numbers and prints
-    the value if it is even
+    Write a function that loops through a vector of numbers and returns
+    only the even ones
   \end{itemize}
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{option1_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(v) \{}
+\NormalTok{  return_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
   \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ v)\{}
     \ControlFlowTok{if}\NormalTok{ (i }\OperatorTok{%%}\StringTok{ }\DecValTok{2} \OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
-      \KeywordTok{print}\NormalTok{(i)}
+\NormalTok{      return_vector <-}\StringTok{ }\KeywordTok{append}\NormalTok{(return_vector, i)}
 \NormalTok{    \}}
 \NormalTok{  \}}
 \NormalTok{\}}
@@ -1400,13 +1410,6 @@ example}\label{if-else-statements---example}}
 \KeywordTok{option1_function}\NormalTok{(}\DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] 2
-## [1] 4
-## [1] 6
-## [1] 8
-\end{verbatim}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -1421,8 +1424,8 @@ example}\label{if-else-statements---example}}
   \begin{itemize}
   \tightlist
   \item
-    Write a function that loops through a vector of numbers and prints
-    the value if it's smaller than the value at the same index in a
+    Write a function that loops through a vector of numbers and returns
+    the values that are smaller than the value at the same index in a
     second vector
   \end{itemize}
 \end{itemize}
@@ -1430,9 +1433,10 @@ example}\label{if-else-statements---example}}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{option2_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(v1, v2) \{}
+\NormalTok{  return_vector <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
   \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(v1))\{}
     \ControlFlowTok{if}\NormalTok{ (v1[i] }\OperatorTok{<}\StringTok{ }\NormalTok{v2[i])\{}
-      \KeywordTok{print}\NormalTok{(v1[i])}
+\NormalTok{      return_vector <-}\StringTok{ }\KeywordTok{append}\NormalTok{(return_vector, v1[i])}
 \NormalTok{      \}}
 \NormalTok{  \}}
 \NormalTok{\}}
@@ -1440,12 +1444,6 @@ example}\label{if-else-statements---example}}
 \KeywordTok{option2_function}\NormalTok{(}\DataTypeTok{v1 =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{), }\DataTypeTok{v2 =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] 1
-## [1] 3
-## [1] 4
-\end{verbatim}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -1463,7 +1461,7 @@ example}\label{if-else-statements---example}}
     Write a function that loops through a vector of numbers and squares
     it if it is a multiple of 4, otherwise replace the value with the
     previous value in the vector or 0 if the value is first in the
-    vector, and then print
+    vector and return
   \end{itemize}
 \end{itemize}
 
@@ -1476,17 +1474,17 @@ example}\label{if-else-statements---example}}
 \begin{Highlighting}[]
 \NormalTok{option3_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(v) \{}
   \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(v))\{}
-    \ControlFlowTok{if}\NormalTok{ (v[i] }\OperatorTok{%%}\StringTok{ }\DecValTok{4} \OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
-      \KeywordTok{print}\NormalTok{(v[i])}
+    \ControlFlowTok{if}\NormalTok{ ((v[i] }\OperatorTok{/}\StringTok{ }\DecValTok{4}\NormalTok{) }\OperatorTok{%%}\StringTok{ }\DecValTok{2} \OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+\NormalTok{      v[i] <-}\StringTok{ }\NormalTok{v[i]}\OperatorTok{^}\DecValTok{2}
 \NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
         \ControlFlowTok{if}\NormalTok{ (i }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{)\{}
 \NormalTok{         v[i] =}\StringTok{ }\DecValTok{0} 
 \NormalTok{        \} }\ControlFlowTok{else}\NormalTok{ \{}
 \NormalTok{          v[i] =}\StringTok{ }\NormalTok{v[i}\DecValTok{-1}\NormalTok{]}
-          \KeywordTok{print}\NormalTok{(v[i])}
 \NormalTok{        \}}
 \NormalTok{    \}}
 \NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(v)}
 \NormalTok{\}}
 
 \KeywordTok{option3_function}\NormalTok{(}\DataTypeTok{v =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{))}
@@ -1494,13 +1492,7 @@ example}\label{if-else-statements---example}}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0
-## [1] 0
-## [1] 4
-## [1] 4
-## [1] 4
-## [1] 4
-## [1] 8
+## [1]  0  0  0  0  0  0  0 64
 \end{verbatim}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
