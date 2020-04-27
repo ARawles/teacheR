@@ -1,0 +1,5 @@
+# Exercises
+
+Here are some interactive exercises covering the basic concepts we've looked at in the last 4 modules.
+
+This exercises are hosted on a Shiny server [here](exercises/all_modules_exercises/all_modules_exercises.html)
