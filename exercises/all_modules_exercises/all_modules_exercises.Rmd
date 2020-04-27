@@ -5,6 +5,9 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
+if (!library(learnr, logical.return = TRUE)) {
+  install.packages("learnr")
+}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
