@@ -33,3 +33,5 @@ A collection of training materials for an introduction to the R statistical comp
 * dplyr
 * stringr
 * ggplot2
+
+# [Exercises](exercises/all_modules_exercises/all_modules_exercises.html)
