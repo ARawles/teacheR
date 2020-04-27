@@ -1,0 +1,127 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Module 1 (Introduction to R)
+
+Below are some interactive exercises to test your R knowledge. Just type your answers into the appropriate box, and hit "Run". In some cases, there'll be a hint or solution for you to use, but usually there'll be more than one way to do it!
+
+### Exercise 1 (R and RStudio):
+```{r r-rstudio, echo = FALSE}
+quiz(
+  question("R is best described as a...",
+           answer("Object-oriented programming language."),
+           answer("General purpose programming language."),
+           answer("Statistical programming langauge.", correct = TRUE)
+  ),
+  question("RStudio is an integrated development environment (IDE) for R, which can be used to make interacting with the R language easier.
+           Which of these statements about RStudio is *NOT* true?",
+           answer("RStudio is the only IDE for R.", correct = TRUE),
+           answer("RStudio sends the code you type to R to be executed."),
+           answer("RStudio has many different tabs that show different things such as plots or files or scripts."),
+           answer("You can't use R without RStudio.", correct = TRUE),
+           incorrect = "Incorrect. There are many IDEs for R, and R can be used via its GUI without RStudio or any other IDE."
+  )
+)
+```
+
+### Exercise 2 (Arithmetic Operators):
+
+Write the R code required to add 2 plus 2:
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+```{r two-plus-two-solution}
+2 + 2
+```
+
+
+Write the R code required to divide 10 by 5:
+
+```{r ten-divide-five, exercise=TRUE}
+
+```
+
+```{r ten-divide-five-solution}
+10 / 5
+```
+
+
+### Exercise 3 (Variables)
+
+Create a variable called `variable_1` and assign it the value 10. Then output it to the console.
+
+```{r variables-ten, exercise = TRUE}
+
+```
+
+```{r variables-ten-solution}
+variable_1 <- 10
+variable_1
+```
+
+Create two numeric variables (called whatever you like), and multiply them.
+
+```{r variables-multiply, exercise = TRUE}
+
+```
+
+```{r variables-multiply-solution}
+variable_1 <- 10
+variable_2 <- 5
+variable_1 * variable_2
+```
+
+
+### Exercise 4 (Data Structures)
+
+Create a *named* vector with 3 values. (Hint: That doesn't mean create a variable, it means that the values in the vector should be named)
+
+```{r vector-named, exercise = TRUE}
+
+```
+
+```{r vector-named-solution}
+c("value_1" = 10, "value_2" = 20, "value_3" = 30)
+```
+
+Create a list with two values; one that's a vector and another that's a dataframe.
+
+```{r list, exercise = TRUE}
+
+```
+
+```{r list-solution}
+list(
+  "vector" = c(1,2,3,4),
+  "dataframe" = data.frame(col_1 = "hello",
+                           col_2 = "world")
+)
+```
+
+### Exercise 5 (Subsetting)
+
+Change the following code to only return the first 10 values from the vector.
+
+```{r, subset-vector, exercise = TRUE}
+vector_1 <- c(56,3,324,6,7,86,5,4,17,54,8468,45,345,234,7,56,8,4,32,234,5,764,658,6,3463)
+vector_1
+```
+
+```{r, subset-vector-solution}
+vector_1 <- c(56,3,324,6,7,86,5,4,17,54,8468,45,345,234,7,56,8,4,32,234,5,764,658,6,3463)
+vector_1[1:10]
+```
+
+## Module 2 (Data Analysis)
+
+
