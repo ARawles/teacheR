@@ -2,7 +2,7 @@
 
 In Module 2, we'll look more specifically at how one might do some simple data analysis in R. For a more in-depth view, I would highly recommend Hadley's [R4DS](https://r4ds.had.co.nz/)
 
-The xaringan presentation for this module can be found [here.](modules/2_Data_analysis/r_training_data_analysis_presentation.html)
+The xaringan presentation for this module can be found [here](modules/2_Data_analysis/r_training_data_analysis_presentation.html).
 
 ## Installing packages
 
