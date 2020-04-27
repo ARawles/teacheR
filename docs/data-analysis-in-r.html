@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data Analysis in R | R Training for Beginners</title>
+  <meta name="description" content="3 Data Analysis in R | R Training for Beginners" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data Analysis in R | R Training for Beginners" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data Analysis in R | R Training for Beginners" />
+  
+  
+  
+
+<meta name="author" content="Adam Rawles" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="programming-in-r.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R and RStudio?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#basic-arithmetic-operators"><i class="fa fa-check"></i><b>2.2</b> Basic arithmetic operators</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-assigment"><i class="fa fa-check"></i><b>2.3</b> Variable assigment</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-structures-and-subsetting"><i class="fa fa-check"></i><b>2.5</b> Data structures (and subsetting)</a></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Analysis in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#installing-packages"><i class="fa fa-check"></i><b>3.1</b> Installing packages</a></li>
+<li class="chapter" data-level="3.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#loading-data"><i class="fa fa-check"></i><b>3.2</b> Loading data</a></li>
+<li class="chapter" data-level="3.3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#cleaning-data"><i class="fa fa-check"></i><b>3.3</b> Cleaning data</a></li>
+<li class="chapter" data-level="3.4" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#summary-statistics"><i class="fa fa-check"></i><b>3.4</b> Summary statistics</a></li>
+<li class="chapter" data-level="3.5" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#graphs-and-plots"><i class="fa fa-check"></i><b>3.5</b> Graphs and plots</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="programming-in-r.html"><a href="programming-in-r.html"><i class="fa fa-check"></i><b>4</b> Programming in R</a><ul>
+<li class="chapter" data-level="4.1" data-path="programming-in-r.html"><a href="programming-in-r.html#user-defined-functions"><i class="fa fa-check"></i><b>4.1</b> User-defined functions</a></li>
+<li class="chapter" data-level="4.2" data-path="programming-in-r.html"><a href="programming-in-r.html#for-loops"><i class="fa fa-check"></i><b>4.2</b> For loops</a></li>
+<li class="chapter" data-level="4.3" data-path="programming-in-r.html"><a href="programming-in-r.html#ifelse-statements"><i class="fa fa-check"></i><b>4.3</b> If/else statements</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidyverse.html"><a href="tidyverse.html#tidyr"><i class="fa fa-check"></i><b>5.1</b> tidyr</a></li>
+<li class="chapter" data-level="5.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a></li>
+<li class="chapter" data-level="5.3" data-path="tidyverse.html"><a href="tidyverse.html#stringr"><i class="fa fa-check"></i><b>5.3</b> stringr</a></li>
+<li class="chapter" data-level="5.4" data-path="tidyverse.html"><a href="tidyverse.html#ggplot2"><i class="fa fa-check"></i><b>5.4</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>6</b> Exercises</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Training for Beginners</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-analysis-in-r" class="section level1">
+<h1><span class="header-section-number">3</span> Data Analysis in R</h1>
+<p>In Module 2, we’ll look more specifically at how one might do some simple data analysis in R. For a more in-depth view, I would highly recommend Hadley’s <a href="https://r4ds.had.co.nz/">R4DS</a></p>
+<p>The xaringan presentation for this module can be found <a href="modules/2_Data_analysis/r_training_data_analysis_presentation.html">here.</a></p>
+<div id="installing-packages" class="section level2">
+<h2><span class="header-section-number">3.1</span> Installing packages</h2>
+<p>filler</p>
+</div>
+<div id="loading-data" class="section level2">
+<h2><span class="header-section-number">3.2</span> Loading data</h2>
+<p>filler</p>
+</div>
+<div id="cleaning-data" class="section level2">
+<h2><span class="header-section-number">3.3</span> Cleaning data</h2>
+<p>filler</p>
+</div>
+<div id="summary-statistics" class="section level2">
+<h2><span class="header-section-number">3.4</span> Summary statistics</h2>
+<p>filler</p>
+</div>
+<div id="graphs-and-plots" class="section level2">
+<h2><span class="header-section-number">3.5</span> Graphs and plots</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
