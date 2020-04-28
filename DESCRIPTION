@@ -14,5 +14,13 @@ LazyData: true
 Imports: 
     xaringan,
     bookdown,
-    rmarkdown
+    rmarkdown,
+    ggplot2,
+    dplyr,
+    tidyr,
+    readr,
+    purrr,
+    tibble,
+    stringr,
+    forcats
 RoxygenNote: 6.1.1

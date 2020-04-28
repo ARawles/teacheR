@@ -53,10 +53,21 @@ Adam Rawles
 ## Tidy Data (example)
 
 
-```{r, echo = FALSE}
-library(tidyverse)
+```{r, echo = FALSE, eval = FALSE}
+library(tidyverse) # this loads the ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr and forcats packages
 ```
 
+```{r echo = FALSE, eval = TRUE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(purrr)
+library(tibble)
+library(stringr)
+library(forcats)
+
+```
 
 ```{r tidy_data_example, echo = FALSE, eval = TRUE}
 tribble(~settlement_date, ~coal, ~wind, ~solar,
