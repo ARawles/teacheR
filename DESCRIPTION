@@ -22,5 +22,6 @@ Imports:
     purrr,
     tibble,
     stringr,
-    forcats
+    forcats,
+    shiny
 RoxygenNote: 6.1.1
