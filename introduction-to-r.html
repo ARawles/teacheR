@@ -115,7 +115,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#arithmetic-operators"><i class="fa fa-check"></i><b>2.2.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="2.2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical-operators"><i class="fa fa-check"></i><b>2.2.2</b> Logical operators</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-assigment"><i class="fa fa-check"></i><b>2.3</b> Variable assigment</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-assignment"><i class="fa fa-check"></i><b>2.3</b> Variable assignment</a></li>
 <li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a></li>
 <li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-structures-and-subsetting"><i class="fa fa-check"></i><b>2.5</b> Data structures (and subsetting)</a></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a></li>
@@ -163,8 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction-to-r" class="section level1">
 <h1><span class="header-section-number">2</span> Introduction to R</h1>
-<p>Chapter 2 is a general overview of R and its basics. I personally use R Studio as my development environment of choice (more on development environments later on), so I’ve also included a very brief overview of R Studio.</p>
-<p>The xaringan presentation for this module is <a href="presentations/2_Intro/r_training_intro_presentation.html">here</a>.</p>
+<p>Chapter 2 is a general overview of R and its basics. The xaringan presentation for this module is <a href="presentations/2_Intro/r_training_intro_presentation.html">here</a>.</p>
 <div id="what-is-r-and-rstudio" class="section level2">
 <h2><span class="header-section-number">2.1</span> What is R and RStudio?</h2>
 <div id="r" class="section level3">
@@ -207,7 +206,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">2.2</span> Operators</h2>
 <div id="arithmetic-operators" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Arithmetic operators</h3>
-<p>At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so uniquitous however, the symbols that are used are often very similar across languages, so if you’ve used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.</p>
+<p>At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you’ve used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.</p>
 <p>Here are the main operators in use:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># addition</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
@@ -220,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="logical-operators" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Logical operators</h3>
-<p>Logical operators are slightly different to arithmetic operators - they are used to evaulate a particular criteria. For example, are two values equal. Or, are two values equal <em>and</em> two other values different.</p>
+<p>Logical operators are slightly different to arithmetic operators - they are used to evaluate a particular criteria. For example, are two values equal. Or, are two values equal <em>and</em> two other values different.</p>
 <p>To compare whether two things are equal, we use two equal signs (<code>==</code>) in R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="co"># equal</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -253,8 +252,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>For <code>xor()</code>, you need to provide your criteria in brackets, but this will make much more sense once we look at functions.</p>
 </div>
 </div>
-<div id="variable-assigment" class="section level2">
-<h2><span class="header-section-number">2.3</span> Variable assigment</h2>
+<div id="variable-assignment" class="section level2">
+<h2><span class="header-section-number">2.3</span> Variable assignment</h2>
 <p>Do you ever tell a story to a friend, and then someone else walks in once you’ve finished and so you have to tell the whole thing again?</p>
 <p>Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down, then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.</p>
 <p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spend would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
