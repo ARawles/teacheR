@@ -53,7 +53,7 @@ TO DO
 
 ### Arithmetic operators
 
-At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so uniquitous however, the symbols that are used are often very similar across languages, so if you've used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.
+At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you've used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.
 
 Here are the main operators in use:
 
@@ -77,7 +77,7 @@ Here are the main operators in use:
 
 ### Logical operators
 
-Logical operators are slightly different to arithmetic operators - they are used to evaulate a particular criteria. For example, are two values equal. Or, are two values equal *and* two other values different.
+Logical operators are slightly different to arithmetic operators - they are used to evaluate a particular criteria. For example, are two values equal. Or, are two values equal *and* two other values different.
 
 To compare whether two things are equal, we use two equal signs (`==`) in R:
 
@@ -128,7 +128,7 @@ xor(1 == 1, 2 == 2) # FALSE because both are
 ```
  For `xor()`, you need to provide your criteria in brackets, but this will make much more sense once we look at functions.
 
-## Variable assigment
+## Variable assignment
 
 Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?
 
