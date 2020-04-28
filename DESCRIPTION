@@ -11,3 +11,8 @@ Description: This package helps beginner and intermediate users of R develop the
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    xaringan,
+    bookdown,
+    rmarkdown
+RoxygenNote: 6.1.1
