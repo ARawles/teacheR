@@ -2,7 +2,7 @@
 
 In this Module, we'll look at some of the programming concepts and syntax in R.
 
-The xaringan presentation for this module can be found [here](modules/3_Programming/r_training_programming_presentation.html).
+The xaringan presentation for this module can be found [here](presentations/3_Programming/r_training_programming_presentation.html).
 
 ## User-defined functions
 

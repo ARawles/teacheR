@@ -2,7 +2,7 @@
 
 Module 1 is a general overview of R and its basics. I personally use R Studio as my development environment of choice (more on development environments later on), so I've also included a very brief overview of R Studio.
 
-The xaringan presentation for this module is [here](modules/1_Intro/r_training_intro_presentation.html).
+The xaringan presentation for this module is [here](presentations/1_Intro/r_training_intro_presentation.html).
 
 ## What is R and RStudio?
 
