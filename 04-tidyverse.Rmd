@@ -2,7 +2,7 @@
 
 In this module, we'll take a quick look over some of the packages in the [tidyverse](https://www.tidyverse.org/).
 
-The xaringan presentation for this module can be found [here](presentations/4_Tidyverse/r_training_tidyverse.html).
+The xaringan presentation for this module can be found [here](presentations/6_Tidyverse/r_training_tidyverse.html).
 
 
 ## tidyr
