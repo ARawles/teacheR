@@ -23,5 +23,6 @@ Imports:
     tibble,
     stringr,
     forcats,
-    shiny
+    shiny,
+    learnr
 RoxygenNote: 6.1.1
