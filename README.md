@@ -5,5 +5,3 @@
   <!-- badges: end -->
 
 This package holds the training materials for the teacheR book.
-
-test
