@@ -1,0 +1,13 @@
+Package: teacheR
+Title: Teach Yourself R
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Adam",
+           family = "Rawles",
+           role = c("aut", "cre"),
+           email = "adamrawles@hotmail.co.uk")
+Description: This package helps beginner and intermediate users of R develop their skills. Similar to other learning materials,
+    this package provides simple text descriptions and in-line R code, but also provides presentation and feedback-based learning opportunities.
+License: GPL (>=2)
+Encoding: UTF-8
+LazyData: true
