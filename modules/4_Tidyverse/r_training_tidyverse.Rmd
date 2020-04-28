@@ -186,7 +186,7 @@ unite(untidy_data, coal, solar, wind, col = "coal_solar_wind", sep = "/",  )
 - Example
 
 ```{r pipe_example}
-library(tidyverse)
+library(dplyr)
 
 sum(c(1,2,3,4)) %>% print()
 
