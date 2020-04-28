@@ -20,5 +20,5 @@ filler
 
 filler
 
-## Graphs and plots
+## Plots
 
