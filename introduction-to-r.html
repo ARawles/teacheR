@@ -120,8 +120,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#double"><i class="fa fa-check"></i><b>2.4.2</b> Double</a></li>
 <li class="chapter" data-level="2.4.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#integer"><i class="fa fa-check"></i><b>2.4.3</b> Integer</a></li>
 <li class="chapter" data-level="2.4.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#character"><i class="fa fa-check"></i><b>2.4.4</b> Character</a></li>
-<li class="chapter" data-level="2.4.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dates"><i class="fa fa-check"></i><b>2.4.5</b> Dates</a></li>
-<li class="chapter" data-level="2.4.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#datetimes-posixct"><i class="fa fa-check"></i><b>2.4.6</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#factors"><i class="fa fa-check"></i><b>2.4.5</b> Factors</a></li>
+<li class="chapter" data-level="2.4.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dates"><i class="fa fa-check"></i><b>2.4.6</b> Dates</a></li>
+<li class="chapter" data-level="2.4.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#datetimes-posixct"><i class="fa fa-check"></i><b>2.4.7</b> Datetimes (POSIXct)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-structures-and-subsetting"><i class="fa fa-check"></i><b>2.5</b> Data structures (and subsetting)</a></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a></li>
@@ -271,8 +272,8 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 <div id="variable-assignment" class="section level2">
 <h2><span class="header-section-number">2.3</span> Variable assignment</h2>
 <p>Do you ever tell a story to a friend, and then someone else walks in once you’ve finished and so you have to tell the whole thing again?</p>
-<p>Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down, then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.</p>
-<p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spend would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
+<p>Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.</p>
+<p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
 <p>Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.</p>
 <p>Creating variables in R is really easy. All you need to do is provide a valid name, use the <code>&lt;-</code> symbol, and then provide a value to assign:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello_im_a_variable &lt;-<span class="st"> </span><span class="dv">100</span>
@@ -307,6 +308,7 @@ hello_im_another_variable</code></pre></div>
 <li>character</li>
 <li>“hello”</li>
 <li>“my name is”</li>
+<li>factors</li>
 <li>dates</li>
 <li>2019-06-01</li>
 <li>datetime (POSIXct)</li>
@@ -316,11 +318,41 @@ hello_im_another_variable</code></pre></div>
 <h3><span class="header-section-number">2.4.1</span> Logical</h3>
 <p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, becaause you can also have things like <code>NA</code>, but that’s true of any data type.</p>
 <p>Logical variables are used a lot in response questionaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
+<p>To test whether something is stored as logical, we use the <code>is.logical()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>To convert a value to logical, use the <code>as.logical()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;FALSE&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Be careful though, just because a conversion seems obvious to you, doesn’t mean you’ll get the expected result! For instance, what do you think <code>as.logical(2)</code> should return? See for yourself.</p>
 </div>
 <div id="double" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Double</h3>
 <p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you realy need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
-<p>As an aide, it’s called double because it’s stored using double precision.</p>
+<p>As an aside, it’s called double because it’s stored using double precision.</p>
+<p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(<span class="st">&quot;not numeric&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(2L) <span class="co"># see the next section for why this returns FALSE</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>To convert a value to a double, use the <code>as.double()</code> or <code>as.numeric()</code> functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.double</span>(<span class="st">&quot;5&quot;</span>)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="st">&quot;10&quot;</span>)</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.double</span>(<span class="st">&quot;im going to cause an error&quot;</span>)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
 </div>
 <div id="integer" class="section level3">
 <h3><span class="header-section-number">2.4.3</span> Integer</h3>
@@ -328,14 +360,62 @@ hello_im_another_variable</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.</span>5L</code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
 <p>For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. This is pretty rare though.</p>
+<p>To check if something is an integer, use the <code>is.integer()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(2L)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>To convert to an integer, use the <code>L</code> suffix or the <code>as.integer()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">1L</code></pre></div>
+<pre><code>## [1] 1</code></pre>
 </div>
 <div id="character" class="section level3">
 <h3><span class="header-section-number">2.4.4</span> Character</h3>
 <p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what’s inside the quotation marks, it will be stored as character. For example, 5 stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} “5” + 5```` doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
-<p>We’ll look a little later at converting between types, but for now, make sure you’re storing your text as text and your numbers as numbers.</p>
+<p>To check whether something is stored as a character, use the <code>is.character()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="st">&quot;hello&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>To convert something to a character, use the <code>as.character()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] &quot;5&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;TRUE&quot;</code></pre>
+</div>
+<div id="factors" class="section level3">
+<h3><span class="header-section-number">2.4.5</span> Factors</h3>
+<p>Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.</p>
+<p>A factor level is made up of two things. A label and a number that represents that group. For example, in my countries example, our factor would have the labels “England”, “Spain”, “France” and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.</p>
+<p>To create a factor, we just use the <code>factor()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</code></pre></div>
+<pre><code>## [1] England France  Spain  
+## Levels: England France Spain</code></pre>
+<p>It’s also worth remembering that you can have levels that don’t appear in the data you have. For example, in a questionaire, you may provide the options “None”, “Some”, “All”. But in your responses, you may see that no one chose the “None” option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
+<p>You can also specify whether a factor is <em>ordered</em>. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that “Some” is better than “None”, and “All” is better than “Some”. To create an ordered factor, just specify <code>ordered = TRUE</code> in your function. By default, the factor will be ordered in the ordered the values appear, unless you specify levels (see below).</p>
+<p>To convert something to a factor, use the <code>factor()</code> function if you want to specify levels and labels, or <code>as.factor()</code> to do it for you:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</code></pre></div>
+<pre><code>## [1] Some All 
+## Levels: None Some All</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] Some All 
+## Levels: None &lt; Some &lt; All</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</code></pre></div>
+<pre><code>## [1] Some All 
+## Levels: All Some</code></pre>
+<p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
+<p><em>Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using <code>data.frame()</code> or <code>read.table()</code>. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.</em></p>
+<div id="converting-from-factors" class="section level4">
+<h4><span class="header-section-number">2.4.5.1</span> Converting from factors</h4>
+<p>Sometimes you’ll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we’ve already seen:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;All&quot;</span>)))</code></pre></div>
+<pre><code>## [1] &quot;Some&quot; &quot;None&quot; &quot;All&quot;</code></pre>
+</div>
 </div>
 <div id="dates" class="section level3">
-<h3><span class="header-section-number">2.4.5</span> Dates</h3>
+<h3><span class="header-section-number">2.4.6</span> Dates</h3>
 <p>Dates in any language are tricky. Different countries store dates in different formats and different bits of software stores dates in different ways (looking at you Excel). This can make storing values as dates tough.</p>
 <p>The most common way of creating a date is to use the <code>as.Date()</code> function. To use this function, you just need to provide your date as a character string:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</code></pre></div>
@@ -356,16 +436,22 @@ hello_im_another_variable</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
 <p>but where’s the humanity in that?</p>
+<p>Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the <code>is()</code> function. If the first value returned is “Date”, then you know it’s a date:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
 </div>
 <div id="datetimes-posixct" class="section level3">
-<h3><span class="header-section-number">2.4.6</span> Datetimes (POSIXct)</h3>
+<h3><span class="header-section-number">2.4.7</span> Datetimes (POSIXct)</h3>
 <p>If you thought dates were annoying, datetimes are like dates’ little brother who keeps asking when his turn on the Xbox is. One of the reasons for this is that datetimes aren’t actually called datetimes. They’re called POSIXct in R. So whenever you see that dreadful word, just remember “ah, Adam told me that means datetime” and you’ll be fine.</p>
 <p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different timezones, so how do you know which one you’re referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
-<p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days.</p>
+<p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
+<p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> function instead:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
 </div>
 </div>
 <div id="data-structures-and-subsetting" class="section level2">
