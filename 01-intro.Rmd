@@ -63,6 +63,22 @@ At its simplest definition, an IDE helps you get work done in your programming l
 
 TO DO
 
+### What are packages?
+
+As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you'll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they're more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.
+
+So instead of them being available from the start, people create sets of functions that usually are used for a particularly tasks and then distribute them as a *package*. You can install this package and have access to all these great functions that someone has written for you.
+
+Some great examples of R packages are:
+
+* [ggplot2](https://ggplot2.tidyverse.org/) for creating plots
+* [dplyr](https://dplyr.tidyverse.org/) for data manipulation
+* [shiny](https://shiny.rstudio.com/) for creating web apps
+* [BMRSr](http://bmrsr.arawles.co.uk) for extracting energy data
+  - Truth be told, this isn't a *great* example of a package, it's just the one I've made so that's why it's here.
+
+We'll look at installing packages in the next chapter, but the thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out. 
+
 ## Operators
 
 ### Arithmetic operators
@@ -185,29 +201,39 @@ Data can be stored in lots of different forms. For example, `"TRUE"` and `TRUE` 
 The main different data types are:
 
 * logical
-  - TRUE
-  - FALSE
-* double
-  - 12.5
-  - 19
-  - 99999
-* integer
-  - 2L
-  - 34L
+
+    + TRUE
+    + FALSE
+    
+* double (numeric)
+
+    + 12.5
+    + 19
+    + 99999
+    
+* integer (numeric)
+
+    + 2L
+    + 34L
 * character
-  - "hello"
-  - "my name is"
+
+    + hello"
+    + my name is"
+    
 * factors
 * dates
-  - 2019-06-01
+
+    + 2019-06-01
+    
 * datetime (POSIXct)
-  - 2019-06-01 12:00:00
+
+    + 2019-06-01 12:00:00
   
 ### Logical
 
-A logical variable can only have two *real* values, `TRUE` or `FALSE`. I say two *real* values, becaause you can also have things like `NA`, but that's true of any data type.
+A logical variable can only have two *real* values, `TRUE` or `FALSE`. I say two *real* values, because you can also have things like `NA`, but that's true of any data type.
 
-Logical variables are used a lot in response questionaires, where the answer to the question is either "Yes" or "No" (`TRUE` or `FALSE`). I would recommend converting any character strings like "Yes" or "No" or "TRUE" or "FALSE" to a logical variable rather than leaving them as characters, because it'll make your analysis less verbose (use fewer lines of code), even if it doesn't change the underlying logic.
+Logical variables are used a lot in response questionnaires, where the answer to the question is either "Yes" or "No" (`TRUE` or `FALSE`). I would recommend converting any character strings like "Yes" or "No" or "TRUE" or "FALSE" to a logical variable rather than leaving them as characters, because it'll make your analysis less verbose (use fewer lines of code), even if it doesn't change the underlying logic.
 
 To test whether something is stored as logical, we use the `is.logical()` function:
 
@@ -229,7 +255,7 @@ Be careful though, just because a conversion seems obvious to you, doesn't mean 
 
 ### Double
 
-The best way to think of a `double` value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you realy need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
+The best way to think of a `double` value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
 
 As an aside, it's called double because it's stored using double precision.
 
@@ -306,7 +332,7 @@ To create a factor, we just use the `factor()` function:
 factor(c("England", "France", "Spain"))
 ```
 
-It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionaire, you may provide the options "None", "Some", "All". But in your responses, you may see that no one chose the "None" option. In that case, you would still create a factor with three levels, even though only two of them appear.
+It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionnaire, you may provide the options "None", "Some", "All". But in your responses, you may see that no one chose the "None" option. In that case, you would still create a factor with three levels, even though only two of them appear.
 
 You can also specify whether a factor is *ordered*. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that "Some" is better than "None", and "All" is better than "Some". To create an ordered factor, just specify `ordered = TRUE` in your function. By default, the factor will be ordered in the ordered the values appear, unless you specify levels (see below).
 
@@ -384,7 +410,7 @@ is(as.Date("2020/01/01"))
 If you thought dates were annoying, datetimes are like dates' little brother who keeps asking when his turn on the Xbox is.
 One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
 
-Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different timezones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
+Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
 
 With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.
 
@@ -401,8 +427,252 @@ is(as.POSIXct("2020/01/01 12:00:00"))
 ```
 
 
+### Technicalities
+
+Although I've presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered subtypes of other data types. For example, if we type:
+
+```{r}
+is(1L)
+```
+
+We see that it's an integer, but it's also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed, instead there is a web of *inheritance*, with types that span many subtypes. Inheritance is a complicated subject and so we won't get into it now, but it essentially just reflects that not each data subtype is an island.
+
+Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn't really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you're storing it in (which we're moving on to now), then you're fine.
+
+ 
 ## Data structures (and subsetting)
 
-filler
+It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:
+
+* vectors
+* lists
+* matrices
+* data frames
+
+### Vectors
+
+Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.
+
+
+
+One of the main things to remember about vectors however, is that they are atomic. That's basically a fancy word to mea n that each value in a vector must be a single unit. For instance, the number `1` is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we'll  look at those next.
+
+To create a vector, we use the `c()` function, which is short for concatenate. In other words, we're pulling together lots of different values and concatenating them into one structure.
+
+```{r}
+c(1,2,3,4)
+```
+
+Technically speaking, even single values are stored as a vector in R, they just have length one.
+
+All the  values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
+
+```{r}
+c(this_is_the_first_value = 1, this_is_the_second_value = 2)
+```
+
+### Lists
+
+Lists are similar to vectors in that they store values one after another. However, there are two main differences:
+
+* Lists can contain values of any type - they are *recursive*.
+
+Recursion is the action of doing something again and again. We call lists recursive, because we could have a list, that contains a list, that contains a list, and so on and so forth like Russian Dolls.
+
+* Lists do not have to be made up of values of the same type.
+
+So for instance, whilst a vector must always be the same, like `c(1,2,3)`, we could have a list that looks like this:
+
+```{r} 
+list(1, "hello", TRUE)
+```
+
+As you just saw, we create lists using the `list()` function, and providing names is done the same way as it is for vectors:
+
+```{r}
+list(
+  first_value = 1,
+  second_value = "hello"
+)
+```
+
+
+### Lists vs Vectors
+
+Given that lists and vectors are intrinsicly linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.
+
+I appreciate that this answer isn't particularly satisfactory however, and so let me give a real life example of when I've used each.
+
+<u>Vector</u>
+
+I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:
+
+```{r}
+my_vector <- c(1:30) # this is just short hand for saying "all of the numbers from 1 to 30"
+```
+
+So when I ran my simulation, I had all the values I wanted to run it for in a single stucture.
+
+<u>List</u>
+
+When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:
+
+```
+model1 <- model(...)
+model2 <- model(...)
+model3 <- model(...)
+```
+
+The problem with this however, is that if I then want to compare the models, I'll have to write out `modelX` each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more `modelX <- model(...)` lines.
+
+
+Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis, and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.
+
+### Matrices
+
+Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.
+
+I say watered down, because matrices can only contain values of the same type (like vectors). This means that storing complex datasets in matrices isn't really very easy. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.
+
+Creating a matrix is easy using the `matrix()` function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:
+
+```{r}
+matrix(c(1:4), nrow = 2, ncol = 2)
+```
+
+By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use `byrow = TRUE`.
+
+### Dataframes
+
+Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet than matrices.
+
+To create a dataframe, we use the `data.frame()` function. To this function, we provide our values as columns:
+
+```{r}
+data.frame(col_1 = c(1,2,3),
+           col_2 = c("hello", "world", "howsitgoing"))
+```
+
+More specifically, R stores dataframes as essentially a collection of lists, with each list representing a different column. To demonstrate this, when we type...
+
+```{r}
+is(data.frame())
+```
+The second value in the returned vector is "list".
+
+So at it's heart, each column is a list. Why is that useful to know? Well, for simple data analysis work, it doesn't make too much difference. But, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to creat a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
+
+```{r, eval = FALSE}
+data.frame(
+  country = c("England", "Spain", "France"),
+  model =  I(list(model(...), model(...), model(...))) # The I() just tells R to leave it as a list
+)
+```
+
+For now though, don't worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they'll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you're ahead of the game.
+
+### Subsetting data structures
+
+There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a *subset*. The way to do that is slightly different depending on the data structure you're using.
+
+#### Vectors
+
+Vectors are simple. Just use square brackets (`[]` or `[[]]`) after your vector and provide the index or indices of the values that you want:
+
+```{r}
+c(10,20,30,40)[1]
+c(10,20,30,40)[c(1,4)]
+c(10,20,30,40)[1:3]
+
+c(10,20,30,40)[[1]]
+```
+
+P.S. If you have a vector of named values, you can also use the names instead of the indices.
+
+But Adam, I hear you ask, `c(10,20,30,40)[1]` and `c(10,20,30,40)[[1]]` just gave us the same thing, so are the interchangable?
+Well, they kind of returned the same thing, but they didn't. So no, they're not interchangeable. Essentially, `[]` returns the *container* at the provided index, where `[[]]` returns the *value* at the provided index. Let's see a practical example of how these are different:
+
+```{r}
+c(value_1 = 10,
+  value_2 = 20)[1]
+c(value_1 = 10,
+  value_2 = 20)[[1]]
+```
+
+In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we've essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we've just been given the value. What we've done here is extracted the value out from that position.
+
+/TO DO
+
+I think some kind of analogy could be useful here to drive home the difference.
+
+It's a very subtle difference, but it is an important one. Make sure that if you want the value, use `[[]]`, and if you want the whole part of the vector, use `[]`.
+
+#### Lists
+
+Lists can be subsetted in the same way as vectors - `[]` returns the container at the index provided and `[[]]` returns the value:
+
+```{r}
+list(
+  value_1 = c(1,2,3),
+  value_2 = c("hello", "there", "everyone")
+)[[1]]
+list(
+  value_1 = c(1,2,3),
+  value_2 = c("hello", "there", "everyone")
+)[1]
+```
+
+A key difference with lists however, is that you can also subset based on the name of the value in the list using the `$` operator:
+
+```{r}
+list(
+  value_1 = c(1,2,3),
+  value_2 = c("hello", "there", "everyone")
+)$value_1
+```
+
+This is equivalent to:
+```{r}
+list(
+  value_1 = c(1,2,3),
+  value_2 = c("hello", "there", "everyone")
+)[["value_1"]]
+```
+
+Another key difference is that lists can, of course, hold recursive values. This means that subsetting a list can return another list, that can also be subsetted and so on:
+
+```{r}
+list(
+  list_1 = list(
+    list_2 = list(
+      list_3 = "hello"
+    )
+  )
+)[1][1][1]
+```
+
+And of course, you can do the same thing with the `[[]]` operator if you only want the value and not the container.
+
+### Matrices
+
+Matrices are two dimension, meaning they can't be subsetting with a single value. Instead, we still use the `[]` operator, but we provide two values, one for the row and another for the column:
+
+```{r}
+matrix(c(1:10), nrow = 5, ncol = 2)
+matrix(c(1:10), nrow = 5, ncol = 2)[4,1]
+```
+
+### Dataframes
+
+Dataframes can be subsetted in the same way as matrices (using the `[]` operator). However, dataframes can also be subsetting (a bit like lists), using the `$` operator and the name of the column:
+
+```{r}
+data.frame(
+  col_1 = c(1,2,3),
+  col_2 = c("hello", "there", "everybody")
+)$col_1
+```
+
+
 
 ## Functions
