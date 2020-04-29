@@ -146,9 +146,9 @@ xor(1 == 1, 2 == 2) # FALSE because both are
 
 Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?
 
-Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down, then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.
+Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.
 
-This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spend would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You'd then have to go through and change it every time it appears.
+This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You'd then have to go through and change it every time it appears.
 
 Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.
 
@@ -197,6 +197,7 @@ The main different data types are:
 * character
   - "hello"
   - "my name is"
+* factors
 * dates
   - 2019-06-01
 * datetime (POSIXct)
@@ -208,11 +209,45 @@ A logical variable can only have two *real* values, `TRUE` or `FALSE`. I say two
 
 Logical variables are used a lot in response questionaires, where the answer to the question is either "Yes" or "No" (`TRUE` or `FALSE`). I would recommend converting any character strings like "Yes" or "No" or "TRUE" or "FALSE" to a logical variable rather than leaving them as characters, because it'll make your analysis less verbose (use fewer lines of code), even if it doesn't change the underlying logic.
 
+To test whether something is stored as logical, we use the `is.logical()` function:
+
+```{r}
+is.logical(TRUE)
+is.logical("TRUE")
+```
+
+To convert a value to logical, use the `as.logical()` function:
+
+```{r}
+as.logical(1)
+as.logical(0)
+as.logical("TRUE")
+as.logical("FALSE")
+```
+
+Be careful though, just because a conversion seems obvious to you, doesn't mean you'll get the expected result! For instance, what do you think `as.logical(2)` should return? See for yourself.
+
 ### Double
 
 The best way to think of a `double` value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you realy need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
 
-As an aide, it's called double because it's stored using double precision.
+As an aside, it's called double because it's stored using double precision.
+
+To check whether a value is stored as double (or more generally numeric), use the `is.double()` and `is.numeric()` functions:
+
+```{r}
+is.double(2)
+is.numeric("not numeric")
+is.double(2L) # see the next section for why this returns FALSE
+```
+
+To convert a value to a double, use the `as.double()` or `as.numeric()` functions:
+
+```{r, error = TRUE}
+as.double("5")
+as.numeric("10")
+as.double("im going to cause an error")
+```
 
 ### Integer
 
@@ -224,13 +259,76 @@ Whilst also storing numeric data (like double), integers are specific to whole n
 
 For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. This is pretty rare though.
 
+To check if something is an integer, use the `is.integer()` function:
+
+```{r}
+is.integer(2)
+is.integer(2L)
+```
+
+To convert to an integer, use the `L` suffix or the `as.integer()` function:
+
+```{r}
+1L
+
+```
+
 ### Character
 
 Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what's inside the quotation marks, it will be stored as character. For example,
 `r "5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} "5" + 5```` doesn't work, because you're trying to add text to a number, which doesn't make sense.
 
-We'll look a little later at converting between types, but for now, make sure you're storing your text as text and your numbers as numbers.
+To check whether something is stored as a character, use the `is.character()` function:
 
+```{r}
+is.character("hello")
+is.character(5)
+is.character(TRUE)
+```
+
+
+To convert something to a character, use the `as.character()` function:
+
+```{r}
+as.character(5)
+as.character(TRUE)
+```
+
+### Factors
+
+Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.
+
+A factor level is made up of two things. A label and a number that represents that group. For example, in my countries example, our factor would have the labels "England", "Spain", "France" and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.
+
+To create a factor, we just use the `factor()` function:
+
+```{r}
+factor(c("England", "France", "Spain"))
+```
+
+It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionaire, you may provide the options "None", "Some", "All". But in your responses, you may see that no one chose the "None" option. In that case, you would still create a factor with three levels, even though only two of them appear.
+
+You can also specify whether a factor is *ordered*. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that "Some" is better than "None", and "All" is better than "Some". To create an ordered factor, just specify `ordered = TRUE` in your function. By default, the factor will be ordered in the ordered the values appear, unless you specify levels (see below).
+
+To convert something to a factor, use the `factor()` function if you want to specify levels and labels, or `as.factor()` to do it for you:
+
+```{r}
+factor(c("Some", "All"), levels = c("None", "Some", "All"))
+factor(c("Some", "All"), levels = c("None", "Some", "All"), ordered = TRUE)
+as.factor(c("Some", "All"))
+```
+
+Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.
+
+*Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using `data.frame()` or `read.table()`. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.*
+
+#### Converting from factors
+
+Sometimes you'll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we've already seen:
+
+```{r}
+as.character(factor(c("Some", "None", "All")))
+```
 
 ### Dates
 
@@ -275,6 +373,11 @@ as.Date(18262, origin = as.Date("01/01/1970", format = "%d/%m/%Y"))
 
 but where's the humanity in that?
 
+Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the `is()` function. If the first value returned is "Date", then you know it's a date:
+
+```{r}
+is(as.Date("2020/01/01"))
+```
 
 ### Datetimes (POSIXct)
 
@@ -283,11 +386,18 @@ One of the reasons for this is that datetimes aren't actually called datetimes. 
 
 Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different timezones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
 
-With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days.
+With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.
 
 ```{r}
 as.POSIXct("2020/01/01 12:00:00")
 as.POSIXct(1577880000, origin = "1970/01/01")
+```
+
+
+Similar to dates, there is no `as.POSIXct()` function in base R, so we use the `is()` function instead:
+
+```{r}
+is(as.POSIXct("2020/01/01 12:00:00"))
 ```
 
 
