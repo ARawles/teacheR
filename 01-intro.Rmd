@@ -18,7 +18,7 @@ One important attribute about R however that may affect you, is that R is an int
 
 For the most part however, if you want to share R code with colleagues, they'll need to have R installed as well.
 
-### Should I use R over another language?
+#### Should I use R over another language?
 
 People have and will continue to argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you're reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They're just... different. Personally, I prefer to use R but I understand that other people don't.
 
@@ -33,15 +33,31 @@ For reference however, here are a few of the things that you can use R for:
 
 If you're interested in any of these, then you're in the right place.
 
+#### Using R
+
+R is very simple. There is a console where you type commands and get responses. Like the classic command-line interfaces you see when the stereotypical nerd has to hack into the FBI database, you type commands, one at a time, into the console, R processes it, and then produces a response if appropriate. For example, if you type `2 + 2` into the R console and hit enter, you'll get `4`.
+
+Writing commands out one at a time can be quite time consuming if you want to make changes however. So we use scripts to store multiple lines of code that can then be run altogether. When you execute a script, each line gets passed one by one to the console and executed. For example, I might make a script with this code:
+
+```{r}
+variable1 <- 2 + 2
+variable1 / 10
+```
+
+So when I run the script, it will run the first line, then the second without me having to type anything else in.
+
 ### RStudio
 
-RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or IDE. This means that RStudio doesn't actually run any code, it just passes it to R for you, meaning that you'll need R to really use RStudio.
+RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or *IDE*. This means that RStudio doesn't actually run any code, it just passes it to R for you, meaning that you'll need R to really use RStudio.
+
 
 RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can't ever remember using R without RStudio.
 
+In the previous chapter, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.
+
 #### What is an IDE?
 
-At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic GUI when you install it, but RStudio provides lot more functionality to help you interact with the R console.
+At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.
 
 #### RStudio Panes
 
@@ -160,9 +176,120 @@ When you come across other people's work, you may see that they use `=` instead 
 
 As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.
 
+Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name. R will also give the variable the correct *type* based on the value you assign. So for example, if you assign `20` to a variable, then that variable will be stored as a number. If you assign something in quotation marks like `"hello"`, then R will store it as text. Let's look in a bit more detail at the different data types.
+
 ## Data types
 
-filler
+Data can be stored in lots of different forms. For example, `"TRUE"` and `TRUE` are stored as two different types, even though they look very similar to us.
+
+The main different data types are:
+
+* logical
+  - TRUE
+  - FALSE
+* double
+  - 12.5
+  - 19
+  - 99999
+* integer
+  - 2L
+  - 34L
+* character
+  - "hello"
+  - "my name is"
+* dates
+  - 2019-06-01
+* datetime (POSIXct)
+  - 2019-06-01 12:00:00
+  
+### Logical
+
+A logical variable can only have two *real* values, `TRUE` or `FALSE`. I say two *real* values, becaause you can also have things like `NA`, but that's true of any data type.
+
+Logical variables are used a lot in response questionaires, where the answer to the question is either "Yes" or "No" (`TRUE` or `FALSE`). I would recommend converting any character strings like "Yes" or "No" or "TRUE" or "FALSE" to a logical variable rather than leaving them as characters, because it'll make your analysis less verbose (use fewer lines of code), even if it doesn't change the underlying logic.
+
+### Double
+
+The best way to think of a `double` value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you realy need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
+
+As an aide, it's called double because it's stored using double precision.
+
+### Integer
+
+Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `r number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `r number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning:
+
+```{r}
+1.5L
+```
+
+For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. This is pretty rare though.
+
+### Character
+
+Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what's inside the quotation marks, it will be stored as character. For example,
+`r "5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} "5" + 5```` doesn't work, because you're trying to add text to a number, which doesn't make sense.
+
+We'll look a little later at converting between types, but for now, make sure you're storing your text as text and your numbers as numbers.
+
+
+### Dates
+
+Dates in any language are tricky. Different countries store dates in different formats and different bits of software stores dates in different ways (looking at you Excel). This can make storing values as dates tough.
+
+The most common way of creating a date is to use the `as.Date()` function. To use this function, you just need to provide your date as a character string:
+
+```{r}
+as.Date("2019/01/01")
+```
+
+But Adam, how does R know which one is the month and which is the day? Good question, thank you for asking. By default, R expects your character string to be in the order "Year/Month/Day". If you don't provide it in that format, you'll get a nonsense output:
+
+```{r}
+as.Date("01/12/2019")
+```
+
+If you're data is in a different format however, you can specify the format:
+
+```{r}
+as.Date("01/12/2019", format = "%d/%m/%Y")
+```
+
+Here, we're telling R that the string is in the format "Day/Month/Year". A list of the different codes that can be used in the format parameter can be found [here](https://www.statmethods.net/input/dates.html), or by typing "R date codes" into Google.
+
+Because nothing in life is simple, sometimes you'll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it's a number, our `as.Date(..., format = ...)` doesn't work. Instead, we can still use the `as.Date()` function, but we need to specify what the origin date is that the number refers to.
+
+By default, when importing from Excel, the origin date is January 1st 1970, also known as the "epoch date". Chances are your data source is also using this date, but always check.
+
+Anyway, to specify your origin, we use the `origin` parameter, like this:
+
+```{r}
+as.Date(18262, origin = "1970/01/01")
+```
+
+Notice the format I've provided the origin in. It's the same as the default that R expects, and I would recommend copying that format wherever possible. If you're someone who just wants to watch the world burn, then you can specify a format for your origin as well...'
+
+
+```{r}
+as.Date(18262, origin = as.Date("01/01/1970", format = "%d/%m/%Y"))
+```
+
+but where's the humanity in that?
+
+
+### Datetimes (POSIXct)
+
+If you thought dates were annoying, datetimes are like dates' little brother who keeps asking when his turn on the Xbox is.
+One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
+
+Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different timezones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
+
+With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days.
+
+```{r}
+as.POSIXct("2020/01/01 12:00:00")
+as.POSIXct(1577880000, origin = "1970/01/01")
+```
+
 
 ## Data structures (and subsetting)
 
