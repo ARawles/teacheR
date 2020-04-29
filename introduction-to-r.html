@@ -109,6 +109,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R and RStudio?</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r"><i class="fa fa-check"></i><b>2.1.1</b> R</a></li>
 <li class="chapter" data-level="2.1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-are-packages"><i class="fa fa-check"></i><b>2.1.3</b> What are packages?</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#operators"><i class="fa fa-check"></i><b>2.2</b> Operators</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#arithmetic-operators"><i class="fa fa-check"></i><b>2.2.1</b> Arithmetic operators</a></li>
@@ -123,8 +124,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.4.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#factors"><i class="fa fa-check"></i><b>2.4.5</b> Factors</a></li>
 <li class="chapter" data-level="2.4.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dates"><i class="fa fa-check"></i><b>2.4.6</b> Dates</a></li>
 <li class="chapter" data-level="2.4.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#datetimes-posixct"><i class="fa fa-check"></i><b>2.4.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="2.4.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#technicalities"><i class="fa fa-check"></i><b>2.4.8</b> Technicalities</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-structures-and-subsetting"><i class="fa fa-check"></i><b>2.5</b> Data structures (and subsetting)</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-structures-and-subsetting"><i class="fa fa-check"></i><b>2.5</b> Data structures (and subsetting)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#vectors"><i class="fa fa-check"></i><b>2.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#lists"><i class="fa fa-check"></i><b>2.5.2</b> Lists</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#lists-vs-vectors"><i class="fa fa-check"></i><b>2.5.3</b> Lists vs Vectors</a></li>
+<li class="chapter" data-level="2.5.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#matrices"><i class="fa fa-check"></i><b>2.5.4</b> Matrices</a></li>
+<li class="chapter" data-level="2.5.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dataframes"><i class="fa fa-check"></i><b>2.5.5</b> Dataframes</a></li>
+<li class="chapter" data-level="2.5.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#subsetting-data-structures"><i class="fa fa-check"></i><b>2.5.6</b> Subsetting data structures</a></li>
+<li class="chapter" data-level="2.5.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#matrices-1"><i class="fa fa-check"></i><b>2.5.7</b> Matrices</a></li>
+<li class="chapter" data-level="2.5.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dataframes-1"><i class="fa fa-check"></i><b>2.5.8</b> Dataframes</a></li>
+</ul></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Analysis in R</a><ul>
@@ -218,6 +229,20 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 <p>TO DO</p>
 </div>
 </div>
+<div id="what-are-packages" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> What are packages?</h3>
+<p>As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you’ll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they’re more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.</p>
+<p>So instead of them being available from the start, people create sets of functions that usually are used for a particularly tasks and then distribute them as a <em>package</em>. You can install this package and have access to all these great functions that someone has written for you.</p>
+<p>Some great examples of R packages are:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/">ggplot2</a> for creating plots</li>
+<li><a href="https://dplyr.tidyverse.org/">dplyr</a> for data manipulation</li>
+<li><a href="https://shiny.rstudio.com/">shiny</a> for creating web apps</li>
+<li><a href="http://bmrsr.arawles.co.uk">BMRSr</a> for extracting energy data</li>
+<li>Truth be told, this isn’t a <em>great</em> example of a package, it’s just the one I’ve made so that’s why it’s here.</li>
+</ul>
+<p>We’ll look at installing packages in the next chapter, but the thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out.</p>
+</div>
 </div>
 <div id="operators" class="section level2">
 <h2><span class="header-section-number">2.2</span> Operators</h2>
@@ -295,29 +320,41 @@ hello_im_another_variable</code></pre></div>
 <p>Data can be stored in lots of different forms. For example, <code>&quot;TRUE&quot;</code> and <code>TRUE</code> are stored as two different types, even though they look very similar to us.</p>
 <p>The main different data types are:</p>
 <ul>
-<li>logical</li>
+<li><p>logical</p>
+<ul>
 <li>TRUE</li>
 <li>FALSE</li>
-<li>double</li>
+</ul></li>
+<li><p>double (numeric)</p>
+<ul>
 <li>12.5</li>
 <li>19</li>
 <li>99999</li>
-<li>integer</li>
+</ul></li>
+<li><p>integer (numeric)</p>
+<ul>
 <li>2L</li>
 <li>34L</li>
-<li>character</li>
-<li>“hello”</li>
-<li>“my name is”</li>
+</ul></li>
+<li><p>character</p>
+<ul>
+<li>hello&quot;</li>
+<li>my name is&quot;</li>
+</ul></li>
 <li>factors</li>
-<li>dates</li>
+<li><p>dates</p>
+<ul>
 <li>2019-06-01</li>
-<li>datetime (POSIXct)</li>
+</ul></li>
+<li><p>datetime (POSIXct)</p>
+<ul>
 <li>2019-06-01 12:00:00</li>
+</ul></li>
 </ul>
 <div id="logical" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Logical</h3>
-<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, becaause you can also have things like <code>NA</code>, but that’s true of any data type.</p>
-<p>Logical variables are used a lot in response questionaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
+<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type.</p>
+<p>Logical variables are used a lot in response questionnaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
 <p>To test whether something is stored as logical, we use the <code>is.logical()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -336,7 +373,7 @@ hello_im_another_variable</code></pre></div>
 </div>
 <div id="double" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Double</h3>
-<p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you realy need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
+<p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
 <p>As an aside, it’s called double because it’s stored using double precision.</p>
 <p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(<span class="dv">2</span>)</code></pre></div>
@@ -393,7 +430,7 @@ hello_im_another_variable</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</code></pre></div>
 <pre><code>## [1] England France  Spain  
 ## Levels: England France Spain</code></pre>
-<p>It’s also worth remembering that you can have levels that don’t appear in the data you have. For example, in a questionaire, you may provide the options “None”, “Some”, “All”. But in your responses, you may see that no one chose the “None” option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
+<p>It’s also worth remembering that you can have levels that don’t appear in the data you have. For example, in a questionnaire, you may provide the options “None”, “Some”, “All”. But in your responses, you may see that no one chose the “None” option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
 <p>You can also specify whether a factor is <em>ordered</em>. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that “Some” is better than “None”, and “All” is better than “Some”. To create an ordered factor, just specify <code>ordered = TRUE</code> in your function. By default, the factor will be ordered in the ordered the values appear, unless you specify levels (see below).</p>
 <p>To convert something to a factor, use the <code>factor()</code> function if you want to specify levels and labels, or <code>as.factor()</code> to do it for you:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</code></pre></div>
@@ -443,7 +480,7 @@ hello_im_another_variable</code></pre></div>
 <div id="datetimes-posixct" class="section level3">
 <h3><span class="header-section-number">2.4.7</span> Datetimes (POSIXct)</h3>
 <p>If you thought dates were annoying, datetimes are like dates’ little brother who keeps asking when his turn on the Xbox is. One of the reasons for this is that datetimes aren’t actually called datetimes. They’re called POSIXct in R. So whenever you see that dreadful word, just remember “ah, Adam told me that means datetime” and you’ll be fine.</p>
-<p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different timezones, so how do you know which one you’re referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
+<p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you’re referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
 <p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
@@ -453,10 +490,208 @@ hello_im_another_variable</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
 </div>
+<div id="technicalities" class="section level3">
+<h3><span class="header-section-number">2.4.8</span> Technicalities</h3>
+<p>Although I’ve presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered subtypes of other data types. For example, if we type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
+## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
+<p>We see that it’s an integer, but it’s also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed, instead there is a web of <em>inheritance</em>, with types that span many subtypes. Inheritance is a complicated subject and so we won’t get into it now, but it essentially just reflects that not each data subtype is an island.</p>
+<p>Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn’t really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you’re storing it in (which we’re moving on to now), then you’re fine.</p>
+</div>
 </div>
 <div id="data-structures-and-subsetting" class="section level2">
 <h2><span class="header-section-number">2.5</span> Data structures (and subsetting)</h2>
-<p>filler</p>
+<p>It’s rare that you’re ever going to be working on a single value in R. Instead, you’re going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here’s a list of the structures which we’ll go into more detail:</p>
+<ul>
+<li>vectors</li>
+<li>lists</li>
+<li>matrices</li>
+<li>data frames</li>
+</ul>
+<div id="vectors" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Vectors</h3>
+<p>Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.</p>
+<p>One of the main things to remember about vectors however, is that they are atomic. That’s basically a fancy word to mea n that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we’ll look at those next.</p>
+<p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we’re pulling together lots of different values and concatenating them into one structure.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<p>Technically speaking, even single values are stored as a vector in R, they just have length one.</p>
+<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>##  this_is_the_first_value this_is_the_second_value 
+##                        1                        2</code></pre>
+</div>
+<div id="lists" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Lists</h3>
+<p>Lists are similar to vectors in that they store values one after another. However, there are two main differences:</p>
+<ul>
+<li>Lists can contain values of any type - they are <em>recursive</em>.</li>
+</ul>
+<p>Recursion is the action of doing something again and again. We call lists recursive, because we could have a list, that contains a list, that contains a list, and so on and so forth like Russian Dolls.</p>
+<ul>
+<li>Lists do not have to be made up of values of the same type.</li>
+</ul>
+<p>So for instance, whilst a vector must always be the same, like <code>c(1,2,3)</code>, we could have a list that looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>, <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;hello&quot;
+## 
+## [[3]]
+## [1] TRUE</code></pre>
+<p>As you just saw, we create lists using the <code>list()</code> function, and providing names is done the same way as it is for vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">first_value =</span> <span class="dv">1</span>,
+  <span class="dt">second_value =</span> <span class="st">&quot;hello&quot;</span>
+)</code></pre></div>
+<pre><code>## $first_value
+## [1] 1
+## 
+## $second_value
+## [1] &quot;hello&quot;</code></pre>
+</div>
+<div id="lists-vs-vectors" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Lists vs Vectors</h3>
+<p>Given that lists and vectors are intrinsicly linked, it’s very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren’t all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
+<p>I appreciate that this answer isn’t particularly satisfactory however, and so let me give a real life example of when I’ve used each.</p>
+<p><u>Vector</u></p>
+<p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>) <span class="co"># this is just short hand for saying &quot;all of the numbers from 1 to 30&quot;</span></code></pre></div>
+<p>So when I ran my simulation, I had all the values I wanted to run it for in a single stucture.</p>
+<p><u>List</u></p>
+<p>When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:</p>
+<pre><code>model1 &lt;- model(...)
+model2 &lt;- model(...)
+model3 &lt;- model(...)</code></pre>
+<p>The problem with this however, is that if I then want to compare the models, I’ll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn’t just a numeric or character value) so they can’t be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines.</p>
+<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis, and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
+</div>
+<div id="matrices" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Matrices</h3>
+<p>Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.</p>
+<p>I say watered down, because matrices can only contain values of the same type (like vectors). This means that storing complex datasets in matrices isn’t really very easy. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.</p>
+<p>Creating a matrix is easy using the <code>matrix()</code> function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<p>By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use <code>byrow = TRUE</code>.</p>
+</div>
+<div id="dataframes" class="section level3">
+<h3><span class="header-section-number">2.5.5</span> Dataframes</h3>
+<p>Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet than matrices.</p>
+<p>To create a dataframe, we use the <code>data.frame()</code> function. To this function, we provide our values as columns:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+           <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="st">&quot;howsitgoing&quot;</span>))</code></pre></div>
+<pre><code>##   col_1       col_2
+## 1     1       hello
+## 2     2       world
+## 3     3 howsitgoing</code></pre>
+<p>More specifically, R stores dataframes as essentially a collection of lists, with each list representing a different column. To demonstrate this, when we type…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">data.frame</span>())</code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot; &quot;list&quot;       &quot;oldClass&quot;   &quot;vector&quot;</code></pre>
+<p>The second value in the returned vector is “list”.</p>
+<p>So at it’s heart, each column is a list. Why is that useful to know? Well, for simple data analysis work, it doesn’t make too much difference. But, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to creat a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
+  <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),
+  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...))) <span class="co"># The I() just tells R to leave it as a list</span>
+)</code></pre></div>
+<p>For now though, don’t worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they’ll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you’re ahead of the game.</p>
+</div>
+<div id="subsetting-data-structures" class="section level3">
+<h3><span class="header-section-number">2.5.6</span> Subsetting data structures</h3>
+<p>There will be occasions where you don’t want all the values in a vector/list/matrix/dataframe. Instead, you’ll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you’re using.</p>
+<div id="vectors-1" class="section level4">
+<h4><span class="header-section-number">2.5.6.1</span> Vectors</h4>
+<p>Vectors are simple. Just use square brackets (<code>[]</code> or <code>[[]]</code>) after your vector and provide the index or indices of the values that you want:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</code></pre></div>
+<pre><code>## [1] 10 40</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 10 20 30</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>P.S. If you have a vector of named values, you can also use the names instead of the indices.</p>
+<p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangable? Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable. Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Let’s see a practical example of how these are different:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,
+  <span class="dt">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## value_1 
+##      10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,
+  <span class="dt">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we’ve essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we’ve just been given the value. What we’ve done here is extracted the value out from that position.</p>
+<p>/TO DO</p>
+<p>I think some kind of analogy could be useful here to drive home the difference.</p>
+<p>It’s a very subtle difference, but it is an important one. Make sure that if you want the value, use <code>[[]]</code>, and if you want the whole part of the vector, use <code>[]</code>.</p>
+</div>
+<div id="lists-1" class="section level4">
+<h4><span class="header-section-number">2.5.6.2</span> Lists</h4>
+<p>Lists can be subsetted in the same way as vectors - <code>[]</code> returns the container at the index provided and <code>[[]]</code> returns the value:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $value_1
+## [1] 1 2 3</code></pre>
+<p>A key difference with lists however, is that you can also subset based on the name of the value in the list using the <code>$</code> operator:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)<span class="op">$</span>value_<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>This is equivalent to:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)[[<span class="st">&quot;value_1&quot;</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>Another key difference is that lists can, of course, hold recursive values. This means that subsetting a list can return another list, that can also be subsetted and so on:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">list_1 =</span> <span class="kw">list</span>(
+    <span class="dt">list_2 =</span> <span class="kw">list</span>(
+      <span class="dt">list_3 =</span> <span class="st">&quot;hello&quot;</span>
+    )
+  )
+)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $list_1
+## $list_1$list_2
+## $list_1$list_2$list_3
+## [1] &quot;hello&quot;</code></pre>
+<p>And of course, you can do the same thing with the <code>[[]]</code> operator if you only want the value and not the container.</p>
+</div>
+</div>
+<div id="matrices-1" class="section level3">
+<h3><span class="header-section-number">2.5.7</span> Matrices</h3>
+<p>Matrices are two dimension, meaning they can’t be subsetting with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values, one for the row and another for the column:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    6
+## [2,]    2    7
+## [3,]    3    8
+## [4,]    4    9
+## [5,]    5   10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="dataframes-1" class="section level3">
+<h3><span class="header-section-number">2.5.8</span> Dataframes</h3>
+<p>Dataframes can be subsetted in the same way as matrices (using the <code>[]</code> operator). However, dataframes can also be subsetting (a bit like lists), using the <code>$</code> operator and the name of the column:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
+  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)
+)<span class="op">$</span>col_<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+</div>
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">2.6</span> Functions</h2>
