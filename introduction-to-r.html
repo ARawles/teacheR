@@ -108,15 +108,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
 <li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R and RStudio?</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r"><i class="fa fa-check"></i><b>2.1.1</b> R</a></li>
-<li class="chapter" data-level="2.1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#should-i-use-r-over-another-language"><i class="fa fa-check"></i><b>2.1.2</b> Should I use R over another language?</a></li>
-<li class="chapter" data-level="2.1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>2.1.3</b> RStudio</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#operators"><i class="fa fa-check"></i><b>2.2</b> Operators</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#arithmetic-operators"><i class="fa fa-check"></i><b>2.2.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="2.2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical-operators"><i class="fa fa-check"></i><b>2.2.2</b> Logical operators</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-assignment"><i class="fa fa-check"></i><b>2.3</b> Variable assignment</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#logical"><i class="fa fa-check"></i><b>2.4.1</b> Logical</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#double"><i class="fa fa-check"></i><b>2.4.2</b> Double</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#integer"><i class="fa fa-check"></i><b>2.4.3</b> Integer</a></li>
+<li class="chapter" data-level="2.4.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#character"><i class="fa fa-check"></i><b>2.4.4</b> Character</a></li>
+<li class="chapter" data-level="2.4.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dates"><i class="fa fa-check"></i><b>2.4.5</b> Dates</a></li>
+<li class="chapter" data-level="2.4.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#datetimes-posixct"><i class="fa fa-check"></i><b>2.4.6</b> Datetimes (POSIXct)</a></li>
+</ul></li>
 <li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-structures-and-subsetting"><i class="fa fa-check"></i><b>2.5</b> Data structures (and subsetting)</a></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a></li>
 </ul></li>
@@ -174,9 +180,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>So basically, R is a functional programming language with some object-oriented systems. If that means very little to you, don’t worry. For the vast majority of users, this is a purely academic definition.</p>
 <p>One important attribute about R however that may affect you, is that R is an interpreted language. This essentially means that when you send someone some R code, they need R installed to be able to run it. This means that making full programs is difficult. Later on, we’ll look at the <code>shiny</code> package, which can be used to quickly make web apps based on R code. These apps are no different in the sense that they also need R installed to be able to run, but because they are web-based, they are significantly easier to share.</p>
 <p>For the most part however, if you want to share R code with colleagues, they’ll need to have R installed as well.</p>
-</div>
-<div id="should-i-use-r-over-another-language" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> Should I use R over another language?</h3>
+<div id="should-i-use-r-over-another-language" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> Should I use R over another language?</h4>
 <p>People have and will continue to argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you’re reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They’re just… different. Personally, I prefer to use R but I understand that other people don’t.</p>
 <p>Importantly though, never feel as though you’ve missed a trick by picking a particular language. Programming is not just a practice, it’s a way of thinking, and experience is almost always transferable across languages.</p>
 <p>For reference however, here are a few of the things that you can use R for:</p>
@@ -188,16 +193,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>If you’re interested in any of these, then you’re in the right place.</p>
 </div>
+<div id="using-r" class="section level4">
+<h4><span class="header-section-number">2.1.1.2</span> Using R</h4>
+<p>R is very simple. There is a console where you type commands and get responses. Like the classic command-line interfaces you see when the stereotypical nerd has to hack into the FBI database, you type commands, one at a time, into the console, R processes it, and then produces a response if appropriate. For example, if you type <code>2 + 2</code> into the R console and hit enter, you’ll get <code>4</code>.</p>
+<p>Writing commands out one at a time can be quite time consuming if you want to make changes however. So we use scripts to store multiple lines of code that can then be run altogether. When you execute a script, each line gets passed one by one to the console and executed. For example, I might make a script with this code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">variable1 &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
+variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<pre><code>## [1] 0.4</code></pre>
+<p>So when I run the script, it will run the first line, then the second without me having to type anything else in.</p>
+</div>
+</div>
 <div id="rstudio" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> RStudio</h3>
-<p>RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or IDE. This means that RStudio doesn’t actually run any code, it just passes it to R for you, meaning that you’ll need R to really use RStudio.</p>
+<h3><span class="header-section-number">2.1.2</span> RStudio</h3>
+<p>RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or <em>IDE</em>. This means that RStudio doesn’t actually run any code, it just passes it to R for you, meaning that you’ll need R to really use RStudio.</p>
 <p>RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can’t ever remember using R without RStudio.</p>
+<p>In the previous chapter, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.</p>
 <div id="what-is-an-ide" class="section level4">
-<h4><span class="header-section-number">2.1.3.1</span> What is an IDE?</h4>
-<p>At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic GUI when you install it, but RStudio provides lot more functionality to help you interact with the R console.</p>
+<h4><span class="header-section-number">2.1.2.1</span> What is an IDE?</h4>
+<p>At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.</p>
 </div>
 <div id="rstudio-panes" class="section level4">
-<h4><span class="header-section-number">2.1.3.2</span> RStudio Panes</h4>
+<h4><span class="header-section-number">2.1.2.2</span> RStudio Panes</h4>
 <p>TO DO</p>
 </div>
 </div>
@@ -271,10 +287,86 @@ hello_im_another_variable</code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>When you come across other people’s work, you may see that they use <code>=</code> instead of <code>&lt;-</code> when they create their variables. Even though it’s not the end of the world if you do do that, I would recommend getting into the habit of using <code>&lt;-</code>. <code>&lt;-</code> is purely used for assignment, whereas <code>=</code> is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.</p>
 <p>As a side note, you’ll see that the value of the variable isn’t outputted when we assign it. If we want to see the value, we need just the name.</p>
+<p>Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name. R will also give the variable the correct <em>type</em> based on the value you assign. So for example, if you assign <code>20</code> to a variable, then that variable will be stored as a number. If you assign something in quotation marks like <code>&quot;hello&quot;</code>, then R will store it as text. Let’s look in a bit more detail at the different data types.</p>
 </div>
 <div id="data-types" class="section level2">
 <h2><span class="header-section-number">2.4</span> Data types</h2>
-<p>filler</p>
+<p>Data can be stored in lots of different forms. For example, <code>&quot;TRUE&quot;</code> and <code>TRUE</code> are stored as two different types, even though they look very similar to us.</p>
+<p>The main different data types are:</p>
+<ul>
+<li>logical</li>
+<li>TRUE</li>
+<li>FALSE</li>
+<li>double</li>
+<li>12.5</li>
+<li>19</li>
+<li>99999</li>
+<li>integer</li>
+<li>2L</li>
+<li>34L</li>
+<li>character</li>
+<li>“hello”</li>
+<li>“my name is”</li>
+<li>dates</li>
+<li>2019-06-01</li>
+<li>datetime (POSIXct)</li>
+<li>2019-06-01 12:00:00</li>
+</ul>
+<div id="logical" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Logical</h3>
+<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, becaause you can also have things like <code>NA</code>, but that’s true of any data type.</p>
+<p>Logical variables are used a lot in response questionaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
+</div>
+<div id="double" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Double</h3>
+<p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you realy need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
+<p>As an aide, it’s called double because it’s stored using double precision.</p>
+</div>
+<div id="integer" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Integer</h3>
+<p>Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: , R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an <code>L</code>, like this: . Attempting to store something that isn’t an integer as an integer will result in a warning:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.</span>5L</code></pre></div>
+<pre><code>## [1] 1.5</code></pre>
+<p>For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. This is pretty rare though.</p>
+</div>
+<div id="character" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Character</h3>
+<p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what’s inside the quotation marks, it will be stored as character. For example, 5 stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} “5” + 5```` doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
+<p>We’ll look a little later at converting between types, but for now, make sure you’re storing your text as text and your numbers as numbers.</p>
+</div>
+<div id="dates" class="section level3">
+<h3><span class="header-section-number">2.4.5</span> Dates</h3>
+<p>Dates in any language are tricky. Different countries store dates in different formats and different bits of software stores dates in different ways (looking at you Excel). This can make storing values as dates tough.</p>
+<p>The most common way of creating a date is to use the <code>as.Date()</code> function. To use this function, you just need to provide your date as a character string:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2019-01-01&quot;</code></pre>
+<p>But Adam, how does R know which one is the month and which is the day? Good question, thank you for asking. By default, R expects your character string to be in the order “Year/Month/Day”. If you don’t provide it in that format, you’ll get a nonsense output:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;1-12-20&quot;</code></pre>
+<p>If you’re data is in a different format however, you can specify the format:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2019-12-01&quot;</code></pre>
+<p>Here, we’re telling R that the string is in the format “Day/Month/Year”. A list of the different codes that can be used in the format parameter can be found <a href="https://www.statmethods.net/input/dates.html">here</a>, or by typing “R date codes” into Google.</p>
+<p>Because nothing in life is simple, sometimes you’ll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it’s a number, our <code>as.Date(..., format = ...)</code> doesn’t work. Instead, we can still use the <code>as.Date()</code> function, but we need to specify what the origin date is that the number refers to.</p>
+<p>By default, when importing from Excel, the origin date is January 1st 1970, also known as the “epoch date”. Chances are your data source is also using this date, but always check.</p>
+<p>Anyway, to specify your origin, we use the <code>origin</code> parameter, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
+<p>Notice the format I’ve provided the origin in. It’s the same as the default that R expects, and I would recommend copying that format wherever possible. If you’re someone who just wants to watch the world burn, then you can specify a format for your origin as well…’</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
+<p>but where’s the humanity in that?</p>
+</div>
+<div id="datetimes-posixct" class="section level3">
+<h3><span class="header-section-number">2.4.6</span> Datetimes (POSIXct)</h3>
+<p>If you thought dates were annoying, datetimes are like dates’ little brother who keeps asking when his turn on the Xbox is. One of the reasons for this is that datetimes aren’t actually called datetimes. They’re called POSIXct in R. So whenever you see that dreadful word, just remember “ah, Adam told me that means datetime” and you’ll be fine.</p>
+<p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different timezones, so how do you know which one you’re referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
+<p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
+</div>
 </div>
 <div id="data-structures-and-subsetting" class="section level2">
 <h2><span class="header-section-number">2.5</span> Data structures (and subsetting)</h2>
