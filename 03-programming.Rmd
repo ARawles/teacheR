@@ -15,3 +15,7 @@ filler
 ## If/else statements
 
 filler
+
+## Applying functions
+
+filler

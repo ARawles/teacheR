@@ -229,6 +229,9 @@ The main different data types are:
 
     + 2019-06-01 12:00:00
   
+
+Let's have a look at each one in detail:
+
 ### Logical
 
 A logical variable can only have two *real* values, `TRUE` or `FALSE`. I say two *real* values, because you can also have things like `NA`, but that's true of any data type.
@@ -440,7 +443,7 @@ We see that it's an integer, but it's also a double, and numeric, and a vector. 
 Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn't really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you're storing it in (which we're moving on to now), then you're fine.
 
  
-## Data structures (and subsetting)
+## Data structures
 
 It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:
 
@@ -571,11 +574,11 @@ data.frame(
 
 For now though, don't worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they'll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you're ahead of the game.
 
-### Subsetting data structures
+## Subsetting
 
 There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a *subset*. The way to do that is slightly different depending on the data structure you're using.
 
-#### Vectors
+### Vectors
 
 Vectors are simple. Just use square brackets (`[]` or `[[]]`) after your vector and provide the index or indices of the values that you want:
 
@@ -590,6 +593,7 @@ c(10,20,30,40)[[1]]
 P.S. If you have a vector of named values, you can also use the names instead of the indices.
 
 But Adam, I hear you ask, `c(10,20,30,40)[1]` and `c(10,20,30,40)[[1]]` just gave us the same thing, so are the interchangable?
+
 Well, they kind of returned the same thing, but they didn't. So no, they're not interchangeable. Essentially, `[]` returns the *container* at the provided index, where `[[]]` returns the *value* at the provided index. Let's see a practical example of how these are different:
 
 ```{r}
@@ -607,7 +611,7 @@ I think some kind of analogy could be useful here to drive home the difference.
 
 It's a very subtle difference, but it is an important one. Make sure that if you want the value, use `[[]]`, and if you want the whole part of the vector, use `[]`.
 
-#### Lists
+### Lists
 
 Lists can be subsetted in the same way as vectors - `[]` returns the container at the index provided and `[[]]` returns the value:
 

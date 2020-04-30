@@ -1,5 +1,5 @@
 # Exercises
 
-Here are some interactive exercises covering the basic concepts we've looked at in the last 4 modules.
+Here are some interactive exercises covering the basic concepts we've looked at in the last X modules.
 
 This exercises are hosted on a Shiny server [here](http://shiny.arawles.co.uk/r-training-exercises)
