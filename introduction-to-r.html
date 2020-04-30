@@ -224,7 +224,7 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 <h3><span class="header-section-number">2.1.2</span> RStudio</h3>
 <p>RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or <em>IDE</em>. This means that RStudio doesn’t actually run any code, it just passes it to R for you, meaning that you’ll need R to really use RStudio.</p>
 <p>RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can’t ever remember using R without RStudio.</p>
-<p>In the previous chapter, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.</p>
+<p>In the <a href="introduction-to-r.html#r">previous section</a>, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.</p>
 <div id="what-is-an-ide" class="section level4">
 <h4><span class="header-section-number">2.1.2.1</span> What is an IDE?</h4>
 <p>At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.</p>
@@ -379,7 +379,7 @@ hello_im_another_variable</code></pre></div>
 </div>
 <div id="double" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Double</h3>
-<p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
+<p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see <a href="introduction-to-r.html#integer">Integers</a>) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
 <p>As an aside, it’s called double because it’s stored using double precision.</p>
 <p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(<span class="dv">2</span>)</code></pre></div>
@@ -490,6 +490,8 @@ hello_im_another_variable</code></pre></div>
 <p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;NZ&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2020-01-01 12:00:00 NZDT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
 <p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> function instead:</p>
@@ -522,7 +524,7 @@ hello_im_another_variable</code></pre></div>
 <p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we’re pulling together lots of different values and concatenating them into one structure.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
-<p>Technically speaking, even single values are stored as a vector in R, they just have length one.</p>
+<p>Technically speaking, even single values are stored as a vector in R, they just have length one. Thats why if you type <code>is(1)</code>, the second things that pops up after “numeric” is “vector”. R is telling us that <code>1</code> is a number and that it’s in a vector.</p>
 <p>All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>##  this_is_the_first_value this_is_the_second_value 
@@ -572,8 +574,8 @@ hello_im_another_variable</code></pre></div>
 <pre><code>model1 &lt;- model(...)
 model2 &lt;- model(...)
 model3 &lt;- model(...)</code></pre>
-<p>The problem with this however, is that if I then want to compare the models, I’ll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn’t just a numeric or character value) so they can’t be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines.</p>
-<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis, and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
+<p>The problem with this however, is that if I then want to compare the models, I’ll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn’t just a numeric or character value) so they can’t be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
+<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
 </div>
 <div id="matrices" class="section level3">
 <h3><span class="header-section-number">2.5.4</span> Matrices</h3>
@@ -596,11 +598,11 @@ model3 &lt;- model(...)</code></pre>
 ## 1     1       hello
 ## 2     2       world
 ## 3     3 howsitgoing</code></pre>
-<p>More specifically, R stores dataframes as essentially a collection of lists, with each list representing a different column. To demonstrate this, when we type…</p>
+<p>More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. To demonstrate this, when we type…</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">data.frame</span>())</code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot; &quot;list&quot;       &quot;oldClass&quot;   &quot;vector&quot;</code></pre>
 <p>The second value in the returned vector is “list”.</p>
-<p>So at it’s heart, each column is a list. Why is that useful to know? Well, for simple data analysis work, it doesn’t make too much difference. But, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to creat a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
+<p>So at it’s heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="introduction-to-r.html#dataframes-1">susbetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
   <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),
   <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...))) <span class="co"># The I() just tells R to leave it as a list</span>
@@ -622,9 +624,10 @@ model3 &lt;- model(...)</code></pre>
 <pre><code>## [1] 10 20 30</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<p>P.S. If you have a vector of named values, you can also use the names instead of the indices.</p>
+<p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[[&quot;value_1&quot;]]</code>.</p>
 <p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangable?</p>
-<p>Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable. Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Let’s see a practical example of how these are different:</p>
+<p>Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable.</p>
+<p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Let’s see a practical example of how these are different:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,
   <span class="dt">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</code></pre></div>
 <pre><code>## value_1 
@@ -679,7 +682,7 @@ model3 &lt;- model(...)</code></pre>
 </div>
 <div id="matrices-1" class="section level3">
 <h3><span class="header-section-number">2.6.3</span> Matrices</h3>
-<p>Matrices are two dimension, meaning they can’t be subsetting with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values, one for the row and another for the column:</p>
+<p>Matrices are two dimension, meaning they can’t be subsetted with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values: one for the row and another for the column:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
@@ -692,12 +695,13 @@ model3 &lt;- model(...)</code></pre>
 </div>
 <div id="dataframes-1" class="section level3">
 <h3><span class="header-section-number">2.6.4</span> Dataframes</h3>
-<p>Dataframes can be subsetted in the same way as matrices (using the <code>[]</code> operator). However, dataframes can also be subsetting (a bit like lists), using the <code>$</code> operator and the name of the column:</p>
+<p>Dataframes can be subsetted in the same way as matrices (using the <code>[]</code> operator). However, dataframes can also be subsetting (like lists), using the <code>$</code> operator and the name of the column:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
   <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
   <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)
 )<span class="op">$</span>col_<span class="dv">1</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
+<p>Why does this approach work for dataframes? Well, as I alluded to <a href="introduction-to-r.html#dataframes">before</a>, dataframes store columns as lists. But technically, the dataframe itself is also stored as a kind of list, with each column being another entry in that list. So, just like we can subset lists using <code>$</code>, we can subset dataframes with it as well because a dataframe is like a fancy list.</p>
 </div>
 </div>
 <div id="functions" class="section level2">
