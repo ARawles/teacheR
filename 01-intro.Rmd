@@ -201,28 +201,20 @@ Data can be stored in lots of different forms. For example, `"TRUE"` and `TRUE` 
 The main different data types are:
 
 * logical
-
     + TRUE
     + FALSE
-    
 * double (numeric)
-
     + 12.5
     + 19
     + 99999
-    
 * integer (numeric)
-
     + 2L
     + 34L
 * character
-
     + hello"
     + my name is"
-    
 * factors
 * dates
-
     + 2019-06-01
     
 * datetime (POSIXct)
@@ -272,10 +264,10 @@ is.double(2L) # see the next section for why this returns FALSE
 
 To convert a value to a double, use the `as.double()` or `as.numeric()` functions:
 
-```{r, error = TRUE}
+```{r, warning = TRUE}
 as.double("5")
 as.numeric("10")
-as.double("im going to cause an error")
+as.double("im going to cause a warning")
 ```
 
 ### Integer
