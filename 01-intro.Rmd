@@ -53,7 +53,7 @@ RStudio is separate from R. R is a programming language and RStudio is an integr
 
 RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can't ever remember using R without RStudio.
 
-In the previous chapter, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.
+In the [previous section](#r), we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.
 
 #### What is an IDE?
 
@@ -258,7 +258,7 @@ Be careful though, just because a conversion seems obvious to you, doesn't mean 
 
 ### Double
 
-The best way to think of a `double` value is as a number. It can be a whole number (but see Integers) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
+The best way to think of a `double` value is as a number. It can be a whole number (but see [Integers](#integer)) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
 
 As an aside, it's called double because it's stored using double precision.
 
@@ -419,6 +419,7 @@ With these annoyances aside however, creating datetimes isn't all that different
 
 ```{r}
 as.POSIXct("2020/01/01 12:00:00")
+as.POSIXct("2020/01/01 12:00:00", tz = "NZ")
 as.POSIXct(1577880000, origin = "1970/01/01")
 ```
 
@@ -457,7 +458,6 @@ It's rare that you're ever going to be working on a single value in R. Instead, 
 Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.
 
 
-
 One of the main things to remember about vectors however, is that they are atomic. That's basically a fancy word to mea n that each value in a vector must be a single unit. For instance, the number `1` is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we'll  look at those next.
 
 To create a vector, we use the `c()` function, which is short for concatenate. In other words, we're pulling together lots of different values and concatenating them into one structure.
@@ -466,7 +466,7 @@ To create a vector, we use the `c()` function, which is short for concatenate. I
 c(1,2,3,4)
 ```
 
-Technically speaking, even single values are stored as a vector in R, they just have length one.
+Technically speaking, even single values are stored as a vector in R, they just have length one. Thats why if you type `is(1)`, the second things that pops up after "numeric" is "vector". R is telling us that `1` is a number and that it's in a vector.
 
 All the  values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
 
@@ -526,10 +526,10 @@ model2 <- model(...)
 model3 <- model(...)
 ```
 
-The problem with this however, is that if I then want to compare the models, I'll have to write out `modelX` each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more `modelX <- model(...)` lines.
+The problem with this however, is that if I then want to compare the models, I'll have to write out `modelX` each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more `modelX <- model(...)` lines and assigning each one as a new variable.
 
 
-Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis, and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.
+Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.
 
 ### Matrices
 
@@ -556,14 +556,14 @@ data.frame(col_1 = c(1,2,3),
            col_2 = c("hello", "world", "howsitgoing"))
 ```
 
-More specifically, R stores dataframes as essentially a collection of lists, with each list representing a different column. To demonstrate this, when we type...
+More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. To demonstrate this, when we type...
 
 ```{r}
 is(data.frame())
 ```
 The second value in the returned vector is "list".
 
-So at it's heart, each column is a list. Why is that useful to know? Well, for simple data analysis work, it doesn't make too much difference. But, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to creat a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
+So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto [susbetting](#dataframes-1). Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
 
 ```{r, eval = FALSE}
 data.frame(
@@ -590,11 +590,13 @@ c(10,20,30,40)[1:3]
 c(10,20,30,40)[[1]]
 ```
 
-P.S. If you have a vector of named values, you can also use the names instead of the indices.
+P.S. If you have a vector of named values, you can also use the names instead of the indices. Like `c(value_1 = 1)[["value_1"]]`.
 
 But Adam, I hear you ask, `c(10,20,30,40)[1]` and `c(10,20,30,40)[[1]]` just gave us the same thing, so are the interchangable?
 
-Well, they kind of returned the same thing, but they didn't. So no, they're not interchangeable. Essentially, `[]` returns the *container* at the provided index, where `[[]]` returns the *value* at the provided index. Let's see a practical example of how these are different:
+Well, they kind of returned the same thing, but they didn't. So no, they're not interchangeable.
+
+Essentially, `[]` returns the *container* at the provided index, where `[[]]` returns the *value* at the provided index. Let's see a practical example of how these are different:
 
 ```{r}
 c(value_1 = 10,
@@ -659,7 +661,7 @@ And of course, you can do the same thing with the `[[]]` operator if you only wa
 
 ### Matrices
 
-Matrices are two dimension, meaning they can't be subsetting with a single value. Instead, we still use the `[]` operator, but we provide two values, one for the row and another for the column:
+Matrices are two dimension, meaning they can't be subsetted with a single value. Instead, we still use the `[]` operator, but we provide two values: one for the row and another for the column:
 
 ```{r}
 matrix(c(1:10), nrow = 5, ncol = 2)
@@ -668,7 +670,7 @@ matrix(c(1:10), nrow = 5, ncol = 2)[4,1]
 
 ### Dataframes
 
-Dataframes can be subsetted in the same way as matrices (using the `[]` operator). However, dataframes can also be subsetting (a bit like lists), using the `$` operator and the name of the column:
+Dataframes can be subsetted in the same way as matrices (using the `[]` operator). However, dataframes can also be subsetting (like lists), using the `$` operator and the name of the column:
 
 ```{r}
 data.frame(
@@ -677,6 +679,6 @@ data.frame(
 )$col_1
 ```
 
-
+Why does this approach work for dataframes? Well, as I alluded to [before](#dataframes), dataframes store columns as lists. But technically, the dataframe itself is also stored as a kind of list, with each column being another entry in that list. So, just like we can subset lists using `$`, we can subset dataframes with it as well because a dataframe is like a fancy list.
 
 ## Functions
