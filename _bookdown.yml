@@ -1,1 +1,23 @@
 output_dir: "docs"
+
+rmd_files: [
+  "index.Rmd",
+  
+  "intro.Rmd",
+  
+  "operators.Rmd",
+  "variable-assignment.Rmd",
+  "data-types.Rmd",
+  "data-structures.Rmd",
+  "subsetting.Rmd",
+  "functions.Rmd",
+  
+  "data-analysis.Rmd",
+  
+  "programming.Rmd",
+  
+  "tidyverse.Rmd",
+  
+  "modelling.Rmd",
+  
+  "exercises.Rmd"]

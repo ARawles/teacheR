@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 Programming in R | Teach Yourself or Others R</title>
-  <meta name="description" content="9 Programming in R | Teach Yourself or Others R" />
+  <title>7 Functions | Teach Yourself or Others R</title>
+  <meta name="description" content="7 Functions | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 Programming in R | Teach Yourself or Others R" />
+  <meta property="og:title" content="7 Functions | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 Programming in R | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="7 Functions | Teach Yourself or Others R" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-analysis-in-r.html"/>
-<link rel="next" href="tidyverse.html"/>
+<link rel="prev" href="subsetting.html"/>
+<link rel="next" href="data-analysis-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -131,11 +131,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> What is R and RStudio?</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r"><i class="fa fa-check"></i><b>2.1.1</b> R</a></li>
-<li class="chapter" data-level="2.1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> RStudio</a></li>
-<li class="chapter" data-level="2.1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-are-packages"><i class="fa fa-check"></i><b>2.1.3</b> What are packages?</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio-panes"><i class="fa fa-check"></i><b>2.4.2</b> RStudio Panes</a></li>
 </ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3</b> Operators</a><ul>
 <li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1</b> Arithmetic operators</a></li>
@@ -218,25 +221,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="programming-in-r" class="section level1">
-<h1><span class="header-section-number">9</span> Programming in R</h1>
-<p>In this Module, we’ll look at some of the programming concepts and syntax in R.</p>
-<p>The xaringan presentation for this module can be found <a href="presentations/4_Programming/r_training_programming_presentation.html">here</a>.</p>
-<div id="user-defined-functions" class="section level2">
-<h2><span class="header-section-number">9.1</span> User-defined functions</h2>
-<p>filler</p>
+<div id="functions" class="section level1">
+<h1><span class="header-section-number">7</span> Functions</h1>
+<p>Being a functional programming language, functions are at the heart of R. We’ve already used lots of functions in the previous chapters, but now we’re going to look in more detail about what a function is.</p>
+<div id="function-basics" class="section level2">
+<h2><span class="header-section-number">7.1</span> Function basics</h2>
+<p>John Chambers, creator of the S programming language upon which R is based and core member of the R programming language project, said this:</p>
+<blockquote>
+<p>"To understand computations in R, two slogans are helpful:</p>
+<ul>
+<li>Everything that exists is an object.</li>
+<li>Everything that happens is a function call.</li>
+</ul>
+<p>— John Chambers"</p>
+</blockquote>
+<p>For now, we’re going to focus on that second statement. What does it mean?</p>
+<p>Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing a number into the console and hitting enter. You’ve given an input, there was a calculation, and now there’s an output.</p>
+<p>If you’re well versed in mathematics, you’ll know that functions in maths are the same. <code>$f(x) = 3x</code> means that the to get <code>y</code>, you take <code>x</code> and multiply it by three. In this case, our input is <code>x</code>, our bit in the middle is multiplying by three, and then our output is <code>y</code>.</p>
+<p>If you haven’t used functions in mathematics then don’t worry. Even by getting this far in the book, you’ve already used functions loads of times. For example, how do you create a vector? If you remember, you use the <code>c()</code> function, which we know stands for “concatenate”. So, every time you’ve created a vector, you’ve used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.</p>
+<p>Similarly, whenever you created a factor or a matrix or a dataframe or whatever, you used a function. You provided an input, there was a computation to change that input, and then you got an output.</p>
+<p>As confusing as functions will inevitably become, just try to remember the core of what a function is:
+There’s an input. There’s a computation. There’s an output.</p>
 </div>
-<div id="for-loops" class="section level2">
-<h2><span class="header-section-number">9.2</span> For loops</h2>
-<p>filler</p>
+<div id="functions-in-r" class="section level2">
+<h2><span class="header-section-number">7.2</span> Functions in R</h2>
+<p>So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (<code>()</code> not any other type of bracket) when they are called (when you use them). This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
+<p>I say that nearly almost all functions are followed by <code>()</code>, because some aren’t. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>) <span class="co"># the backticks just mean I&#39;m referring to the + function without using it</span></a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>But it doesn’t have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>It’s just that this looks a little weird to us, so we often use the shorthand way.</p>
 </div>
-<div id="ifelse-statements" class="section level2">
-<h2><span class="header-section-number">9.3</span> If/else statements</h2>
-<p>filler</p>
+<div id="inputs" class="section level2">
+<h2><span class="header-section-number">7.3</span> Inputs</h2>
+<p>We know that to use a function in R, we have to provide inputs*. And we also know that we provide our inputs within the brackets after the function name. But how do we know what values are allowed?</p>
+<p>* Technically, sometimes you don’t have to provide an input to a function (e.g. <code>Sys.Date()</code>, which gives us the current date without putting anything in the brackets). But in the interests of clarity, just imagine that the inputs to these functions are blank rather than that they don’t have any input at all.</p>
+<p>By typing a <code>?</code> followed by the name of the function into the console (e.g. <code>?length()</code>), you’ll get a help page showing you the input parameters allowed by the function. So if we use <code>?length()</code> as an example, the help page tells us that the <code>length()</code> function expects one input parameter, <code>x</code>, and that needs to be an <code>R</code> object. Nice and simple.</p>
+<p>In some cases, you’ll see a <code>...</code> as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the <code>c()</code> function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the <code>c()</code> function basically bundles everything you provide to it into that <code>...</code> parameter.</p>
+<div id="explicit-input-parameters" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Explicit input parameters</h3>
+<p>If you type <code>?c()</code> into the console however, you’ll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we’re explicit, we’re saying exactly which input parameter we’re referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let’s look at the <code>substr()</code> function as an example.</p>
+<p>The <code>substr()</code> function simply returns part of a character string that you provide. So, if I was to type:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<p>I get the first to the third characters in the string “hello”. With this function call however, I haven’t been explicit. Instead, I’ve just provided the inputs in the order that they’re listed in the documentation:</p>
+<ul>
+<li>x
+<ul>
+<li>a character vector</li>
+</ul></li>
+<li>start
+<ul>
+<li>the first element to be extracted</li>
+</ul></li>
+<li>stop
+<ul>
+<li>the last element to be extracted</li>
+</ul></li>
+</ul>
+<p>To be explicit, I need to provide the name of the input parameter that I’m referring to when I provide my inputs:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<p>Notice how, when I’m being explicit, it doesn’t matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
+<p>Also, notice how we’re using <code>=</code> here and not anything else? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> when we’re providing input parameters and so it’s good to keep them separate.</p>
+<p>So how does this link back with the <code>...</code>? Well, with the <code>c()</code> function, every unnamed parameter you provide is bundled into the <code>...</code> parameter. To give values for the <code>recursive</code> and <code>use.names</code> parameters, you’d need to provide them <em>explicitly</em> (e.g. <code>recursive = TRUE</code>). This will be true of many functions where you see a <code>...</code>. If you’re not explicit with the parameters that you don’t want to be included in the <code>...</code>, you’re going to have a bad time.</p>
 </div>
-<div id="applying-functions" class="section level2">
-<h2><span class="header-section-number">9.4</span> Applying functions</h2>
-<p>filler</p>
+</div>
+<div id="outputs" class="section level2">
+<h2><span class="header-section-number">7.4</span> Outputs</h2>
+<p>First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one <strong>thing</strong>. I say one <strong>thing</strong>, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: <strong>Functions in R have a single return value</strong>.</p>
+</div>
+<div id="a-little-more-on-functions" class="section level2">
+<h2><span class="header-section-number">7.5</span> A little more on functions</h2>
+<p>If you’re not too bothered about the slightly more in-depth stuff about function inputs, then feel free to skip this part and move onto the next section.</p>
+<p>If you’re interested however, there are some specifics about function inputs in R that can be good to know.</p>
+<p>Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
+<p>Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the <code>apply</code> logic, the <code>lapply()</code> function requires a <code>FUN</code> parameter that is the function the be applied each time. This doesn’t really come into play right now or even at a beginner level, but later on it can be very powerful.</p>
+<p>Linked with the idea that functions are just another type of an object, there is an important distinction between
+<code>sum</code>
+and
+<code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. Conversely, <code>sum()</code> will attempt to apply the <code>sum</code> function to the inputs provided in the brackets. Again, while this is isn’t really a massive point for the moment, it can help some understand the fundamental building blocks of R.</p>
 
 </div>
 </div>
@@ -245,8 +313,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data-analysis-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="subsetting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-analysis-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

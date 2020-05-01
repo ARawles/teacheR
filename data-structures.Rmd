@@ -1,0 +1,129 @@
+# Data structures
+
+It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:
+
+* vectors
+* lists
+* matrices
+* data frames
+
+## Vectors
+
+Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.
+
+
+One of the main things to remember about vectors however, is that they are atomic. That's basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number `1` is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we'll  look at those next.
+
+To create a vector, we use the `c()` function, which is short for concatenate. In other words, we're pulling together lots of different values and concatenating them into one structure.
+
+```{r}
+c(1,2,3,4)
+```
+
+Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type `is(1)`, the second things that pops up after "numeric" is "vector". R is telling us that `1` is a number and that it's in a vector.
+
+All the  values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
+
+```{r}
+c(this_is_the_first_value = 1, this_is_the_second_value = 2)
+```
+
+## Lists
+
+Lists are similar to vectors in that they store values one after another. However, there are two main differences:
+
+* Lists can contain values of any type - they are *recursive*.
+
+Recursion is the action of doing something again and again. We call lists recursive, because we could have a list, that contains a list, that contains a list, and so on and so forth like Russian Dolls.
+
+* Lists do not have to be made up of values of the same type.
+
+So for instance, whilst a vector must always be the same, like `c(1,2,3)`, we could have a list that looks like this:
+
+```{r} 
+list(1, "hello", TRUE)
+```
+
+As you just saw, we create lists using the `list()` function, and providing names is done the same way as it is for vectors:
+
+```{r}
+list(
+  first_value = 1,
+  second_value = "hello"
+)
+```
+
+
+## Lists vs Vectors
+
+Given that lists and vectors are intrinsically linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.
+
+I appreciate that this answer isn't particularly satisfactory however, and so let me give a real life example of when I've used each.
+
+<u>Vector</u>
+
+I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:
+
+```{r}
+my_vector <- c(1:30) # this is just short hand for saying "all of the numbers from 1 to 30"
+```
+
+So when I ran my simulation, I had all the values I wanted to run it for in a single structure.
+
+<u>List</u>
+
+When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:
+
+```
+model1 <- model(...)
+model2 <- model(...)
+model3 <- model(...)
+```
+
+The problem with this however, is that if I then want to compare the models, I'll have to write out `modelX` each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more `modelX <- model(...)` lines and assigning each one as a new variable.
+
+
+Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.
+
+## Matrices
+
+Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.
+
+I say watered down, because matrices can only contain values of the same type (like vectors). This means that storing complex datasets in matrices isn't really very easy. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.
+
+Creating a matrix is easy using the `matrix()` function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:
+
+```{r}
+matrix(c(1:4), nrow = 2, ncol = 2)
+```
+
+By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use `byrow = TRUE`.
+
+## Dataframes
+
+Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet than matrices.
+
+To create a dataframe, we use the `data.frame()` function. To this function, we provide our values as columns:
+
+```{r}
+data.frame(col_1 = c(1,2,3),
+           col_2 = c("hello", "world", "howsitgoing"))
+```
+
+More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. To demonstrate this, when we type...
+
+```{r}
+is(data.frame())
+```
+The second value in the returned vector is "list".
+
+So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto [susbetting](#dataframes-1). Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
+
+```{r, eval = FALSE}
+data.frame(
+  country = c("England", "Spain", "France"),
+  model =  I(list(model(...), model(...), model(...))) # The I() just tells R to leave it as a list
+)
+```
+
+For now though, don't worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they'll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you're ahead of the game.

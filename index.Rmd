@@ -4,8 +4,10 @@ author: "Adam Rawles"
 site: bookdown::bookdown_site
 documentclass: book
 output:
-  bookdown::gitbook: default
-  bookdown::html_book: default
+  bookdown::gitbook:
+    config:
+      toc:
+        collapse: section
 ---
 
 # teacheR

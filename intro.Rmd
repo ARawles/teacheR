@@ -1,0 +1,78 @@
+# Introduction to R
+
+Chapter 2 is a general overview of R and its basics. The xaringan presentation for this module is [here](presentations/2_Intro/r_training_intro_presentation.html).
+
+## What is R?
+
+R is a public license programming language. More specifically, it's a statistical programming language meaning that it's often used for statistical analysis rather than software development. R is also a functional programming, rather than an object-oriented programming language like Python. This means that operation in R are primarily performed by functions (input, do something, output), but more about that later.
+
+Strictly speaking, R is not just a functional programming language. In reality, a language is never purely one type and R is no exception. There are object-oriented systems in R (three main ones), meaning that object-oriented programming is possible and relatively straightforward in R. Having said that, I feel now is a good time to refer back to the mantra from the Overview chapter:
+
+<b>Don't believe everything you read</b>
+
+So basically, R is a functional programming language with some object-oriented systems. If that means very little to you, don't worry. For the vast majority of users, this is a purely academic definition.
+
+One important attribute about R however that may affect you, is that R is an interpreted language. This essentially means that when you send someone some R code, they need R installed to be able to run it. This means that making full programs is difficult. Later on, we'll look at the `shiny` package, which can be used to quickly make web apps based on R code. These apps are no different in the sense that they also need R installed to be able to run, but because they are web-based, they are significantly easier to share.
+
+For the most part however, if you want to share R code with colleagues, they'll need to have R installed as well.
+
+## Should I use R?
+
+People will forever argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you're reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They're just... different. Personally, I prefer to use R but I understand that other people don't.
+
+Importantly though, never feel as though you've missed a trick by picking a particular language. Programming is not just a practice, it's a way of thinking, and experience is almost always transferable across languages.
+
+For reference however, here are a few of the things that you can use R for:
+
+* data analysis
+* reporting and writing
+* web apps
+* text analysis
+
+If you're interested in any of these, then you're in the right place.
+
+## Using R
+
+R is very simple. There is a console where you type commands and get responses. Like the classic command-line interfaces you see when the stereotypical nerd has to hack into the FBI database, you type commands, one at a time into the console, R processes it, and then produces a response if appropriate. For example, if you type `2 + 2` into the R console and hit enter, you'll get `4`.
+
+Writing commands out one at a time can be quite time consuming if you want to make changes however. So we use scripts to store multiple lines of code that can then be run altogether. When you execute a script, each line gets passed one by one to the console and executed. For example, I might make a script with this code:
+
+```{r}
+variable1 <- 2 + 2
+variable1 / 10
+```
+
+So when I run the script, it will run the first line, then the second without me having to type anything else in.
+
+## RStudio
+
+RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or *IDE*. This means that RStudio doesn't actually run any code, it just passes it to R for you, meaning that you'll need R to really use RStudio.
+
+
+RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can't ever remember using R without RStudio.
+
+In the [previous section](#using-r), we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.
+
+### What is an IDE?
+
+At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.
+
+### RStudio Panes
+
+TO DO
+
+## Packages
+
+As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you'll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they're more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.
+
+So instead of them being available from the start, people create sets of functions that usually are used for a particularly tasks and then distribute them as a *package*. You can install this package and have access to all these great functions that someone has written for you.
+
+Some great examples of R packages are:
+
+* [ggplot2](https://ggplot2.tidyverse.org/) for creating plots
+* [dplyr](https://dplyr.tidyverse.org/) for data manipulation
+* [shiny](https://shiny.rstudio.com/) for creating web apps
+* [BMRSr](http://bmrsr.arawles.co.uk) for extracting energy data
+  - Truth be told, this isn't a *great* example of a package, it's just the one I've made so that's why it's here.
+
+We'll look at installing packages in the next chapter, but the thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out. 

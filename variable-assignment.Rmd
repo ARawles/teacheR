@@ -1,0 +1,36 @@
+
+## Variable assignment
+
+Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?
+
+Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.
+
+This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You'd then have to go through and change it every time it appears.
+
+Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.
+
+Creating variables in R is really easy. All you need to do is provide a valid name, use the `<-` symbol, and then provide a value to assign:
+
+```{r}
+hello_im_a_variable <- 100
+hello_im_a_variable
+```
+
+Now, whenever you want to use your variable, you just need to provide the variable name in place of the value:
+
+```{r}
+hello_im_a_variable / 10
+```
+
+You can even use your variable to create new variables:
+
+```{r}
+hello_im_another_variable <- hello_im_a_variable / 20
+hello_im_another_variable
+```
+
+When you come across other people's work, you may see that they use `=` instead of `<-` when they create their variables. Even though it's not the end of the world if you do do that, I would recommend getting into the habit of using `<-`. `<-` is purely used for assignment, whereas `=` is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.
+
+As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.
+
+Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name. R will also give the variable the correct *type* based on the value you assign. So for example, if you assign `20` to a variable, then that variable will be stored as a number. If you assign something in quotation marks like `"hello"`, then R will store it as text. Let's look in a bit more detail at the different data types.
