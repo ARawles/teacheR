@@ -164,7 +164,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#matrices-1"><i class="fa fa-check"></i><b>2.6.3</b> Matrices</a></li>
 <li class="chapter" data-level="2.6.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#dataframes-1"><i class="fa fa-check"></i><b>2.6.4</b> Dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.7</b> Functions</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions"><i class="fa fa-check"></i><b>2.7</b> Functions</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#function-basics"><i class="fa fa-check"></i><b>2.7.1</b> Function basics</a></li>
+<li class="chapter" data-level="2.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions-in-r"><i class="fa fa-check"></i><b>2.7.2</b> Functions in R</a></li>
+<li class="chapter" data-level="2.7.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#inputs"><i class="fa fa-check"></i><b>2.7.3</b> Inputs</a></li>
+<li class="chapter" data-level="2.7.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#outputs"><i class="fa fa-check"></i><b>2.7.4</b> Outputs</a></li>
+<li class="chapter" data-level="2.7.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#a-little-more-on-functions"><i class="fa fa-check"></i><b>2.7.5</b> A little more on functions</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html"><i class="fa fa-check"></i><b>3</b> Data Analysis in R</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#installing-packages"><i class="fa fa-check"></i><b>3.1</b> Installing packages</a></li>
@@ -191,7 +197,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="modelling.html"><a href="modelling.html#programming-and-modelling"><i class="fa fa-check"></i><b>6.3</b> Programming and modelling</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>7</b> Exercises</a></li>
-<li class="chapter" data-level="8" data-path="teacher-1.html"><a href="teacher-1.html"><i class="fa fa-check"></i><b>8</b> teacheR <a href='http://teacher.arawles.co.uk'><img src='man/figures/logo.png' align="right" height="139" /></a></a></li>
 </ul>
 
       </nav>
@@ -529,11 +534,11 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 </div>
 <div id="technicalities" class="section level3">
 <h3><span class="header-section-number">2.4.8</span> Technicalities</h3>
-<p>Although I’ve presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered subtypes of other data types. For example, if we type:</p>
+<p>Although I’ve presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered sub-types of other data types. For example, if we type:</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1"><span class="kw">is</span>(1L)</a></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
 ## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
-<p>We see that it’s an integer, but it’s also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed, instead there is a web of <em>inheritance</em>, with types that span many subtypes. Inheritance is a complicated subject and so we won’t get into it now, but it essentially just reflects that not each data subtype is an island.</p>
+<p>We see that it’s an integer, but it’s also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed, instead there is a web of <em>inheritance</em>, with types that span many sub-types. Inheritance is a complicated subject and so we won’t get into it now, but it essentially just reflects that not each data sub type is an island.</p>
 <p>Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn’t really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you’re storing it in (which we’re moving on to now), then you’re fine.</p>
 </div>
 </div>
@@ -549,11 +554,11 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 <div id="vectors" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Vectors</h3>
 <p>Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.</p>
-<p>One of the main things to remember about vectors however, is that they are atomic. That’s basically a fancy word to mea n that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we’ll look at those next.</p>
+<p>One of the main things to remember about vectors however, is that they are atomic. That’s basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we’ll look at those next.</p>
 <p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we’re pulling together lots of different values and concatenating them into one structure.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
-<p>Technically speaking, even single values are stored as a vector in R, they just have length one. Thats why if you type <code>is(1)</code>, the second things that pops up after “numeric” is “vector”. R is telling us that <code>1</code> is a number and that it’s in a vector.</p>
+<p>Technically speaking, even single values are stored as a vector in R, they just have length one. That’s why if you type <code>is(1)</code>, the second things that pops up after “numeric” is “vector”. R is telling us that <code>1</code> is a number and that it’s in a vector.</p>
 <p>All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  this_is_the_first_value this_is_the_second_value 
@@ -592,19 +597,19 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 </div>
 <div id="lists-vs-vectors" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Lists vs Vectors</h3>
-<p>Given that lists and vectors are intrinsicly linked, it’s very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren’t all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
+<p>Given that lists and vectors are intrinsically linked, it’s very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren’t all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
 <p>I appreciate that this answer isn’t particularly satisfactory however, and so let me give a real life example of when I’ve used each.</p>
 <p><u>Vector</u></p>
 <p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>) <span class="co"># this is just short hand for saying &quot;all of the numbers from 1 to 30&quot;</span></a></code></pre></div>
-<p>So when I ran my simulation, I had all the values I wanted to run it for in a single stucture.</p>
+<p>So when I ran my simulation, I had all the values I wanted to run it for in a single structure.</p>
 <p><u>List</u></p>
 <p>When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:</p>
 <pre><code>model1 &lt;- model(...)
 model2 &lt;- model(...)
 model3 &lt;- model(...)</code></pre>
 <p>The problem with this however, is that if I then want to compare the models, I’ll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn’t just a numeric or character value) so they can’t be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
-<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to peform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
+<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
 </div>
 <div id="matrices" class="section level3">
 <h3><span class="header-section-number">2.5.4</span> Matrices</h3>
@@ -654,7 +659,7 @@ model3 &lt;- model(...)</code></pre>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[["value_1"]]</code>.</p>
-<p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangable?</p>
+<p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangeable?</p>
 <p>Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable.</p>
 <p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Let’s see a practical example of how these are different:</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
@@ -735,7 +740,89 @@ model3 &lt;- model(...)</code></pre>
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">2.7</span> Functions</h2>
+<p>Being a functional programming language, functions are at the heart of R. We’ve already used lots of functions in the previous chapters, but now we’re going to look in more detail about what a function is.</p>
+<div id="function-basics" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Function basics</h3>
+<p>John Chambers, creator of the S programming language upon which R is based and core member of the R programming language project, said this:</p>
+<blockquote>
+<p>"To understand computations in R, two slogans are helpful:</p>
+<ul>
+<li>Everything that exists is an object.</li>
+<li>Everything that happens is a function call.</li>
+</ul>
+<p>— John Chambers"</p>
+</blockquote>
+<p>For now, we’re going to focus on that second statement. What does it mean?</p>
+<p>Well, a function is quite simple. It has an input, it does something, and then it gives an output. If you’re well versed in mathematics, you’ll know that functions in maths are the same. <code>$f(x) = 3x</code> means that the to get <code>y</code>, you take <code>x</code> and multiply it by three. In this case, our input is <code>x</code>, our bit in the middle is multiplying by three, and then our output is <code>y</code>.</p>
+<p>If you haven’t used functions in mathematics then don’t worry. Even by getting this far in the book, you’ve already used functions loads of times. For example, how do you create a vector? If you remember, you use the <code>c()</code> function, which we know stands for “concatenate”. So, every time you’ve created a vector, you’ve used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.</p>
+<p>Similarly, whenever you created a factor or a matrix or a dataframe or whatever, you used a function. You provided an input, there was a computation to change that input, and then you got an output.</p>
+<p>As confusing as functions will inevitably become, just try to remember the core of what a function is:
+There’s an input. There’s a computation. There’s an output.</p>
+</div>
+<div id="functions-in-r" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Functions in R</h3>
+<p>So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (<code>()</code> not any other type of bracket) when they are called (when you use them). This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
+<p>I say that nearly almost all functions are followed by <code>()</code>, because some aren’t. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>) <span class="co"># the backticks just mean I&#39;m referring to the + function without using it</span></a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>But it doesn’t have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>It’s just that this looks a little weird to us, so we often use the shorthand way.</p>
+</div>
+<div id="inputs" class="section level3">
+<h3><span class="header-section-number">2.7.3</span> Inputs</h3>
+<p>We know that to use a function in R, we have to provide inputs*. And we also know that we provide our inputs within the brackets after the function name. But how do we know what values are allowed?</p>
+<p>* Technically, sometimes you don’t have to provide an input to a function (e.g. <code>Sys.Date()</code>, which gives us the current date without putting anything in the brackets). But in the interests of clarity, just imagine that the inputs to these functions are blank rather than that they don’t have any input at all.</p>
+<p>By typing a <code>?</code> followed by the name of the function into the console (e.g. <code>?length()</code>), you’ll get a help page showing you the input parameters allowed by the function. So if we use <code>?length()</code> as an example, the help page tells us that the <code>length()</code> function expects one input parameter, <code>x</code>, and that needs to be an <code>R</code> object. Nice and simple.</p>
+<p>In some cases, you’ll see a <code>...</code> as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the <code>c()</code> function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the <code>c()</code> function basically bundles everything you provide to it into that <code>...</code> parameter.</p>
+<div id="explicit-input-parameters" class="section level4">
+<h4><span class="header-section-number">2.7.3.1</span> Explicit input parameters</h4>
+<p>If you type <code>?c()</code> into the console however, you’ll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we’re explicit, we’re saying exactly which input parameter we’re referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let’s look at the <code>substr()</code> function as an example.</p>
+<p>The <code>substr()</code> function simply returns part of a character string that you provide. So, if I was to type:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<p>I get the first to the third characters in the string “hello”. With this function call however, I haven’t been explicit. Instead, I’ve just provided the inputs in the order that they’re listed in the documentation:</p>
+<ul>
+<li>x
+<ul>
+<li>a character vector</li>
+</ul></li>
+<li>start
+<ul>
+<li>the first element to be extracted</li>
+</ul></li>
+<li>stop
+<ul>
+<li>the last element to be extracted</li>
+</ul></li>
+</ul>
+<p>To be explicit, I need to provide the name of the input parameter that I’m referring to when I provide my inputs:</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<p>Notice how, when I’m being explicit, it doesn’t matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
+<p>Also, notice how we’re using <code>=</code> here and not anything else? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> when we’re providing input parameters and so it’s good to keep them separate.</p>
+<p>So how does this link back with the <code>...</code>? Well, with the <code>c()</code> function, every unnamed parameter you provide is bundled into the <code>...</code> parameter. To give values for the <code>recursive</code> and <code>use.names</code> parameters, you’d need to provide them <em>explicitly</em> (e.g. <code>recursive = TRUE</code>). This will be true of many functions where you see a <code>...</code>. If you’re not explicit with the parameters that you don’t want to be included in the <code>...</code>, you’re going to have a bad time.</p>
+</div>
+</div>
+<div id="outputs" class="section level3">
+<h3><span class="header-section-number">2.7.4</span> Outputs</h3>
+<p>First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one <strong>thing</strong>. I say one <strong>thing</strong>, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: <strong>Functions in R have a single return value</strong>.</p>
+</div>
+<div id="a-little-more-on-functions" class="section level3">
+<h3><span class="header-section-number">2.7.5</span> A little more on functions</h3>
+<p>If you’re not too bothered about the slightly more in-depth stuff about function inputs, then feel free to skip this part and move onto the next section.</p>
+<p>If you’re interested however, there are some specifics about function inputs in R that can be good to know.</p>
+<p>Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
+<p>Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the <code>apply</code> logic, the <code>lapply()</code> function requires a <code>FUN</code> parameter that is the function the be applied each time. This doesn’t really come into play right now or even at a beginner level, but later on it can be very powerful.</p>
+<p>Linked with the idea that functions are just another type of an object, there is an important distinction between
+<code>sum</code>
+and
+<code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. Conversely, <code>sum()</code> will attempt to apply the <code>sum</code> function to the inputs provided in the brackets. Again, while this is isn’t really a massive point for the moment, it can help some understand the fundamental building blocks of R.</p>
 
+</div>
 </div>
 </div>
             </section>
