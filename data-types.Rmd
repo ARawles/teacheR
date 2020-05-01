@@ -79,7 +79,7 @@ as.double("im going to cause a warning")
 
 Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `r number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `r number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning:
 
-```{r}
+```{r, warning = TRUE}
 1.5L
 ```
 

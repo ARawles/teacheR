@@ -8,6 +8,9 @@ output:
     config:
       toc:
         collapse: section
+      download:
+        - ["_main.pdf", "PDF"]  
+    
 ---
 
 # teacheR
