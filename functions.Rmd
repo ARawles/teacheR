@@ -18,7 +18,7 @@ For now, we're going to focus on that second statement. What does it mean?
 
 Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing a number into the console and hitting enter. You've given an input, there was a calculation, and now there's an output.
 
-If you're well versed in mathematics, you'll know that functions in maths are the same. `$f(x) = 3x` means that the to get `y`, you take `x` and multiply it by three. In this case, our input is `x`, our bit in the middle is multiplying by three, and then our output is `y`.
+If you're well versed in mathematics, you'll know that functions in maths are the same. $f(x) = {3x}$ means that the to get `y`, you take `x` and multiply it by three. In this case, our input is `x`, our bit in the middle is multiplying by three, and then our output is `y`.
 
 If you haven't used functions in mathematics then don't worry. Even by getting this far in the book, you've already used functions loads of times. For example, how do you create a vector? If you remember, you use the `c()` function, which we know stands for "concatenate". So, every time you've created a vector, you've used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.
 
@@ -29,7 +29,7 @@ There's an input. There's a computation. There's an output.
 
 ## Functions in R
 
-So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (`()` not any other type of bracket) when they are called (when you use them). This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
+So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (`()`, not any other type of bracket) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
 
 I say that nearly almost all functions are followed by `()`, because some aren't. A simple example of this is `+`. `+` is still a function:
 
@@ -83,13 +83,13 @@ substr(start = 1, stop = 3, x = "Hello")
 
 Notice how, when I'm being explicit, it doesn't matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.
 
-Also, notice how we're using `=` here and not anything else? This is another reason why I suggest not using `=` for assignment: we use `=` when we're providing input parameters and so it's good to keep them separate.
+Also, notice how we're using `=` here and not anything else like `<-`? This is another reason why I suggest not using `=` for assignment: we use `=` when we're providing input parameters and so it's good to keep them separate.
 
 So how does this link back with the `...`? Well, with the `c()` function, every unnamed parameter you provide is bundled into the `...` parameter. To give values for the `recursive` and `use.names` parameters, you'd need to provide them *explicitly* (e.g. `recursive = TRUE`). This will be true of many functions where you see a `...`. If you're not explicit with the parameters that you don't want to be included in the `...`, you're going to have a bad time.
 
 ## Outputs
 
-First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one **thing**. I say one **thing**, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
+First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one *thing*. I say one *thing*, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
 
 ## A little more on functions
 
@@ -104,5 +104,13 @@ Secondly, functions are technically just another object. This means that you can
 Linked with the idea that functions are just another type of an object, there is an important distinction between 
 `sum`
 and
-`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. Conversely, `sum()` will attempt to apply the `sum` function to the inputs provided in the brackets. Again, while this is isn't really a massive point for the moment, it can help some understand the fundamental building blocks of R.
+`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function: 
+
+```{r}
+sum
+```
+
+Conversely, `sum()` will attempt to apply the `sum` function to the inputs provided in the brackets.
+
+Again, while this is isn't really a massive point for the moment, it can help some understand the fundamental building blocks of R.
 

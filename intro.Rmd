@@ -1,6 +1,6 @@
 # Introduction to R
 
-Chapter 2 is a general overview of R and its basics. The xaringan presentation for this module is [here](presentations/2_Intro/r_training_intro_presentation.html).
+Chapters 2-7 cover R and its basics. The xaringan presentation for this module is [here](presentations/2_Intro/r_training_intro_presentation.html).
 
 ## What is R?
 
@@ -75,4 +75,34 @@ Some great examples of R packages are:
 * [BMRSr](http://bmrsr.arawles.co.uk) for extracting energy data
   - Truth be told, this isn't a *great* example of a package, it's just the one I've made so that's why it's here.
 
-We'll look at installing packages in the next chapter, but the thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out. 
+The thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out. 
+
+### Installing packages
+
+You can think of installing a package as a bit like installing a program on your computer. You only need to install it once, but then you'll need to open it each time you use it.
+
+Installing packages is really easy; you just use the `install.packages()` function:
+
+```{r, eval = FALSE}
+install.packages("BMRSr")
+```
+
+You can choose where the package installs by suppling a path to the `lib` parameter (e.g. `lib = "C:/me/desktop"`), but by default it will install it into your default library folder. You can find the path to this default library folder with the `.libPaths()` function.
+
+Once the package has been installed, you only need to reinstall it if there's a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don't need all of them for every project you do. So instead, we load specific packages we want each time.
+
+To load a package, use the `library()` function. Place this somewhere near the start of your script so that it's obvious which packages someone will need if they're reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.
+
+But Adam? What happens if I load two packages that have functions with the same name? Ah, that's a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it's precedence. That means that when you try and use a function with a name that's in more than one of the packages you've loaded, it will default to the latest package you've loaded.
+
+To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you'll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and `::` when you use it, like this:
+
+```{r, eval = FALSE}
+dplyr::mutate()
+
+mutate()
+```
+
+Finally, there is a package called `conflicted` that you can use to avoid these issues. Rather than giving a certain package precedence because it was loaded later, attempting to use a function that could come from more than one package will cause an error and you'll need to be explicit with which one you mean.
+
+Personally, I use the prefix method. Yes it's a little bit more verbose, but it makes it 100 times easier for someone else to know exactly where your function has come from without the need for extra packages. This also tends to be the approach that I take because there's nothing worse than coming back to a script a year later and forgetting which packages you need because you didn't include the correct library calls.
