@@ -52,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -253,7 +228,7 @@ Patricia,75</code></pre>
 <div id="base" class="section level5">
 <h5><span class="header-section-number">8.1.1.1.1</span> Base</h5>
 <p>To load a csv file using base R, we’ll use the <code>read.csv()</code> function:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/your/file&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, ...)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/your/file&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, ...)</code></pre></div>
 <p>The <code>file</code> parameters needs the path to your file as a character string. The <code>header</code> parameter is used to tell R whether or not your file has column headers.</p>
 <p>There are lots of other parameters that can be tweaked for the <code>read.csv()</code> function, but we won’t go through them here.</p>
 </div>
@@ -261,22 +236,22 @@ Patricia,75</code></pre>
 <h5><span class="header-section-number">8.1.1.1.2</span> readr</h5>
 <p>The <code>readr</code> package comes with a similar function: <code>read_csv()</code>. With the exception of a couple of extra parameters in the <code>read_csv()</code> function and potentially some better efficiency, there isn’t a massive difference between the two.</p>
 <p>Using the <code>read_csv()</code> function is simple:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/your/file&quot;</span>, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/your/file&quot;</span>, <span class="dt">col_names =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p>In this function, the <code>header</code> parameter is replaced with the <code>col_names</code> parameter. The <code>col_names</code> parameter is very similar, you can say whether your dataset has column headings, or you can provide a character vector of names to be used as column headers.</p>
 <p>There are also some extra parameters in the <code>read_csv()</code> function that can be useful. The <code>col_types</code> parameter lets you specify what datatype each column should be treated as. This can either be provided using the <code>cols()</code> helper function like this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/file&quot;</span>,</a>
-<a class="sourceLine" id="cb4-2" title="2">                <span class="dt">col_names =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb4-3" title="3">                <span class="dt">col_types =</span> readr<span class="op">::</span><span class="kw">cols</span>(</a>
-<a class="sourceLine" id="cb4-4" title="4">                  readr<span class="op">::</span><span class="kw">col_character</span>(), readr<span class="op">::</span><span class="kw">col_double</span>()</a>
-<a class="sourceLine" id="cb4-5" title="5">                ),</a>
-<a class="sourceLine" id="cb4-6" title="6">                ...</a>
-<a class="sourceLine" id="cb4-7" title="7">)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/file&quot;</span>,
+                <span class="dt">col_names =</span> <span class="ot">TRUE</span>,
+                <span class="dt">col_types =</span> readr<span class="op">::</span><span class="kw">cols</span>(
+                  readr<span class="op">::</span><span class="kw">col_character</span>(), readr<span class="op">::</span><span class="kw">col_double</span>()
+                ),
+                ...
+)</code></pre></div>
 <p>Or, you can provide a compact string with different letters representing different datatypes:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/file&quot;</span>,</a>
-<a class="sourceLine" id="cb5-2" title="2">                <span class="dt">col_names =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb5-3" title="3">                <span class="dt">col_types =</span> <span class="st">&quot;cd&quot;</span>,</a>
-<a class="sourceLine" id="cb5-4" title="4">                ...</a>
-<a class="sourceLine" id="cb5-5" title="5">)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;path/to/file&quot;</span>,
+                <span class="dt">col_names =</span> <span class="ot">TRUE</span>,
+                <span class="dt">col_types =</span> <span class="st">&quot;cd&quot;</span>,
+                ...
+)</code></pre></div>
 <p>The codes for the different datatypes can be found on the documentation page for the <code>read_csv()</code> function (type <code>?read_csv()</code>).</p>
 <p>The <code>trim_ws</code> parameter can also be helpful if you have a dataset with lots of trailing whitespace around your values. When set to true, the <code>read_csv()</code> function will automatically trim each field before loading it in.</p>
 <p>Overall, both functions will give you the same result, so just choose whichever function makes most sense to you and has the parameters you need.</p>
@@ -287,7 +262,7 @@ Patricia,75</code></pre>
 <h3><span class="header-section-number">8.1.2</span> Excel files</h3>
 <p>R doesn’t have any built-in functions to load Excel files. Instead, you’ll need to use a package. One of the more popular packages used to read Excel files is the <code>readxl</code> package.</p>
 <p>Once you’ve installed and loaded the <code>readxl</code> package. You can use the <code>read_excel()</code> function:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="dt">path =</span> <span class="st">&quot;path/to/file&quot;</span>, <span class="dt">sheet =</span> <span class="ot">NULL</span>, <span class="dt">range =</span> <span class="ot">NULL</span>, ...)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="dt">path =</span> <span class="st">&quot;path/to/file&quot;</span>, <span class="dt">sheet =</span> <span class="ot">NULL</span>, <span class="dt">range =</span> <span class="ot">NULL</span>, ...)</code></pre></div>
 <p>Because Excel files are a little bit more complicated than csv files, you’ll notice that there are some extra parameters. Most notably, the sheet and range parameters can be used to define a subset of the entire Excel file to be loaded. By default, both are set to NULL, which will mean that R will load the entirety of the first sheet.</p>
 <p>Like the <code>readr::read_csv()</code> function, you can specify column names and types using the <code>col_names</code> and <code>col_types</code> parameters respectively, and also trim your values using <code>trim_ws</code>.</p>
 </div>
@@ -305,51 +280,41 @@ Patricia,75</code></pre>
 <h3><span class="header-section-number">8.2.2</span> Accessing APIs in R</h3>
 <p>To access a web-based API in R, we’re going to need a connection to the internet, the <code>httr</code> package and potentially some log in credentials for the API. In this case, we’re going to just use a test API, but in reality, most APIs require that you use some kind of authentication so that they know who’s accessing their data.</p>
 <p>As previously mentioned, to extract something from the API, you’ll be using the <code>GET</code> method. The <code>httr</code> package makes this super easy by providing a <code>GET</code> function. To this function, we’ll need to provide a URL. The <code>GET</code> function will then send a GET request to that address and return the response. A really simple GET request could be:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;http://google.com&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;http://google.com&quot;</span>)</code></pre></div>
 <pre><code>## Response [http://www.google.com/]
-##   Date: 2020-05-06 11:02
+##   Date: 2020-05-06 12:01
 ##   Status: 200
 ##   Content-Type: text/html; charset=ISO-8859-1
-##   Size: 12.3 kB
-## &lt;!doctype html&gt;&lt;html itemscope=&quot;&quot; itemtype=&quot;http://schema.org/WebPage&quot; l...
-## document.documentElement.addEventListener(&quot;submit&quot;,function(b){var a;if(...
-## var a=window.location,b=a.href.indexOf(&quot;#&quot;);if(0&lt;=b){var c=a.href.substr...
-## &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0...
-## if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf...
+##   Size: 14.3 kB
+## &lt;!doctype html&gt;&lt;html itemscope=&quot;&quot; itemtype=&quot;http://schema.org/WebPage&quot; lang=&quot;...
+## document.documentElement.addEventListener(&quot;submit&quot;,function(b){var a;if(a=b.t...
+## var a=window.location,b=a.href.indexOf(&quot;#&quot;);if(0&lt;=b){var c=a.href.substring(b...
+## &lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;over...
+## if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.fo...
 ## }
-## })();&lt;/script&gt;&lt;div id=&quot;mngb&quot;&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt;...
-## else top.location=&#39;/doodles/&#39;;};})();&lt;/script&gt;&lt;input value=&quot;AINFCbYAAAAA...
-## setTimeout(function(){var b=document;var a=&quot;SCRIPT&quot;;&quot;application/xhtml+x...
+## })();&lt;/script&gt;&lt;div id=&quot;mngb&quot;&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a c...
+## else top.location=&#39;/doodles/&#39;;};})();&lt;/script&gt;&lt;input value=&quot;AINFCbYAAAAAXrK1K...
+## setTimeout(function(){var b=document;var a=&quot;SCRIPT&quot;;&quot;application/xhtml+xml&quot;==...
 ## function _F_installCss(c){}</code></pre>
 <p>That seems like a really complicated response at first, but when we look at each part, it’s quite simple.</p>
 <ul>
-<li>Response
-<ul>
+<li>Response</li>
 <li>This is telling us where we got our response from. In this case, we sent a request to Google, so we got a response from Google.</li>
-</ul></li>
-<li>Date
-<ul>
+<li>Date</li>
 <li>Fairly self-explanatory - the date and time of the response.</li>
-</ul></li>
-<li>Content-Type
-<ul>
+<li>Content-Type</li>
 <li>This is telling us what type the response is. In this case, the response is just a HTML page, which is exactly what we expect as that’s what you get when you type “google.com” into your browser.</li>
-</ul></li>
-<li>Size
-<ul>
+<li>Size</li>
 <li>This is the size of the response</li>
-</ul></li>
-<li>Content
-<ul>
+<li>Content</li>
 <li>Below the Size, we see the actually response body. In this case, we’ve been given the html for the Google.com page.</li>
-</ul></li>
 </ul>
 <p>As simple as this example was, it didn’t really give us anything interesting back, just the Google homepage. So let’s use the GET request to get something more interesting.</p>
 <p>We’re going to access the [<a href="https://jsonplaceholder.typicode.com/" class="uri">https://jsonplaceholder.typicode.com/</a>] website, which provides fake APIs for testing. But for now, imagine that this is something like an Instagram database, holding users and their posts and comments.</p>
 <p>The first step in accessing an API is to understand that commands the API is expecting. Looking at the website, we can see that we can access lots of different types of data: posts, comments, albums, photos, todos and users. We can also see that to list each one, we just need to add /whatever to the end of our URL. So let’s try getting a list of users:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://jsonplaceholder.typicode.com/users&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://jsonplaceholder.typicode.com/users&quot;</span>)</code></pre></div>
 <pre><code>## Response [https://jsonplaceholder.typicode.com/users]
-##   Date: 2020-05-06 11:02
+##   Date: 2020-05-06 12:01
 ##   Status: 200
 ##   Content-Type: application/json; charset=utf-8
 ##   Size: 5.64 kB
@@ -366,9 +331,9 @@ Patricia,75</code></pre>
 ## ...</code></pre>
 <p>Looking at the content type, we can see that unlike when we sent a request to Google.com, we’ve got a Content-Type of application/json. JSON is a data structure often used to send data across APIs. We won’t go into the structure of it now because R does most of the conversion for us, but if you’re interested, there’s more info on the JSON structure <a href="https://www.json.org/json-en.html">here</a>.</p>
 <p>Trying to read raw JSON is hard, but <code>httr</code> includes functions to help us get it into a better structure for R. Using the <code>httr::content()</code> function, <code>httr</code> will automatically read the response content and convert it into the format we ask for. For now, we’re going to leave it at ‘NULL’ which guesses the best format for us.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">response &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://jsonplaceholder.typicode.com/users&quot;</span>)</a>
-<a class="sourceLine" id="cb11-2" title="2">content &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">content</span>(response)</a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="kw">head</span>(content, <span class="dv">1</span>) <span class="co"># we&#39;ll just look at the first entry for presentation sake</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">response &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://jsonplaceholder.typicode.com/users&quot;</span>)
+content &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">content</span>(response)
+<span class="kw">head</span>(content, <span class="dv">1</span>) <span class="co"># we&#39;ll just look at the first entry for presentation sake</span></code></pre></div>
 <pre><code>## [[1]]
 ## [[1]]$id
 ## [1] 1
@@ -421,9 +386,9 @@ Patricia,75</code></pre>
 ## [1] &quot;harness real-time e-markets&quot;</code></pre>
 <p>We can see that R has taken the response and turned it into a list for us. From here, we can then start our analysis.</p>
 <p>In many cases however, you won’t want a complete list. Instead, you’ll want to provide some parameters to limit the data you get back. Most APIs will have a way of doing this. For example, reading the jsonplaceholder website, we can see that we can get all the posts for a specific user by appending the url with “?userId=x”. So let’s try getting all of the posts for the user with ID 1:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">response &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://jsonplaceholder.typicode.com/posts?userId=1&quot;</span>)</a>
-<a class="sourceLine" id="cb13-2" title="2">content &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">content</span>(response)</a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="kw">head</span>(content, <span class="dv">1</span>) <span class="co"># we&#39;ll just look at the first entry for presentation sake</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">response &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> <span class="st">&quot;https://jsonplaceholder.typicode.com/posts?userId=1&quot;</span>)
+content &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">content</span>(response)
+<span class="kw">head</span>(content, <span class="dv">1</span>) <span class="co"># we&#39;ll just look at the first entry for presentation sake</span></code></pre></div>
 <pre><code>## [[1]]
 ## [[1]]$userId
 ## [1] 1
@@ -450,34 +415,26 @@ Patricia,75</code></pre>
 </ul>
 <p>Once you’ve got those two prerequisites, using BMRSr should be quite easy. The main function in the BMRSr package is the <code>full_request()</code> function, which will create your URL, send the request, and parse the response depending on your parameters. To do this however, the <code>full_request()</code> function needs some parameters:</p>
 <ul>
-<li><code>data_item</code>
-<ul>
+<li><code>data_item</code></li>
 <li>A data item to retrieve. The BMRS platform holds lots of datasets, and so we need to specify which one we want to retrieve.</li>
-</ul></li>
-<li><code>api_key</code>
-<ul>
+<li><code>api_key</code></li>
 <li>Our API_key that we got from the Elexon portal</li>
-</ul></li>
-<li>parameters
-<ul>
+<li>parameters</li>
 <li>Depending on which data_item you chose, you’ll need to provide some parameters to filter the data</li>
-</ul></li>
-<li><code>service_type</code>
-<ul>
+<li><code>service_type</code></li>
 <li>What format you want the data returned in: values are XML or csv.</li>
-</ul></li>
 </ul>
 <p>So what parameters do I need? Well, the easiest way to find out is to use the <code>get_parameters()</code> function. This will return all of the parameters that can be provided to the <code>full_request()</code>.</p>
 <p>Let’s do an example. Say I want to return data for the B1610 data item, which shows us generation output per generation unit. So, the first step is to know what parameters I can provide using the <code>get_parameters()</code> function:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">BMRSr<span class="op">::</span><span class="kw">get_parameters</span>(<span class="st">&quot;B1610&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BMRSr<span class="op">::</span><span class="kw">get_parameters</span>(<span class="st">&quot;B1610&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;settlement_date&quot; &quot;period&quot;</code></pre>
 <p>This tells me that I can provide two parameters in my request - the date and the settlement period. Using this information in my <code>full_request()</code> function…</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">BMRSr<span class="op">::</span><span class="kw">full_request</span>(<span class="dt">data_item =</span> <span class="st">&quot;B1610&quot;</span>,</a>
-<a class="sourceLine" id="cb17-2" title="2">                    <span class="dt">api_key =</span> <span class="st">&quot;put_your_API_key_here&quot;</span>,</a>
-<a class="sourceLine" id="cb17-3" title="3">                    <span class="dt">service_type =</span> <span class="st">&quot;csv&quot;</span>,</a>
-<a class="sourceLine" id="cb17-4" title="4">                    <span class="dt">settlement_date =</span> <span class="kw">as.Date</span>(<span class="st">&quot;2019/06/01&quot;</span>),</a>
-<a class="sourceLine" id="cb17-5" title="5">                    <span class="dt">period =</span> <span class="st">&quot;*&quot;</span>) <span class="co"># From reading the API manual,</span></a>
-<a class="sourceLine" id="cb17-6" title="6">                                  <span class="co"># I know that this returns all periods</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BMRSr<span class="op">::</span><span class="kw">full_request</span>(<span class="dt">data_item =</span> <span class="st">&quot;B1610&quot;</span>,
+                    <span class="dt">api_key =</span> <span class="st">&quot;put_your_API_key_here&quot;</span>,
+                    <span class="dt">service_type =</span> <span class="st">&quot;csv&quot;</span>,
+                    <span class="dt">settlement_date =</span> <span class="kw">as.Date</span>(<span class="st">&quot;2019/06/01&quot;</span>),
+                    <span class="dt">period =</span> <span class="st">&quot;*&quot;</span>) <span class="co"># From reading the API manual,</span>
+                                  <span class="co"># I know that this returns all periods</span></code></pre></div>
 <p>And there we have it, we’ve retrieved a energy-related dataset from an API using the BMRSr package. There are roughly 101 data items available on BMRS so there’s a massive amount of data there for those who want to access it.</p>
 </div>
 </div>
@@ -550,6 +507,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
