@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Teach Yourself or Others R</title>
-  <meta name="description" content="Teach Yourself or Others R" />
+  <title>4 Variable assignment | Teach Yourself or Others R</title>
+  <meta name="description" content="4 Variable assignment | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Teach Yourself or Others R" />
+  <meta property="og:title" content="4 Variable assignment | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="logo.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Teach Yourself or Others R" />
+  <meta name="twitter:title" content="4 Variable assignment | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="logo.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="introduction-to-r.html"/>
+<link rel="prev" href="operators.html"/>
+<link rel="next" href="data-types.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -173,37 +173,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Teach Yourself or Others R</h1>
-<p class="author"><em>Adam Rawles</em></p>
-</div>
-<div id="teacher" class="section level1">
-<h1><span class="header-section-number">1</span> teacheR</h1>
-<div id="overview" class="section level2">
-<h2><span class="header-section-number">1.1</span> Overview</h2>
-<p>This book is a collection of training materials for an introduction to the R statistical computing programming language. Broken down into chapters, I’ve aimed to cover most of the basics. Alongside each chapter is a xaringan presentation. This can help for those looking to learn, but can also function as a first step for those looking to begin teaching R but who don’t have the time to fully develop their own training modules. Hopefully, all the topics covered in the text version will be covered in the presentation and vice versa, so if you learn visually then you can rest easy knowing that you’re not missing out! You can find a link to each presentation on the first page of each chapter.</p>
-<p>This is a work in progress, and so I would greatly appreciate any feedback. Anything from typos to content suggestions, feel free to raise a <a href="https://github.com/arawles/teacher/issues">GitHub issue</a> if you feel something should be changed.</p>
-</div>
-<div id="about-me" class="section level2">
-<h2><span class="header-section-number">1.2</span> About Me</h2>
-<p>I began using R in my second year of university, during an internship looking at publication bias correction methods. I was under the tutorship of a member of staff who helped me immensely, but I must confess that I have never taken an official course in R, online or in person. I like to think, however, that this is not always a bad thing. Learning from the bottom up and struggling along the way is a fantastic way to acquire knowledge and instills a very important lesson:</p>
-<p><b> You’re not going to know everything there is to know about R. Ever. But that’s okay. </b></p>
-<p>I’m now 4 years into my R career and I use R every day. With that in mind, I don’t think there has ever been a day where I haven’t referred to a tutorial, or Stack Overflow, or even just Googled the name of a function that I’ve used 1000 times before. There is a great repository of knowledge for R and it’s one of the things I love most about the R community. So please never feel as though you’re an impostor in a world of R gurus. In reality, everyone else is just as lost as you. But if you keep ticking along and never feel that learning something new in R isn’t worth your time, you’ll end up doing some great things.</p>
-<p>And in a roundabout way, that is part of the reason I decided to develop these materials. I don’t pretend to be the ultimate R programmer, because I still know what it’s like to learn something from the start. And everyone has to start somewhere. So I hope that I can help impart some of the lessons that I’ve learnt over the 4 years to anyone who’s looking to learn R in a way that won’t leave you feeling lost.</p>
-<p>The only final note I have before we start learning how to use R is another bit of advice:</p>
-<p><b> Don’t believe everything you read </b></p>
-<p>Whilst this is probably a good thing to keep in mind for any type of training, I feel it’s particularly relevant with R for two reasons. Firstly, when it comes to programming languages, lots of people have opinions. Some are true, most are not. Most things you read are a mix between fact and opinion, so take everything with a pinch of salt. For example, the developers of the <code>ggplot2</code> package are fervently against arbitrary second axes and so support for them in <code>ggplot2</code> is limited. I also share this view, but that doesn’t mean that I’m right - read, learn, but question and make your own mind up.</p>
-<p>Secondly, R and particuarly all of its packages are prone to change. For this reason, people may make statements relative to one version of R that aren’t necessarily true in the future. Things have changed over the years, and so answers from a 10 year-old Stack Overflow question may not still be true when you come across them. A microcosmic version of this are some recent changes in the <code>tidyr</code> package. Historically, converting data from/to long and short formats was done using the <code>spread()</code> and <code>gather()</code> functions. However, in newer releases, these functions are deprecated in favour of <code>pivot_wider()</code> and <code>pivot_longer()</code>, which provide the same functionality but also some extra bits. The practical implication of this suggestion is don’t always read one tutorial on a subject before you dive in.</p>
+<div id="variable-assignment" class="section level1">
+<h1><span class="header-section-number">4</span> Variable assignment</h1>
+<p>Do you ever tell a story to a friend, and then someone else walks in once you’ve finished and so you have to tell the whole thing again?</p>
+<p>Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.</p>
+<p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
+<p>Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.</p>
+<p>Creating variables in R is really easy. All you need to do is provide a valid name, use the <code>&lt;-</code> symbol, and then provide a value to assign:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello_im_a_variable &lt;-<span class="st"> </span><span class="dv">100</span>
+hello_im_a_variable</code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<p>Now, whenever you want to use your variable, you just need to provide the variable name in place of the value:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello_im_a_variable <span class="op">/</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>You can even use your variable to create new variables:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello_im_another_variable &lt;-<span class="st"> </span>hello_im_a_variable <span class="op">/</span><span class="st"> </span><span class="dv">20</span>
+hello_im_another_variable</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>When you come across other people’s work, you may see that they use <code>=</code> instead of <code>&lt;-</code> when they create their variables. Even though it’s not the end of the world if you do do that, I would recommend getting into the habit of using <code>&lt;-</code>. <code>&lt;-</code> is purely used for assignment, whereas <code>=</code> is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.</p>
+<p>As a side note, you’ll see that the value of the variable isn’t outputted when we assign it. If we want to see the value, we need just the name.</p>
+<p>Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">variable_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">100</span>
+variable_<span class="dv">1</span> &lt;-<span class="st"> &quot;I&#39;m not 100 anymore&quot;</span>
+variable_<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] &quot;I&#39;m not 100 anymore&quot;</code></pre>
+<p>R will also give the variable an appropriate <em>type</em> based on the value you assign. So for example, if you assign <code>20</code> to a variable, then that variable will be stored as a number. If you assign something in quotation marks like <code>&quot;hello&quot;</code>, then R will store it as text.</p>
+<p>Let’s look in a bit more detail at the different data types…</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction-to-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-types.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
