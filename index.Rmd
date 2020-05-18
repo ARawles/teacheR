@@ -9,7 +9,9 @@ output:
       toc:
         collapse: section
       download:
-        - ["_main.pdf", "PDF"]  
+        - ["_main.pdf", "PDF"]
+favicon: "favicon.ico"
+cover-image: "logo.png"
     
 ---
 
