@@ -12,7 +12,7 @@ output:
         - ["_main.pdf", "PDF"]
         - ["_main.epub", "EBook"]
 favicon: "favicon.ico"
-cover-image: "logo.png"
+cover-image: "cover.png"
     
 ---
 
