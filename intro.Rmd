@@ -93,7 +93,7 @@ Once the package has been installed, you only need to reinstall it if there's a 
 
 To load a package, use the `library()` function. Place this somewhere near the start of your script so that it's obvious which packages someone will need if they're reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.
 
-But Adam? What happens if I load two packages that have functions with the same name? Ah, that's a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it's precedence. That means that when you try and use a function with a name that's in more than one of the packages you've loaded, it will default to the latest package you've loaded.
+But Adam, what happens if I load two packages that have functions with the same name? Ah, that's a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it's precedence. That means that when you try and use a function with a name that's in more than one of the packages you've loaded, it will default to the latest package you've loaded.
 
 To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you'll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and `::` when you use it, like this:
 

@@ -7,7 +7,7 @@ output:
   bookdown::gitbook:
     config:
       toc:
-        collapse: section
+        collapse: subsection
       download:
         - ["_main.pdf", "PDF"]
         - ["_main.epub", "EBook"]

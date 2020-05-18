@@ -89,6 +89,18 @@ Also, notice how we're using `=` here and not anything else like `<-`? This is a
 
 So how does this link back with the `...`? Well, with the `c()` function, every unnamed parameter you provide is bundled into the `...` parameter. To give values for the `recursive` and `use.names` parameters, you'd need to provide them *explicitly* (e.g. `recursive = TRUE`). This will be true of many functions where you see a `...`. If you're not explicit with the parameters that you don't want to be included in the `...`, you're going to have a bad time.
 
+
+#### Optional input parameters
+
+For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there's a default value, but you can override it if needed.
+
+Optional parameters are easily distinguished in the documentation of a function because they will a value already assigned to them like this: `use.names = TRUE`.
+
+For instance, when we create a vector using the `c()` function, there are two optional parameters (`recursive` and `use.names`) that already have the values `TRUE` and `FALSE` assigned to them. To override these defaults, we just need to provide a new value to the parameter like this:
+```{r}
+c(1,10,15, use.names = FALSE)
+```
+
 ### Outputs
 
 First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one *thing*. I say one *thing*, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
@@ -99,7 +111,7 @@ First and foremost, in R you can have as many input as you like to a function. H
 Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here's a quick example:
 
 ```{r}
-x = 1
+x <- 1
 sum(x, 1)
 x
 ```
@@ -109,7 +121,7 @@ As you can see, when we call the `sum()` function with `x` as an input parameter
 If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it's quite simple:
 
 ```{r}
-x = 1
+x <- 1
 x <- sum(x,1)
 x
 ```
@@ -142,3 +154,149 @@ Conversely, `sum()` will attempt to apply the `sum` function to the inputs provi
 
 Again, while this is isn't really a massive point for the moment, it can help some understand the fundamental building blocks of R.
 
+## Creating functions
+
+R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn't a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn't an Excel function for you to use and there isn't an easy way to create one without knowing VBA.
+
+R is different. Creating functions can be very simple, and will really change the way you work.
+
+### Function structure
+
+If we go back to the beginning of this chapter, we learnt that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the `function` keyword like this:
+
+```{r}
+my_first_function <- function() {}
+```
+
+Notice how we've got two sets of brackets here. The first (`()`) is where we define our input parameters. The second (`{}`) is where we define the body of our function.
+
+Let's do a simple example. Let's create a function that adds two numbers together:
+
+```{r}
+my_sum_function <- function(x, y) {
+  x + y
+}
+```
+
+So in this example, I've defined that when anyone uses the function, they need to provide two input parameters named `x` and `y`. Something that people tend to struggle with is that the names of your input parameters have no implicit meaning. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why for example in some functions that require a dataframe there will be an input parameter called `df` or similar. But importantly, these names are technically just arbitrary.
+
+In the body of the function, we can see that we're just doing something really simple: we're adding `x` and `y` together with `+`.
+
+Once I've run the code to **define** my function, I can then **call** it like I would any other function:
+
+```{r}
+my_sum_function(x = 5, y = 6)
+```
+
+### Optional input parameters
+
+When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:
+
+```{r}
+add_mostly_2 <- function(x, y = 2){
+  x + y
+}
+
+add_mostly_2(x = 5)
+
+add_mostly_2(x = 5, y = 3)
+```
+
+### ...
+
+You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
+```{r}
+dot_dot_dot_function <- function(x, y, ...) {
+}
+```
+
+The `...` works particularly well when you might be creating a function that *wraps* around another one. A wrapping function is just a function that makes a call to another one within it, like this:
+
+```{r}
+sum_and_add_2 <- function(...){
+  sum(...) + 2
+}
+```
+
+All we're basically doing in the above wrapping around the `sum()` function to add some specific functionality.
+
+By using the `...` here, we can just pass everything that the user provides to the `sum()` function. This means we don't have to worry about copying any input parameters.
+
+## Function environments
+
+To better understand how functions operate, we need to understand how environments and scoping works in R. There's a separate chapter on environments in this book, but we'll briefly look at how functions create environments.
+
+Environments are hierarchical collections of objects. You can think of these environments as going from non-specific to specific. When you define a variable in a script, you are creating that variable in the *global environment*, a very non-specific environment. Functions, however, create their own more specific environment when they are called, but will inherit the values from the more general environments.
+
+This breeds some specific behaviours. For example, say you've written a function that expects two input parameters, `x` and `y`. Well, what would happen if someone had already defined an `x` and `y` variable in their script? Which value should R use?
+
+Let's see what happens.
+
+```{r}
+sum_custom <- function(x,y) {
+  x + y
+}
+
+x <- 10
+y <- 5
+
+sum_custom(x = 1, y = 2)
+```
+
+In this case, the fact that there is already an `x` and `y` in the global environment doesn't really make much difference. The function creates its own more specific environment when it's called, and it looks for the `x` and `y` variables in here first. It finds them and uses those values (1 and 2).
+
+But what happens if a variable doesn't exist in the more specific function environment? Let's take a look.
+
+
+```{r}
+sum_custom <- function(x,y) {
+  x + y + w
+}
+
+w <- 5
+
+sum_custom(x = 1, y = 2)
+```
+
+In this case, the function looks in the specific environment for `w`, but it doesn't exist. The only objects that exist in the function environment are the `x` and `y` that we've provided. So when R doesn't find it in the more specific environment, it looks in the less-specific global environment. It finds, and so it uses the value it finds.
+
+This can be a dangerous thing, so always make sure that you're function is accessing the values you think it is.
+
+So does R work the other way? Does it ever look in a more specific environment? Nope. 
+
+```{r, error = TRUE}
+sum_custom <- function(x,y){
+  im_a_sneaky_variable <- 10
+  x + y
+}
+
+im_a_sneaky_variable
+```
+
+Once the function is called, objects in its environment are unaccessible. The long and short of it is, R will start fromk specific environments and then look upwards, never downwards.
+
+
+### 'Super' assignment
+
+There will be occassions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial `<<-` operator. This is used as an assignment operator to assign a value to the global environment. Observe...
+
+
+```{r}
+sum_custom <- function(x,y) {
+  count <<- count + 1
+  x + y
+}
+
+count <- 0
+
+sum_custom(1,2)
+
+count
+
+sum_custom(2,3)
+
+count
+```
+Note how when we assign `0` to our `count` variable outside of the function, we don't need to use `<<-`. This is because we're already assigning to the global environment.
+
+Use the `<<-` with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.
