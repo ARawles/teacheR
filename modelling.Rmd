@@ -1,7 +1,0 @@
-# Modelling
-
-## Linear modelling
-
-## Clustering
-
-## Programming and modelling

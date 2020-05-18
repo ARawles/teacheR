@@ -1,5 +1,4 @@
-
-## Variable assignment
+# Variable assignment
 
 Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?
 
@@ -33,4 +32,15 @@ When you come across other people's work, you may see that they use `=` instead 
 
 As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.
 
-Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name. R will also give the variable the correct *type* based on the value you assign. So for example, if you assign `20` to a variable, then that variable will be stored as a number. If you assign something in quotation marks like `"hello"`, then R will store it as text. Let's look in a bit more detail at the different data types.
+Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:
+
+```{r}
+variable_1 <- 100
+variable_1 <- "I'm not 100 anymore"
+variable_1
+
+```
+
+R will also give the variable an appropriate *type* based on the value you assign. So for example, if you assign `20` to a variable, then that variable will be stored as a number. If you assign something in quotation marks like `"hello"`, then R will store it as text.
+
+Let's look in a bit more detail at the different data types...

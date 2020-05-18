@@ -12,12 +12,5 @@ rmd_files: [
   "subsetting.Rmd",
   "functions.Rmd",
   
-  "data-analysis.Rmd",
-  
-  "programming.Rmd",
-  
-  "tidyverse.Rmd",
-  
-  "modelling.Rmd",
   
   "exercises.Rmd"]
