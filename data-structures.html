@@ -232,7 +232,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>I appreciate that this answer isn’t particularly satisfactory however, and so let me give a real life example of when I’ve used each.</p>
 <p><u>Vector</u></p>
 <p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>) <span class="co"># this is just short hand for saying &quot;all of the numbers from 1 to 30&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
+<span class="co"># this is just shorthand for saying &quot;all of the numbers from 1 to 30&quot;</span></code></pre></div>
 <p>So when I ran my simulation, I had all the values I wanted to run it for in a single structure.</p>
 <p><u>List</u></p>
 <p>When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:</p>
@@ -270,7 +271,8 @@ model3 &lt;- model(...)</code></pre>
 <p>So at it’s heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="subsetting.html#dataframes-1">susbetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
   <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),
-  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...))) <span class="co"># The I() just tells R to leave it as a list</span>
+  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...)))
+  <span class="co"># The I() just tells R to leave it as a list</span>
 )</code></pre></div>
 <p>For now though, don’t worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they’ll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you’re ahead of the game.</p>
 
@@ -324,7 +326,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["_main.pdf", "PDF"]],
+"download": [["_main.pdf", "PDF"], ["_main.epub", "EBook"]],
 "toc": {
 "collapse": "section"
 }

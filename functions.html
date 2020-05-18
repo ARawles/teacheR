@@ -197,8 +197,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">8.1.1</span> Functions in R</h3>
 <p>So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (<code>()</code>, not any other type of bracket) when you use them. This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
 <p>I say that nearly almost all functions are followed by <code>()</code>, because some aren’t. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>) <span class="co"># the backticks just mean I&#39;m referring to the + function without using it</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the backticks just mean I&#39;m referring</span>
+<span class="co"># to the + function without using it</span></code></pre></div>
 <p>But it doesn’t have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
@@ -319,7 +321,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["_main.pdf", "PDF"]],
+"download": [["_main.pdf", "PDF"], ["_main.epub", "EBook"]],
 "toc": {
 "collapse": "section"
 }
