@@ -18,6 +18,8 @@ cover-image: "cover.png"
 
 # teacheR
 
+<img src="cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" />
+
 ## Overview
 
 This book is a collection of training materials for an introduction to the R statistical computing programming language. Broken down into chapters, I've aimed to cover most of the basics.
