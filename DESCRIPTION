@@ -15,16 +15,6 @@ Imports:
     xaringan,
     bookdown,
     rmarkdown,
-    ggplot2,
-    dplyr,
-    tidyr,
-    readr,
-    purrr,
-    tibble,
-    stringr,
-    forcats,
     shiny,
-    learnr,
-    httr,
-    BMRSr
+    learnr
 RoxygenNote: 6.1.1

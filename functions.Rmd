@@ -27,7 +27,7 @@ Similarly, whenever you created a factor or a matrix or a dataframe or whatever,
 As confusing as functions will inevitably become, just try to remember the core of what a function is:
 There's an input. There's a computation. There's an output.
 
-## Functions in R
+### Functions in R
 
 So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (`()`, not any other type of bracket) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
 
@@ -45,7 +45,7 @@ But it doesn't have brackets. Instead, we can use a shorthand where we provide t
 
 It's just that this looks a little weird to us, so we often use the shorthand way.
 
-## Inputs
+### Inputs
 
 We know that to use a function in R, we have to provide inputs\*. And we also know that we provide our inputs within the brackets after the function name. But how do we know what values are allowed?
 
@@ -55,7 +55,7 @@ By typing a `?` followed by the name of the function into the console (e.g. `?le
 
 In some cases, you'll see a `...` as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the `c()` function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the `c()` function basically bundles everything you provide to it into that `...` parameter.
 
-### Explicit input parameters
+#### Explicit input parameters
 
 If you type `?c()` into the console however, you'll see that there are also some other input parameters: `recursive` and `use.names`. Well Adam, if `...` just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing **explicit** input parameters. When we're explicit, we're saying exactly which input parameter we're referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let's look at the `substr()` function as an example.
 
@@ -87,11 +87,37 @@ Also, notice how we're using `=` here and not anything else like `<-`? This is a
 
 So how does this link back with the `...`? Well, with the `c()` function, every unnamed parameter you provide is bundled into the `...` parameter. To give values for the `recursive` and `use.names` parameters, you'd need to provide them *explicitly* (e.g. `recursive = TRUE`). This will be true of many functions where you see a `...`. If you're not explicit with the parameters that you don't want to be included in the `...`, you're going to have a bad time.
 
-## Outputs
+### Outputs
 
 First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one *thing*. I say one *thing*, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
 
-## A little more on functions
+
+#### Reassigning outputs
+
+Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here's a quick example:
+
+```{r}
+x = 1
+sum(x, 1)
+x
+```
+
+As you can see, when we call the `sum()` function with `x` as an input parameter, the value of `x` stays the same.
+
+If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it's quite simple:
+
+```{r}
+x = 1
+x <- sum(x,1)
+x
+```
+
+This works because the right-hand side of the assignment line is executed first. In other words, when the `sum(x,1)` is evaluated, `x` is still equal to one. This makes sense because otherwise it'd be very hard to keep track of what `x` was equal to!
+
+This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: `object.AddNew` or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. But what's an environment? Well, we'll take a look at that in the environments chapter.
+
+
+### A little more on functions
 
 If you're not too bothered about the slightly more in-depth stuff about function inputs, then feel free to skip this part and move onto the next section.
 
