@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="subsetting.html"/>
-<link rel="next" href="exercises.html"/>
+<link rel="next" href="environments.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -154,8 +154,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>8.1.3</b> Outputs</a></li>
 <li class="chapter" data-level="8.1.4" data-path="functions.html"><a href="functions.html#a-little-more-on-functions"><i class="fa fa-check"></i><b>8.1.4</b> A little more on functions</a></li>
 </ul></li>
+<li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
+<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a></li>
+<li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
+<li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>10</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -236,6 +247,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Also, notice how we’re using <code>=</code> here and not anything else like <code>&lt;-</code>? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> when we’re providing input parameters and so it’s good to keep them separate.</p>
 <p>So how does this link back with the <code>...</code>? Well, with the <code>c()</code> function, every unnamed parameter you provide is bundled into the <code>...</code> parameter. To give values for the <code>recursive</code> and <code>use.names</code> parameters, you’d need to provide them <em>explicitly</em> (e.g. <code>recursive = TRUE</code>). This will be true of many functions where you see a <code>...</code>. If you’re not explicit with the parameters that you don’t want to be included in the <code>...</code>, you’re going to have a bad time.</p>
 </div>
+<div id="optional-input-parameters" class="section level4">
+<h4><span class="header-section-number">8.1.2.2</span> Optional input parameters</h4>
+<p>For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there’s a default value, but you can override it if needed.</p>
+<p>Optional parameters are easily distinguished in the documentation of a function because they will a value already assigned to them like this: <code>use.names = TRUE</code>.</p>
+<p>For instance, when we create a vector using the <code>c()</code> function, there are two optional parameters (<code>recursive</code> and <code>use.names</code>) that already have the values <code>TRUE</code> and <code>FALSE</code> assigned to them. To override these defaults, we just need to provide a new value to the parameter like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">15</span>, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1]  1 10 15</code></pre>
+</div>
 </div>
 <div id="outputs" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Outputs</h3>
@@ -243,14 +262,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="reassigning-outputs" class="section level4">
 <h4><span class="header-section-number">8.1.3.1</span> Reassigning outputs</h4>
 <p>Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here’s a quick example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">1</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
 <span class="kw">sum</span>(x, <span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>As you can see, when we call the <code>sum()</code> function with <code>x</code> as an input parameter, the value of <code>x</code> stays the same.</p>
 <p>If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it’s quite simple:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">1</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
 x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)
 x</code></pre></div>
 <pre><code>## [1] 2</code></pre>
@@ -269,6 +288,108 @@ x</code></pre></div>
 <pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
 <p>Conversely, <code>sum()</code> will attempt to apply the <code>sum</code> function to the inputs provided in the brackets.</p>
 <p>Again, while this is isn’t really a massive point for the moment, it can help some understand the fundamental building blocks of R.</p>
+</div>
+</div>
+<div id="creating-functions" class="section level2">
+<h2><span class="header-section-number">8.2</span> Creating functions</h2>
+<p>R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn’t a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn’t an Excel function for you to use and there isn’t an easy way to create one without knowing VBA.</p>
+<p>R is different. Creating functions can be very simple, and will really change the way you work.</p>
+<div id="function-structure" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Function structure</h3>
+<p>If we go back to the beginning of this chapter, we learnt that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</code></pre></div>
+<p>Notice how we’ve got two sets of brackets here. The first (<code>()</code>) is where we define our input parameters. The second (<code>{}</code>) is where we define the body of our function.</p>
+<p>Let’s do a simple example. Let’s create a function that adds two numbers together:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}</code></pre></div>
+<p>So in this example, I’ve defined that when anyone uses the function, they need to provide two input parameters named <code>x</code> and <code>y</code>. Something that people tend to struggle with is that the names of your input parameters have no implicit meaning. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why for example in some functions that require a dataframe there will be an input parameter called <code>df</code> or similar. But importantly, these names are technically just arbitrary.</p>
+<p>In the body of the function, we can see that we’re just doing something really simple: we’re adding <code>x</code> and <code>y</code> together with <code>+</code>.</p>
+<p>Once I’ve run the code to <strong>define</strong> my function, I can then <strong>call</strong> it like I would any other function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] 11</code></pre>
+</div>
+<div id="optional-input-parameters-1" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Optional input parameters</h3>
+<p>When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+<span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+</div>
+<div id="section" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> …</h3>
+<p>You’ll notice a crucial distinction between R’s <code>sum()</code> function and ours. The base function allows for an indeterminate number of input parameters, whereas we’ve only allowed 2 (<code>x</code> and <code>y</code>). This is because the base <code>sum()</code> function uses a <code>...</code>. This <code>...</code> is essentially shorthand for “as many or as few inputs as the user wants to provide”. To use the <code>...</code>, just add it as in an input parameter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, ...) {
+}</code></pre></div>
+<p>The <code>...</code> works particularly well when you might be creating a function that <em>wraps</em> around another one. A wrapping function is just a function that makes a call to another one within it, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){
+  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
+}</code></pre></div>
+<p>All we’re basically doing in the above wrapping around the <code>sum()</code> function to add some specific functionality.</p>
+<p>By using the <code>...</code> here, we can just pass everything that the user provides to the <code>sum()</code> function. This means we don’t have to worry about copying any input parameters.</p>
+</div>
+</div>
+<div id="function-environments" class="section level2">
+<h2><span class="header-section-number">8.3</span> Function environments</h2>
+<p>To better understand how functions operate, we need to understand how environments and scoping works in R. There’s a separate chapter on environments in this book, but we’ll briefly look at how functions create environments.</p>
+<p>Environments are hierarchical collections of objects. You can think of these environments as going from non-specific to specific. When you define a variable in a script, you are creating that variable in the <em>global environment</em>, a very non-specific environment. Functions, however, create their own more specific environment when they are called, but will inherit the values from the more general environments.</p>
+<p>This breeds some specific behaviours. For example, say you’ve written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
+<p>Let’s see what happens.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+x &lt;-<span class="st"> </span><span class="dv">10</span>
+y &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn’t really make much difference. The function creates its own more specific environment when it’s called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
+<p>But what happens if a variable doesn’t exist in the more specific function environment? Let’s take a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
+  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w
+}
+
+w &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn’t exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we’ve provided. So when R doesn’t find it in the more specific environment, it looks in the less-specific global environment. It finds, and so it uses the value it finds.</p>
+<p>This can be a dangerous thing, so always make sure that you’re function is accessing the values you think it is.</p>
+<p>So does R work the other way? Does it ever look in a more specific environment? Nope.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){
+  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span>
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+im_a_sneaky_variable</code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
+<p>Once the function is called, objects in its environment are unaccessible. The long and short of it is, R will start fromk specific environments and then look upwards, never downwards.</p>
+<div id="super-assignment" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> ‘Super’ assignment</h3>
+<p>There will be occassions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it’s called from. In these cases, you can use the controversial <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
+  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+count &lt;-<span class="st"> </span><span class="dv">0</span>
+
+<span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don’t need to use <code>&lt;&lt;-</code>. This is because we’re already assigning to the global environment.</p>
+<p>Use the <code>&lt;&lt;-</code> with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.</p>
 
 </div>
 </div>
@@ -279,7 +400,7 @@ x</code></pre></div>
         </div>
       </div>
 <a href="subsetting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="environments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +444,7 @@ gitbook.start({
 },
 "download": [["_main.pdf", "PDF"], ["_main.epub", "EBook"]],
 "toc": {
-"collapse": "section"
+"collapse": "subsection"
 }
 });
 });

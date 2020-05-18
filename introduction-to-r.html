@@ -154,8 +154,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>8.1.3</b> Outputs</a></li>
 <li class="chapter" data-level="8.1.4" data-path="functions.html"><a href="functions.html#a-little-more-on-functions"><i class="fa fa-check"></i><b>8.1.4</b> A little more on functions</a></li>
 </ul></li>
+<li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
+<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a></li>
+<li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
+<li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>10</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -242,7 +253,7 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 <p>You can choose where the package installs by suppling a path to the <code>lib</code> parameter (e.g. <code>lib = &quot;C:/me/desktop&quot;</code>), but by default it will install it into your default library folder. You can find the path to this default library folder with the <code>.libPaths()</code> function.</p>
 <p>Once the package has been installed, you only need to reinstall it if there’s a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don’t need all of them for every project you do. So instead, we load specific packages we want each time.</p>
 <p>To load a package, use the <code>library()</code> function. Place this somewhere near the start of your script so that it’s obvious which packages someone will need if they’re reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.</p>
-<p>But Adam? What happens if I load two packages that have functions with the same name? Ah, that’s a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it’s precedence. That means that when you try and use a function with a name that’s in more than one of the packages you’ve loaded, it will default to the latest package you’ve loaded.</p>
+<p>But Adam, what happens if I load two packages that have functions with the same name? Ah, that’s a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it’s precedence. That means that when you try and use a function with a name that’s in more than one of the packages you’ve loaded, it will default to the latest package you’ve loaded.</p>
 <p>To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you’ll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and <code>::</code> when you use it, like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr<span class="op">::</span><span class="kw">mutate</span>()
 
@@ -303,7 +314,7 @@ gitbook.start({
 },
 "download": [["_main.pdf", "PDF"], ["_main.epub", "EBook"]],
 "toc": {
-"collapse": "section"
+"collapse": "subsection"
 }
 });
 });
