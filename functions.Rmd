@@ -34,7 +34,9 @@ So more specifically, what do functions looks like in R? Well, a good starting p
 I say that nearly almost all functions are followed by `()`, because some aren't. A simple example of this is `+`. `+` is still a function:
 
 ```{r}
-is.function(`+`) # the backticks just mean I'm referring to the + function without using it
+is.function(`+`)
+# the backticks just mean I'm referring
+# to the + function without using it
 ```
 
 But it doesn't have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. `1 + 2`). Importantly however, the logic is exactly the same, and you can still use the `+` like a normal function with brackets:

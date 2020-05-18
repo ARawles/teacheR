@@ -65,7 +65,8 @@ I appreciate that this answer isn't particularly satisfactory however, and so le
 I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:
 
 ```{r}
-my_vector <- c(1:30) # this is just short hand for saying "all of the numbers from 1 to 30"
+my_vector <- c(1:30)
+# this is just shorthand for saying "all of the numbers from 1 to 30"
 ```
 
 So when I ran my simulation, I had all the values I wanted to run it for in a single structure.
@@ -122,7 +123,8 @@ So at it's heart, a dataframe is a list, and each column within a dataframe is a
 ```{r, eval = FALSE}
 data.frame(
   country = c("England", "Spain", "France"),
-  model =  I(list(model(...), model(...), model(...))) # The I() just tells R to leave it as a list
+  model =  I(list(model(...), model(...), model(...)))
+  # The I() just tells R to leave it as a list
 )
 ```
 

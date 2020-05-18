@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Functions | Teach Yourself or Others R</title>
   <meta name="description" content="8 Functions | Teach Yourself or Others R" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Functions | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="logo.png" />
   
   
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="8 Functions | Teach Yourself or Others R" />
   
   
-  
+  <meta name="twitter:image" content="logo.png" />
 
 <meta name="author" content="Adam Rawles" />
 
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="subsetting.html"/>
 <link rel="next" href="exercises.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -223,10 +223,12 @@ There’s an input. There’s a computation. There’s an output.</p>
 <h3><span class="header-section-number">8.1.1</span> Functions in R</h3>
 <p>So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (<code>()</code>, not any other type of bracket) when you use them. This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
 <p>I say that nearly almost all functions are followed by <code>()</code>, because some aren’t. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>) <span class="co"># the backticks just mean I&#39;m referring to the + function without using it</span></a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="co"># the backticks just mean I&#39;m referring</span></a>
+<a class="sourceLine" id="cb163-2" title="2"><span class="co"># to the + function without using it</span></a></code></pre></div>
 <p>But it doesn’t have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>It’s just that this looks a little weird to us, so we often use the shorthand way.</p>
 </div>
@@ -240,7 +242,7 @@ There’s an input. There’s a computation. There’s an output.</p>
 <h4><span class="header-section-number">8.1.2.1</span> Explicit input parameters</h4>
 <p>If you type <code>?c()</code> into the console however, you’ll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we’re explicit, we’re saying exactly which input parameter we’re referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let’s look at the <code>substr()</code> function as an example.</p>
 <p>The <code>substr()</code> function simply returns part of a character string that you provide. So, if I was to type:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
 <p>I get the first to the third characters in the string “hello”. With this function call however, I haven’t been explicit. Instead, I’ve just provided the inputs in the order that they’re listed in the documentation:</p>
 <ul>
@@ -258,9 +260,9 @@ There’s an input. There’s a computation. There’s an output.</p>
 </ul></li>
 </ul>
 <p>To be explicit, I need to provide the name of the input parameter that I’m referring to when I provide my inputs:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
 <p>Notice how, when I’m being explicit, it doesn’t matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
 <p>Also, notice how we’re using <code>=</code> here and not anything else like <code>&lt;-</code>? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> when we’re providing input parameters and so it’s good to keep them separate.</p>
@@ -273,16 +275,16 @@ There’s an input. There’s a computation. There’s an output.</p>
 <div id="reassigning-outputs" class="section level4">
 <h4><span class="header-section-number">8.1.3.1</span> Reassigning outputs</h4>
 <p>Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here’s a quick example:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1">x =<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb169-2" title="2"><span class="kw">sum</span>(x, <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1">x =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb172-2" title="2"><span class="kw">sum</span>(x, <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1">x</a></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1">x</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>As you can see, when we call the <code>sum()</code> function with <code>x</code> as an input parameter, the value of <code>x</code> stays the same.</p>
 <p>If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it’s quite simple:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1">x =<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb173-2" title="2">x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb173-3" title="3">x</a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1">x =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb176-2" title="2">x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb176-3" title="3">x</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>This works because the right-hand side of the assignment line is executed first. In other words, when the <code>sum(x,1)</code> is evaluated, <code>x</code> is still equal to one. This makes sense because otherwise it’d be very hard to keep track of what <code>x</code> was equal to!</p>
 <p>This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you’re coming from something like Python, you may be used to changing objects through methods: <code>object.AddNew</code> or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. But what’s an environment? Well, we’ll take a look at that in the environments chapter.</p>
@@ -298,7 +300,7 @@ There’s an input. There’s a computation. There’s an output.</p>
 <code>sum</code>
 and
 <code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1">sum</a></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1">sum</a></code></pre></div>
 <pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
 <p>Conversely, <code>sum()</code> will attempt to apply the <code>sum</code> function to the inputs provided in the brackets.</p>
 <p>Again, while this is isn’t really a massive point for the moment, it can help some understand the fundamental building blocks of R.</p>
@@ -354,7 +356,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["_main.pdf", "PDF"]],
+"download": [["_main.pdf", "PDF"], ["_main.epub", "EBook"]],
 "toc": {
 "collapse": "section"
 }
