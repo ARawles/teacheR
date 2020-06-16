@@ -13,7 +13,7 @@ Let's take the person instance again. Let's say we're going to store data on a n
 
 So our object is "person", and it has the attributes "name", "nationality", and "ethnicity". Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.
 
-More specifically, an object is a specific instance of a pre-defined structure. We call this pre-defined structure a **class**. So an object is an isntance of a class
+More specifically, we call our pre-defined structure a **class**. So an **object** is an instance of a **class**.
 
 
 ## Objects in R
@@ -44,6 +44,8 @@ As a real world analogy, think of the process of talking to someone. The common 
 Going back to R, if you type `print.` into the console, the autocompleter will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.
 
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 
+
+The important thing I hoped you've gleaned from this explanation is that you don't really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn't convince you that you don't need to understand the underlying structure of an object to get hands on with R, I don't know what will.
 
 ### Creating objects
 
