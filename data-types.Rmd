@@ -240,4 +240,4 @@ We see that it's an integer, but it's also a double, and numeric, and a vector. 
 
 Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn't really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you're storing it in (which we're moving on to now), then you're fine.
 
-If you are interested in understanding a bit more about objects in R, then there is a brief [Objects](#Objects) chapter, and I would recommend Hadley's [Advanced R](https://adv-r.hadley.nz/) for more.
+If you are interested in understanding a bit more about objects in R, then there is a brief [Objects](objects.html) chapter, and I would recommend Hadley's [Advanced R](https://adv-r.hadley.nz/) for more.
