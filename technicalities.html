@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Subsetting | Teach Yourself or Others R</title>
-  <meta name="description" content="7 Subsetting | Teach Yourself or Others R" />
+  <title>5.8 Technicalities | Teach Yourself or Others R</title>
+  <meta name="description" content="5.8 Technicalities | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta property="og:title" content="5.8 Technicalities | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="5.8 Technicalities | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="dataframes.html"/>
-<link rel="next" href="vectors-1.html"/>
+<link rel="prev" href="datetimes-posixct.html"/>
+<link rel="next" href="data-structures.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,18 +193,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level1">
-<h1><span class="header-section-number">7</span> Subsetting</h1>
-<p>There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you're using.</p>
-<p>**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
+<div id="technicalities" class="section level2">
+<h2><span class="header-section-number">5.8</span> Technicalities</h2>
+<p>Although I've presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered sub-types of other data types. For example, if we type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
+## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
+<p>We see that it's an integer, but it's also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed. Instead there is a web of <em>inheritance</em>, with types that span many sub-types. Inheritance is a complicated subject but I've included a <a href="objects-and-classes.html#inheritance">brief section</a> explaining it.</p>
+<p>Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn't really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you're storing it in (which we're moving on to now), then you're fine.</p>
+<p>If you are interested in understanding a bit more about objects in R, then there is a brief <a href="objects.html">Objects</a> chapter, and I would recommend Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> for more.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="dataframes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="datetimes-posixct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

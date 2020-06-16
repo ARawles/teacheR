@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Subsetting | Teach Yourself or Others R</title>
-  <meta name="description" content="7 Subsetting | Teach Yourself or Others R" />
+  <title>3.1 Arithmetic operators | Teach Yourself or Others R</title>
+  <meta name="description" content="3.1 Arithmetic operators | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta property="og:title" content="3.1 Arithmetic operators | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="3.1 Arithmetic operators | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="dataframes.html"/>
-<link rel="next" href="vectors-1.html"/>
+<link rel="prev" href="operators.html"/>
+<link rel="next" href="logical-operators.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,18 +193,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level1">
-<h1><span class="header-section-number">7</span> Subsetting</h1>
-<p>There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you're using.</p>
-<p>**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
+<div id="arithmetic-operators" class="section level2">
+<h2><span class="header-section-number">3.1</span> Arithmetic operators</h2>
+<p>At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you've used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.</p>
+<p>Here are the main operators in use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># addition</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">5</span> <span class="co"># subtraction</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span> <span class="co"># multiplication</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">100</span> <span class="op">/</span><span class="st"> </span><span class="dv">25</span> <span class="co"># division</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="dataframes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logical-operators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

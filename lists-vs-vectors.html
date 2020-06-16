@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Subsetting | Teach Yourself or Others R</title>
-  <meta name="description" content="7 Subsetting | Teach Yourself or Others R" />
+  <title>6.3 Lists vs Vectors | Teach Yourself or Others R</title>
+  <meta name="description" content="6.3 Lists vs Vectors | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta property="og:title" content="6.3 Lists vs Vectors | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="6.3 Lists vs Vectors | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="dataframes.html"/>
-<link rel="next" href="vectors-1.html"/>
+<link rel="prev" href="lists.html"/>
+<link rel="next" href="matrices.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,18 +193,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level1">
-<h1><span class="header-section-number">7</span> Subsetting</h1>
-<p>There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you're using.</p>
-<p>**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
+<div id="lists-vs-vectors" class="section level2">
+<h2><span class="header-section-number">6.3</span> Lists vs Vectors</h2>
+<p>Given that lists and vectors are intrinsically linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
+<p>I appreciate that this answer isn't particularly satisfactory however, and so let me give a real life example of when I've used each.</p>
+<p><u>Vector</u></p>
+<p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
+<span class="co"># this is just shorthand for saying &quot;all of the numbers from 1 to 30&quot;</span></code></pre></div>
+<p>So when I ran my simulation, I had all the values I wanted to run it for in a single structure.</p>
+<p><u>List</u></p>
+<p>When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:</p>
+<pre><code>model1 &lt;- model(...)
+model2 &lt;- model(...)
+model3 &lt;- model(...)</code></pre>
+<p>The problem with this however, is that if I then want to compare the models, I'll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
+<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="dataframes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lists.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

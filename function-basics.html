@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8.1 Function basics | Teach Yourself or Others R</title>
+  <meta name="description" content="8.1 Function basics | Teach Yourself or Others R" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8.1 Function basics | Teach Yourself or Others R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="cover.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8.1 Function basics | Teach Yourself or Others R" />
+  
+  
+  <meta name="twitter:image" content="cover.png" />
+
+<meta name="author" content="Adam Rawles" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="functions.html"/>
+<link rel="next" href="creating-functions.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a><ul>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
+<li class="chapter" data-level="2.1" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="should-i-use-r.html"><a href="should-i-use-r.html"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#rstudio-panes"><i class="fa fa-check"></i><b>2.4.2</b> RStudio Panes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3</b> Operators</a><ul>
+<li class="chapter" data-level="3.1" data-path="arithmetic-operators.html"><a href="arithmetic-operators.html"><i class="fa fa-check"></i><b>3.1</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="3.2" data-path="logical-operators.html"><a href="logical-operators.html"><i class="fa fa-check"></i><b>3.2</b> Logical operators</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>4</b> Variable assignment</a></li>
+<li class="chapter" data-level="5" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>5</b> Data types</a><ul>
+<li class="chapter" data-level="5.1" data-path="logical.html"><a href="logical.html"><i class="fa fa-check"></i><b>5.1</b> Logical</a></li>
+<li class="chapter" data-level="5.2" data-path="double.html"><a href="double.html"><i class="fa fa-check"></i><b>5.2</b> Double</a></li>
+<li class="chapter" data-level="5.3" data-path="integer.html"><a href="integer.html"><i class="fa fa-check"></i><b>5.3</b> Integer</a></li>
+<li class="chapter" data-level="5.4" data-path="character.html"><a href="character.html"><i class="fa fa-check"></i><b>5.4</b> Character</a></li>
+<li class="chapter" data-level="5.5" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>5.5</b> Factors</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="factors.html"><a href="factors.html#converting-from-factors"><i class="fa fa-check"></i><b>5.5.1</b> Converting from factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="dates.html"><a href="dates.html"><i class="fa fa-check"></i><b>5.6</b> Dates</a></li>
+<li class="chapter" data-level="5.7" data-path="datetimes-posixct.html"><a href="datetimes-posixct.html"><i class="fa fa-check"></i><b>5.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="5.8" data-path="technicalities.html"><a href="technicalities.html"><i class="fa fa-check"></i><b>5.8</b> Technicalities</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>6</b> Data structures</a><ul>
+<li class="chapter" data-level="6.1" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>6.1</b> Vectors</a></li>
+<li class="chapter" data-level="6.2" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>6.2</b> Lists</a></li>
+<li class="chapter" data-level="6.3" data-path="lists-vs-vectors.html"><a href="lists-vs-vectors.html"><i class="fa fa-check"></i><b>6.3</b> Lists vs Vectors</a></li>
+<li class="chapter" data-level="6.4" data-path="matrices.html"><a href="matrices.html"><i class="fa fa-check"></i><b>6.4</b> Matrices</a></li>
+<li class="chapter" data-level="6.5" data-path="dataframes.html"><a href="dataframes.html"><i class="fa fa-check"></i><b>6.5</b> Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>7</b> Subsetting</a><ul>
+<li class="chapter" data-level="7.1" data-path="vectors-1.html"><a href="vectors-1.html"><i class="fa fa-check"></i><b>7.1</b> Vectors</a></li>
+<li class="chapter" data-level="7.2" data-path="lists-1.html"><a href="lists-1.html"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
+<li class="chapter" data-level="7.3" data-path="matrices-1.html"><a href="matrices-1.html"><i class="fa fa-check"></i><b>7.3</b> Matrices</a></li>
+<li class="chapter" data-level="7.4" data-path="dataframes-1.html"><a href="dataframes-1.html"><i class="fa fa-check"></i><b>7.4</b> Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>8</b> Functions</a><ul>
+<li class="chapter" data-level="8.1" data-path="function-basics.html"><a href="function-basics.html"><i class="fa fa-check"></i><b>8.1</b> Function basics</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="function-basics.html"><a href="function-basics.html#functions-in-r"><i class="fa fa-check"></i><b>8.1.1</b> Functions in R</a></li>
+<li class="chapter" data-level="8.1.2" data-path="function-basics.html"><a href="function-basics.html#inputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs</a></li>
+<li class="chapter" data-level="8.1.3" data-path="function-basics.html"><a href="function-basics.html#outputs"><i class="fa fa-check"></i><b>8.1.3</b> Outputs</a></li>
+<li class="chapter" data-level="8.1.4" data-path="function-basics.html"><a href="function-basics.html#a-little-more-on-functions"><i class="fa fa-check"></i><b>8.1.4</b> A little more on functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="creating-functions.html"><a href="creating-functions.html"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="creating-functions.html"><a href="creating-functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
+<li class="chapter" data-level="8.2.2" data-path="creating-functions.html"><a href="creating-functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
+<li class="chapter" data-level="8.2.3" data-path="creating-functions.html"><a href="creating-functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> ...</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="function-environments.html"><a href="function-environments.html"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="function-environments.html"><a href="function-environments.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> 'Super' assignment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
+<li class="chapter" data-level="9.1" data-path="environment-basics.html"><a href="environment-basics.html"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>10</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="10.1" data-path="what-is-a-class.html"><a href="what-is-a-class.html"><i class="fa fa-check"></i><b>10.1</b> What is a class?</a></li>
+<li class="chapter" data-level="10.2" data-path="what-is-an-object.html"><a href="what-is-an-object.html"><i class="fa fa-check"></i><b>10.2</b> What is an object?</a></li>
+<li class="chapter" data-level="10.3" data-path="objects-and-classes-in-r.html"><a href="objects-and-classes-in-r.html"><i class="fa fa-check"></i><b>10.3</b> Objects and Classes in R</a></li>
+<li class="chapter" data-level="10.4" data-path="inheritance.html"><a href="inheritance.html"><i class="fa fa-check"></i><b>10.4</b> Inheritance</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="inheritance.html"><a href="inheritance.html#object-oriented-systems"><i class="fa fa-check"></i><b>10.4.1</b> Object-Oriented Systems</a></li>
+<li class="chapter" data-level="10.4.2" data-path="inheritance.html"><a href="inheritance.html#creating-objects"><i class="fa fa-check"></i><b>10.4.2</b> Creating objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Teach Yourself or Others R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="function-basics" class="section level2">
+<h2><span class="header-section-number">8.1</span> Function basics</h2>
+<p>John Chambers, creator of the S programming language upon which R is based and core member of the R programming language project, said this:</p>
+<blockquote>
+<p>&quot;To understand computations in R, two slogans are helpful:</p>
+<ul>
+<li>Everything that exists is an object.</li>
+<li>Everything that happens is a function call.</li>
+</ul>
+<p>--- John Chambers&quot;</p>
+</blockquote>
+<p>For now, we're going to focus on that second statement. What does it mean?</p>
+<p>Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing a number into the console and hitting enter. You've given an input, there was a calculation, and now there's an output.</p>
+<p>If you're well versed in mathematics, you'll know that functions in maths are the same. <span class="math inline">\(f(x) = {3x}\)</span> means that the to get <code>y</code>, you take <code>x</code> and multiply it by three. In this case, our input is <code>x</code>, our bit in the middle is multiplying by three, and then our output is <code>y</code>.</p>
+<p>If you haven't used functions in mathematics then don't worry. Even by getting this far in the book, you've already used functions loads of times. For example, how do you create a vector? If you remember, you use the <code>c()</code> function, which we know stands for &quot;concatenate&quot;. So, every time you've created a vector, you've used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.</p>
+<p>Similarly, whenever you created a factor or a matrix or a dataframe or whatever, you used a function. You provided an input, there was a computation to change that input, and then you got an output.</p>
+<p>As confusing as functions will inevitably become, just try to remember the core of what a function is: There's an input. There's a computation. There's an output.</p>
+<div id="functions-in-r" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Functions in R</h3>
+<p>So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (<code>()</code>, not any other type of bracket) when you use them. This helps make it clear what values you're providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
+<p>I say that nearly almost all functions are followed by <code>()</code>, because some aren't. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the backticks just mean I&#39;m referring</span>
+<span class="co"># to the + function without using it</span></code></pre></div>
+<p>But it doesn't have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>It's just that this looks a little weird to us, so we often use the shorthand way. But the long and short of it is: an easy way to tell when someone is calling (using) a function is to look for the <code>()</code> after the function name.</p>
+</div>
+<div id="inputs" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Inputs</h3>
+<p>We know that to use a function in R, we have to provide inputs*. And we also know that we provide our inputs within the brackets after the function name. But how do we know what values are allowed?</p>
+<p>* Technically, sometimes you don't have to provide an input to a function (e.g. <code>Sys.Date()</code>, which gives us the current date without putting anything in the brackets). But in the interests of clarity, just imagine that the inputs to these functions are blank rather than that they don't have any input at all.</p>
+<p>By typing a <code>?</code> followed by the name of the function into the console (e.g. <code>?length()</code>), you'll get a help page showing you the input parameters allowed by the function. So if we use <code>?length()</code> as an example, the help page tells us that the <code>length()</code> function expects one input parameter, <code>x</code>, and that needs to be an <code>R</code> object. Nice and simple.</p>
+<p>In some cases, you'll see a <code>...</code> as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the <code>c()</code> function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the <code>c()</code> function basically bundles everything you provide to it into that <code>...</code> parameter.</p>
+<div id="explicit-input-parameters" class="section level4">
+<h4><span class="header-section-number">8.1.2.1</span> Explicit input parameters</h4>
+<p>If you type <code>?c()</code> into the console however, you'll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we're explicit, we're saying exactly which input parameter we're referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let's look at the <code>substr()</code> function as an example.</p>
+<p>The <code>substr()</code> function simply returns part of a character string that you provide. So, if I was to type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<p>I get the first to the third characters in the string &quot;hello&quot;. With this function call however, I haven't been explicit. Instead, I've just provided the inputs in the order that they're listed in the documentation:</p>
+<ul>
+<li>x<br />
+</li>
+<li>a character vector<br />
+</li>
+<li>start<br />
+</li>
+<li>the first element to be extracted<br />
+</li>
+<li>stop<br />
+</li>
+<li>the last element to be extracted</li>
+</ul>
+<p>To be explicit, I need to provide the name of the input parameter that I'm referring to when I provide my inputs:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Hel&quot;</code></pre>
+<p>Notice how, when I'm being explicit, it doesn't matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
+<p>Also, notice how we're using <code>=</code> here and not anything else like <code>&lt;-</code>? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> when we're providing input parameters and so it's good to keep them separate.</p>
+<p>So how does this link back with the <code>...</code>? Well, with the <code>c()</code> function, every unnamed parameter you provide is bundled into the <code>...</code> parameter. To give values for the <code>recursive</code> and <code>use.names</code> parameters, you'd need to provide them <em>explicitly</em> (e.g. <code>recursive = TRUE</code>). This will be true of many functions where you see a <code>...</code>. If you're not explicit with the parameters that you don't want to be included in the <code>...</code>, you're going to have a bad time.</p>
+</div>
+<div id="optional-input-parameters" class="section level4">
+<h4><span class="header-section-number">8.1.2.2</span> Optional input parameters</h4>
+<p>For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there's a default value, but you can override it if needed.</p>
+<p>Optional parameters are easily distinguished in the documentation of a function because they will a value already assigned to them like this: <code>use.names = TRUE</code>.</p>
+<p>For instance, when we create a vector using the <code>c()</code> function, there are two optional parameters (<code>recursive</code> and <code>use.names</code>) that already have the values <code>TRUE</code> and <code>FALSE</code> assigned to them. To override these defaults, we just need to provide a new value to the parameter like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">15</span>, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## [1]  1 10 15</code></pre>
+</div>
+</div>
+<div id="outputs" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Outputs</h3>
+<p>First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one <em>thing</em>. I say one <em>thing</em>, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: <strong>Functions in R have a single return value</strong>.</p>
+<div id="reassigning-outputs" class="section level4">
+<h4><span class="header-section-number">8.1.3.1</span> Reassigning outputs</h4>
+<p>Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here's a quick example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="kw">sum</span>(x, <span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>As you can see, when we call the <code>sum()</code> function with <code>x</code> as an input parameter, the value of <code>x</code> stays the same.</p>
+<p>If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it's quite simple:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
+x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)
+x</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>This works because the right-hand side of the assignment line is executed first. In other words, when the <code>sum(x,1)</code> is evaluated, <code>x</code> is still equal to one. This makes sense because otherwise it'd be very hard to keep track of what <code>x</code> was equal to!</p>
+<p>This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: <code>object.AddNew</code> or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. But what's an environment? Well, we'll take a look at that in the environments chapter.</p>
+</div>
+</div>
+<div id="a-little-more-on-functions" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> A little more on functions</h3>
+<p>If you're not too bothered about the slightly more in-depth stuff about function inputs, then feel free to skip this part and move onto the next section.</p>
+<p>If you're interested however, there are some specifics about function inputs in R that can be good to know.</p>
+<p>Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
+<p>Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the <code>apply</code> logic, the <code>lapply()</code> function requires a <code>FUN</code> parameter that is the function the be applied each time. This doesn't really come into play right now or even at a beginner level, but later on it can be very powerful.</p>
+<p>Linked with the idea that functions are just another type of an object, there is an important distinction between <code>sum</code> and <code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum</code></pre></div>
+<pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
+<p>Conversely, <code>sum()</code> will attempt to apply the <code>sum</code> function to the inputs provided in the brackets.</p>
+<p>Again, while this is isn't really a massive point for the moment, it can help some understand the fundamental building blocks of R.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

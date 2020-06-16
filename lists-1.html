@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Subsetting | Teach Yourself or Others R</title>
-  <meta name="description" content="7 Subsetting | Teach Yourself or Others R" />
+  <title>7.2 Lists | Teach Yourself or Others R</title>
+  <meta name="description" content="7.2 Lists | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta property="og:title" content="7.2 Lists | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="7.2 Lists | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="dataframes.html"/>
-<link rel="next" href="vectors-1.html"/>
+<link rel="prev" href="vectors-1.html"/>
+<link rel="next" href="matrices-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,18 +193,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level1">
-<h1><span class="header-section-number">7</span> Subsetting</h1>
-<p>There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you're using.</p>
-<p>**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
+<div id="lists-1" class="section level2">
+<h2><span class="header-section-number">7.2</span> Lists</h2>
+<p>Lists can be subsetted in the same way as vectors - <code>[]</code> returns the container at the index provided and <code>[[]]</code> returns the value:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $value_1
+## [1] 1 2 3</code></pre>
+<p>A key difference with lists however, is that you can also subset based on the name of the value in the list using the <code>$</code> operator:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)<span class="op">$</span>value_<span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>This is equivalent to:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
+)[[<span class="st">&quot;value_1&quot;</span>]]</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>Another key difference is that lists can, of course, hold recursive values. This means that subsetting a list can return another list, that can also be subsetted and so on:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
+  <span class="dt">list_1 =</span> <span class="kw">list</span>(
+    <span class="dt">list_2 =</span> <span class="kw">list</span>(
+      <span class="dt">list_3 =</span> <span class="st">&quot;hello&quot;</span>
+    )
+  )
+)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $list_1
+## $list_1$list_2
+## $list_1$list_2$list_3
+## [1] &quot;hello&quot;</code></pre>
+<p>And of course, you can do the same thing with the <code>[[]]</code> operator if you only want the value and not the container.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="dataframes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="vectors-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrices-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

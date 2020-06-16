@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Subsetting | Teach Yourself or Others R</title>
-  <meta name="description" content="7 Subsetting | Teach Yourself or Others R" />
+  <title>10.4 Inheritance | Teach Yourself or Others R</title>
+  <meta name="description" content="10.4 Inheritance | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta property="og:title" content="10.4 Inheritance | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="10.4 Inheritance | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="dataframes.html"/>
-<link rel="next" href="vectors-1.html"/>
+<link rel="prev" href="objects-and-classes-in-r.html"/>
+<link rel="next" href="exercises.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,18 +193,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level1">
-<h1><span class="header-section-number">7</span> Subsetting</h1>
-<p>There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you're using.</p>
-<p>**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
+<div id="inheritance" class="section level2">
+<h2><span class="header-section-number">10.4</span> Inheritance</h2>
+<p>Sometimes, different classes are interelated. For example, if you were storing data on cars, then you might have a &quot;car&quot; class. But if you're storing data on lots of different makes of cars, you might also have classes for each brand (e.g. &quot;Ford&quot;, &quot;Ferrari&quot;, etc.). All of these classes are still cars, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a &quot;car&quot; class and allowing your subsequent model classes to inherit all of the attributes of the &quot;car&quot; class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the &quot;car&quot; class rather than changing each model class.</p>
+<p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
+## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
+<p>Here we can see that an integer object is made up of the integer, double, numeric classes. The order of inheritance goes from left to right so we know that the integer class inherits from the double class, which inherits from the numeric class.</p>
+<div id="object-oriented-systems" class="section level3">
+<h3><span class="header-section-number">10.4.1</span> Object-Oriented Systems</h3>
+<p>Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.</p>
+<div id="s3" class="section level4">
+<h4><span class="header-section-number">10.4.1.1</span> S3</h4>
+<p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to acheive it's goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
+<p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it's the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
+<p>Going back to R, if you type <code>print.</code> into the console, the autocompleter will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># here we&#39;re using the generic</span>
+<span class="kw">print</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>)) </code></pre></div>
+<pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># because we&#39;re printing a Date object,</span>
+<span class="co"># this is the method that is actually used</span>
+<span class="kw">print.Date</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
+<p>While you can often tell if something is an S3 method by it being a generic followed by a <code>.</code> and then an object name, don't rely on this, because people often use <code>.</code> to separate words in functions that can make them look like S3 methods when they're not.</p>
+<p>The important thing I hoped you've gleaned from this explanation is that you don't really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn't convince you that you don't need to understand the underlying structure of an object to get hands on with R, I don't know what will.</p>
+<p>Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method <code>Balance()</code>, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.</p>
 </div>
+</div>
+<div id="creating-objects" class="section level3">
+<h3><span class="header-section-number">10.4.2</span> Creating objects</h3>
+<p>The obvious question is &quot;Can I make my own objects in R?&quot;. The answer is yes. And quite easily too. Whether you should or not is a different story. I'm not going to go over how to create an object in S3 or S4 or any other OO system here because there is more than enough for an entire book, but there are plenty of resources out there that can help you.</p>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="dataframes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="objects-and-classes-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
