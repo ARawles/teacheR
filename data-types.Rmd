@@ -236,7 +236,7 @@ Although I've presented the above as separate data types, in reality objects and
 is(1L)
 ```
 
-We see that it's an integer, but it's also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed. Instead there is a web of *inheritance*, with types that span many sub-types. Inheritance is a complicated subject and so we won't get into it now, but it essentially just reflects that not each data sub type is an island.
+We see that it's an integer, but it's also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed. Instead there is a web of *inheritance*, with types that span many sub-types. Inheritance is a complicated subject but I've included a [brief section](objects-and-classes.html#inheritance) explaining it.
 
 Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn't really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you're storing it in (which we're moving on to now), then you're fine.
 

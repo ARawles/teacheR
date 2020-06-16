@@ -36,9 +36,22 @@ So every function, dataframe, plot, list, vector, integer, everything is an obje
 To see the class of an object in R, use the `class()` function.
 
 ```{r}
-class(data.frame())
+class(data.frame()) # here we're finding the class of an empty data.frame
+class(data.frame) # here we're finding the class of the data.frame() function
 class(1)
 ```
+
+## Inheritance
+
+Sometimes, different classes are interelated. For example, if you were storing data on cars, then you might have a "car" class. But if you're storing data on lots of different makes of cars, you might also have classes for each brand (e.g. "Ford", "Ferrari", etc.). All of these classes are still cars, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a "car" class and allowing your subsequent model classes to inherit all of the attributes of the "car" class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the "car" class rather than changing each model class.
+
+Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the `is()` function:
+
+```{r}
+is(1L)
+```
+
+Here we can see that an integer object is made up of the integer, double, numeric classes. The order of inheritance goes from left to right so we know that the integer class inherits from the double class, which inherits from the numeric class.
 
 ### Object-Oriented Systems
 
@@ -53,9 +66,11 @@ As a real world analogy, think of the process of talking to someone. The common 
 Going back to R, if you type `print.` into the console, the autocompleter will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.
 
 ```{r}
-print(date("2020/06/10")) # here we're using the generic
-print.Date(date("2020/06/10")) # because we're printing a Date object,
-# this is the method that is used
+# here we're using the generic
+print(as.Date("2020/06/10")) 
+# because we're printing a Date object,
+# this is the method that is actually used
+print.Date(as.Date("2020/06/10"))
 ```
 
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 

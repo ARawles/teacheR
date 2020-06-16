@@ -191,11 +191,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
 <li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>10</b> Objects</a><ul>
-<li class="chapter" data-level="10.1" data-path="objects.html"><a href="objects.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a></li>
-<li class="chapter" data-level="10.2" data-path="objects.html"><a href="objects.html#objects-in-r"><i class="fa fa-check"></i><b>10.2</b> Objects in R</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="objects.html"><a href="objects.html#interacting-with-objects"><i class="fa fa-check"></i><b>10.2.1</b> Interacting with objects</a></li>
-<li class="chapter" data-level="10.2.2" data-path="objects.html"><a href="objects.html#creating-objects"><i class="fa fa-check"></i><b>10.2.2</b> Creating objects</a></li>
+<li class="chapter" data-level="10" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>10</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="10.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>10.1</b> What is a class?</a></li>
+<li class="chapter" data-level="10.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>10.2</b> What is an object?</a></li>
+<li class="chapter" data-level="10.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>10.3</b> Objects and Classes in R</a></li>
+<li class="chapter" data-level="10.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>10.4</b> Inheritance</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>10.4.1</b> Object-Oriented Systems</a></li>
+<li class="chapter" data-level="10.4.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-objects"><i class="fa fa-check"></i><b>10.4.2</b> Creating objects</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
@@ -401,7 +403,7 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 <p>Although I’ve presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered sub-types of other data types. For example, if we type:</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="kw">is</span>(1L)</a></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;             &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
-<p>We see that it’s an integer, but it’s also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed. Instead there is a web of <em>inheritance</em>, with types that span many sub-types. Inheritance is a complicated subject and so we won’t get into it now, but it essentially just reflects that not each data sub type is an island.</p>
+<p>We see that it’s an integer, but it’s also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed. Instead there is a web of <em>inheritance</em>, with types that span many sub-types. Inheritance is a complicated subject but I’ve included a <a href="objects-and-classes.html#inheritance">brief section</a> explaining it.</p>
 <p>Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn’t really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you’re storing it in (which we’re moving on to now), then you’re fine.</p>
 <p>If you are interested in understanding a bit more about objects in R, then there is a brief <a href="objects.html">Objects</a> chapter, and I would recommend Hadley’s <a href="https://adv-r.hadley.nz/">Advanced R</a> for more.</p>
 
