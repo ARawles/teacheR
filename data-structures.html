@@ -157,16 +157,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
 <li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
-<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
+<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> ...</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> 'Super' assignment</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
 <li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>10</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>10</b> Objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="objects.html"><a href="objects.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a></li>
+<li class="chapter" data-level="10.2" data-path="objects.html"><a href="objects.html#objects-in-r"><i class="fa fa-check"></i><b>10.2</b> Objects in R</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="objects.html"><a href="objects.html#interacting-with-objects"><i class="fa fa-check"></i><b>10.2.1</b> Interacting with objects</a></li>
+<li class="chapter" data-level="10.2.2" data-path="objects.html"><a href="objects.html#creating-objects"><i class="fa fa-check"></i><b>10.2.2</b> Creating objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -186,7 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-structures" class="section level1">
 <h1><span class="header-section-number">6</span> Data structures</h1>
-<p>It’s rare that you’re ever going to be working on a single value in R. Instead, you’re going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here’s a list of the structures which we’ll go into more detail:</p>
+<p>It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:</p>
 <ul>
 <li>vectors</li>
 <li>lists</li>
@@ -196,12 +203,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="vectors" class="section level2">
 <h2><span class="header-section-number">6.1</span> Vectors</h2>
 <p>Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.</p>
-<p>One of the main things to remember about vectors however, is that they are atomic. That’s basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we’ll look at those next.</p>
-<p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we’re pulling together lots of different values and concatenating them into one structure.</p>
+<p>One of the main things to remember about vectors however, is that they are atomic. That's basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we'll look at those next.</p>
+<p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we're pulling together lots of different values and concatenating them into one structure.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
-<p>Technically speaking, even single values are stored as a vector in R, they just have length one. That’s why if you type <code>is(1)</code>, the second things that pops up after “numeric” is “vector”. R is telling us that <code>1</code> is a number and that it’s in a vector.</p>
-<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
+<p>Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type <code>is(1)</code>, the second things that pops up after &quot;numeric&quot; is &quot;vector&quot;. R is telling us that <code>1</code> is a number and that it's in a vector.</p>
+<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>##  this_is_the_first_value this_is_the_second_value 
 ##                        1                        2</code></pre>
@@ -239,8 +246,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="lists-vs-vectors" class="section level2">
 <h2><span class="header-section-number">6.3</span> Lists vs Vectors</h2>
-<p>Given that lists and vectors are intrinsically linked, it’s very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren’t all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
-<p>I appreciate that this answer isn’t particularly satisfactory however, and so let me give a real life example of when I’ve used each.</p>
+<p>Given that lists and vectors are intrinsically linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
+<p>I appreciate that this answer isn't particularly satisfactory however, and so let me give a real life example of when I've used each.</p>
 <p><u>Vector</u></p>
 <p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
@@ -251,19 +258,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>model1 &lt;- model(...)
 model2 &lt;- model(...)
 model3 &lt;- model(...)</code></pre>
-<p>The problem with this however, is that if I then want to compare the models, I’ll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn’t just a numeric or character value) so they can’t be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
-<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
+<p>The problem with this however, is that if I then want to compare the models, I'll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
+<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
 </div>
 <div id="matrices" class="section level2">
 <h2><span class="header-section-number">6.4</span> Matrices</h2>
 <p>Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.</p>
-<p>I say watered down, because matrices can only contain values of the same type (like vectors). This means that storing complex datasets in matrices isn’t really very easy. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.</p>
+<p>I say watered down, because matrices can only contain values of the same type (like vectors). This means that storing complex datasets in matrices isn't really very easy. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.</p>
 <p>Creating a matrix is easy using the <code>matrix()</code> function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    3
 ## [2,]    2    4</code></pre>
-<p>By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use <code>byrow = TRUE</code>.</p>
+<p>By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use <code>byrow = TRUE</code>.</p>
 </div>
 <div id="dataframes" class="section level2">
 <h2><span class="header-section-number">6.5</span> Dataframes</h2>
@@ -275,17 +282,17 @@ model3 &lt;- model(...)</code></pre>
 ## 1     1       hello
 ## 2     2       world
 ## 3     3 howsitgoing</code></pre>
-<p>More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. To demonstrate this, when we type…</p>
+<p>More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. To demonstrate this, when we type...</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">data.frame</span>())</code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot; &quot;list&quot;       &quot;oldClass&quot;   &quot;vector&quot;</code></pre>
-<p>The second value in the returned vector is “list”.</p>
-<p>So at it’s heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="subsetting.html#dataframes-1">susbetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
+<p>The second value in the returned vector is &quot;list&quot;.</p>
+<p>So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="subsetting.html#dataframes-1">susbetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
   <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),
   <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...)))
   <span class="co"># The I() just tells R to leave it as a list</span>
 )</code></pre></div>
-<p>For now though, don’t worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they’ll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you’re ahead of the game.</p>
+<p>For now though, don't worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they'll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you're ahead of the game.</p>
 
 </div>
 </div>

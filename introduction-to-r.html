@@ -157,16 +157,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
 <li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
-<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
+<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> ...</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> 'Super' assignment</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
 <li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>10</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>10</b> Objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="objects.html"><a href="objects.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a></li>
+<li class="chapter" data-level="10.2" data-path="objects.html"><a href="objects.html#objects-in-r"><i class="fa fa-check"></i><b>10.2</b> Objects in R</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="objects.html"><a href="objects.html#interacting-with-objects"><i class="fa fa-check"></i><b>10.2.1</b> Interacting with objects</a></li>
+<li class="chapter" data-level="10.2.2" data-path="objects.html"><a href="objects.html#creating-objects"><i class="fa fa-check"></i><b>10.2.2</b> Creating objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -189,17 +196,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Chapters 2-7 cover R and its basics. The xaringan presentation for this module is <a href="presentations/2_Intro/r_training_intro_presentation.html">here</a>.</p>
 <div id="what-is-r" class="section level2">
 <h2><span class="header-section-number">2.1</span> What is R?</h2>
-<p>R is a public license programming language. More specifically, it’s a statistical programming language meaning that it’s often used for statistical analysis rather than software development. R is also a functional programming, rather than an object-oriented programming language like Python. This means that operation in R are primarily performed by functions (input, do something, output), but more about that later.</p>
+<p>R is a public license programming language. More specifically, it's a statistical programming language meaning that it's often used for statistical analysis rather than software development. R is also a functional programming, rather than an object-oriented programming language like Python. This means that operation in R are primarily performed by functions (input, do something, output), but more about that later.</p>
 <p>Strictly speaking, R is not just a functional programming language. In reality, a language is never purely one type and R is no exception. There are object-oriented systems in R (three main ones), meaning that object-oriented programming is possible and relatively straightforward in R. Having said that, I feel now is a good time to refer back to the mantra from the Overview chapter:</p>
-<p><b>Don’t believe everything you read</b></p>
-<p>So basically, R is a functional programming language with some object-oriented systems. If that means very little to you, don’t worry. For the vast majority of users, this is a purely academic definition.</p>
-<p>One important attribute about R however that may affect you, is that R is an interpreted language. This essentially means that when you send someone some R code, they need R installed to be able to run it. This means that making full programs is difficult. Later on, we’ll look at the <code>shiny</code> package, which can be used to quickly make web apps based on R code. These apps are no different in the sense that they also need R installed to be able to run, but because they are web-based, they are significantly easier to share.</p>
-<p>For the most part however, if you want to share R code with colleagues, they’ll need to have R installed as well.</p>
+<p><b>Don't believe everything you read</b></p>
+<p>So basically, R is a functional programming language with some object-oriented systems. If that means very little to you, don't worry. For the vast majority of users, this is a purely academic definition.</p>
+<p>One important attribute about R however that may affect you, is that R is an interpreted language. This essentially means that when you send someone some R code, they need R installed to be able to run it. This means that making full programs is difficult. Later on, we'll look at the <code>shiny</code> package, which can be used to quickly make web apps based on R code. These apps are no different in the sense that they also need R installed to be able to run, but because they are web-based, they are significantly easier to share.</p>
+<p>For the most part however, if you want to share R code with colleagues, they'll need to have R installed as well.</p>
 </div>
 <div id="should-i-use-r" class="section level2">
 <h2><span class="header-section-number">2.2</span> Should I use R?</h2>
-<p>People will forever argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you’re reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They’re just… different. Personally, I prefer to use R but I understand that other people don’t.</p>
-<p>Importantly though, never feel as though you’ve missed a trick by picking a particular language. Programming is not just a practice, it’s a way of thinking, and experience is almost always transferable across languages.</p>
+<p>People will forever argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you're reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They're just... different. Personally, I prefer to use R but I understand that other people don't.</p>
+<p>Importantly though, never feel as though you've missed a trick by picking a particular language. Programming is not just a practice, it's a way of thinking, and experience is almost always transferable across languages.</p>
 <p>For reference however, here are a few of the things that you can use R for:</p>
 <ul>
 <li>data analysis</li>
@@ -207,11 +214,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>web apps</li>
 <li>text analysis</li>
 </ul>
-<p>If you’re interested in any of these, then you’re in the right place.</p>
+<p>If you're interested in any of these, then you're in the right place.</p>
 </div>
 <div id="using-r" class="section level2">
 <h2><span class="header-section-number">2.3</span> Using R</h2>
-<p>R is very simple. There is a console where you type commands and get responses. Like the classic command-line interfaces you see when the stereotypical nerd has to hack into the FBI database, you type commands, one at a time into the console, R processes it, and then produces a response if appropriate. For example, if you type <code>2 + 2</code> into the R console and hit enter, you’ll get <code>4</code>.</p>
+<p>R is very simple. There is a console where you type commands and get responses. Like the classic command-line interfaces you see when the stereotypical nerd has to hack into the FBI database, you type commands, one at a time into the console, R processes it, and then produces a response if appropriate. For example, if you type <code>2 + 2</code> into the R console and hit enter, you'll get <code>4</code>.</p>
 <p>Writing commands out one at a time can be quite time consuming if you want to make changes however. So we use scripts to store multiple lines of code that can then be run altogether. When you execute a script, each line gets passed one by one to the console and executed. For example, I might make a script with this code:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">variable1 &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
 variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10</span></code></pre></div>
@@ -220,8 +227,8 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 </div>
 <div id="rstudio" class="section level2">
 <h2><span class="header-section-number">2.4</span> RStudio</h2>
-<p>RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or <em>IDE</em>. This means that RStudio doesn’t actually run any code, it just passes it to R for you, meaning that you’ll need R to really use RStudio.</p>
-<p>RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can’t ever remember using R without RStudio.</p>
+<p>RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or <em>IDE</em>. This means that RStudio doesn't actually run any code, it just passes it to R for you, meaning that you'll need R to really use RStudio.</p>
+<p>RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can't ever remember using R without RStudio.</p>
 <p>In the <a href="introduction-to-r.html#using-r">previous section</a>, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.</p>
 <div id="what-is-an-ide" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> What is an IDE?</h3>
@@ -234,7 +241,7 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 </div>
 <div id="packages" class="section level2">
 <h2><span class="header-section-number">2.5</span> Packages</h2>
-<p>As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you’ll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they’re more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.</p>
+<p>As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you'll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they're more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.</p>
 <p>So instead of them being available from the start, people create sets of functions that usually are used for a particularly tasks and then distribute them as a <em>package</em>. You can install this package and have access to all these great functions that someone has written for you.</p>
 <p>Some great examples of R packages are:</p>
 <ul>
@@ -242,24 +249,24 @@ variable1 <span class="op">/</span><span class="st"> </span><span class="dv">10<
 <li><a href="https://dplyr.tidyverse.org/">dplyr</a> for data manipulation</li>
 <li><a href="https://shiny.rstudio.com/">shiny</a> for creating web apps</li>
 <li><a href="http://bmrsr.arawles.co.uk">BMRSr</a> for extracting energy data</li>
-<li>Truth be told, this isn’t a <em>great</em> example of a package, it’s just the one I’ve made so that’s why it’s here.</li>
+<li>Truth be told, this isn't a <em>great</em> example of a package, it's just the one I've made so that's why it's here.</li>
 </ul>
 <p>The thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out.</p>
 <div id="installing-packages" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Installing packages</h3>
-<p>You can think of installing a package as a bit like installing a program on your computer. You only need to install it once, but then you’ll need to open it each time you use it.</p>
+<p>You can think of installing a package as a bit like installing a program on your computer. You only need to install it once, but then you'll need to open it each time you use it.</p>
 <p>Installing packages is really easy; you just use the <code>install.packages()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;BMRSr&quot;</span>)</code></pre></div>
 <p>You can choose where the package installs by suppling a path to the <code>lib</code> parameter (e.g. <code>lib = &quot;C:/me/desktop&quot;</code>), but by default it will install it into your default library folder. You can find the path to this default library folder with the <code>.libPaths()</code> function.</p>
-<p>Once the package has been installed, you only need to reinstall it if there’s a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don’t need all of them for every project you do. So instead, we load specific packages we want each time.</p>
-<p>To load a package, use the <code>library()</code> function. Place this somewhere near the start of your script so that it’s obvious which packages someone will need if they’re reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.</p>
-<p>But Adam, what happens if I load two packages that have functions with the same name? Ah, that’s a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it’s precedence. That means that when you try and use a function with a name that’s in more than one of the packages you’ve loaded, it will default to the latest package you’ve loaded.</p>
-<p>To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you’ll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and <code>::</code> when you use it, like this:</p>
+<p>Once the package has been installed, you only need to reinstall it if there's a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don't need all of them for every project you do. So instead, we load specific packages we want each time.</p>
+<p>To load a package, use the <code>library()</code> function. Place this somewhere near the start of your script so that it's obvious which packages someone will need if they're reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.</p>
+<p>But Adam, what happens if I load two packages that have functions with the same name? Ah, that's a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it's precedence. That means that when you try and use a function with a name that's in more than one of the packages you've loaded, it will default to the latest package you've loaded.</p>
+<p>To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you'll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and <code>::</code> when you use it, like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr<span class="op">::</span><span class="kw">mutate</span>()
 
 <span class="kw">mutate</span>()</code></pre></div>
-<p>Finally, there is a package called <code>conflicted</code> that you can use to avoid these issues. Rather than giving a certain package precedence because it was loaded later, attempting to use a function that could come from more than one package will cause an error and you’ll need to be explicit with which one you mean.</p>
-<p>Personally, I use the prefix method. Yes it’s a little bit more verbose, but it makes it 100 times easier for someone else to know exactly where your function has come from without the need for extra packages. This also tends to be the approach that I take because there’s nothing worse than coming back to a script a year later and forgetting which packages you need because you didn’t include the correct library calls.</p>
+<p>Finally, there is a package called <code>conflicted</code> that you can use to avoid these issues. Rather than giving a certain package precedence because it was loaded later, attempting to use a function that could come from more than one package will cause an error and you'll need to be explicit with which one you mean.</p>
+<p>Personally, I use the prefix method. Yes it's a little bit more verbose, but it makes it 100 times easier for someone else to know exactly where your function has come from without the need for extra packages. This also tends to be the approach that I take because there's nothing worse than coming back to a script a year later and forgetting which packages you need because you didn't include the correct library calls.</p>
 
 </div>
 </div>

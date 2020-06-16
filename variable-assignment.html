@@ -157,16 +157,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
 <li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
-<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
+<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> ...</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> 'Super' assignment</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
 <li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>10</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>10</b> Objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="objects.html"><a href="objects.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a></li>
+<li class="chapter" data-level="10.2" data-path="objects.html"><a href="objects.html#objects-in-r"><i class="fa fa-check"></i><b>10.2</b> Objects in R</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="objects.html"><a href="objects.html#interacting-with-objects"><i class="fa fa-check"></i><b>10.2.1</b> Interacting with objects</a></li>
+<li class="chapter" data-level="10.2.2" data-path="objects.html"><a href="objects.html#creating-objects"><i class="fa fa-check"></i><b>10.2.2</b> Creating objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -186,9 +193,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="variable-assignment" class="section level1">
 <h1><span class="header-section-number">4</span> Variable assignment</h1>
-<p>Do you ever tell a story to a friend, and then someone else walks in once you’ve finished and so you have to tell the whole thing again?</p>
+<p>Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?</p>
 <p>Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.</p>
-<p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
+<p>This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You'd then have to go through and change it every time it appears.</p>
 <p>Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.</p>
 <p>Creating variables in R is really easy. All you need to do is provide a valid name, use the <code>&lt;-</code> symbol, and then provide a value to assign:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello_im_a_variable &lt;-<span class="st"> </span><span class="dv">100</span>
@@ -201,15 +208,15 @@ hello_im_a_variable</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello_im_another_variable &lt;-<span class="st"> </span>hello_im_a_variable <span class="op">/</span><span class="st"> </span><span class="dv">20</span>
 hello_im_another_variable</code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<p>When you come across other people’s work, you may see that they use <code>=</code> instead of <code>&lt;-</code> when they create their variables. Even though it’s not the end of the world if you do do that, I would recommend getting into the habit of using <code>&lt;-</code>. <code>&lt;-</code> is purely used for assignment, whereas <code>=</code> is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.</p>
-<p>As a side note, you’ll see that the value of the variable isn’t outputted when we assign it. If we want to see the value, we need just the name.</p>
+<p>When you come across other people's work, you may see that they use <code>=</code> instead of <code>&lt;-</code> when they create their variables. Even though it's not the end of the world if you do do that, I would recommend getting into the habit of using <code>&lt;-</code>. <code>&lt;-</code> is purely used for assignment, whereas <code>=</code> is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.</p>
+<p>As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.</p>
 <p>Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">variable_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">100</span>
 variable_<span class="dv">1</span> &lt;-<span class="st"> &quot;I&#39;m not 100 anymore&quot;</span>
 variable_<span class="dv">1</span></code></pre></div>
 <pre><code>## [1] &quot;I&#39;m not 100 anymore&quot;</code></pre>
 <p>R will also give the variable an appropriate <em>type</em> based on the value you assign. So for example, if you assign <code>20</code> to a variable, then that variable will be stored as a number. If you assign something in quotation marks like <code>&quot;hello&quot;</code>, then R will store it as text.</p>
-<p>Let’s look in a bit more detail at the different data types…</p>
+<p>Let's look in a bit more detail at the different data types...</p>
 
 </div>
             </section>

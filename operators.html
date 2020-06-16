@@ -157,16 +157,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
 <li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
-<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
+<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> ...</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> 'Super' assignment</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
 <li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>10</b> Exercises</a></li>
+<li class="chapter" data-level="10" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>10</b> Objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="objects.html"><a href="objects.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a></li>
+<li class="chapter" data-level="10.2" data-path="objects.html"><a href="objects.html#objects-in-r"><i class="fa fa-check"></i><b>10.2</b> Objects in R</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="objects.html"><a href="objects.html#interacting-with-objects"><i class="fa fa-check"></i><b>10.2.1</b> Interacting with objects</a></li>
+<li class="chapter" data-level="10.2.2" data-path="objects.html"><a href="objects.html#creating-objects"><i class="fa fa-check"></i><b>10.2.2</b> Creating objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -188,7 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">3</span> Operators</h1>
 <div id="arithmetic-operators" class="section level2">
 <h2><span class="header-section-number">3.1</span> Arithmetic operators</h2>
-<p>At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you’ve used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.</p>
+<p>At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you've used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.</p>
 <p>Here are the main operators in use:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># addition</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
@@ -205,11 +212,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>To compare whether two things are equal, we use two equal signs (<code>==</code>) in R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="co"># equal</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>Why two I hear you say? Well, a bit later on we’ll see that we use a single equals sign for something else.</p>
+<p>Why two I hear you say? Well, a bit later on we'll see that we use a single equals sign for something else.</p>
 <p>To compare whether two things are different (not equal), we use <code>!=</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span> <span class="co"># not equal</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>The <code>!</code> sign is also used in other types of criteria, so the best way to think about it is that it inverts the criteria you’re testing. So in this case, it’s inverting the “equals” criteria, making it “not equal”.</p>
+<p>The <code>!</code> sign is also used in other types of criteria, so the best way to think about it is that it inverts the criteria you're testing. So in this case, it's inverting the &quot;equals&quot; criteria, making it &quot;not equal&quot;.</p>
 <p>Testing whether a value is smaller or larger than another is done with the <code>&lt;</code> and <code>&gt;</code> operators:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>  <span class="co"># greater than</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -220,8 +227,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&lt;!</span><span class="st"> </span><span class="dv">4</span> <span class="co"># not less than</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>Why is the <code>!</code> sign before the equals sign in the “not equal” to code, but after the “less than/greater than” sign? No idea. It’d probably make more sense if they were the same, but I suppose worse things happen at sea.</p>
-<p>There are three more logical operators, and they are the “and”, “or”, and “xor” operators. These are used to test whether at least one or more than one or only one of the logical comparisons are true or false:</p>
+<p>Why is the <code>!</code> sign before the equals sign in the &quot;not equal&quot; to code, but after the &quot;less than/greater than&quot; sign? No idea. It'd probably make more sense if they were the same, but I suppose worse things happen at sea.</p>
+<p>There are three more logical operators, and they are the &quot;and&quot;, &quot;or&quot;, and &quot;xor&quot; operators. These are used to test whether at least one or more than one or only one of the logical comparisons are true or false:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="co"># or (i.e. are either of these TRUE)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="co"># and (i.e. are these both TRUE)</span></code></pre></div>

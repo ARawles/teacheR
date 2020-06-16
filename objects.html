@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 Environments | Teach Yourself or Others R</title>
-  <meta name="description" content="9 Environments | Teach Yourself or Others R" />
+  <title>10 Objects | Teach Yourself or Others R</title>
+  <meta name="description" content="10 Objects | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 Environments | Teach Yourself or Others R" />
+  <meta property="og:title" content="10 Objects | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 Environments | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="10 Objects | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="functions.html"/>
-<link rel="next" href="objects.html"/>
+<link rel="prev" href="environments.html"/>
+<link rel="next" href="exercises.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -191,12 +191,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="environments" class="section level1">
-<h1><span class="header-section-number">9</span> Environments</h1>
-<p>We looked briefly at environments and how they are used with functions, but let's look at environments in a bit more detail.</p>
-<div id="environment-basics" class="section level2">
-<h2><span class="header-section-number">9.1</span> Environment basics</h2>
+<div id="objects" class="section level1">
+<h1><span class="header-section-number">10</span> Objects</h1>
+<p>Objects are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.</p>
+<p>Importantly, <strong>don't feel as though you need to understand this section to use R</strong>. Personally, I didn't really understand the way objects work in R until I was around 2 years in. I've included this chapter for those that want to learn how R is underpinned, but don't feel obliged to read this section if you're more interested in the practicalities of R rather than the specific.</p>
+<div id="what-is-an-object" class="section level2">
+<h2><span class="header-section-number">10.1</span> What is an object?</h2>
+<p>The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, and so on and so on. When we want to store data in a structured and formal way however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an object is; an instance of a <strong>thing</strong> according to a pre-defined structure.</p>
+<p>Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a &quot;person&quot;. Well this is exactly what an object is; a collection of attributes and features that is shared amongst instances of the same type.</p>
+<p>So our object is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
+<p>More specifically, an object is a specific instance of a pre-defined structure. We call this pre-defined structure a <strong>class</strong>. So an object is an isntance of a class</p>
+</div>
+<div id="objects-in-r" class="section level2">
+<h2><span class="header-section-number">10.2</span> Objects in R</h2>
+<p>Looking more specifically at R, what kind of objects do we see. Well, according to John Chambers, the founder of the S programming language upon which R is based, everything is:</p>
+<blockquote>
+<p>&quot;To understand computations in R, two slogans are helpful:</p>
+<ul>
+<li>Everything that exists is an object.</li>
+<li>Everything that happens is a function call.</li>
+</ul>
+<p>--- John Chambers&quot;</p>
+</blockquote>
+<p>So every function, dataframe, plot, list, vector, integer, everything is an object.</p>
+<div id="interacting-with-objects" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Interacting with objects</h3>
+<p>Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4. We're not going to go into the difference here, but I recommend Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> to better understand the difference between the two. For now, I'm just going to explain the basic of the S3 system, as I think it's the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.</p>
+<div id="s3" class="section level4">
+<h4><span class="header-section-number">10.2.1.1</span> S3</h4>
+<p>In some languages, there are methods, which are essentially functions or sub-routines that are tied to an object. For instance, an object that represents a person's bank account might have the method <code>Balance()</code>, which will return how much money a person has in their account.</p>
+<p>In the S3 system, we don't really use methods. Instead, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to acheive it's goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
+<p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it's the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
+<p>Going back to R, if you type <code>print.</code> into the console, the autocompleter will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.</p>
+<p>While you can often tell if something is an S3 method by it being a generic followed by a <code>.</code> and then an object name, don't rely on this, because people often use <code>.</code> to separate words in functions that can make them look like S3 methods when they're not.</p>
+</div>
+</div>
+<div id="creating-objects" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Creating objects</h3>
+<p>The obvious question is &quot;Can I make my own objects in R?&quot;. The answer is yes. And quite easily too. Whether you should or not is a different story. I'm not going to go over how to create an object in S3 or S4 or any other OO system here because there is more than enough for an entire book, but there are plenty of resources out there that can help you.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -204,8 +238,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="objects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="environments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
