@@ -29,7 +29,7 @@ There's an input. There's a computation. There's an output.
 
 ### Functions in R
 
-So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (`()`, not any other type of bracket) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
+So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (`()`, not any other type of bracket) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
 
 I say that nearly almost all functions are followed by `()`, because some aren't. A simple example of this is `+`. `+` is still a function:
 
@@ -45,7 +45,7 @@ But it doesn't have brackets. Instead, we can use a shorthand where we provide t
 `+`(1,2)
 ```
 
-It's just that this looks a little weird to us, so we often use the shorthand way.
+It's just that this looks a little weird to us, so we often use the shorthand way. But the long and short of it is: an easy way to tell when someone is calling (using) a function is to look for the `()` after the function name.
 
 ### Inputs
 
@@ -69,12 +69,12 @@ substr("Hello", 1, 3)
 
 I get the first to the third characters in the string "hello". With this function call however, I haven't been explicit. Instead, I've just provided the inputs in the order that they're listed in the documentation:
 
-* x
-   + a character vector
-* start 
-   + the first element to be extracted
-* stop
-   + the last element to be extracted
+* x   
+   + a character vector   
+* start  
+   + the first element to be extracted    
+* stop   
+   + the last element to be extracted   
    
 To be explicit, I need to provide the name of the input parameter that I'm referring to when I provide my inputs:
 
@@ -159,6 +159,8 @@ Again, while this is isn't really a massive point for the moment, it can help so
 R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn't a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn't an Excel function for you to use and there isn't an easy way to create one without knowing VBA.
 
 R is different. Creating functions can be very simple, and will really change the way you work.
+
+Creating functions will also highlight an important delineation. Previously, we've been focusing on *calling* functions. Calling a function is essentially using it. But in order to call a function, it needs to be *defined*. Base functions are already defined, but when you're creating your own functions, you are *defining* a new function that you're presumably going to call later on.
 
 ### Function structure
 

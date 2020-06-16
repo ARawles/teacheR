@@ -12,6 +12,6 @@ rmd_files: [
   "subsetting.Rmd",
   "functions.Rmd",
   "environments.Rmd",
-  
+  "objects.Rmd",
   
   "exercises.Rmd"]

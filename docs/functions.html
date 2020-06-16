@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="subsetting.html"/>
-<link rel="next" href="exercises.html"/>
+<link rel="next" href="environments.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -188,7 +188,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a></li>
+<li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
+<li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="objects.html"><a href="objects.html"><i class="fa fa-check"></i><b>10</b> Objects</a><ul>
+<li class="chapter" data-level="10.1" data-path="objects.html"><a href="objects.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="objects.html"><a href="objects.html#objects-in-r"><i class="fa fa-check"></i><b>10.1.1</b> Objects in R</a></li>
+<li class="chapter" data-level="10.1.2" data-path="objects.html"><a href="objects.html#interacting-with-objects"><i class="fa fa-check"></i><b>10.1.2</b> Interacting with objects</a></li>
+<li class="chapter" data-level="10.1.3" data-path="objects.html"><a href="objects.html#creating-objects"><i class="fa fa-check"></i><b>10.1.3</b> Creating objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -229,16 +239,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 There’s an input. There’s a computation. There’s an output.</p>
 <div id="functions-in-r" class="section level3">
 <h3><span class="header-section-number">8.1.1</span> Functions in R</h3>
-<p>So more specifically, what do functions looks like in R? Well, a good starting point is that functions are almost always followed by brackets (<code>()</code>, not any other type of bracket) when you use them. This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
+<p>So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (<code>()</code>, not any other type of bracket) when you use them. This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
 <p>I say that nearly almost all functions are followed by <code>()</code>, because some aren’t. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># the backticks just mean I&#39;m referring</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co"># to the + function without using it</span></a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="co"># the backticks just mean I&#39;m referring</span></a>
+<a class="sourceLine" id="cb163-2" title="2"><span class="co"># to the + function without using it</span></a></code></pre></div>
 <p>But it doesn’t have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>It’s just that this looks a little weird to us, so we often use the shorthand way.</p>
+<p>It’s just that this looks a little weird to us, so we often use the shorthand way. But the long and short of it is: an easy way to tell when someone is calling (using) a function is to look for the <code>()</code> after the function name.</p>
 </div>
 <div id="inputs" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Inputs</h3>
@@ -250,17 +260,19 @@ There’s an input. There’s a computation. There’s an output.</p>
 <h4><span class="header-section-number">8.1.2.1</span> Explicit input parameters</h4>
 <p>If you type <code>?c()</code> into the console however, you’ll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we’re explicit, we’re saying exactly which input parameter we’re referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let’s look at the <code>substr()</code> function as an example.</p>
 <p>The <code>substr()</code> function simply returns part of a character string that you provide. So, if I was to type:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
 <p>I get the first to the third characters in the string “hello”. With this function call however, I haven’t been explicit. Instead, I’ve just provided the inputs in the order that they’re listed in the documentation:</p>
 <ul>
 <li>x
 <ul>
-<li>a character vector</li>
+<li>a character vector<br />
+</li>
 </ul></li>
 <li>start
 <ul>
-<li>the first element to be extracted</li>
+<li>the first element to be extracted<br />
+</li>
 </ul></li>
 <li>stop
 <ul>
@@ -268,9 +280,9 @@ There’s an input. There’s a computation. There’s an output.</p>
 </ul></li>
 </ul>
 <p>To be explicit, I need to provide the name of the input parameter that I’m referring to when I provide my inputs:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
 <p>Notice how, when I’m being explicit, it doesn’t matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
 <p>Also, notice how we’re using <code>=</code> here and not anything else like <code>&lt;-</code>? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> when we’re providing input parameters and so it’s good to keep them separate.</p>
@@ -281,7 +293,7 @@ There’s an input. There’s a computation. There’s an output.</p>
 <p>For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there’s a default value, but you can override it if needed.</p>
 <p>Optional parameters are easily distinguished in the documentation of a function because they will a value already assigned to them like this: <code>use.names = TRUE</code>.</p>
 <p>For instance, when we create a vector using the <code>c()</code> function, there are two optional parameters (<code>recursive</code> and <code>use.names</code>) that already have the values <code>TRUE</code> and <code>FALSE</code> assigned to them. To override these defaults, we just need to provide a new value to the parameter like this:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">15</span>, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">15</span>, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1]  1 10 15</code></pre>
 </div>
 </div>
@@ -291,16 +303,16 @@ There’s an input. There’s a computation. There’s an output.</p>
 <div id="reassigning-outputs" class="section level4">
 <h4><span class="header-section-number">8.1.3.1</span> Reassigning outputs</h4>
 <p>Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here’s a quick example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="kw">sum</span>(x, <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb174-2" title="2"><span class="kw">sum</span>(x, <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">x</a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" title="1">x</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>As you can see, when we call the <code>sum()</code> function with <code>x</code> as an input parameter, the value of <code>x</code> stays the same.</p>
 <p>If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it’s quite simple:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb18-2" title="2">x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb18-3" title="3">x</a></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb178-2" title="2">x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb178-3" title="3">x</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>This works because the right-hand side of the assignment line is executed first. In other words, when the <code>sum(x,1)</code> is evaluated, <code>x</code> is still equal to one. This makes sense because otherwise it’d be very hard to keep track of what <code>x</code> was equal to!</p>
 <p>This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you’re coming from something like Python, you may be used to changing objects through methods: <code>object.AddNew</code> or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. But what’s an environment? Well, we’ll take a look at that in the environments chapter.</p>
@@ -316,7 +328,7 @@ There’s an input. There’s a computation. There’s an output.</p>
 <code>sum</code>
 and
 <code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">sum</a></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1">sum</a></code></pre></div>
 <pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
 <p>Conversely, <code>sum()</code> will attempt to apply the <code>sum</code> function to the inputs provided in the brackets.</p>
 <p>Again, while this is isn’t really a massive point for the moment, it can help some understand the fundamental building blocks of R.</p>
@@ -326,42 +338,43 @@ and
 <h2><span class="header-section-number">8.2</span> Creating functions</h2>
 <p>R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn’t a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn’t an Excel function for you to use and there isn’t an easy way to create one without knowing VBA.</p>
 <p>R is different. Creating functions can be very simple, and will really change the way you work.</p>
+<p>Creating functions will also highlight an important delineation. Previously, we’ve been focusing on <em>calling</em> functions. Calling a function is essentially using it. But in order to call a function, it needs to be <em>defined</em>. Base functions are already defined, but when you’re creating your own functions, you are <em>defining</em> a new function that you’re presumably going to call later on.</p>
 <div id="function-structure" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Function structure</h3>
 <p>If we go back to the beginning of this chapter, we learnt that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</a></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" title="1">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</a></code></pre></div>
 <p>Notice how we’ve got two sets of brackets here. The first (<code>()</code>) is where we define our input parameters. The second (<code>{}</code>) is where we define the body of our function.</p>
 <p>Let’s do a simple example. Let’s create a function that adds two numbers together:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb23-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb23-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1">my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
+<a class="sourceLine" id="cb183-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb183-3" title="3">}</a></code></pre></div>
 <p>So in this example, I’ve defined that when anyone uses the function, they need to provide two input parameters named <code>x</code> and <code>y</code>. Something that people tend to struggle with is that the names of your input parameters have no implicit meaning. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why for example in some functions that require a dataframe there will be an input parameter called <code>df</code> or similar. But importantly, these names are technically just arbitrary.</p>
 <p>In the body of the function, we can see that we’re just doing something really simple: we’re adding <code>x</code> and <code>y</code> together with <code>+</code>.</p>
 <p>Once I’ve run the code to <strong>define</strong> my function, I can then <strong>call</strong> it like I would any other function:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1"><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 </div>
 <div id="optional-input-parameters-1" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Optional input parameters</h3>
 <p>When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){</a>
-<a class="sourceLine" id="cb26-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb26-3" title="3">}</a>
-<a class="sourceLine" id="cb26-4" title="4"></a>
-<a class="sourceLine" id="cb26-5" title="5"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" title="1">add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb186-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb186-3" title="3">}</a>
+<a class="sourceLine" id="cb186-4" title="4"></a>
+<a class="sourceLine" id="cb186-5" title="5"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 </div>
 <div id="section" class="section level3">
 <h3><span class="header-section-number">8.2.3</span> …</h3>
 <p>You’ll notice a crucial distinction between R’s <code>sum()</code> function and ours. The base function allows for an indeterminate number of input parameters, whereas we’ve only allowed 2 (<code>x</code> and <code>y</code>). This is because the base <code>sum()</code> function uses a <code>...</code>. This <code>...</code> is essentially shorthand for “as many or as few inputs as the user wants to provide”. To use the <code>...</code>, just add it as in an input parameter:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, ...) {</a>
-<a class="sourceLine" id="cb30-2" title="2">}</a></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1">dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, ...) {</a>
+<a class="sourceLine" id="cb190-2" title="2">}</a></code></pre></div>
 <p>The <code>...</code> works particularly well when you might be creating a function that <em>wraps</em> around another one. A wrapping function is just a function that makes a call to another one within it, like this:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){</a>
-<a class="sourceLine" id="cb31-2" title="2">  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb31-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" title="1">sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){</a>
+<a class="sourceLine" id="cb191-2" title="2">  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb191-3" title="3">}</a></code></pre></div>
 <p>All we’re basically doing in the above wrapping around the <code>sum()</code> function to add some specific functionality.</p>
 <p>By using the <code>...</code> here, we can just pass everything that the user provides to the <code>sum()</code> function. This means we don’t have to worry about copying any input parameters.</p>
 </div>
@@ -372,53 +385,53 @@ and
 <p>Environments are hierarchical collections of objects. You can think of these environments as going from non-specific to specific. When you define a variable in a script, you are creating that variable in the <em>global environment</em>, a very non-specific environment. Functions, however, create their own more specific environment when they are called, but will inherit the values from the more general environments.</p>
 <p>This breeds some specific behaviours. For example, say you’ve written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
 <p>Let’s see what happens.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb32-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb32-3" title="3">}</a>
-<a class="sourceLine" id="cb32-4" title="4"></a>
-<a class="sourceLine" id="cb32-5" title="5">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb32-6" title="6">y &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb32-7" title="7"></a>
-<a class="sourceLine" id="cb32-8" title="8"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb192-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb192-3" title="3">}</a>
+<a class="sourceLine" id="cb192-4" title="4"></a>
+<a class="sourceLine" id="cb192-5" title="5">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb192-6" title="6">y &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb192-7" title="7"></a>
+<a class="sourceLine" id="cb192-8" title="8"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn’t really make much difference. The function creates its own more specific environment when it’s called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
 <p>But what happens if a variable doesn’t exist in the more specific function environment? Let’s take a look.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb34-2" title="2">  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w</a>
-<a class="sourceLine" id="cb34-3" title="3">}</a>
-<a class="sourceLine" id="cb34-4" title="4"></a>
-<a class="sourceLine" id="cb34-5" title="5">w &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb34-6" title="6"></a>
-<a class="sourceLine" id="cb34-7" title="7"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb194-2" title="2">  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w</a>
+<a class="sourceLine" id="cb194-3" title="3">}</a>
+<a class="sourceLine" id="cb194-4" title="4"></a>
+<a class="sourceLine" id="cb194-5" title="5">w &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb194-6" title="6"></a>
+<a class="sourceLine" id="cb194-7" title="7"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn’t exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we’ve provided. So when R doesn’t find it in the more specific environment, it looks in the less-specific global environment. It finds, and so it uses the value it finds.</p>
 <p>This can be a dangerous thing, so always make sure that you’re function is accessing the values you think it is.</p>
 <p>So does R work the other way? Does it ever look in a more specific environment? Nope.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb36-2" title="2">  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb36-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb36-4" title="4">}</a>
-<a class="sourceLine" id="cb36-5" title="5"></a>
-<a class="sourceLine" id="cb36-6" title="6">im_a_sneaky_variable</a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb196-2" title="2">  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb196-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb196-4" title="4">}</a>
+<a class="sourceLine" id="cb196-5" title="5"></a>
+<a class="sourceLine" id="cb196-6" title="6">im_a_sneaky_variable</a></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
 <p>Once the function is called, objects in its environment are unaccessible. The long and short of it is, R will start fromk specific environments and then look upwards, never downwards.</p>
 <div id="super-assignment" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> ‘Super’ assignment</h3>
 <p>There will be occassions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it’s called from. In these cases, you can use the controversial <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe…</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb38-2" title="2">  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb38-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb38-4" title="4">}</a>
-<a class="sourceLine" id="cb38-5" title="5"></a>
-<a class="sourceLine" id="cb38-6" title="6">count &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb38-7" title="7"></a>
-<a class="sourceLine" id="cb38-8" title="8"><span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb198-2" title="2">  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb198-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb198-4" title="4">}</a>
+<a class="sourceLine" id="cb198-5" title="5"></a>
+<a class="sourceLine" id="cb198-6" title="6">count &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb198-7" title="7"></a>
+<a class="sourceLine" id="cb198-8" title="8"><span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">count</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1">count</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">count</a></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1">count</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don’t need to use <code>&lt;&lt;-</code>. This is because we’re already assigning to the global environment.</p>
 <p>Use the <code>&lt;&lt;-</code> with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.</p>
@@ -432,7 +445,7 @@ and
         </div>
       </div>
 <a href="subsetting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="environments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
