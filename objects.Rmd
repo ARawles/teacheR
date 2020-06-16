@@ -1,22 +1,26 @@
-# Objects
+# Objects and Classes
 
-Objects are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.
+Objects and classes are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.
 
-Importantly, **don't feel as though you need to understand this section to use R**. Personally, I didn't really understand the way objects work in R until I was around 2 years in. I've included this chapter for those that want to learn how R is underpinned, but don't feel obliged to read this section if you're more interested in the practicalities of R rather than the specific.
+Importantly, **don't feel as though you need to understand this section to use R**. Personally, I didn't really understand the way objects and classes work in R until I was around 2 years in. I've included this chapter for those that want to learn how R is underpinned, but don't feel obliged to read this section if you're more interested in the practicalities of R rather than the specific.
+
+
+## What is a class?
+
+The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, and so on and so on. When we want to store data in a structured and formal way however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an class is; a pre-defined structure to store important attributes or features of a **thing**.
+
+Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a "person". Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.
+
+So our class is "person", and it has the attributes "name", "nationality", and "ethnicity". Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.
 
 
 ## What is an object?
 
-The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, and so on and so on. When we want to store data in a structured and formal way however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an object is; an instance of a **thing** according to a pre-defined structure.
+An object is just an instance of a class. So if you create a person from our "person" called John, then "John" is the object an "person" is the class.
 
-Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a "person". Well this is exactly what an object is; a collection of attributes and features that is shared amongst instances of the same type.
+When you create a dataframe for example, you're creating a `data.frame` object from the basic structure of the `data.frame` class.
 
-So our object is "person", and it has the attributes "name", "nationality", and "ethnicity". Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.
-
-More specifically, we call our pre-defined structure a **class**. So an **object** is an instance of a **class**.
-
-
-## Objects in R
+## Objects and Classes in R
 
 Looking more specifically at R, what kind of objects do we see. Well, according to John Chambers, the founder of the S programming language upon which R is based, everything is:
 
@@ -29,23 +33,36 @@ Looking more specifically at R, what kind of objects do we see. Well, according 
 
 So every function, dataframe, plot, list, vector, integer, everything is an object.
 
-### Interacting with objects
+To see the class of an object in R, use the `class()` function.
+
+```{r}
+class(data.frame())
+class(1)
+```
+
+### Object-Oriented Systems
 
 Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's [Advanced R](https://adv-r.hadley.nz/) to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.
 
 #### S3
 
-In some languages, there are methods, which are essentially functions or sub-routines that are tied to an object. For instance, an object that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account.
-
-In the S3 system, we don't really use methods. Instead, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, `print()`-ing a dataframe is going to be different to `print()`-ing a plot or an API response or whatever. But `print()` always seems to know what to do. The reason it does is that the `print()` function is a **generic** function that actually uses a more specific function to acheive it's goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called **methods**.
+In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, `print()`-ing a dataframe is going to be different to `print()`-ing a plot or an API response or whatever. But `print()` always seems to know what to do. The reason it does is that the `print()` function is a **generic** function that actually uses a more specific function to acheive it's goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called **methods**.
 
 As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of **communicating** as being the **generic** - it's the eventual goal. And **talking in the appropriate language** as being the **method**.
 
 Going back to R, if you type `print.` into the console, the autocompleter will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.
 
+```{r}
+print(date("2020/06/10")) # here we're using the generic
+print.Date(date("2020/06/10")) # because we're printing a Date object,
+# this is the method that is used
+```
+
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 
 
 The important thing I hoped you've gleaned from this explanation is that you don't really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn't convince you that you don't need to understand the underlying structure of an object to get hands on with R, I don't know what will.
+
+Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
 
 ### Creating objects
 
