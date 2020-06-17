@@ -1,4 +1,4 @@
-# Introduction to R
+# Introduction
 
 Chapters 2-7 cover R and its basics. The xaringan presentation for this module is [here](presentations/2_Intro/r_training_intro_presentation.html).
 
