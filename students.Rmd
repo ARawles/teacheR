@@ -1,6 +1,17 @@
 # For Students
 
+This section of the book is aimed at those who are either complete beginners to data analysis and statistical computing or who have some prior experience with another language or software package and they want to learn more about R.
+
+Here, we'll take a look at the basics but without going into too much detail so as to be confusing. If you make it through this section, when you come out the other side you'll have more than enough knowledge to be able to complete your first real R project.
+
+For those of you that feel you want to understand what underpins the concepts and code we're going to look at or those who want to eventually teach R to others, the following section ("For Teachers") will go into more detail. For example, you'll need to understand what a function is to to use R, but you won't need to know how to create one. In the "For Students" section, we look at what a function is, and then we learn how to create one in the "For Teachers" section.
+
 ## Operators
+
+Operators perform an action or represent something. For example, a great example of an operator is `+`. The `+` is a type of arithmetic operator that adds things together.
+
+In this section, we're going to look at the more common arithmetic operators that are used for simple maths in R, and then at some logical operators that are used to evaluate whether a criteria has been fulfilled.
+
 
 ### Arithmetic operators
 
@@ -11,7 +22,6 @@ Here are the main operators in use:
 ```{r}
 2 + 2  # addition
 ```
-
 
 ```{r}
 10 - 5 # subtraction
@@ -90,6 +100,8 @@ This is essentially what we can do in R. Sometimes you'll use the same value aga
 
 Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.
 
+### Creating variables
+
 Creating variables in R is really easy. All you need to do is provide a valid name, use the `<-` symbol, and then provide a value to assign:
 
 ```{r}
@@ -113,6 +125,8 @@ hello_im_another_variable
 When you come across other people's work, you may see that they use `=` instead of `<-` when they create their variables. Even though it's not the end of the world if you do do that, I would recommend getting into the habit of using `<-`. `<-` is purely used for assignment, whereas `=` is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.
 
 As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.
+
+### Reassigning variables
 
 Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:
 
@@ -208,7 +222,7 @@ as.double("im going to cause a warning")
 
 Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `r number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `r number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning:
 
-```{r, warning = TRUE}
+```{r, warning = FALSE, message=FALSE}
 1.5L
 ```
 
@@ -357,20 +371,6 @@ is(as.POSIXct("2020/01/01 12:00:00"))
 ```
 
 
-### Technicalities
-
-Although I've presented the above as separate data types, in reality objects and values are not represented in this distinct fashion. Instead, some of the data types can be considered sub-types of other data types. For example, if we type:
-
-```{r}
-is(1L)
-```
-
-We see that it's an integer, but it's also a double, and numeric, and a vector. What this demonstrates is the idea that data types are not siloed. Instead there is a web of *inheritance*, with types that span many sub-types. Inheritance is a complicated subject but I've included a [brief section](objects-and-classes.html#inheritance) explaining it.
-
-Why have I presented in the way that I did then? Well, for beginners, this degree of inheritance doesn't really matter. Integers are distinct from doubles, which are distinct from factors, and so on. And so as long as you know the general data type of your value, as well as what structure you're storing it in (which we're moving on to now), then you're fine.
-
-If you are interested in understanding a bit more about objects in R, then there is a brief [Objects](objects.html) chapter, and I would recommend Hadley's [Advanced R](https://adv-r.hadley.nz/) for more.
-
 ## Data structures
 
 It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:
@@ -384,7 +384,6 @@ It's rare that you're ever going to be working on a single value in R. Instead, 
 
 Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.
 
-
 One of the main things to remember about vectors however, is that they are atomic. That's basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number `1` is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we'll  look at those next.
 
 To create a vector, we use the `c()` function, which is short for concatenate. In other words, we're pulling together lots of different values and concatenating them into one structure.
@@ -393,9 +392,9 @@ To create a vector, we use the `c()` function, which is short for concatenate. I
 c(1,2,3,4)
 ```
 
-Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type `is(1)`, the second things that pops up after "numeric" is "vector". R is telling us that `1` is a number and that it's in a vector.
+Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type `is(1)`, the second things that pops up after "numeric" is "vector". R is telling us that `1` is a number and that it's also a vector.
 
-All the  values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
+All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
 
 ```{r}
 c(this_is_the_first_value = 1, this_is_the_second_value = 2)
@@ -456,7 +455,6 @@ model3 <- model(...)
 
 The problem with this however, is that if I then want to compare the models, I'll have to write out `modelX` each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more `modelX <- model(...)` lines and assigning each one as a new variable.
 
-
 Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.
 
 ### Matrices
@@ -491,7 +489,7 @@ is(data.frame())
 ```
 The second value in the returned vector is "list".
 
-So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto [susbetting](#dataframes-1). Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
+So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto [subsetting](subsetting.html#dataframes-1). Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
 
 ```{r, eval = FALSE}
 data.frame(
@@ -612,6 +610,9 @@ data.frame(
 
 Why does this approach work for dataframes? Well, as I alluded to [before](#dataframes), dataframes store columns as lists. But technically, the dataframe itself is also stored as a kind of list, with each column being another entry in that list. So, just like we can subset lists using `$`, we can subset dataframes with it as well because a dataframe is like a fancy list.
 
+### Subsetting by criteria
+
+/TO DO
 
 ## Functions
 
@@ -630,7 +631,7 @@ John Chambers, creator of the S programming language upon which R is based and c
 
 For now, we're going to focus on that second statement. What does it mean?
 
-Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing a number into the console and hitting enter. You've given an input, there was a calculation, and now there's an output.
+Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing `print(1)` into the console and hitting enter. You've given an input, there was a calculation, and now there's an output. Something's happened (1 was printed in the console) and it was done by calling a function.
 
 If you're well versed in mathematics, you'll know that functions in maths are the same. $f(x) = {3x}$ means that the to get `y`, you take `x` and multiply it by three. In this case, our input is `x`, our bit in the middle is multiplying by three, and then our output is `y`.
 
@@ -639,11 +640,11 @@ If you haven't used functions in mathematics then don't worry. Even by getting t
 Similarly, whenever you created a factor or a matrix or a dataframe or whatever, you used a function. You provided an input, there was a computation to change that input, and then you got an output.
 
 As confusing as functions will inevitably become, just try to remember the core of what a function is:
-There's an input. There's a computation. There's an output.
+When you call a function, there's an input, something happens, and there's an output.
 
 #### Functions in R
 
-So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (`()`, not any other type of bracket) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
+So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (`()`) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
 
 I say that nearly almost all functions are followed by `()`, because some aren't. A simple example of this is `+`. `+` is still a function:
 
@@ -703,7 +704,6 @@ Also, notice how we're using `=` here and not anything else like `<-`? This is a
 
 So how does this link back with the `...`? Well, with the `c()` function, every unnamed parameter you provide is bundled into the `...` parameter. To give values for the `recursive` and `use.names` parameters, you'd need to provide them *explicitly* (e.g. `recursive = TRUE`). This will be true of many functions where you see a `...`. If you're not explicit with the parameters that you don't want to be included in the `...`, you're going to have a bad time.
 
-
 ##### Optional input parameters
 
 For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there's a default value, but you can override it if needed.
@@ -717,7 +717,10 @@ c(1,10,15, use.names = FALSE)
 
 #### Outputs
 
-First and foremost, in R you can have as many input as you like to a function. However, you can only ever return one *thing*. I say one *thing*, because you can return a list as your output which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
+First and foremost, in R you can have as many input as you like to a function. However, a function will only ever return one *thing*. I say one *thing*, because functions can return a list which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
+
+
+EXAMPLES?
 
 
 ##### Reassigning outputs
@@ -742,6 +745,6 @@ x
 
 This works because the right-hand side of the assignment line is executed first. In other words, when the `sum(x,1)` is evaluated, `x` is still equal to one. This makes sense because otherwise it'd be very hard to keep track of what `x` was equal to!
 
-This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: `object.AddNew` or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. But what's an environment? Well, we'll take a look at that in the environments chapter.
+This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: `object.AddNew` or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. To learn more about environments, there is an [environments](environments.html) chapter in the "For Teachers" section.
 
 
