@@ -2,32 +2,7 @@
 
 ## Functions
 
-If you're interested, there are some specifics about function inputs in R that can be good to know.
-
-### Input validation
-
-Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
-
-EXAMPLES
-
-### Functions as objects
-
-Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` function requires a `FUN` parameter that is the function the be applied each time. 
-
-EXAMPLE
-
-Linked with the idea that functions are just another type of an object, there is an important distinction between 
-`sum`
-and
-`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition: 
-
-```{r}
-sum
-```
-
-Conversely, `sum()` will attempt to apply the `sum` function to the inputs provided in the brackets.
-
-EXAMPLE
+In the "For Students" section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.
 
 ### Creating functions
 
@@ -98,6 +73,36 @@ sum_and_add_2 <- function(...){
 All we're basically doing in the above wrapping around the `sum()` function to add some specific functionality.
 
 By using the `...` here, we can just pass everything that the user provides to the `sum()` function. This means we don't have to worry about copying any input parameters.
+
+
+If you're interested, there are some specifics about function inputs in R that can be good to know.
+
+### Input validation
+
+Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
+
+EXAMPLES
+
+
+### Functions as objects
+
+Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` function requires a `FUN` parameter that is the function the be applied each time. 
+
+EXAMPLE
+
+Linked with the idea that functions are just another type of an object, there is an important distinction between 
+`sum`
+and
+`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition: 
+
+```{r}
+sum
+```
+
+Conversely, `sum()` will *call* the `sum` function with the inputs provided in the brackets.
+
+EXAMPLE
+
 
 ### Function environments
 
@@ -192,12 +197,9 @@ TO DO
 
 Objects and classes are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.
 
-Importantly, **don't feel as though you need to understand this section to use R**. Personally, I didn't really understand the way objects and classes work in R until I was around 2 years in. I've included this chapter for those that want to learn how R is underpinned, but don't feel obliged to read this section if you're more interested in the practicalities of R rather than the specific.
-
-
 ### What is a class?
 
-The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, and so on and so on. When we want to store data in a structured and formal way however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an class is; a pre-defined structure to store important attributes or features of a **thing**.
+The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, their hair colour, their likes and dislikes, and so on and so on. When we want to store data in a structured and formal way in a computer system, however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an class is; a pre-defined structure to store important attributes or features of a **thing**.
 
 Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a "person". Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.
 
