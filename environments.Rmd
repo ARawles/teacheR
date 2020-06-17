@@ -1,5 +1,0 @@
-# Environments
-
-We looked briefly at environments and how they are used with functions, but let's look at environments in a bit more detail.
-
-## Environment basics

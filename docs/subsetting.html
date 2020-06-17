@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Subsetting | Teach Yourself or Others R</title>
-  <meta name="description" content="7 Subsetting | Teach Yourself or Others R" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <title>3.5 Subsetting | Teach Yourself or Others R</title>
+  <meta name="description" content="3.5 Subsetting | Teach Yourself or Others R" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta property="og:title" content="3.5 Subsetting | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Subsetting | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="3.5 Subsetting | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -68,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -127,80 +127,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>2</b> Introduction to R</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio-panes"><i class="fa fa-check"></i><b>2.4.2</b> RStudio Panes</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="should-i-use-r.html"><a href="should-i-use-r.html"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#rstudio-panes"><i class="fa fa-check"></i><b>2.4.2</b> RStudio Panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3</b> Operators</a><ul>
-<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1</b> Arithmetic operators</a></li>
-<li class="chapter" data-level="3.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.2</b> Logical operators</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>4</b> Variable assignment</a></li>
-<li class="chapter" data-level="5" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>5</b> Data types</a><ul>
-<li class="chapter" data-level="5.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>5.1</b> Logical</a></li>
-<li class="chapter" data-level="5.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>5.2</b> Double</a></li>
-<li class="chapter" data-level="5.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>5.3</b> Integer</a></li>
-<li class="chapter" data-level="5.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>5.4</b> Character</a></li>
-<li class="chapter" data-level="5.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>5.5</b> Factors</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>5.5.1</b> Converting from factors</a></li>
-</ul></li>
-<li class="chapter" data-level="5.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>5.6</b> Dates</a></li>
-<li class="chapter" data-level="5.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>5.7</b> Datetimes (POSIXct)</a></li>
-<li class="chapter" data-level="5.8" data-path="data-types.html"><a href="data-types.html#technicalities"><i class="fa fa-check"></i><b>5.8</b> Technicalities</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>6</b> Data structures</a><ul>
-<li class="chapter" data-level="6.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>6.1</b> Vectors</a></li>
-<li class="chapter" data-level="6.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>6.2</b> Lists</a></li>
-<li class="chapter" data-level="6.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>6.3</b> Lists vs Vectors</a></li>
-<li class="chapter" data-level="6.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>6.4</b> Matrices</a></li>
-<li class="chapter" data-level="6.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>6.5</b> Dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>7</b> Subsetting</a><ul>
-<li class="chapter" data-level="7.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>7.1</b> Vectors</a></li>
-<li class="chapter" data-level="7.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
-<li class="chapter" data-level="7.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>7.3</b> Matrices</a></li>
-<li class="chapter" data-level="7.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>7.4</b> Dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>8</b> Functions</a><ul>
-<li class="chapter" data-level="8.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>8.1</b> Function basics</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>8.1.1</b> Functions in R</a></li>
-<li class="chapter" data-level="8.1.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>8.1.2</b> Inputs</a></li>
-<li class="chapter" data-level="8.1.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>8.1.3</b> Outputs</a></li>
-<li class="chapter" data-level="8.1.4" data-path="functions.html"><a href="functions.html#a-little-more-on-functions"><i class="fa fa-check"></i><b>8.1.4</b> A little more on functions</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#creating-functions"><i class="fa fa-check"></i><b>8.2</b> Creating functions</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#function-structure"><i class="fa fa-check"></i><b>8.2.1</b> Function structure</a></li>
-<li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#optional-input-parameters-1"><i class="fa fa-check"></i><b>8.2.2</b> Optional input parameters</a></li>
-<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#section"><i class="fa fa-check"></i><b>8.2.3</b> …</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#function-environments"><i class="fa fa-check"></i><b>8.3</b> Function environments</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="functions.html"><a href="functions.html#super-assignment"><i class="fa fa-check"></i><b>8.3.1</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>9</b> Environments</a><ul>
-<li class="chapter" data-level="9.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>9.1</b> Environment basics</a></li>
+<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a><ul>
+<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1.1</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="3.1.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.1.2</b> Logical operators</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>10</b> Objects and Classes</a><ul>
-<li class="chapter" data-level="10.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>10.1</b> What is a class?</a></li>
-<li class="chapter" data-level="10.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>10.2</b> What is an object?</a></li>
-<li class="chapter" data-level="10.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>10.3</b> Objects and Classes in R</a></li>
-<li class="chapter" data-level="10.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>10.4</b> Inheritance</a><ul>
-<li class="chapter" data-level="10.4.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>10.4.1</b> Object-Oriented Systems</a></li>
-<li class="chapter" data-level="10.4.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-objects"><i class="fa fa-check"></i><b>10.4.2</b> Creating objects</a></li>
+<li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.2</b> Reassigning variables</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>3.3.2</b> Double</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>3.3.3</b> Integer</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>3.3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>3.3.6</b> Dates</a></li>
+<li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.4.2</b> Lists</a></li>
+<li class="chapter" data-level="3.4.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>3.4.3</b> Lists vs Vectors</a></li>
+<li class="chapter" data-level="3.4.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>3.4.4</b> Matrices</a></li>
+<li class="chapter" data-level="3.4.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.4.5</b> Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>3.5.2</b> Lists</a></li>
+<li class="chapter" data-level="3.5.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>3.5.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.5.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>3.5.4</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>3.5.5</b> Subsetting by criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>11</b> Exercises</a></li>
+<li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a><ul>
+<li class="chapter" data-level="4.1" data-path="functions-1.html"><a href="functions-1.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="functions-1.html"><a href="functions-1.html#input-validation"><i class="fa fa-check"></i><b>4.1.1</b> Input validation</a></li>
+<li class="chapter" data-level="4.1.2" data-path="functions-1.html"><a href="functions-1.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.2</b> Functions as objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="functions-1.html"><a href="functions-1.html#creating-functions"><i class="fa fa-check"></i><b>4.1.3</b> Creating functions</a></li>
+<li class="chapter" data-level="4.1.4" data-path="functions-1.html"><a href="functions-1.html#function-environments"><i class="fa fa-check"></i><b>4.1.4</b> Function environments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
+<li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
+<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>4.3.4</b> Inheritance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>5</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -218,100 +213,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level1">
-<h1><span class="header-section-number">7</span> Subsetting</h1>
+<div id="subsetting" class="section level2">
+<h2><span class="header-section-number">3.5</span> Subsetting</h2>
 <p>There will be occasions where you don’t want all the values in a vector/list/matrix/dataframe. Instead, you’ll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you’re using.</p>
 <p>**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
-<div id="vectors-1" class="section level2">
-<h2><span class="header-section-number">7.1</span> Vectors</h2>
+<div id="vectors-1" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Vectors</h3>
 <p>Vectors are simple. Just use square brackets (<code>[]</code> or <code>[[]]</code>) after your vector and provide the index or indices of the values that you want:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</a></code></pre></div>
 <pre><code>## [1] 10 40</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] 10 20 30</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[["value_1"]]</code>.</p>
+<p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[[&quot;value_1&quot;]]</code>.</p>
 <p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangeable?</p>
 <p>Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable.</p>
 <p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Let’s see a practical example of how these are different:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" title="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb141-2" title="2">  <span class="dt">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb139-2" data-line-number="2">  <span class="dt">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## value_1 
 ##      10</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" title="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
-<a class="sourceLine" id="cb143-2" title="2">  <span class="dt">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb141-2" data-line-number="2">  <span class="dt">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we’ve essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we’ve just been given the value. What we’ve done here is extracted the value out from that position.</p>
 <p>/TO DO</p>
 <p>I think some kind of analogy could be useful here to drive home the difference.</p>
 <p>It’s a very subtle difference, but it is an important one. Make sure that if you want the value, use <code>[[]]</code>, and if you want the whole part of the vector, use <code>[]</code>.</p>
 </div>
-<div id="lists-1" class="section level2">
-<h2><span class="header-section-number">7.2</span> Lists</h2>
+<div id="lists-1" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Lists</h3>
 <p>Lists can be subsetted in the same way as vectors - <code>[]</code> returns the container at the index provided and <code>[[]]</code> returns the value:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb145-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb145-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
-<a class="sourceLine" id="cb145-4" title="4">)[[<span class="dv">1</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb143-2" data-line-number="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb143-3" data-line-number="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb143-4" data-line-number="4">)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb147-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb147-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
-<a class="sourceLine" id="cb147-4" title="4">)[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb145-2" data-line-number="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb145-3" data-line-number="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb145-4" data-line-number="4">)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## $value_1
 ## [1] 1 2 3</code></pre>
 <p>A key difference with lists however, is that you can also subset based on the name of the value in the list using the <code>$</code> operator:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb149-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb149-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
-<a class="sourceLine" id="cb149-4" title="4">)<span class="op">$</span>value_<span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb147-2" data-line-number="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb147-3" data-line-number="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb147-4" data-line-number="4">)<span class="op">$</span>value_<span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>This is equivalent to:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb151-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb151-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
-<a class="sourceLine" id="cb151-4" title="4">)[[<span class="st">&quot;value_1&quot;</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb149-2" data-line-number="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb149-3" data-line-number="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb149-4" data-line-number="4">)[[<span class="st">&quot;value_1&quot;</span>]]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Another key difference is that lists can, of course, hold recursive values. This means that subsetting a list can return another list, that can also be subsetted and so on:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb153-2" title="2">  <span class="dt">list_1 =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb153-3" title="3">    <span class="dt">list_2 =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb153-4" title="4">      <span class="dt">list_3 =</span> <span class="st">&quot;hello&quot;</span></a>
-<a class="sourceLine" id="cb153-5" title="5">    )</a>
-<a class="sourceLine" id="cb153-6" title="6">  )</a>
-<a class="sourceLine" id="cb153-7" title="7">)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">  <span class="dt">list_1 =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">    <span class="dt">list_2 =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">      <span class="dt">list_3 =</span> <span class="st">&quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb151-5" data-line-number="5">    )</a>
+<a class="sourceLine" id="cb151-6" data-line-number="6">  )</a>
+<a class="sourceLine" id="cb151-7" data-line-number="7">)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## $list_1
 ## $list_1$list_2
 ## $list_1$list_2$list_3
 ## [1] &quot;hello&quot;</code></pre>
 <p>And of course, you can do the same thing with the <code>[[]]</code> operator if you only want the value and not the container.</p>
 </div>
-<div id="matrices-1" class="section level2">
-<h2><span class="header-section-number">7.3</span> Matrices</h2>
+<div id="matrices-1" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Matrices</h3>
 <p>Matrices are two dimension, meaning they can’t be subsetted with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values: one for the row and another for the column:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
 ## [2,]    2    7
 ## [3,]    3    8
 ## [4,]    4    9
 ## [5,]    5   10</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
-<div id="dataframes-1" class="section level2">
-<h2><span class="header-section-number">7.4</span> Dataframes</h2>
+<div id="dataframes-1" class="section level3">
+<h3><span class="header-section-number">3.5.4</span> Dataframes</h3>
 <p>Dataframes can be subsetted in the same way as matrices (using the <code>[]</code> operator). However, dataframes can also be subsetting (like lists), using the <code>$</code> operator and the name of the column:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb159-2" title="2">  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb159-3" title="3">  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)</a>
-<a class="sourceLine" id="cb159-4" title="4">)<span class="op">$</span>col_<span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb157-2" data-line-number="2">  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb157-3" data-line-number="3">  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)</a>
+<a class="sourceLine" id="cb157-4" data-line-number="4">)<span class="op">$</span>col_<span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Why does this approach work for dataframes? Well, as I alluded to <a href="data-structures.html#dataframes">before</a>, dataframes store columns as lists. But technically, the dataframe itself is also stored as a kind of list, with each column being another entry in that list. So, just like we can subset lists using <code>$</code>, we can subset dataframes with it as well because a dataframe is like a fancy list.</p>
-
+</div>
+<div id="subsetting-by-criteria" class="section level3">
+<h3><span class="header-section-number">3.5.5</span> Subsetting by criteria</h3>
+<p>/TO DO</p>
 </div>
 </div>
             </section>
@@ -362,7 +360,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": [["_main.pdf", "PDF"], ["_main.epub", "EBook"]],
+"download": ["_main.pdf", "_main.epub"],
 "toc": {
 "collapse": "subsection"
 }

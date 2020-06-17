@@ -5,13 +5,7 @@ rmd_files: [
   
   "intro.Rmd",
   
-  "operators.Rmd",
-  "variable-assignment.Rmd",
-  "data-types.Rmd",
-  "data-structures.Rmd",
-  "subsetting.Rmd",
-  "functions.Rmd",
-  "environments.Rmd",
-  "objects.Rmd",
+  "students.Rmd",
+  "teachers.Rmd",
   
   "exercises.Rmd"]

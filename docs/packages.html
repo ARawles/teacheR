@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Exercises | Teach Yourself or Others R</title>
-  <meta name="description" content="5 Exercises | Teach Yourself or Others R" />
+  <title>2.5 Packages | Teach Yourself or Others R</title>
+  <meta name="description" content="2.5 Packages | Teach Yourself or Others R" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Exercises | Teach Yourself or Others R" />
+  <meta property="og:title" content="2.5 Packages | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Exercises | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="2.5 Packages | Teach Yourself or Others R" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="objects-and-classes.html"/>
-
+<link rel="prev" href="rstudio.html"/>
+<link rel="next" href="for-students.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -213,19 +213,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercises" class="section level1">
-<h1><span class="header-section-number">5</span> Exercises</h1>
-<p>Here are some interactive exercises covering the basic concepts we’ve looked at in the last X modules.</p>
-<p>This exercises are hosted on a Shiny server <a href="http://shiny.arawles.co.uk/r-training-exercises">here</a></p>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">2.5</span> Packages</h2>
+<p>As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you’ll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they’re more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.</p>
+<p>So instead of them being available from the start, people create sets of functions that usually are used for a particularly tasks and then distribute them as a <em>package</em>. You can install this package and have access to all these great functions that someone has written for you.</p>
+<p>Some great examples of R packages are:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/">ggplot2</a> for creating plots</li>
+<li><a href="https://dplyr.tidyverse.org/">dplyr</a> for data manipulation</li>
+<li><a href="https://shiny.rstudio.com/">shiny</a> for creating web apps</li>
+<li><a href="http://bmrsr.arawles.co.uk">BMRSr</a> for extracting energy data
+<ul>
+<li>Truth be told, this isn’t a <em>great</em> example of a package, it’s just the one I’ve made so that’s why it’s here.</li>
+</ul></li>
+</ul>
+<p>The thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out.</p>
+<div id="installing-packages" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Installing packages</h3>
+<p>You can think of installing a package as a bit like installing a program on your computer. You only need to install it once, but then you’ll need to open it each time you use it.</p>
+<p>Installing packages is really easy; you just use the <code>install.packages()</code> function:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;BMRSr&quot;</span>)</a></code></pre></div>
+<p>You can choose where the package installs by suppling a path to the <code>lib</code> parameter (e.g. <code>lib = &quot;C:/me/desktop&quot;</code>), but by default it will install it into your default library folder. You can find the path to this default library folder with the <code>.libPaths()</code> function.</p>
+<p>Once the package has been installed, you only need to reinstall it if there’s a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don’t need all of them for every project you do. So instead, we load specific packages we want each time.</p>
+<p>To load a package, use the <code>library()</code> function. Place this somewhere near the start of your script so that it’s obvious which packages someone will need if they’re reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.</p>
+<p>But Adam, what happens if I load two packages that have functions with the same name? Ah, that’s a great question. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it’s precedence. That means that when you try and use a function with a name that’s in more than one of the packages you’ve loaded, it will default to the latest package you’ve loaded.</p>
+<p>To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you’ll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and <code>::</code> when you use it, like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">mutate</span>()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">mutate</span>()</a></code></pre></div>
+<p>Finally, there is a package called <code>conflicted</code> that you can use to avoid these issues. Rather than giving a certain package precedence because it was loaded later, attempting to use a function that could come from more than one package will cause an error and you’ll need to be explicit with which one you mean.</p>
+<p>Personally, I use the prefix method. Yes it’s a little bit more verbose, but it makes it 100 times easier for someone else to know exactly where your function has come from without the need for extra packages. This also tends to be the approach that I take because there’s nothing worse than coming back to a script a year later and forgetting which packages you need because you didn’t include the correct library calls.</p>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="objects-and-classes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="for-students.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
