@@ -1,5 +1,6 @@
 ---
-title: "Teach Yourself or Others R"
+title: "teacheR"
+subtitle: "Teach Yourself or Others R"
 author: "Adam Rawles"
 site: bookdown::bookdown_site
 documentclass: book
