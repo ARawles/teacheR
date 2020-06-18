@@ -264,7 +264,34 @@ class(1)
 
 ### Inheritance
 
-Sometimes, different classes are interrelated. For example, if you were storing data on cars, then you might have a "car" class. But if you're storing data on lots of different makes of cars, you might also have classes for each brand (e.g. "Ford", "Ferrari", etc.). All of these classes are still cars, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a "car" class and allowing your subsequent model classes to inherit all of the attributes of the "car" class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the "car" class rather than changing each model class.
+Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a "vehicle" class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. "car", "motorbike", etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a "vehicle" class and allowing your subsequent classes to inherit all of the attributes of the "vehicle" class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the "vehicle" class rather than changing each type of vehicle class.
+
+Diagramming this relationship:
+
+```{r}
+DiagrammeR::grViz("
+digraph inheritance {
+
+  # a 'graph' statement
+  graph [overlap = true]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Vehicle;
+
+  node [shape = rectangle,
+        fixedsize = true,
+        width = 0.6,
+        fontsize = 7] // sets as circles
+  Car; Motorbike; Van
+  
+  Vehicle->Car
+  Vehicle->Van
+  Vehicle->Motorbike
+
+}")
+```
 
 Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the `is()` function:
 
