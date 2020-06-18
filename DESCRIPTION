@@ -15,5 +15,6 @@ Imports:
     xaringan,
     bookdown,
     rmarkdown,
-    DiagrammeR
+    DiagrammeR,
+    webshot
 RoxygenNote: 6.1.1
