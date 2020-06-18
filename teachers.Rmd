@@ -150,7 +150,7 @@ At the top of the environments of packages you've loaded will be the **base envi
 
 The hierarchy of these environments looks like this:
 
-```{r}
+```{r, echo=FALSE}
 DiagrammeR::grViz("
 digraph environments {
 
@@ -276,7 +276,7 @@ So our class is "person", and it has the attributes "name", "nationality", and "
 
 Graphing that object might look something like this:
 
-```{r}
+```{r echo=FALSE}
 DiagrammeR::grViz("
 digraph class {
 
@@ -336,7 +336,7 @@ Sometimes, different classes are interrelated. For example, if you were storing 
 
 Diagramming this relationship:
 
-```{r}
+```{r echo=FALSE}
 DiagrammeR::grViz("
 digraph inheritance {
 
