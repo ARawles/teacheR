@@ -104,11 +104,89 @@ Conversely, `sum()` will *call* the `sum` function with the inputs provided in t
 EXAMPLE
 
 
+
+
+## Environments 
+
+
+We looked briefly at environments and how they are used with functions, but let's look at environments in a bit more detail.
+
+### Environment basics
+
+At its core, an environment is a collection of objects. A bit like a list, environments store multiple objects in a single structure.
+
+To create a new environment, we use the `new.env()` function.
+
+```{r}
+new_env <- new.env()
+```
+
+To add items to our environment, we can add them like we would a list using the `$` operator:
+
+```{r}
+new_env$first_object <- "hello"
+```
+
+To list all of the objects in an environment, we use the `ls()` function:
+
+```{r}
+ls(new_env)
+```
+
+Importantly, you can't have two objects in the same environment with the same name. If you try, you'll just overwrite the previous value:
+
+```{r, error = TRUE}
+new_env$first_object <- "world"
+new_env$first_object
+```
+### Environment inheritance
+
+Environments have parents and children. In other words, there is a hierarchy of environments, with environments being encapsulated in other environments while also encapsulated other environments.
+
+Every environment (with the exception of what we call the empty environment) has a parent. For example, when I created my `new_env` environment before, this was created in the **global environment**. The global environment is the environment that objects are assigned to when working in R interactively. The global environment's parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function.
+
+At the top of the environments of packages you've loaded will be the **base environment** which is the environment of base R. Finally, the base environment's parent is the **empty environment** which does not have a parent.
+
+
+The hierarchy of these environments looks like this:
+
+```{r}
+DiagrammeR::grViz("
+digraph environments {
+
+  # a 'graph' statement
+  graph [overlap = true]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fillcolor = Grey,
+        style= filled]
+  'empty environment';
+  'base environment';
+  'package environment\n(e.g. package:BMRSr)';
+  'global environment';
+
+  # several 'edge' statements
+  'empty environment'->'base environment'
+  'base environment'->'package environment\n(e.g. package:BMRSr)'
+  'package environment\n(e.g. package:BMRSr)'->'global environment' 
+}
+")
+```
+
+### Scope
+
+So we know that objects in the same environment can't have the same name, but what happens when two different environments happen to have objects with the same name? This is where the concept of **scope** comes in. **Scoping** is the set of rules that governs where R will look for a value.
+
+Well, R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called `sum()`. But, if I define a new function in the global environment called `sum` then which function will be called when I type `sum(...)`. Well, because we know that the search path starts from the most specific environment, R will look for `sum` in the global environment first and it'll find the `sum` that I've just defined. At this point, it'll stop looking because `sum` has been found.
+
+For this reason, it's a good idea to use a package like `conflicts` to  manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.
+
+
 ### Function environments
 
-To better understand how functions operate, we need to understand how environments and scoping works in R. There's a separate chapter on [environments](environments.html) in this book, but we'll briefly look at how functions create environments.
-
-Environments are hierarchical collections of objects. You can think of these environments as going from non-specific to specific. When you define a variable in a script, you are creating that variable in the *global environment*, a very non-specific environment. Functions, however, create their own more specific environment when they are called, but will inherit the values from the more general environments.
+Functions, when they called, create their own more specific environment. The parent of this environment will be the environment in which it was called (most often this will be the global environment).
 
 This breeds some specific behaviours. For example, say you've written a function that expects two input parameters, `x` and `y`. Well, what would happen if someone had already defined an `x` and `y` variable in their script? Which value should R use?
 
@@ -183,15 +261,6 @@ Note how when we assign `0` to our `count` variable outside of the function, we 
 
 Use the `<<-` with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.
 
-## Environments 
-
-
-We looked briefly at environments and how they are used with functions, but let's look at environments in a bit more detail.
-
-### Environment basics
-
-TO DO
-
 
 ## Objects and Classes
 
@@ -209,26 +278,25 @@ Graphing that object might look something like this:
 
 ```{r}
 DiagrammeR::grViz("
-digraph boxes_and_circles {
+digraph class {
 
   # a 'graph' statement
   graph [overlap = true]
 
   # several 'node' statements
   node [shape = box,
-        fontname = Helvetica]
+        fontname = Helvetica,
+        style = filled,
+        fillcolor = Grey]
   Person
 
   node [shape = circle,
         fixedsize = true,
         width = 0.8,
-        fontsize = 8,
-        color = Grey50,
-        fontcolor = Grey50] // sets as circles
+        fontsize = 8] // sets as circles
   Name; Nationality; Ethnicity
 
   # several 'edge' statements
-  edge [color = Grey50]
   Person->Name Person->Nationality Person->Ethnicity 
 }
 ")
@@ -277,13 +345,17 @@ digraph inheritance {
 
   # several 'node' statements
   node [shape = box,
-        fontname = Helvetica]
+        fontname = Helvetica,
+        style = filled,
+        fillcolor = Grey]
   Vehicle;
 
-  node [shape = rectangle,
+  node [shape = box,
         fixedsize = true,
         width = 0.6,
-        fontsize = 7] // sets as circles
+        fontsize = 7,
+        style = filled,
+        fillcolor = Grey] // sets as circles
   Car; Motorbike; Van
   
   Vehicle->Car
