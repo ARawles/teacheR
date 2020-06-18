@@ -14,7 +14,7 @@ Creating functions will also highlight an important delineation. Previously, we'
 
 #### Function structure
 
-If we go back to the beginning of this chapter, we learnt that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the `function` keyword like this:
+If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the `function` keyword like this:
 
 ```{r}
 my_first_function <- function() {}
@@ -155,12 +155,12 @@ sum_custom <- function(x,y){
 im_a_sneaky_variable
 ```
 
-Once the function is called, objects in its environment are unaccessible. The long and short of it is, R will start fromk specific environments and then look upwards, never downwards.
+Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.
 
 
 #### 'Super' assignment
 
-There will be occassions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial `<<-` operator. This is used as an assignment operator to assign a value to the global environment. Observe...
+There will be occasions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial `<<-` operator. This is used as an assignment operator to assign a value to the global environment. Observe...
 
 
 ```{r}
@@ -235,7 +235,7 @@ class(1)
 
 ### Inheritance
 
-Sometimes, different classes are interelated. For example, if you were storing data on cars, then you might have a "car" class. But if you're storing data on lots of different makes of cars, you might also have classes for each brand (e.g. "Ford", "Ferrari", etc.). All of these classes are still cars, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a "car" class and allowing your subsequent model classes to inherit all of the attributes of the "car" class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the "car" class rather than changing each model class.
+Sometimes, different classes are interrelated. For example, if you were storing data on cars, then you might have a "car" class. But if you're storing data on lots of different makes of cars, you might also have classes for each brand (e.g. "Ford", "Ferrari", etc.). All of these classes are still cars, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a "car" class and allowing your subsequent model classes to inherit all of the attributes of the "car" class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the "car" class rather than changing each model class.
 
 Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the `is()` function:
 
@@ -251,7 +251,7 @@ Unfortunately (or fortunately, depending on your point of view), R doesn't have 
 
 ##### S3
 
-In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, `print()`-ing a dataframe is going to be different to `print()`-ing a plot or an API response or whatever. But `print()` always seems to know what to do. The reason it does is that the `print()` function is a **generic** function that actually uses a more specific function to acheive it's goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called **methods**.
+In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, `print()`-ing a dataframe is going to be different to `print()`-ing a plot or an API response or whatever. But `print()` always seems to know what to do. The reason it does is that the `print()` function is a **generic** function that actually uses a more specific function to achieve it's goal. In other words, we achieve a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called **methods**.
 
 As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of **communicating** as being the **generic** - it's the eventual goal. And **talking in the appropriate language** as being the **method**.
 
