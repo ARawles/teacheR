@@ -205,6 +205,35 @@ Let's take the person instance again. Let's say we're going to store data on a n
 
 So our class is "person", and it has the attributes "name", "nationality", and "ethnicity". Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.
 
+Graphing that object might look something like this:
+
+```{r}
+DiagrammeR::grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Person
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.8,
+        fontsize = 8,
+        color = Grey50,
+        fontcolor = Grey50] // sets as circles
+  Name; Nationality; Ethnicity
+
+  # several 'edge' statements
+  edge [color = Grey50]
+  Person->Name Person->Nationality Person->Ethnicity 
+}
+")
+```
+
 
 ### What is an object?
 
