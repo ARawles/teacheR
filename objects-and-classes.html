@@ -49,6 +49,10 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
@@ -196,6 +200,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, their hair colour, their likes and dislikes, and so on and so on. When we want to store data in a structured and formal way in a computer system, however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an class is; a pre-defined structure to store important attributes or features of a <strong>thing</strong>.</p>
 <p>Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a &quot;person&quot;. Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.</p>
 <p>So our class is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
+<p>Graphing that object might look something like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">grViz</span>(<span class="st">&quot;</span>
+<span class="st">digraph boxes_and_circles {</span>
+
+<span class="st">  # a &#39;graph&#39; statement</span>
+<span class="st">  graph [overlap = true]</span>
+
+<span class="st">  # several &#39;node&#39; statements</span>
+<span class="st">  node [shape = box,</span>
+<span class="st">        fontname = Helvetica]</span>
+<span class="st">  Person</span>
+
+<span class="st">  node [shape = circle,</span>
+<span class="st">        fixedsize = true,</span>
+<span class="st">        width = 0.8,</span>
+<span class="st">        fontsize = 8,</span>
+<span class="st">        color = Grey50,</span>
+<span class="st">        fontcolor = Grey50] // sets as circles</span>
+<span class="st">  Name; Nationality; Ethnicity</span>
+
+<span class="st">  # several &#39;edge&#39; statements</span>
+<span class="st">  edge [color = Grey50]</span>
+<span class="st">  Person-&gt;Name Person-&gt;Nationality Person-&gt;Ethnicity </span>
+<span class="st">}</span>
+<span class="st">&quot;</span>)</code></pre></div>
+<div id="htmlwidget-9d3de40239e9ca3c39be" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9d3de40239e9ca3c39be">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8,\n        color = Grey50,\n        fontcolor = Grey50] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  edge [color = Grey50]\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="what-is-an-object" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> What is an object?</h3>
@@ -224,7 +255,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="inheritance" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Inheritance</h3>
-<p>Sometimes, different classes are interelated. For example, if you were storing data on cars, then you might have a &quot;car&quot; class. But if you're storing data on lots of different makes of cars, you might also have classes for each brand (e.g. &quot;Ford&quot;, &quot;Ferrari&quot;, etc.). All of these classes are still cars, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a &quot;car&quot; class and allowing your subsequent model classes to inherit all of the attributes of the &quot;car&quot; class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the &quot;car&quot; class rather than changing each model class.</p>
+<p>Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a &quot;vehicle&quot; class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. &quot;car&quot;, &quot;motorbike&quot;, etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a &quot;vehicle&quot; class and allowing your subsequent classes to inherit all of the attributes of the &quot;vehicle&quot; class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the &quot;vehicle&quot; class rather than changing each type of vehicle class.</p>
+<p>Diagramming this relationship:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">grViz</span>(<span class="st">&quot;</span>
+<span class="st">digraph inheritance {</span>
+
+<span class="st">  # a &#39;graph&#39; statement</span>
+<span class="st">  graph [overlap = true]</span>
+
+<span class="st">  # several &#39;node&#39; statements</span>
+<span class="st">  node [shape = box,</span>
+<span class="st">        fontname = Helvetica]</span>
+<span class="st">  Vehicle;</span>
+
+<span class="st">  node [shape = rectangle,</span>
+<span class="st">        fixedsize = true,</span>
+<span class="st">        width = 0.6,</span>
+<span class="st">        fontsize = 7] // sets as circles</span>
+<span class="st">  Car; Motorbike; Van</span>
+<span class="st">  </span>
+<span class="st">  Vehicle-&gt;Car</span>
+<span class="st">  Vehicle-&gt;Van</span>
+<span class="st">  Vehicle-&gt;Motorbike</span>
+
+<span class="st">}&quot;</span>)</code></pre></div>
+<div id="htmlwidget-e6fb550ee01725b974a1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e6fb550ee01725b974a1">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Vehicle;\n\n  node [shape = rectangle,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
@@ -235,7 +291,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.</p>
 <div id="s3" class="section level5">
 <h5><span class="header-section-number">4.3.4.1.1</span> S3</h5>
-<p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to acheive it's goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
+<p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to achieve it's goal. In other words, we achieve a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
 <p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it's the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
 <p>Going back to R, if you type <code>print.</code> into the console, the autocompleter will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># here we&#39;re using the generic</span>

@@ -49,6 +49,10 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
@@ -198,7 +202,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Creating functions will also highlight an important delineation. Previously, we've been focusing on <em>calling</em> functions. Calling a function is essentially using it. But in order to call a function, it needs to be <em>defined</em>. Base functions are already defined (i.e. someone has already written what the function is going to do), but when you're creating your own functions, you are <em>defining</em> a new function that you're presumably going to call later on.</p>
 <div id="function-structure" class="section level4">
 <h4><span class="header-section-number">4.1.1.1</span> Function structure</h4>
-<p>If we go back to the beginning of this chapter, we learnt that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
+<p>If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</code></pre></div>
 <p>Notice how we've got two sets of brackets here. The first (<code>()</code>) is where we define our input parameters. The second (<code>{}</code>) is where we define the body of our function.</p>
 <p>Let's do a simple example. Let's create a function that adds two numbers together:</p>
@@ -287,10 +291,10 @@ w &lt;-<span class="st"> </span><span class="dv">5</span>
 
 im_a_sneaky_variable</code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
-<p>Once the function is called, objects in its environment are unaccessible. The long and short of it is, R will start fromk specific environments and then look upwards, never downwards.</p>
+<p>Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.</p>
 <div id="super-assignment" class="section level4">
 <h4><span class="header-section-number">4.1.4.1</span> 'Super' assignment</h4>
-<p>There will be occassions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe...</p>
+<p>There will be occasions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe...</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
   count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
   x <span class="op">+</span><span class="st"> </span>y
