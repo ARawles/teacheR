@@ -203,31 +203,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a &quot;person&quot;. Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.</p>
 <p>So our class is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
 <p>Graphing that object might look something like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">grViz</span>(<span class="st">&quot;</span>
-<span class="st">digraph class {</span>
-
-<span class="st">  # a &#39;graph&#39; statement</span>
-<span class="st">  graph [overlap = true]</span>
-
-<span class="st">  # several &#39;node&#39; statements</span>
-<span class="st">  node [shape = box,</span>
-<span class="st">        fontname = Helvetica,</span>
-<span class="st">        style = filled,</span>
-<span class="st">        fillcolor = Grey]</span>
-<span class="st">  Person</span>
-
-<span class="st">  node [shape = circle,</span>
-<span class="st">        fixedsize = true,</span>
-<span class="st">        width = 0.8,</span>
-<span class="st">        fontsize = 8] // sets as circles</span>
-<span class="st">  Name; Nationality; Ethnicity</span>
-
-<span class="st">  # several &#39;edge&#39; statements</span>
-<span class="st">  Person-&gt;Name Person-&gt;Nationality Person-&gt;Ethnicity </span>
-<span class="st">}</span>
-<span class="st">&quot;</span>)</code></pre></div>
-<div id="htmlwidget-cf048d37c8e15753662c" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cf048d37c8e15753662c">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3c15b1bffa4a2b40683b" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c15b1bffa4a2b40683b">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="what-is-an-object" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> What is an object?</h3>
@@ -258,34 +235,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">4.3.4</span> Inheritance</h3>
 <p>Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a &quot;vehicle&quot; class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. &quot;car&quot;, &quot;motorbike&quot;, etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a &quot;vehicle&quot; class and allowing your subsequent classes to inherit all of the attributes of the &quot;vehicle&quot; class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the &quot;vehicle&quot; class rather than changing each type of vehicle class.</p>
 <p>Diagramming this relationship:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">grViz</span>(<span class="st">&quot;</span>
-<span class="st">digraph inheritance {</span>
-
-<span class="st">  # a &#39;graph&#39; statement</span>
-<span class="st">  graph [overlap = true]</span>
-
-<span class="st">  # several &#39;node&#39; statements</span>
-<span class="st">  node [shape = box,</span>
-<span class="st">        fontname = Helvetica,</span>
-<span class="st">        style = filled,</span>
-<span class="st">        fillcolor = Grey]</span>
-<span class="st">  Vehicle;</span>
-
-<span class="st">  node [shape = box,</span>
-<span class="st">        fixedsize = true,</span>
-<span class="st">        width = 0.6,</span>
-<span class="st">        fontsize = 7,</span>
-<span class="st">        style = filled,</span>
-<span class="st">        fillcolor = Grey] // sets as circles</span>
-<span class="st">  Car; Motorbike; Van</span>
-<span class="st">  </span>
-<span class="st">  Vehicle-&gt;Car</span>
-<span class="st">  Vehicle-&gt;Van</span>
-<span class="st">  Vehicle-&gt;Motorbike</span>
-
-<span class="st">}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-5bb48352b83379dd0b6e" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5bb48352b83379dd0b6e">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-35d37101abee6181f84c" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-35d37101abee6181f84c">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
