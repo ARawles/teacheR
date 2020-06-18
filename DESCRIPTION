@@ -14,5 +14,6 @@ LazyData: true
 Imports: 
     xaringan,
     bookdown,
-    rmarkdown
+    rmarkdown,
+    DiagrammeR
 RoxygenNote: 6.1.1
