@@ -162,10 +162,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.1" data-path="functions-1.html"><a href="functions-1.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
 <li class="chapter" data-level="4.1.2" data-path="functions-1.html"><a href="functions-1.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
 <li class="chapter" data-level="4.1.3" data-path="functions-1.html"><a href="functions-1.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functions-1.html"><a href="functions-1.html#function-environments"><i class="fa fa-check"></i><b>4.1.4</b> Function environments</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
+<li class="chapter" data-level="4.2.4" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>4.2.4</b> Function environments</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
@@ -255,64 +257,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
 <p>Conversely, <code>sum()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
 <p>EXAMPLE</p>
-</div>
-<div id="function-environments" class="section level3">
-<h3><span class="header-section-number">4.1.4</span> Function environments</h3>
-<p>To better understand how functions operate, we need to understand how environments and scoping works in R. There's a separate chapter on <a href="environments.html">environments</a> in this book, but we'll briefly look at how functions create environments.</p>
-<p>Environments are hierarchical collections of objects. You can think of these environments as going from non-specific to specific. When you define a variable in a script, you are creating that variable in the <em>global environment</em>, a very non-specific environment. Functions, however, create their own more specific environment when they are called, but will inherit the values from the more general environments.</p>
-<p>This breeds some specific behaviours. For example, say you've written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
-<p>Let's see what happens.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
-  x <span class="op">+</span><span class="st"> </span>y
-}
-
-x &lt;-<span class="st"> </span><span class="dv">10</span>
-y &lt;-<span class="st"> </span><span class="dv">5</span>
-
-<span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn't really make much difference. The function creates its own more specific environment when it's called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
-<p>But what happens if a variable doesn't exist in the more specific function environment? Let's take a look.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
-  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w
-}
-
-w &lt;-<span class="st"> </span><span class="dv">5</span>
-
-<span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 8</code></pre>
-<p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn't exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we've provided. So when R doesn't find it in the more specific environment, it looks in the less-specific global environment. It finds, and so it uses the value it finds.</p>
-<p>This can be a dangerous thing, so always make sure that you're function is accessing the values you think it is.</p>
-<p>So does R work the other way? Does it ever look in a more specific environment? Nope.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){
-  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span>
-  x <span class="op">+</span><span class="st"> </span>y
-}
-
-im_a_sneaky_variable</code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
-<p>Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.</p>
-<div id="super-assignment" class="section level4">
-<h4><span class="header-section-number">4.1.4.1</span> 'Super' assignment</h4>
-<p>There will be occasions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
-  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
-  x <span class="op">+</span><span class="st"> </span>y
-}
-
-count &lt;-<span class="st"> </span><span class="dv">0</span>
-
-<span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count</code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count</code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don't need to use <code>&lt;&lt;-</code>. This is because we're already assigning to the global environment.</p>
-<p>Use the <code>&lt;&lt;-</code> with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.</p>
-</div>
 </div>
 </div>
             </section>

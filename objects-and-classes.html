@@ -162,10 +162,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.1" data-path="functions-1.html"><a href="functions-1.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
 <li class="chapter" data-level="4.1.2" data-path="functions-1.html"><a href="functions-1.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
 <li class="chapter" data-level="4.1.3" data-path="functions-1.html"><a href="functions-1.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functions-1.html"><a href="functions-1.html#function-environments"><i class="fa fa-check"></i><b>4.1.4</b> Function environments</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
+<li class="chapter" data-level="4.2.4" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>4.2.4</b> Function environments</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
@@ -202,31 +204,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>So our class is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
 <p>Graphing that object might look something like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">grViz</span>(<span class="st">&quot;</span>
-<span class="st">digraph boxes_and_circles {</span>
+<span class="st">digraph class {</span>
 
 <span class="st">  # a &#39;graph&#39; statement</span>
 <span class="st">  graph [overlap = true]</span>
 
 <span class="st">  # several &#39;node&#39; statements</span>
 <span class="st">  node [shape = box,</span>
-<span class="st">        fontname = Helvetica]</span>
+<span class="st">        fontname = Helvetica,</span>
+<span class="st">        style = filled,</span>
+<span class="st">        fillcolor = Grey]</span>
 <span class="st">  Person</span>
 
 <span class="st">  node [shape = circle,</span>
 <span class="st">        fixedsize = true,</span>
 <span class="st">        width = 0.8,</span>
-<span class="st">        fontsize = 8,</span>
-<span class="st">        color = Grey50,</span>
-<span class="st">        fontcolor = Grey50] // sets as circles</span>
+<span class="st">        fontsize = 8] // sets as circles</span>
 <span class="st">  Name; Nationality; Ethnicity</span>
 
 <span class="st">  # several &#39;edge&#39; statements</span>
-<span class="st">  edge [color = Grey50]</span>
 <span class="st">  Person-&gt;Name Person-&gt;Nationality Person-&gt;Ethnicity </span>
 <span class="st">}</span>
 <span class="st">&quot;</span>)</code></pre></div>
-<div id="htmlwidget-9d3de40239e9ca3c39be" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9d3de40239e9ca3c39be">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8,\n        color = Grey50,\n        fontcolor = Grey50] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  edge [color = Grey50]\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-03804a48ffa2286aa72b" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-03804a48ffa2286aa72b">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="what-is-an-object" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> What is an object?</h3>
@@ -265,13 +266,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="st">  # several &#39;node&#39; statements</span>
 <span class="st">  node [shape = box,</span>
-<span class="st">        fontname = Helvetica]</span>
+<span class="st">        fontname = Helvetica,</span>
+<span class="st">        style = filled,</span>
+<span class="st">        fillcolor = Grey]</span>
 <span class="st">  Vehicle;</span>
 
-<span class="st">  node [shape = rectangle,</span>
+<span class="st">  node [shape = box,</span>
 <span class="st">        fixedsize = true,</span>
 <span class="st">        width = 0.6,</span>
-<span class="st">        fontsize = 7] // sets as circles</span>
+<span class="st">        fontsize = 7,</span>
+<span class="st">        style = filled,</span>
+<span class="st">        fillcolor = Grey] // sets as circles</span>
 <span class="st">  Car; Motorbike; Van</span>
 <span class="st">  </span>
 <span class="st">  Vehicle-&gt;Car</span>
@@ -279,8 +284,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  Vehicle-&gt;Motorbike</span>
 
 <span class="st">}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-e6fb550ee01725b974a1" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e6fb550ee01725b974a1">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Vehicle;\n\n  node [shape = rectangle,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5e1cca310e972e65f5ee" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5e1cca310e972e65f5ee">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
