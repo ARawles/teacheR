@@ -86,11 +86,10 @@ As I mentioned in the "For Students" section, functions have a single return val
 You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
 
 ```{r}
-early_return_function(x,y, return_x  = TRUE) {
+early_return_function <- function(x,y, return_x  = TRUE) {
   if (return_x) {
     return(x)
   }
-  
   x + y
 }
 ```
@@ -139,8 +138,7 @@ EXAMPLE
 
 ## Environments 
 
-
-We looked briefly at environments and how they are used with functions, but let's look at environments in a bit more detail.
+TO DO
 
 ### Environment basics
 
