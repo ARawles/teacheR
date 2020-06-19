@@ -599,7 +599,7 @@ matrix(c(1:10), nrow = 5, ncol = 2)[4,1]
 
 ### Dataframes
 
-Dataframes can be subsetted in the same way as matrices (using the `[]` operator). However, dataframes can also be subsetting (like lists), using the `$` operator and the name of the column:
+Dataframes can be subsetted in the same way as matrices (using the `[]` operator). However, dataframes can also be subsetted (like lists), using the `$` operator and the name of the column:
 
 ```{r}
 data.frame(
@@ -612,7 +612,44 @@ Why does this approach work for dataframes? Well, as I alluded to [before](#data
 
 ### Subsetting by criteria
 
-/TO DO
+Sometimes, you might not know the indices of the items you want to extract from a datastructure. Instead, you might want to do something like "extract all numbers from a vector that are less than three". To do this, we essentially find the indices of the values that match our criteria and then subset the data structure like we learned previously.
+
+Let's look at subsetting a vector as an example:
+
+```{r}
+vector1 <- c(10,15,14,20,21,50)
+```
+
+
+Let's say want to extract all of the values below 20. To find the indices of the values that match our criteria, we just use our logical operators:
+
+```{r}
+vector1 < 20
+```
+
+This returns TRUE if the value is less than 20, and FALSE if it isn't. We can then pass this vector of TRUE and FALSEs in `[]` after the vector to only return the values we want:
+
+```{r}
+vector1[vector1 < 20]
+```
+
+
+Other data structures can also be subsetted in the same way, but for matrices or dataframes, it's easier to use something like `subset` or `dplyr::filter()` (although `subset` has its own limitations).
+
+You'll notice that this is ever so slightly different to the way we were subsetting before. Previously, we were providing just the indices of the values we wanted (e.g. 1,2 and 4). But here, we're actually providing a vector of TRUE and FALSE values to indicate which values we want. The structure is slightly different, but the logic is the same.
+
+This does mean however, that you can also provide a vector of TRUEs and FALSEs yourself manually if you wish. There are two reasons why I would avoid this however:
+
+1. It takes longer to write out
+2. If you don't provide the same number of logical values (i.e. TRUEs and FALSEs) as there are values in the vector, then the logical values are **recycled**. That means that if you have a vector that's 6 values long, and you provide a logical vector to subset it that is only three values long, then your logical vector is going to be repeated. This can lead to unwanted results:
+
+```{r}
+vector1[c(TRUE, FALSE)]
+```
+
+Here, because I've only specified two logical values, when it comes to subsetting time, those two values will be recycled to create a vector like this `c(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE)`. This is why we get three values returned instead of the expected one.
+
+So while you can manually subset with a vector of logical values indicating whether to return that value as is returned, it's best to stay away from it.
 
 ## Functions
 
@@ -631,9 +668,9 @@ John Chambers, creator of the S programming language upon which R is based and c
 
 For now, we're going to focus on that second statement. What does it mean?
 
-Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing `print(1)` into the console and hitting enter. You've given an input, there was a calculation, and now there's an output. Something's happened (1 was printed in the console) and it was done by calling a function.
+Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing `print(1)` into the console and hitting enter. You've given an input, there was a calculation, and now there's an output. Something's happened (1 was printed in the console) and it was done by calling a function (`print`).
 
-If you're well versed in mathematics, you'll know that functions in maths are the same. $f(x) = {3x}$ means that the to get `y`, you take `x` and multiply it by three. In this case, our input is `x`, our bit in the middle is multiplying by three, and then our output is `y`.
+If you're well-versed in mathematics, you'll know that functions in maths are the same. $f(x) = {3x}$ means that the to get `y`, you take `x` and multiply it by three. In this case, our input is `x`, our bit in the middle is multiplying by three, and then our output is `y`.
 
 If you haven't used functions in mathematics then don't worry. Even by getting this far in the book, you've already used functions loads of times. For example, how do you create a vector? If you remember, you use the `c()` function, which we know stands for "concatenate". So, every time you've created a vector, you've used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.
 
@@ -718,9 +755,6 @@ c(1,10,15, use.names = FALSE)
 #### Outputs
 
 First and foremost, in R you can have as many input as you like to a function. However, a function will only ever return one *thing*. I say one *thing*, because functions can return a list which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
-
-
-EXAMPLES?
 
 
 ##### Reassigning outputs

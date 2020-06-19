@@ -44,6 +44,7 @@ Once I've run the code to **define** my function, I can then **call** it like I 
 my_sum_function(x = 5, y = 6)
 ```
 
+
 ##### Optional input parameters
 
 When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:
@@ -78,6 +79,25 @@ All we're basically doing in the above wrapping around the `sum()` function to a
 
 By using the `...` here, we can just pass everything that the user provides to the `sum()` function. This means we don't have to worry about copying any input parameters.
 
+##### Return values
+
+As I mentioned in the "For Students" section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our `my_sum_function` example, our last evaluation was `x + y`, so the output of that was what was returned by the function.
+
+You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
+
+```{r}
+early_return_function(x,y, return_x  = TRUE) {
+  if (return_x) {
+    return(x)
+  }
+  
+  x + y
+}
+```
+
+Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `x + y` is returned otherwise.
+
+Certain style guides suggest that you should **only** use `return()` statements for early returns. In other words, the "normal" return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit `return()` values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.
 
 If you're interested, there are some specifics about function inputs in R that can be good to know.
 
@@ -90,9 +110,17 @@ EXAMPLES
 
 ### Functions as objects
 
-Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` function requires a `FUN` parameter that is the function the be applied each time. 
+Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` (list-apply) function requires a `FUN` parameter that is the function the be applied to each value in the provided list.
 
-EXAMPLE
+```{r}
+sum_list <- list(
+  c(1,2),
+  c(5,10),
+  c(20,30)
+)
+
+lapply(sum_list, FUN = sum)
+```
 
 Linked with the idea that functions are just another type of an object, there is an important distinction between 
 `sum`
