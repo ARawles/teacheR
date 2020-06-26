@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>teacheR</title>
-  <meta name="description" content="teacheR" />
+  <title>4.1 Functions - Advanced | teacheR</title>
+  <meta name="description" content="4.1 Functions - Advanced | teacheR" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="teacheR" />
+  <meta property="og:title" content="4.1 Functions - Advanced | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="teacheR" />
+  <meta name="twitter:title" content="4.1 Functions - Advanced | teacheR" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="overview.html"/>
+<link rel="prev" href="for-teachers.html"/>
+<link rel="next" href="environments.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -194,22 +194,105 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">teacheR</h1>
-<h2 class="subtitle"><em>Teach Yourself or Others R</em></h2>
-<p class="author"><em>Adam Rawles</em></p>
+<div id="functions---advanced" class="section level2">
+<h2><span class="header-section-number">4.1</span> Functions - Advanced</h2>
+<p>In the &quot;For Students&quot; section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.</p>
+<div id="creating-functions" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Creating functions</h3>
+<p>R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn't a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn't an Excel function for you to use and there isn't an easy way to create one without knowing VBA.</p>
+<p>R is different. Creating functions can be very simple and will really change the way you work.</p>
+<p>Creating functions will also highlight an important delineation. Previously, we've been focusing on <em>calling</em> functions. Calling a function is essentially using it. But in order to call a function, it needs to be <em>defined</em>. Base functions are already defined (i.e. someone has already written what the function is going to do), but when you're creating your own functions, you are <em>defining</em> a new function that you're presumably going to call later on.</p>
+<div id="function-structure" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> Function structure</h4>
+<p>If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</code></pre></div>
+<p>Notice how we've got two sets of brackets here. The first (<code>()</code>) is where we define our input parameters. The second (<code>{}</code>) is where we define the body of our function.</p>
+<p>Let's do a simple example. Let's create a function that adds two numbers together:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}</code></pre></div>
+<p>So in this example, I've defined that when anyone uses the function, they need to provide two input parameters named <code>x</code> and <code>y</code>. Something that people tend to struggle with is that the names of your input parameters have no implicit meaning. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why for example in some functions that require a dataframe there will be an input parameter called <code>df</code> or similar. But importantly, these names are technically just arbitrary.</p>
+<p>In the body of the function, we can see that we're just doing something really simple: we're adding <code>x</code> and <code>y</code> together with <code>+</code>.</p>
+<p>Once I've run the code to <strong>define</strong> my function, I can then <strong>call</strong> it like I would any other function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div id="optional-input-parameters" class="section level5">
+<h5><span class="header-section-number">4.1.1.1.1</span> Optional input parameters</h5>
+<p>When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+<span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
 </div>
-<div id="teacher" class="section level1">
-<h1><span class="header-section-number">1</span> teacheR</h1>
-<p><img src="cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" /></p>
+</div>
+<div id="section" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> ...</h4>
+<p>You'll notice a crucial distinction between R's <code>sum()</code> function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (<code>x</code> and <code>y</code>). This is because the base <code>sum()</code> function uses a <code>...</code>. This <code>...</code> is essentially shorthand for &quot;as many or as few inputs as the user wants to provide&quot;. To use the <code>...</code>, just add it as in an input parameter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, ...) {
+}</code></pre></div>
+<p>The <code>...</code> works particularly well when you might be creating a function that <em>wraps</em> around another one. A wrapping function is just a function that makes a call to another one within it, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){
+  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
+}</code></pre></div>
+<p>All we're basically doing in the above wrapping around the <code>sum()</code> function to add some specific functionality.</p>
+<p>By using the <code>...</code> here, we can just pass everything that the user provides to the <code>sum()</code> function. This means we don't have to worry about copying any input parameters.</p>
+<div id="return-values" class="section level5">
+<h5><span class="header-section-number">4.1.1.2.1</span> Return values</h5>
+<p>As I mentioned in the &quot;For Students&quot; section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our <code>my_sum_function</code> example, our last evaluation was <code>x + y</code>, so the output of that was what was returned by the function.</p>
+<p>You can also be explicit with your return values by using the <code>return()</code> function. The <code>return()</code> function will return whatever is provided to the <code>return()</code> function. This can be useful if you want to return a value prematurely:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">early_return_function &lt;-<span class="st"> </span><span class="cf">function</span>(x,y, <span class="dt">return_x  =</span> <span class="ot">TRUE</span>) {
+  <span class="cf">if</span> (return_x) {
+    <span class="kw">return</span>(x)
+  }
+  x <span class="op">+</span><span class="st"> </span>y
+}</code></pre></div>
+<p>Here, we can see more clearly that <code>x</code> is returned when <code>return_x</code> is TRUE and <code>x + y</code> is returned otherwise.</p>
+<p>Certain style guides suggest that you should <strong>only</strong> use <code>return()</code> statements for early returns. In other words, the &quot;normal&quot; return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit <code>return()</code> values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.</p>
+<p>If you're interested, there are some specifics about function inputs in R that can be good to know.</p>
+</div>
+</div>
+</div>
+<div id="input-validation" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Input validation</h3>
+<p>Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
+<p>EXAMPLES</p>
+</div>
+<div id="functions-as-objects" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Functions as objects</h3>
+<p>Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the <code>apply</code> logic, the <code>lapply()</code> (list-apply) function requires a <code>FUN</code> parameter that is the function the be applied to each value in the provided list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_list &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),
+  <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>),
+  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">30</span>)
+)
+
+<span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> sum)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 3
+## 
+## [[2]]
+## [1] 15
+## 
+## [[3]]
+## [1] 50</code></pre>
+<p>Linked with the idea that functions are just another type of an object, there is an important distinction between <code>sum</code> and <code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum</code></pre></div>
+<pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
+<p>Conversely, <code>sum()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
+<p>EXAMPLE</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="for-teachers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="environments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
