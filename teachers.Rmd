@@ -210,7 +210,7 @@ So we know that objects in the same environment can't have the same name, but wh
 
 Well, R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called `sum()`. But, if I define a new function in the global environment called `sum` then which function will be called when I type `sum(...)`. Well, because we know that the search path starts from the most specific environment, R will look for `sum` in the global environment first and it'll find the `sum` that I've just defined. At this point, it'll stop looking because `sum` has been found.
 
-For this reason, it's a good idea to use a package like `conflicts` to  manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.
+For this reason, it's a good idea to use a package like `conflicted` to  manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.
 
 
 ### Function environments
