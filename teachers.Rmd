@@ -4,7 +4,7 @@ Now we have a basic understanding of some of the core concepts in R, let's have 
 
 If you're going to teach R, this section will provide you with a good level of understanding. Hopefully, you'll not only know *how* to do something when asked, but *why* you should do it that way.
 
-## Functions
+## Functions - Advanced
 
 In the "For Students" section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.
 
