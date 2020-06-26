@@ -124,7 +124,7 @@ lapply(sum_list, FUN = sum)
 Linked with the idea that functions are just another type of an object, there is an important distinction between 
 `sum`
 and
-`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition: 
+`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition): 
 
 ```{r}
 sum
