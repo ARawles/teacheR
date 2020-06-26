@@ -159,8 +159,8 @@ The main different data types are:
     + 2L
     + 34L
 * character
-    + hello"
-    + my name is"
+    + "hello"
+    + "my name is"
 * factors
 * dates
     + 2019-06-01
@@ -245,7 +245,7 @@ To convert to an integer, use the `L` suffix or the `as.integer()` function:
 ### Character
 
 Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what's inside the quotation marks, it will be stored as character. For example,
-`r "5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} "5" + 5```` doesn't work, because you're trying to add text to a number, which doesn't make sense.
+`"5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} "5" + 5``` doesn't work, because you're trying to add text to a number, which doesn't make sense.
 
 To check whether something is stored as a character, use the `is.character()` function:
 
