@@ -315,7 +315,7 @@ But Adam, how does R know which one is the month and which is the day? Good ques
 as.Date("01/12/2019")
 ```
 
-If you're data is in a different format however, you can specify the format:
+If your data is in a different format however, you can specify the format:
 
 ```{r}
 as.Date("01/12/2019", format = "%d/%m/%Y")
@@ -325,7 +325,7 @@ Here, we're telling R that the string is in the format "Day/Month/Year". A list 
 
 Because nothing in life is simple, sometimes you'll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it's a number, our `as.Date(..., format = ...)` doesn't work. Instead, we can still use the `as.Date()` function, but we need to specify what the origin date is that the number refers to.
 
-By default, when importing from Excel, the origin date is January 1st 1970, also known as the "epoch date". Chances are your data source is also using this date, but always check.
+By default, when importing from Excel in Windows, the origin date is December 31st 1899. More commonly, the date January 1st 1970 (also known as the epoch date) is used.
 
 Anyway, to specify your origin, we use the `origin` parameter, like this:
 
