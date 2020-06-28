@@ -394,16 +394,13 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
 </div>
 </div>
-<h3><span class="header-section-number">3.3.8</span>NA and NULL and their differences : </h3>
+<h3>NA and NULL and their differences </h3>
 <p>
-  The R language has two closely related NULL-like values, <strong>NA</strong> and <strong>NULL</strong>.  Both are fully supported in the language by core functions (e.g,<code>is.na()</code>, <code>is.null()</code>, <code>as.null()</code>, etc.). And, while NA is used exclusively in the logical sense, both are used to represent missing or undefined values. Here’s what the R documentation has to say:
+  The R language has two closely related values, <strong>NA</strong> and <strong>NULL</strong>.
 </p>
-<pre>NULL represents the null object in R: it is a reserved word.
-NULL is often returned by expressions and functions whose values are undefined.</pre>
+<h6><em>NULL</em> indicates the absence of a value. It means that a value is missing (or has length zero).</h6>
 <p>On the other hand,</p>
-<pre>NA is a logical constant of length 1 which contains a missing value indicator. NA can be freely coerced to any other vector type except raw. </pre>
-<p>The important distinction is that NA is a <strong>‘logical’</strong> value that, when evaluated in an expression, yields NA.</p>
-<p>NULL is its own thing and <strong>does not yield any response when evaluated in an expression</strong>, which is not how we would want or expect NA to work.</p>
+<h6>Missing values are represented by <em>NA</em> (not available). It can also be used to represent something that is invalid. You can have NA values for your major data types.</h6>
             </section>
 
           </div>
