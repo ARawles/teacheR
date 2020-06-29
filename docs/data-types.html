@@ -10,15 +10,15 @@
 
   <meta property="og:title" content="3.3 Data types | Teach Yourself or Others R" />
   <meta property="og:type" content="book" />
-  
+
   <meta property="og:image" content="cover.png" />
-  
-  
+
+
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="3.3 Data types | Teach Yourself or Others R" />
-  
-  
+
+
   <meta name="twitter:image" content="cover.png" />
 
 <meta name="author" content="Adam Rawles" />
@@ -28,7 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
+
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="variable-assignment.html"/>
 <link rel="next" href="data-structures.html"/>
@@ -328,19 +328,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A factor level is made up of two things. A label and a number that represents that group. For example, in my countries example, our factor would have the labels “England”, “Spain”, “France” and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.</p>
 <p>To create a factor, we just use the <code>factor()</code> function:</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</a></code></pre></div>
-<pre><code>## [1] England France  Spain  
+<pre><code>## [1] England France  Spain
 ## Levels: England France Spain</code></pre>
 <p>It’s also worth remembering that you can have levels that don’t appear in the data you have. For example, in a questionnaire, you may provide the options “None”, “Some”, “All”. But in your responses, you may see that no one chose the “None” option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
 <p>You can also specify whether a factor is <em>ordered</em>. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that “Some” is better than “None”, and “All” is better than “Some”. To create an ordered factor, just specify <code>ordered = TRUE</code> in your function. By default, the factor will be ordered in the ordered the values appear, unless you specify levels (see below).</p>
 <p>To convert something to a factor, use the <code>factor()</code> function if you want to specify levels and labels, or <code>as.factor()</code> to do it for you:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</a></code></pre></div>
-<pre><code>## [1] Some All 
+<pre><code>## [1] Some All
 ## Levels: None Some All</code></pre>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<pre><code>## [1] Some All 
+<pre><code>## [1] Some All
 ## Levels: None &lt; Some &lt; All</code></pre>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</a></code></pre></div>
-<pre><code>## [1] Some All 
+<pre><code>## [1] Some All
 ## Levels: All Some</code></pre>
 <p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
 <p><em>Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using <code>data.frame()</code> or <code>read.table()</code>. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.</em></p>
@@ -394,6 +394,13 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
 </div>
 </div>
+<h3>NA and NULL and their differences </h3>
+<p>
+  The R language has two closely related values, <strong>NA</strong> and <strong>NULL</strong>.
+</p>
+<h6><em>NULL</em> indicates the absence of a value. It means that a value is missing (or has length zero).</h6>
+<p>On the other hand,</p>
+<h6>Missing values are represented by <em>NA</em> (not available). It can also be used to represent something that is invalid. You can have NA values for your major data types.</h6>
             </section>
 
           </div>

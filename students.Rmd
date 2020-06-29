@@ -164,11 +164,11 @@ The main different data types are:
 * factors
 * dates
     + 2019-06-01
-    
+
 * datetime (POSIXct)
 
     + 2019-06-01 12:00:00
-  
+
 
 Let's have a look at each one in detail:
 
@@ -370,6 +370,16 @@ Similar to dates, there is no `as.POSIXct()` function in base R, so we use the `
 is(as.POSIXct("2020/01/01 12:00:00"))
 ```
 
+### NA and NULL and their differences
+
+The R language has two closely related values, **NA** and **NULL**.
+
+###### *NULL* indicates the absence of a value. It means that a value is missing (or has length zero).
+
+On the other hand,
+
+###### Missing values are represented by *NA* (not available). It can also be used to represent something that is invalid. You can have NA values for your major data types.
+
 
 ## Data structures
 
@@ -412,7 +422,7 @@ Recursion is the action of doing something again and again. We call lists recurs
 
 So for instance, whilst a vector must always be the same, like `c(1,2,3)`, we could have a list that looks like this:
 
-```{r} 
+```{r}
 list(1, "hello", TRUE)
 ```
 
@@ -729,7 +739,7 @@ I get the first to the third characters in the string "hello". With this functio
     + the first element to be extracted    
 * stop   
     + the last element to be extracted   
-   
+
 To be explicit, I need to provide the name of the input parameter that I'm referring to when I provide my inputs:
 
 ```{r}
@@ -782,5 +792,3 @@ x
 This works because the right-hand side of the assignment line is executed first. In other words, when the `sum(x,1)` is evaluated, `x` is still equal to one. This makes sense because otherwise it'd be very hard to keep track of what `x` was equal to!
 
 This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: `object.AddNew` or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. To learn more about environments, there is an [environments](environments.html) chapter in the "For Teachers" section.
-
-
