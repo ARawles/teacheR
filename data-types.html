@@ -138,6 +138,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>3.3.5</b> Factors</a></li>
 <li class="chapter" data-level="3.3.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>3.3.6</b> Dates</a></li>
 <li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null-and-their-differences"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL and their differences</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
@@ -371,6 +372,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> function instead:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
+</div>
+<div id="na-and-null-and-their-differences" class="section level3">
+<h3><span class="header-section-number">3.3.8</span> NA and NULL and their differences</h3>
+<p>The R language has two closely related values, <strong>NA</strong> and <strong>NULL</strong>.</p>
+<div id="null-indicates-the-absence-of-a-value.-it-means-that-a-value-is-missing-or-has-length-zero." class="section level6">
+<h6><span class="header-section-number">3.3.8.0.0.1</span> <em>NULL</em> indicates the absence of a value. It means that a value is missing (or has length zero).</h6>
+<p>On the other hand,</p>
+</div>
+<div id="missing-values-are-represented-by-na-not-available.-it-can-also-be-used-to-represent-something-that-is-invalid.-you-can-have-na-values-for-your-major-data-types." class="section level6">
+<h6><span class="header-section-number">3.3.8.0.0.2</span> Missing values are represented by <em>NA</em> (not available). It can also be used to represent something that is invalid. You can have NA values for your major data types.</h6>
+</div>
 </div>
 </div>
             </section>
