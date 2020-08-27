@@ -366,7 +366,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="datetimes-posixct" class="section level3">
 <h3><span class="header-section-number">3.3.7</span> Datetimes (POSIXct)</h3>
-<p>If you thought dates were annoying, datetimes are like dates' little brother who keeps asking when his turn on the Xbox is. One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember &quot;ah, Adam told me that means datetime&quot; and you'll be fine.</p>
+<p>If you thought dates were annoying, datetimes are like dates' little brother who didn't get enough attention as a child and so acts up all the time. One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember &quot;ah, Adam told me that means datetime&quot; and you'll be fine.</p>
 <p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we'll see below.</p>
 <p>With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</code></pre></div>
@@ -401,6 +401,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
 <p>This is because R knows what type the NA <em>should</em> be, but it couldn't assign in a proper value.</p>
 <p>The same behaviour can be observed for other data types:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>))</code></pre></div>
 <pre><code>## Warning in is(as.numeric(&quot;not a number&quot;)): NAs introduced by coercion</code></pre>
 <pre><code>## [1] &quot;numeric&quot; &quot;vector&quot;</code></pre>
