@@ -262,7 +262,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="input-validation" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Input validation</h3>
 <p>Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
-<p>EXAMPLES</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">function_without_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}
+<span class="kw">function_without_check</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="st">&quot;error for me please&quot;</span>)</code></pre></div>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">function_with_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.numeric</span>(x) <span class="op">||</span><span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(y)) {
+    <span class="kw">warning</span>(<span class="st">&quot;x or y isn&#39;t numeric. Returning NA&quot;</span>)
+    <span class="kw">return</span>(<span class="ot">NA_integer_</span>)
+  } <span class="cf">else</span> {
+    x <span class="op">+</span><span class="st"> </span>y
+  }
+}</code></pre></div>
 </div>
 <div id="functions-as-objects" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Functions as objects</h3>
