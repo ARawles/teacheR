@@ -126,6 +126,54 @@ When you come across other people's work, you may see that they use `=` instead 
 
 As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.
 
+### Naming
+
+Naming objects and variables in R mostly comes down to preference. There are some hard and fast rules that need to be followed which we'll discuss and also a few common naming conventions but which one you use is up to you.
+
+#### Valid names
+
+R is pretty lenient when it comes to names but there are some red lines:
+
+* Names must start with a character or a dot (but then the second character can't be a digit)
+* Names can only contain letters, numbers, underscores, and dots
+
+Similar to this, there are some reserved words that can't be used as object names:
+
+* break
+* if
+* else
+* FALSE
+* TRUE
+* for
+* function
+* Inf
+* NaN
+* NA
+* next
+* repeat
+* return
+* while
+
+As a sidenote, names are case sensitive. That means that you can have two objects called `test` and `Test` that can be referred to separately. Generally, this isn't the best idea.
+
+#### Naming conventions
+
+##### Nouns and verbs
+
+Roughly speaking, it's advisable to name your variables as nouns and your functions (which get to later) as verbs. This is because variables can be considered *things* whereas functions *do things*.
+
+For example, an appropriate name for the energy-based dataset you're working on might be `energy_dataset`. This is descriptive and unique. An example of good function names are the `sum()` and `mean()` functions; what they do is easily disseminated from their names.
+
+##### Multiple words
+
+Sometimes, you'll want to use names that have more than one word, like our `energy_dataset` example. If you're convinced that the best way to do this is to include an actual space, you can create objects with spaces in their names by surrounding the name in backticks \`:
+```{r}
+`dont call your variable this` <- 1
+```
+**Please don't ever do this.** It will just make things 100% more complicated down the line. Instead, I highly recommend that you use camel case (`EnergyDataset`), `_`s (`energy_dataset`) or `.`s (`energy_dataset`).
+
+Personally, I use `_`s because camel case is more difficult to read at a glance and there is a group of R functions that use `.` in their name and you don't want to get confused with those, but it's really just a preference. I would only say that it's better to be consistent than to choose the right convention.
+
 ### Reassigning variables
 
 Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:
