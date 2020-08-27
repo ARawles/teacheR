@@ -130,7 +130,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
-<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.2</b> Reassigning variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>3.2.2</b> Naming</a></li>
+<li class="chapter" data-level="3.2.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.3</b> Reassigning variables</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
@@ -220,8 +221,53 @@ hello_im_another_variable</code></pre></div>
 <p>When you come across other people's work, you may see that they use <code>=</code> instead of <code>&lt;-</code> when they create their variables. Even though it's not the end of the world if you do do that, I would recommend getting into the habit of using <code>&lt;-</code>. <code>&lt;-</code> is purely used for assignment, whereas <code>=</code> is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.</p>
 <p>As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.</p>
 </div>
+<div id="naming" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Naming</h3>
+<p>Naming objects and variables in R mostly comes down to preference. There are some hard and fast rules that need to be followed which we'll discuss and also a few common naming conventions but which one you use is up to you.</p>
+<div id="valid-names" class="section level4">
+<h4><span class="header-section-number">3.2.2.1</span> Valid names</h4>
+<p>R is pretty lenient when it comes to names but there are some red lines:</p>
+<ul>
+<li>Names must start with a character or a dot (but then the second character can't be a digit)</li>
+<li>Names can only contain letters, numbers, underscores, and dots</li>
+</ul>
+<p>Similar to this, there are some reserved words that can't be used as object names:</p>
+<ul>
+<li>break</li>
+<li>if</li>
+<li>else</li>
+<li>FALSE</li>
+<li>TRUE</li>
+<li>for</li>
+<li>function</li>
+<li>Inf</li>
+<li>NaN</li>
+<li>NA</li>
+<li>next</li>
+<li>repeat</li>
+<li>return</li>
+<li>while</li>
+</ul>
+<p>As a sidenote, names are case sensitive. That means that you can have two objects called <code>test</code> and <code>Test</code> that can be referred to separately. Generally, this isn't the best idea.</p>
+</div>
+<div id="naming-conventions" class="section level4">
+<h4><span class="header-section-number">3.2.2.2</span> Naming conventions</h4>
+<div id="nouns-and-verbs" class="section level5">
+<h5><span class="header-section-number">3.2.2.2.1</span> Nouns and verbs</h5>
+<p>Roughly speaking, it's advisable to name your variables as nouns and your functions (which get to later) as verbs. This is because variables can be considered <em>things</em> whereas functions <em>do things</em>.</p>
+<p>For example, an appropriate name for the energy-based dataset you're working on might be <code>energy_dataset</code>. This is descriptive and unique. An example of good function names are the <code>sum()</code> and <code>mean()</code> functions; what they do is easily disseminated from their names.</p>
+</div>
+<div id="multiple-words" class="section level5">
+<h5><span class="header-section-number">3.2.2.2.2</span> Multiple words</h5>
+<p>Sometimes, you'll want to use names that have more than one word, like our <code>energy_dataset</code> example. If you're convinced that the best way to do this is to include an actual space, you can create objects with spaces in their names by surrounding the name in backticks `:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">dont call your variable this</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p><strong>Please don't ever do this.</strong> It will just make things 100% more complicated down the line. Instead, I highly recommend that you use camel case (<code>EnergyDataset</code>), <code>_</code>s (<code>energy_dataset</code>) or <code>.</code>s (<code>energy_dataset</code>).</p>
+<p>Personally, I use <code>_</code>s because camel case is more difficult to read at a glance and there is a group of R functions that use <code>.</code> in their name and you don't want to get confused with those, but it's really just a preference. I would only say that it's better to be consistent than to choose the right convention.</p>
+</div>
+</div>
+</div>
 <div id="reassigning-variables" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Reassigning variables</h3>
+<h3><span class="header-section-number">3.2.3</span> Reassigning variables</h3>
 <p>Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">variable_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">100</span>
 variable_<span class="dv">1</span> &lt;-<span class="st"> &quot;I&#39;m not 100 anymore&quot;</span>
