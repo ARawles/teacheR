@@ -399,7 +399,7 @@ class(as.Date("2020/01/01"))
 
 ### Datetimes (POSIXct)
 
-If you thought dates were annoying, datetimes are like dates' little brother who keeps asking when his turn on the Xbox is.
+If you thought dates were annoying, datetimes are like dates' little brother who didn't get enough attention as a child and so acts up all the time.
 One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
 
 Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
