@@ -386,7 +386,7 @@ class(data.frame) # here we're finding the class of the data.frame() function
 class(1)
 ```
 
-### Inheritance
+#### Inheritance
 
 Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a "vehicle" class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. "car", "motorbike", etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a "vehicle" class and allowing your subsequent classes to inherit all of the attributes of the "vehicle" class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the "vehicle" class rather than changing each type of vehicle class.
 
@@ -448,6 +448,7 @@ print(as.Date("2020/06/10"))
 # this is the method that is actually used
 print.Date(as.Date("2020/06/10"))
 ```
+If an object inherits multiple classes, then R will look for the correct method starting from it's most specific class. So for example, if an object has classes `c("class_1", "class_2")`, then R would look for `print.class_1()` and only look for `print.class_2()` (and then `print.default()`) if it couldn't find `print.class_1()`.
 
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 
 
@@ -455,6 +456,105 @@ The important thing I hoped you've gleaned from this explanation is that you don
 
 Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
 
-#### Creating objects
+### Creating classes
 
-The obvious question is "Can I make my own objects in R?". The answer is yes. And quite easily too. Whether you should or not is a different story. I'm not going to go over how to create an object in S3 or S4 or any other OO system here because there is more than enough for an entire book, but there are plenty of resources out there that can help you.
+The obvious question is "Can I make my own class in R?". The answer is yes. And quite easily too. Whether you should or not is a different story. We're just going to look very briefly at creating a class in using S3 for now, but I'd recommend Hadley's [Advanced R](http://adv-r.had.co.nz/) for a deeper look at the different systems and how to use them.
+
+#### Class attribute
+
+In S3, the class of an object is defined by its `class` attribute, which stores a vector of class names. To see an object's class, we use the `class()` function:
+
+```{r}
+class(1)
+class(TRUE)
+```
+This class attribute will determine what method is dispatched when we call a generic on this object. So here, if we called `print()` on `1`, then it would look for `print.numeric()` and dispatch that method to print the object. Technically, this just calls `print.default()` because the default method knows how to print numeric values but the logic remains.
+
+Something which will make OO programmers everywhere cringe, is that the class attribute for an R object is modifiable:
+
+```{r}
+var_1 <- 1
+class(var_1) <- "custom_class"
+class(var_1)
+```
+Now, when we attempt to print the `var_1` variable, R will look for the appropriate method based on it's class (`custom_class`), which would be `print.custom_class()`. In this case, a `print.custom_class` method doesn't exist, so it'll default to the `print.default()` method.
+
+Importantly, we've learnt here that setting the class of an object is as easy as using the `class()` function and the `<-` operator.
+
+
+### Constructor
+To ensure our objects all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:
+
+
+```{r}
+address <- function(house_name, road, city) {
+  address <- list(
+    house_name = house_name,
+    road = road,
+    city = city
+    )
+  class(address) <- "address"
+  return(address)
+}
+```
+Now to create an object from my constructor function, I just need to use the `address()` function:
+
+```{r}
+my_address <- address("4", "Pleasant Drive", "London")
+class(my_address)
+```
+
+Now, if I called `print(my_address)`, R would look for a `print.address()` method. But, it wouldn't find one and so would turn to `print.default()` which would print our object like any other list. Therefore, we might want to write our own method to print our new object how we want to.
+
+#### Creating methods
+
+To create a method, all we need to do is create a function with the name of our generic followed by a '.' and then name of our class. So from our previous example, our method would look like this:
+```{r}
+print.address <- function(address) {
+cat("The house name is: ", address$house_name, "\n")
+cat("The road is: ", address$road, "\n")
+cat("The city is: ", address$city, "\n")
+}
+```
+
+Now when we call `print()` on our new object, it will find the `print.address()` method and use that to print our object:
+```{r}
+print(my_address)
+```
+
+#### Creating generics
+
+You can also create your own generic functions for your classes. Generic functions have a very simple structure. Let's say we want to create a new generic called `post`:
+
+```{r}
+post <- function(x) {
+UseMethod("post")
+}
+```
+This is just telling R that when the `post()` function is called on an object, look for the appropriate `post` method to use. Without us writing any methods, this would be useless because R wouldn't have any methods to use!
+
+Let's create a default method that can be applied if we don't have a more specific class:
+
+```{r}
+post.default <- function(x){
+cat("Your object is now in the post! Expect it in 5 to 10 weeks")
+}
+```
+In our example, this default method isn't going to be very useful but it demonstrates that we need a default method to be dispatched if we haven't written a specific method for that object class.
+
+Let's write a method for our `address` object:
+```{r}
+post.address <- function(x) {
+  cat("Your object has been posted to ", x$house_name, " ", x$road, " ", x$city, "!")
+ }
+```
+
+Now, if we call our new generic on two different classes of object and compare:
+
+```{r}
+post(1)
+post(my_address)
+```
+We can see that in the top example, `post()` has dispatched the `post.default()` method. In the second example though, it's dispatched the `post.address()` method.
+
+As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it's quick and easy though, it's not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you're careful though, creating custom objects in your projects can be very powerful.
