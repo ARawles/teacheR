@@ -178,7 +178,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
 <li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
 <li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
-<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>4.3.4</b> Inheritance</a></li>
+<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
+<li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor"><i class="fa fa-check"></i><b>4.3.5</b> Constructor</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>5</b> Exercises</a></li>
@@ -208,8 +209,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a &quot;person&quot;. Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.</p>
 <p>So our class is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
 <p>Graphing that object might look something like this:</p>
-<div id="htmlwidget-af9ed12fd987170ee099" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-af9ed12fd987170ee099">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-04f67db8199d8e929304" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-04f67db8199d8e929304">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="what-is-an-object" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> What is an object?</h3>
@@ -235,23 +236,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] &quot;function&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-</div>
-<div id="inheritance" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Inheritance</h3>
+<div id="inheritance" class="section level4">
+<h4><span class="header-section-number">4.3.3.1</span> Inheritance</h4>
 <p>Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a &quot;vehicle&quot; class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. &quot;car&quot;, &quot;motorbike&quot;, etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a &quot;vehicle&quot; class and allowing your subsequent classes to inherit all of the attributes of the &quot;vehicle&quot; class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the &quot;vehicle&quot; class rather than changing each type of vehicle class.</p>
 <p>Diagramming this relationship:</p>
-<div id="htmlwidget-a6210023c3f01faf52a3" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a6210023c3f01faf52a3">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b2bb6d19b29b55893374" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b2bb6d19b29b55893374">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
 ## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
 <p>Here we can see that an integer object is made up of the integer, double, numeric classes. The order of inheritance goes from left to right so we know that the integer class inherits from the double class, which inherits from the numeric class.</p>
+</div>
 <div id="object-oriented-systems" class="section level4">
-<h4><span class="header-section-number">4.3.4.1</span> Object-Oriented Systems</h4>
+<h4><span class="header-section-number">4.3.3.2</span> Object-Oriented Systems</h4>
 <p>Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.</p>
 <div id="s3" class="section level5">
-<h5><span class="header-section-number">4.3.4.1.1</span> S3</h5>
+<h5><span class="header-section-number">4.3.3.2.1</span> S3</h5>
 <p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to achieve it's goal. In other words, we achieve a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
 <p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it's the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
 <p>Going back to R, if you type <code>print.</code> into the console, the autocompleter will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.</p>
@@ -262,14 +263,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># this is the method that is actually used</span>
 <span class="kw">print.Date</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
+<p>If an object inherits multiple classes, then R will look for the correct method starting from it's most specific class. So for example, if an object has classes <code>c(&quot;class_1&quot;, &quot;class_2&quot;)</code>, then R would look for <code>print.class_1()</code> and only look for <code>print.class_2()</code> (and then <code>print.default()</code>) if it couldn't find <code>print.class_1()</code>.</p>
 <p>While you can often tell if something is an S3 method by it being a generic followed by a <code>.</code> and then an object name, don't rely on this, because people often use <code>.</code> to separate words in functions that can make them look like S3 methods when they're not.</p>
 <p>The important thing I hoped you've gleaned from this explanation is that you don't really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn't convince you that you don't need to understand the underlying structure of an object to get hands on with R, I don't know what will.</p>
 <p>Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method <code>Balance()</code>, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.</p>
 </div>
 </div>
-<div id="creating-objects" class="section level4">
-<h4><span class="header-section-number">4.3.4.2</span> Creating objects</h4>
-<p>The obvious question is &quot;Can I make my own objects in R?&quot;. The answer is yes. And quite easily too. Whether you should or not is a different story. I'm not going to go over how to create an object in S3 or S4 or any other OO system here because there is more than enough for an entire book, but there are plenty of resources out there that can help you.</p>
+</div>
+<div id="creating-classes" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Creating classes</h3>
+<p>The obvious question is &quot;Can I make my own class in R?&quot;. The answer is yes. And quite easily too. Whether you should or not is a different story. We're just going to look very briefly at creating a class in using S3 for now, but I'd recommend Hadley's <a href="http://adv-r.had.co.nz/">Advanced R</a> for a deeper look at the different systems and how to use them.</p>
+<div id="class-attribute" class="section level4">
+<h4><span class="header-section-number">4.3.4.1</span> Class attribute</h4>
+<p>In S3, the class of an object is defined by its <code>class</code> attribute, which stores a vector of class names. To see an object's class, we use the <code>class()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>This class attribute will determine what method is dispatched when we call a generic on this object. So here, if we called <code>print()</code> on <code>1</code>, then it would look for <code>print.numeric()</code> and dispatch that method to print the object. Technically, this just calls <code>print.default()</code> because the default method knows how to print numeric values but the logic remains.</p>
+<p>Something which will make OO programmers everywhere cringe, is that the class attribute for an R object is modifiable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="kw">class</span>(var_<span class="dv">1</span>) &lt;-<span class="st"> &quot;custom_class&quot;</span>
+<span class="kw">class</span>(var_<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;custom_class&quot;</code></pre>
+<p>Now, when we attempt to print the <code>var_1</code> variable, R will look for the appropriate method based on it's class (<code>custom_class</code>), which would be <code>print.custom_class()</code>. In this case, a <code>print.custom_class</code> method doesn't exist, so it'll default to the <code>print.default()</code> method.</p>
+<p>Importantly, we've learnt here that setting the class of an object is as easy as using the <code>class()</code> function and the <code>&lt;-</code> operator.</p>
+</div>
+</div>
+<div id="constructor" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Constructor</h3>
+<p>To ensure our objects all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">address &lt;-<span class="st"> </span><span class="cf">function</span>(house_name, road, city) {
+  address &lt;-<span class="st"> </span><span class="kw">list</span>(
+    <span class="dt">house_name =</span> house_name,
+    <span class="dt">road =</span> road,
+    <span class="dt">city =</span> city
+    )
+  <span class="kw">class</span>(address) &lt;-<span class="st"> &quot;address&quot;</span>
+  <span class="kw">return</span>(address)
+}</code></pre></div>
+<p>Now to create an object from my constructor function, I just need to use the <code>address()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_address &lt;-<span class="st"> </span><span class="kw">address</span>(<span class="st">&quot;4&quot;</span>, <span class="st">&quot;Pleasant Drive&quot;</span>, <span class="st">&quot;London&quot;</span>)
+<span class="kw">class</span>(my_address)</code></pre></div>
+<pre><code>## [1] &quot;address&quot;</code></pre>
+<p>Now, if I called <code>print(my_address)</code>, R would look for a <code>print.address()</code> method. But, it wouldn't find one and so would turn to <code>print.default()</code> which would print our object like any other list. Therefore, we might want to write our own method to print our new object how we want to.</p>
+<div id="creating-methods" class="section level4">
+<h4><span class="header-section-number">4.3.5.1</span> Creating methods</h4>
+<p>To create a method, all we need to do is create a function with the name of our generic followed by a '.' and then name of our class. So from our previous example, our method would look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">print.address &lt;-<span class="st"> </span><span class="cf">function</span>(address) {
+<span class="kw">cat</span>(<span class="st">&quot;The house name is: &quot;</span>, address<span class="op">$</span>house_name, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+<span class="kw">cat</span>(<span class="st">&quot;The road is: &quot;</span>, address<span class="op">$</span>road, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+<span class="kw">cat</span>(<span class="st">&quot;The city is: &quot;</span>, address<span class="op">$</span>city, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<p>Now when we call <code>print()</code> on our new object, it will find the <code>print.address()</code> method and use that to print our object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my_address)</code></pre></div>
+<pre><code>## The house name is:  4 
+## The road is:  Pleasant Drive 
+## The city is:  London</code></pre>
+</div>
+<div id="creating-generics" class="section level4">
+<h4><span class="header-section-number">4.3.5.2</span> Creating generics</h4>
+<p>You can also create your own generic functions for your classes. Generic functions have a very simple structure. Let's say we want to create a new generic called <code>post</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+<span class="kw">UseMethod</span>(<span class="st">&quot;post&quot;</span>)
+}</code></pre></div>
+<p>This is just telling R that when the <code>post()</code> function is called on an object, look for the appropriate <code>post</code> method to use. Without us writing any methods, this would be useless because R wouldn't have any methods to use!</p>
+<p>Let's create a default method that can be applied if we don't have a more specific class:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post.default &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+<span class="kw">cat</span>(<span class="st">&quot;Your object is now in the post! Expect it in 5 to 10 weeks&quot;</span>)
+}</code></pre></div>
+<p>In our example, this default method isn't going to be very useful but it demonstrates that we need a default method to be dispatched if we haven't written a specific method for that object class.</p>
+<p>Let's write a method for our <code>address</code> object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post.address &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">cat</span>(<span class="st">&quot;Your object has been posted to &quot;</span>, x<span class="op">$</span>house_name, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>road, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>city, <span class="st">&quot;!&quot;</span>)
+ }</code></pre></div>
+<p>Now, if we call our new generic on two different classes of object and compare:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">post</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## Your object is now in the post! Expect it in 5 to 10 weeks</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">post</span>(my_address)</code></pre></div>
+<pre><code>## Your object has been posted to  4   Pleasant Drive   London !</code></pre>
+<p>We can see that in the top example, <code>post()</code> has dispatched the <code>post.default()</code> method. In the second example though, it's dispatched the <code>post.address()</code> method.</p>
+<p>As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it's quick and easy though, it's not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you're careful though, creating custom objects in your projects can be very powerful.</p>
 
 </div>
 </div>
