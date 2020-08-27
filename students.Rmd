@@ -370,16 +370,73 @@ Similar to dates, there is no `as.POSIXct()` function in base R, so we use the `
 is(as.POSIXct("2020/01/01 12:00:00"))
 ```
 
-### NA and NULL and their differences
+### NA and NULL
 
 The R language has two closely related values, **NA** and **NULL**.
 
-###### *NULL* indicates the absence of a value. It means that a value is missing (or has length zero).
+*NULL* indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no 'type' because it represents an absence of something, so passing a null value to any of the `is.[type]()` functions will return FALSE. Instead, checking whether a value is NULL is done with the `is.null()` function:
 
-On the other hand,
+```{r}
+is.character(NULL)
+is.null(NULL)
+"NULL" == NULL
+```
 
-###### Missing values are represented by *NA* (not available). It can also be used to represent something that is invalid. You can have NA values for your major data types.
+On the other hand, *NA* (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can't assign an appropriate value.
 
+For example, attempting to parse a character string to a date format that doesn't match will result in a NA value:
+```{r, warnings = TRUE}
+as.Date("10/01/20", format = "%m%Y%d")
+```
+R has tried to parse a value from one type into another. The value isn't NULL because it clearly isn't missing, but it couldn't be converted to a Date type, so it's NA.
+Unlike NULL, there are different NA values for each datatype (although they'll all look like NA in the console). In the example above, we actually created a NA that has the Date type:
+
+```{r, warnings = TRUE}
+errant_date <- as.Date("10/01/20", format = "%m%Y%d")
+is(errant_date)
+```
+This is because R knows what type the NA *should* be, but it couldn't assign in a proper value.
+
+The same behaviour can be observed for other data types:
+
+```{r, warnings = TRUE}
+is(as.numeric("not a number"))
+is(as.logical("not a logical"))
+```
+
+To test whether something is NA, we use the `is.na()` function. You don't need to worry about what type the NA is, this will test if it is an NA of any type.
+
+```{r}
+is.na(NA_character_) # this will be an NA that is of type 'character'
+is.na(NA_integer_) # this will be an NA that is of type 'integer'
+```
+#### Dealing with NAs
+
+Dealing with NAs is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one NA will often return NA:
+
+```{r}
+sum(1,2,NA)
+mean(c(1,NA))
+NA + 1
+```
+
+In some cases, those NAs will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.
+
+Alternatively, data imports can often return NA values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.
+
+Ultimately, how you deal with NA values is a question that you'll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the NA values when summing or calculating an average or similar, then these functions often have an `na.rm` parameter than can be used to remove the NA values from the supplied list of values:
+
+```{r}
+sum(1,2,NA, na.rm = TRUE)
+```
+
+### NaN and Infinity
+
+A special case is NaN (not a number). NaNs are distinct to NA in that they represent a valid value. More precisely, NaN represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.
+
+`Inf` and `-Inf` are similar constructs. They represent infinity and minus infinity respectively. They are valid values but they are not representable with numbers, so they have their own reserved words.
+
+`NaN`, `Inf` and `-Inf` are all of the numeric type and do not have equivalent values in other data types.
 
 ## Data structures
 
