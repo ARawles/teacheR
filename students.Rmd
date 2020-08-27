@@ -574,7 +574,7 @@ For now though, don't worry too much about the internals. Just remember that dat
 
 There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a *subset*. The way to do that is slightly different depending on the data structure you're using.
 
-**Note: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.
+**Note**: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.
 
 ### Vectors
 
@@ -606,10 +606,6 @@ c(value_1 = 10,
 In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we've essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we've just been given the value. What we've done here is extracted the value out from that position.
 
 As a result of this difference, **`[]` can be used with more that one index (e.g. `[1:5]` or `[c(1,3)]`) whereas `[[]]` can only be used with a single index**.
-
-/TO DO
-
-I think some kind of analogy could be useful here to drive home the difference.
 
 It's a very subtle difference, but it is an important one. Make sure that if you want the value, use `[[]]`, and if you want the whole part of the vector, use `[]`.
 
