@@ -6,9 +6,7 @@ This chapter gives a brief intro into what R is and whether you should use it. F
 
 R is a public license programming language. More specifically, it's a statistical programming language meaning that it's often used for statistical analysis rather than software development. R is also a functional programming, rather than an object-oriented programming language like Python. This means that operation in R are primarily performed by functions (input, do something, output), but more about that later.
 
-Strictly speaking, R is not just a functional programming language. In reality, a language is never purely one type and R is no exception. There are object-oriented systems in R (three main ones), meaning that object-oriented programming is possible and relatively straightforward in R. Having said that, I feel now is a good time to refer back to the mantra from the Overview chapter:
-
-<b>Don't believe everything you read</b>
+Strictly speaking, R is not just a functional programming language. In reality, a language is never purely one type and R is no exception. There are object-oriented systems in R (three main ones), meaning that object-oriented programming is possible and relatively straightforward in R.
 
 So basically, R is a functional programming language with some object-oriented systems. If that means very little to you, don't worry. For the vast majority of users, this is a purely academic definition.
 
@@ -25,6 +23,7 @@ Importantly though, never feel as though you've missed a trick by picking a part
 For reference however, here are a few of the things that you can use R for:
 
 * data analysis
+* statistics and machine learning
 * reporting and writing technical documents
 * web apps
 * text analysis
