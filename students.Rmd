@@ -441,7 +441,7 @@ as.Date("10/01/20", format = "%m%Y%d")
 R has tried to parse a value from one type into another. The value isn't NULL because it clearly isn't missing, but it couldn't be converted to a Date type, so it's NA.
 Unlike NULL, there are different NA values for each datatype (although they'll all look like NA in the console). In the example above, we actually created a NA that has the Date type:
 
-```{r, warnings = TRUE}
+```{r, warning = TRUE}
 errant_date <- as.Date("10/01/20", format = "%m%Y%d")
 is(errant_date)
 ```
@@ -449,7 +449,9 @@ This is because R knows what type the NA *should* be, but it couldn't assign in 
 
 The same behaviour can be observed for other data types:
 
-```{r, warnings = TRUE}
+```{r, warning = TRUE}
+as.numeric("not a number")
+as.logical("not a logical")
 is(as.numeric("not a number"))
 is(as.logical("not a logical"))
 ```
