@@ -1,5 +1,5 @@
 ---
-name: New topic
+name: "New topic: TOPIC"
 about: Missing content that should be added
 title: ''
 labels: enhancement
