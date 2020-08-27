@@ -357,9 +357,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
 <p>but where's the humanity in that?</p>
-<p>Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the <code>is()</code> function. If the first value returned is &quot;Date&quot;, then you know it's a date:</p>
+<p>Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the <code>is()</code> or <code>class()</code> functions. If the first value returned is &quot;Date&quot;, then you know it's a date:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
 </div>
 <div id="datetimes-posixct" class="section level3">
 <h3><span class="header-section-number">3.3.7</span> Datetimes (POSIXct)</h3>
@@ -372,9 +374,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] &quot;2020-01-01 12:00:00 NZDT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
-<p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> function instead:</p>
+<p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> and <code>class()</code> functions instead:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
 </div>
 <div id="na-and-null" class="section level3">
 <h3><span class="header-section-number">3.3.8</span> NA and NULL</h3>
