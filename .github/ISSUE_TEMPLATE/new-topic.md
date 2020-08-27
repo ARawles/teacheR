@@ -1,7 +1,7 @@
 ---
-name: "New topic: TOPIC"
+name: "New topic"
 about: Missing content that should be added
-title: ''
+title: 'New topic:'
 labels: enhancement
 assignees: ARawles
 
