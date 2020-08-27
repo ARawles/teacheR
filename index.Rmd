@@ -37,7 +37,7 @@ This is a work in progress, and so I would greatly appreciate any feedback. Anyt
 ### Acknowledgements
 
 This book was made possible with the help of those who raised issues and proposed pull requests. With thanks to:
-(@Swapnil-2001)[https://github.com/Swapnil-2001]
+[@Swapnil-2001](https://github.com/Swapnil-2001)
 
 
 ## About Me
