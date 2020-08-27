@@ -1,10 +1,10 @@
 # Introduction
 
-This chapter gives a brief intro into what R is and whether you should use it. For many of you, you may already be aware of the vast majority of this informaiton, but for those who are brand new to R or even to data analyis and programming, this is a good place to start.
+This chapter gives a brief intro into what R is and whether you should use it. For many of you, you may already be aware of the vast majority of this information, but for those who are brand new to R or even to data analysis and programming, this is a good place to start.
 
 ## What is R?
 
-R is a public license programming language. More specifically, it's a statistical programming language meaning that it's often used for statistical analysis rather than software development. R is also a functional programming, rather than an object-oriented programming language like Python. This means that operation in R are primarily performed by functions (input, do something, output), but more about that later.
+R is a public licence programming language. More specifically, it's a statistical programming language meaning that it's often used for statistical analysis rather than software development. R is also a functional programming, rather than an object-oriented programming language like Python. This means that operation in R are primarily performed by functions (input, do something, output), but more about that later.
 
 Strictly speaking, R is not just a functional programming language. In reality, a language is never purely one type and R is no exception. There are object-oriented systems in R (three main ones), meaning that object-oriented programming is possible and relatively straightforward in R.
 
@@ -34,7 +34,7 @@ If you're interested in any of these, then you're in the right place.
 
 R is very simple. There is a console where you type commands and get responses. Like the classic command-line interfaces you see when the stereotypical nerd has to hack into the FBI database, you type commands, one at a time into the console, R processes it, and then produces a response if appropriate. For example, if you type `2 + 2` into the R console and hit enter, you'll get `4`.
 
-Writing commands out one at a time can be quite time consuming if you want to make changes however. So we use scripts to store multiple lines of code that can then be run altogether. When you execute a script, each line gets passed one by one to the console and executed. For example, I might make a script with this code:
+Writing commands out one at a time can be quite time-consuming if you want to make changes however. So we use scripts to store multiple lines of code that can then be run altogether. When you execute a script, each line gets passed one by one to the console and executed. For example, I might make a script with this code:
 
 ```{r}
 variable1 <- 2 + 2
