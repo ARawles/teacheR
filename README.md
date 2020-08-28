@@ -9,8 +9,8 @@ status](https://travis-ci.org/ARawles/teacheR.svg?branch=master)](https://travis
 
 This repository holds all of the materials for the teacheR book.
 
-The teacheR book is an introduction to the R programming language. It covers the fundamentals of R from a beginner to intermediate level. For a more applied view of R, I'm also developing another book called opeRate. This looks more specifically at performing data analysis, programming, and modelling in R.
+The teacheR book is an introduction to the R programming language. It covers the fundamentals of R from a beginner to intermediate level. For a more applied view of R, I'm also developing another book called [opeRate](https://operate.arawles.co.uk). This looks more specifically at performing data analysis, programming, and modelling in R.
 
 The book is currently a work in progress, so any feedback is much appreciated and can be submitted by raising a GitHub issue.
 
-The book is currently hosted [here](http://teacher.arawles.co.uk)
+The book is currently hosted [here](http://teacher.arawles.co.uk).
