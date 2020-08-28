@@ -482,7 +482,7 @@ Now, when we attempt to print the `var_1` variable, R will look for the appropri
 Importantly, we've learnt here that setting the class of an object is as easy as using the `class()` function and the `<-` operator.
 
 
-#### Constructor
+#### Constructor functions
 To ensure our objects in the same class all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:
 
 
@@ -511,9 +511,9 @@ Now, if I called `print(my_address)`, R would look for a `print.address()` metho
 To create a method, all we need to do is create a function with the name of our generic followed by a '.' and then name of our class. So from our previous example, our method would look like this:
 ```{r}
 print.address <- function(address) {
-cat("The house name is: ", address$house_name, "\n")
-cat("The road is: ", address$road, "\n")
-cat("The city is: ", address$city, "\n")
+  cat("The house name is: ", address$house_name, "\n")
+  cat("The road is: ", address$road, "\n")
+  cat("The city is: ", address$city, "\n")
 }
 ```
 
@@ -528,7 +528,7 @@ You can also create your own generic functions for your classes. Generic functio
 
 ```{r}
 post <- function(x) {
-UseMethod("post")
+  UseMethod("post")
 }
 ```
 This is just telling R that when the `post()` function is called on an object, look for the appropriate `post` method to use. Without us writing any methods, this would be useless because R wouldn't have any methods to use!
@@ -537,7 +537,7 @@ Let's create a default method that can be applied if we don't have a more specif
 
 ```{r}
 post.default <- function(x){
-cat("Your object is now in the post! Expect it in 5 to 10 weeks")
+  cat("Your object is now in the post! Expect it in 5 to 10 weeks")
 }
 ```
 In our example, this default method isn't going to be very useful but it demonstrates that we need a default method to be dispatched if we haven't written a specific method for that object class.
@@ -546,7 +546,7 @@ Let's write a method for our `address` object:
 ```{r}
 post.address <- function(x) {
   cat("Your object has been posted to ", x$house_name, " ", x$road, " ", x$city, "!")
- }
+}
 ```
 
 Now, if we call our new generic on two different classes of object and compare:
@@ -582,8 +582,8 @@ When providing multiple line expressions, wrap the argument in `{}` like this:
 
 ```{r}
 quote({
-x + 10
-y - 5
+  x + 10
+  y - 5
 })
 ```
 
@@ -591,7 +591,7 @@ Unfortunately, testing whether something is an expression in R isn't that easy, 
 
 ```{r}
 rlang::is_expression(
-quote(1 + 1)
+  quote(1 + 1)
 )
 ```
 
@@ -607,8 +607,8 @@ Of course in this example, this is essentially just the same as `1 + 1` as we're
 
 ```{r, error = TRUE}
 new_environ <- new.env()
-new_environ$x <- 10
-my_expr <- quote(x + 5)
+new_environ$w <- 10
+my_expr <- quote(w + 5)
 eval(my_expr) # this will error because x doesn't exist in our parent environment
 eval(my_expr, new_environ) # this won't error because the provided environment has an object named x
 ```
