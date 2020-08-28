@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.1 Operators | teacheR</title>
-  <meta name="description" content="3.1 Operators | teacheR" />
+  <title>4.4 Expressions | teacheR</title>
+  <meta name="description" content="4.4 Expressions | teacheR" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.1 Operators | teacheR" />
+  <meta property="og:title" content="4.4 Expressions | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.1 Operators | teacheR" />
+  <meta name="twitter:title" content="4.4 Expressions | teacheR" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="for-students.html"/>
-<link rel="next" href="variable-assignment.html"/>
+<link rel="prev" href="objects-and-classes.html"/>
+<link rel="next" href="exercises.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -205,65 +205,71 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="operators" class="section level2">
-<h2><span class="header-section-number">3.1</span> Operators</h2>
-<p>Operators perform an action or represent something. For example, a great example of an operator is <code>+</code>. The <code>+</code> is a type of arithmetic operator that adds things together.</p>
-<p>In this section, we're going to look at the more common arithmetic operators that are used for simple maths in R, and then at some logical operators that are used to evaluate whether a criteria has been fulfilled.</p>
-<div id="arithmetic-operators" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Arithmetic operators</h3>
-<p>At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you've used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.</p>
-<p>Here are the main operators in use:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># addition</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">5</span> <span class="co"># subtraction</span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span> <span class="co"># multiplication</span></code></pre></div>
-<pre><code>## [1] 20</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">100</span> <span class="op">/</span><span class="st"> </span><span class="dv">25</span> <span class="co"># division</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
+<div id="expressions" class="section level2">
+<h2><span class="header-section-number">4.4</span> Expressions</h2>
+<p>When we use R, we write code which is then passed to the console to be executed (evaluated). Before the code is executed though, it is just an <strong>expression</strong>.</p>
+<p>An expression can therefore be defined as a section of R code that has not yet been evaluated. That does not mean that all expressions have to be <em>valid</em>. For example, a piece of code like this <code>mean()</code> is a valid expression, but will error when it is evaluated because <code>mean</code> is missing its required arguments.</p>
+<p>Expressions themselves are made up of 4 constituent parts: calls, constants, names and pairlists. For now though, we're not going to look at the bits that make up expressions, but instead we'll focus on expressions as a whole.</p>
+<div id="creating-expressions" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Creating expressions</h3>
+<p>Creating an expression (an unevaluated piece of code) is done in base R using the <code>quote()</code> function. Unfortunately, the <code>expression()</code> function in R doesn't actually create an expression, so use <code>quote()</code> instead.</p>
+<p>When creating single line expressions, you can just provide the expression directly within the <code>quote()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</code></pre></div>
+<pre><code>## x + 10</code></pre>
+<p>When providing multiple line expressions, wrap the argument in <code>{}</code> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>({
+x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
+y <span class="op">-</span><span class="st"> </span><span class="dv">5</span>
+})</code></pre></div>
+<pre><code>## {
+##     x + 10
+##     y - 5
+## }</code></pre>
+<p>Unfortunately, testing whether something is an expression in R isn't that easy, because the base R functions are made for the constituent parts of the expression (e.g. <code>is.call()</code>, <code>is.name()</code>, etc.). Instead, you can use the <code>is_expression()</code> function from the <code>rlang</code> package to test whether something is an expression:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rlang<span class="op">::</span><span class="kw">is_expression</span>(
+<span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
+)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="logical-operators" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Logical operators</h3>
-<p>Logical operators are slightly different to arithmetic operators - they are used to evaluate a particular criteria. For example, are two values equal. Or, are two values equal <em>and</em> two other values different.</p>
-<p>To compare whether two things are equal, we use two equal signs (<code>==</code>) in R:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="co"># equal</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>Why two I hear you say? Well, a bit later on we'll see that we use a single equals sign for something else.</p>
-<p>To compare whether two things are different (not equal), we use <code>!=</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span> <span class="co"># not equal</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>The <code>!</code> sign is also used in other types of criteria, so the best way to think about it is that it inverts the criteria you're testing. So in this case, it's inverting the &quot;equals&quot; criteria, making it &quot;not equal&quot;.</p>
-<p>Testing whether a value is smaller or larger than another is done with the <code>&lt;</code> and <code>&gt;</code> operators:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>  <span class="co"># greater than</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span> <span class="co"># less than</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>Applying our logic with the <code>!</code> sign, we can also test whether something is <em>not</em> smaller or <em>not</em> larger:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&gt;!</span><span class="st"> </span><span class="dv">2</span> <span class="co"># not greater than</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">&lt;!</span><span class="st"> </span><span class="dv">4</span> <span class="co"># not less than</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<p>Why is the <code>!</code> sign before the equals sign in the &quot;not equal&quot; to code, but after the &quot;less than/greater than&quot; sign? No idea. It'd probably make more sense if they were the same, but I suppose worse things happen at sea.</p>
-<p>There are three more logical operators, and they are the &quot;and&quot;, &quot;or&quot;, and &quot;xor&quot; operators. These are used to test whether at least one or more than one or only one of the logical comparisons are true or false:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="co"># or (i.e. are either of these TRUE)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="co"># and (i.e. are these both TRUE)</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<p>The xor operator is a bit different:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xor</span>(<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">3</span>) <span class="co"># TRUE because only 1 is</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xor</span>(<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="co"># FALSE because both are</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<p>For <code>xor()</code>, you need to provide your criteria in brackets, but this will make much more sense once we look at functions.</p>
+<div id="evaluating-expressions" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Evaluating expressions</h3>
+<p>Once you've created your expression, you can evaluate it using the <code>eval()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
+<span class="kw">eval</span>(my_expr)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Of course in this example, this is essentially just the same as <code>1 + 1</code> as we're evaluating the expression in the same environment in which it was created. However, the <code>eval()</code> function accepts an <code>envir</code> parameter where you can pass an environment for the expression to be evaluated in:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_environ &lt;-<span class="st"> </span><span class="kw">new.env</span>()
+new_environ<span class="op">$</span>x &lt;-<span class="st"> </span><span class="dv">10</span>
+my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)
+<span class="kw">eval</span>(my_expr) <span class="co"># this will error because x doesn&#39;t exist in our parent environment</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">eval</span>(my_expr, new_environ) <span class="co"># this won&#39;t error because the provided environment has an object named x</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>Using this, you can create expressions in one environment without evaluating them, and then evaluate them later in different environments to where they were created.</p>
+</div>
+<div id="substitution" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Substitution</h3>
+<p>As well as hard coding in the objects and names in our expression, we can substitute in values from our environment. For example, lets say we wanted to create an <code>x &lt;- y + 1</code> expression, but we wanted to change what the value of <code>y</code> was when we created it. We could acheive this by using the <code>substitute()</code> function. <code>substitute()</code> requires two paramters, <code>expr</code> which must be an expression, and <code>env</code> which must be an environment or a list and contains the objects you want to substitute.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substitute</span>(x &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="kw">list</span>(<span class="dt">y =</span> <span class="dv">1</span>))</code></pre></div>
+<pre><code>## x &lt;- 1 + 1</code></pre>
+<p>As you can see, this doesn't <em>evaluate</em> the expression, it simple substitutes the provided names with the values provided in the <code>env</code> parameter. This can be a really powerful tool for building up expressions.</p>
+</div>
+<div id="quasiquotation" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> Quasiquotation</h3>
+<p>A related subject to expressions and substitution is the idea of <strong>quasiquotation</strong>, used heavily in the <code>tidyverse</code> packages. Quasiquotation is the process of quoting (creating expressions) and unquoting (evaluating) parts of that expression.</p>
+<p>A good example of quasiquotation in action is the <code>dplyr</code> package. Within the <code>dplyr</code> package functions, you'll provide column names to various analysis and data manipulation functions. When you provide those names however, you provide them as raw names (i.e. not in quotation marks): <code>dplyr::mutate(data, new_column = old_column + 1)</code>. Those column names are then quoted (as in <code>quote()</code>) and then evaluated in the context of the dataset that you've provided.</p>
+<p>I won't go into quasiquotation here because <a href="https://adv-r.hadley.nz/quasiquotation.html">Hadley's chapters on the subject</a> in his Advanced R book summarises the topic much better than I ever could. But if you're interested, I would recommend using the <code>tidyverse</code> packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.</p>
+
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="for-students.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="variable-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="objects-and-classes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

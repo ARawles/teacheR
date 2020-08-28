@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="environments.html"/>
-<link rel="next" href="exercises.html"/>
+<link rel="next" href="expressions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -179,7 +179,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
 <li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
 <li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
-<li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor"><i class="fa fa-check"></i><b>4.3.5</b> Constructor</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>4.4.1</b> Creating expressions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>4.4.2</b> Evaluating expressions</a></li>
+<li class="chapter" data-level="4.4.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>4.4.3</b> Substitution</a></li>
+<li class="chapter" data-level="4.4.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>4.4.4</b> Quasiquotation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>5</b> Exercises</a></li>
@@ -209,8 +214,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a &quot;person&quot;. Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.</p>
 <p>So our class is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
 <p>Graphing that object might look something like this:</p>
-<div id="htmlwidget-34e14640199ec755f0c4" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-34e14640199ec755f0c4">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b6e814e6d30ad7879f97" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b6e814e6d30ad7879f97">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="what-is-an-object" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> What is an object?</h3>
@@ -240,8 +245,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4><span class="header-section-number">4.3.3.1</span> Inheritance</h4>
 <p>Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a &quot;vehicle&quot; class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. &quot;car&quot;, &quot;motorbike&quot;, etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a &quot;vehicle&quot; class and allowing your subsequent classes to inherit all of the attributes of the &quot;vehicle&quot; class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the &quot;vehicle&quot; class rather than changing each type of vehicle class.</p>
 <p>Diagramming this relationship:</p>
-<div id="htmlwidget-ad6246f4d45b08935d36" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ad6246f4d45b08935d36">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4e5ddad1db6fb38d2b2f" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4e5ddad1db6fb38d2b2f">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
@@ -289,10 +294,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Now, when we attempt to print the <code>var_1</code> variable, R will look for the appropriate method based on it's class (<code>custom_class</code>), which would be <code>print.custom_class()</code>. In this case, a <code>print.custom_class</code> method doesn't exist, so it'll default to the <code>print.default()</code> method.</p>
 <p>Importantly, we've learnt here that setting the class of an object is as easy as using the <code>class()</code> function and the <code>&lt;-</code> operator.</p>
 </div>
-</div>
-<div id="constructor" class="section level3">
-<h3><span class="header-section-number">4.3.5</span> Constructor</h3>
-<p>To ensure our objects all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:</p>
+<div id="constructor" class="section level4">
+<h4><span class="header-section-number">4.3.4.2</span> Constructor</h4>
+<p>To ensure our objects in the same class all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">address &lt;-<span class="st"> </span><span class="cf">function</span>(house_name, road, city) {
   address &lt;-<span class="st"> </span><span class="kw">list</span>(
     <span class="dt">house_name =</span> house_name,
@@ -307,8 +311,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">class</span>(my_address)</code></pre></div>
 <pre><code>## [1] &quot;address&quot;</code></pre>
 <p>Now, if I called <code>print(my_address)</code>, R would look for a <code>print.address()</code> method. But, it wouldn't find one and so would turn to <code>print.default()</code> which would print our object like any other list. Therefore, we might want to write our own method to print our new object how we want to.</p>
+</div>
 <div id="creating-methods" class="section level4">
-<h4><span class="header-section-number">4.3.5.1</span> Creating methods</h4>
+<h4><span class="header-section-number">4.3.4.3</span> Creating methods</h4>
 <p>To create a method, all we need to do is create a function with the name of our generic followed by a '.' and then name of our class. So from our previous example, our method would look like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">print.address &lt;-<span class="st"> </span><span class="cf">function</span>(address) {
 <span class="kw">cat</span>(<span class="st">&quot;The house name is: &quot;</span>, address<span class="op">$</span>house_name, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
@@ -322,7 +327,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## The city is:  London</code></pre>
 </div>
 <div id="creating-generics" class="section level4">
-<h4><span class="header-section-number">4.3.5.2</span> Creating generics</h4>
+<h4><span class="header-section-number">4.3.4.4</span> Creating generics</h4>
 <p>You can also create your own generic functions for your classes. Generic functions have a very simple structure. Let's say we want to create a new generic called <code>post</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
 <span class="kw">UseMethod</span>(<span class="st">&quot;post&quot;</span>)
@@ -344,18 +349,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Your object has been posted to  4   Pleasant Drive   London !</code></pre>
 <p>We can see that in the top example, <code>post()</code> has dispatched the <code>post.default()</code> method. In the second example though, it's dispatched the <code>post.address()</code> method.</p>
 <p>As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it's quick and easy though, it's not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you're careful though, creating custom objects in your projects can be very powerful.</p>
-
 </div>
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="environments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="expressions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
