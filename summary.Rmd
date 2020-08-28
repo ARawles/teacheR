@@ -1,0 +1,9 @@
+# Summary
+
+Overall, I hope that this book has helped you grasp the basics of the R programming language. If you're a student, then I hope this was pitched at the correct level to challenge you. If you're a teacher, then I hope this book helped round out your knowledge of R such that you would feel comfortable imparting your knowledge onto those that want to hear it.
+
+If you feel that there are improvements to be made to the content or how it was taught, then please do let me know via a [GitHub issue on the teacheR](https://github.com/ARawles/teacheR/issues) repository.
+
+## opeRate
+
+To help you learn how to apply the skills and understanding you've acquired through this book, I've developed a second book, [opeRate](https://operate.arawles.co.uk). opeRate was developed in exactly the same way as teacheR, but focuses on applied data analysis and practical learning. If you're interested in applying your knowledge, then I would recommend giving it a read.
