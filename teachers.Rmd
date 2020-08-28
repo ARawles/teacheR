@@ -62,7 +62,7 @@ add_mostly_2(x = 5, y = 3)
 Sometimes you'll want to provide users with a set of options. To do so, provide a default value of a vector and use the `match.arg()` function like this:
 
 ```{r}
-greet_me <- function(greeting = c("hello", "welcome") {
+greet_me <- function(greeting = c("hello", "welcome")) {
   greeting <- match.arg(greeting)
   greeting
 }
