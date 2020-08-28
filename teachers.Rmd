@@ -208,7 +208,7 @@ sum(1,2)
 
 ### Example answer
 
-Going back to our [previous example](#functions-advanced) of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
+Going back to our [previous example](functions-advanced) of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
 
 ```{r}
 create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
