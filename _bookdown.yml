@@ -6,4 +6,6 @@ rmd_files: [
   "intro.Rmd",
   
   "students.Rmd",
-  "teachers.Rmd"]
+  "teachers.Rmd",
+  
+  "summary.Rmd"]
