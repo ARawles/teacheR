@@ -242,7 +242,7 @@ Now, instead of copying the code each time we need it, we've extracted the commo
 
 This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills  looks at abstraction in more detail.
 
-### Questions
+### Questions {#questions-functions-advanced}
 
 1. How are `mean()` and `sum()` different in their implementation of `...`?
 2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
@@ -416,7 +416,7 @@ Note how when we assign `0` to our `count` variable outside of the function, we 
 
 Use the `<<-` with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.
 
-### Questions
+### Questions {#questions-environments}
 
 1. In what situations can we have two environments with the same name? Why is this?
 2. Search 'namespacing'. How does that concept relate to environments?
@@ -563,12 +563,6 @@ The important thing I hoped you've gleaned from this explanation is that you don
 
 Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
 
-### Questions
-
-1. Why does `is(1L)` return integer, then double, then numeric in that order?
-2. Now we understand inheritance, why can dataframes be subsetted with a `$`?
-3. If we create a dataframe and then call `print.default()` on it, why do we get the output that we do? Why does it look more like a list than a dataframe?
-
 ### Creating classes
 
 The obvious question is "Can I make my own class in R?". The answer is yes. And quite easily too. Whether you should or not is a different story. We're just going to look very briefly at creating a class in using S3 for now, but I'd recommend Hadley's [Advanced R](http://adv-r.had.co.nz/) for a deeper look at the different systems and how to use them.
@@ -673,10 +667,13 @@ We can see that in the top example, `post()` has dispatched the `post.default()`
 
 As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it's quick and easy though, it's not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you're careful though, creating custom objects in your projects can be very powerful.
 
-### Questions
+### Questions {#questions-objects-and-classes}
 
-1. Why are constructors not a fool-proof way of making sure that all our objects of our class will have the same structure? How else might one create an object of class `address`?
-2. `methods("mean")` returns methods for dates and datetimes, but no other object. Why is this? What does this mean when constructing methods for a new generic?
+1. Why does `is(1L)` return integer, then double, then numeric in that order?
+2. Now we understand inheritance, why can dataframes be subsetted with a `$`?
+3. If we create a dataframe and then call `print.default()` on it, why do we get the output that we do? Why does it look more like a list than a dataframe?
+4. Why are constructors not a fool-proof way of making sure that all our objects of our class will have the same structure? How else might one create an object of class `address`?
+5. `methods("mean")` returns methods for dates and datetimes, but no other object. Why is this? What does this mean when constructing methods for a new generic?
 
 ## Expressions
 
@@ -750,7 +747,7 @@ A good example of quasiquotation in action is the `dplyr` package. Within the `d
 
 I won't go into quasiquotation here because [Hadley's chapters on the subject](https://adv-r.hadley.nz/quasiquotation.html) in his Advanced R book summarises the topic much better than I ever could. But if you're interested, I would recommend using the `tidyverse` packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.
 
-### Questions
+### Questions {#questions-expressions}
 
 1. Why might an expression like this `fun(x)` be useful? Particularly, when paired with `substitute()`.
 2. What's the difference between
@@ -816,7 +813,7 @@ what_is_it(2)
 what_is_it(TRUE)
 ```
 
-### Questions
+### Questions {#questions-if-else}
 
 1. Rather than writing `if (x == 1 | x == 2 | x == 3)`, how could you use the `%in%` operator to make it shorter?
 2. How does the `switch()` function relate to if / else statements?
@@ -917,7 +914,7 @@ head(
 ```
 Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter.
 
-### Questions
+### Questions {#questions-iteration}
 
 1. In what situation would you use `i in x` over `i in seq_along(x)`?
 2. Why is `seq_along(x)` preferable to `1:length(x)`?
