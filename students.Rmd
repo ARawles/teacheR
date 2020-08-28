@@ -799,7 +799,7 @@ So while you can manually subset with a vector of logical values indicating whet
 ### Questions
 
 1. Why can dataframes and lists be subsetted in a similar way?
-2. What happens if you miss the last character off when subsetting a dataframe column with `$`? Does the same thing happen when subsetting using `[[]]`?
+2. What happens if you miss the last character off when subsetting a dataframe column with `$` (e.g. `df$co` instea of `df$col`)? Does the same thing happen when subsetting using `[[]]`?
 
 ## Functions
 
@@ -933,7 +933,7 @@ This behaviour (not changing the input parameter value in place) is a major poin
 
 ### Questions
 
-1. Why does ```<-`(test, 2)`` work? What does this tell us about `<-`?
+1. Why does ````<-`(test, 2)`` work? What does this tell us about `<-`?
 2. Why does `mean(1,2)` not return the output you'd expect but `sum(1,2)` does?
     + Hint: the documentation of both functions will help.
 3. Other than `Sys.Date()`, can you think of another example of a function that be executed without any explcit input parameters?
