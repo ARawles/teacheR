@@ -59,6 +59,25 @@ add_mostly_2(x = 5)
 add_mostly_2(x = 5, y = 3)
 ```
 
+Sometimes you'll want to provide users with a set of options. To do so, provide a default value of a vector and use the `match.arg()` function like this:
+
+```{r}
+add_mostly_2 <- function(x, y = c(2,3)) {
+  y <- match.arg(y)
+  x + y
+}
+```
+This will ensure that users of the function can only provide one of the values in the vector. If they use the default, then the first value in the vector will be used:
+
+```{r}
+add_mostly_2(x = 1)
+add_mostly_2(x = 1, y = 3)
+```
+
+```{r, error = TRUE}
+add_mostly_2(x = 1, y = 1) # This will error because 1 wasn't an options for y
+```
+
 #### ...
 
 You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
@@ -148,9 +167,9 @@ sum
 
 Conversely, `sum()` will *call* the `sum` function with the inputs provided in the brackets.
 
-EXAMPLE
-
-
+```{r}
+sum(1,2)
+```
 
 ## Environments 
 
