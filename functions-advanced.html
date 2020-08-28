@@ -353,7 +353,7 @@ normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<spa
 </div>
 <div id="example-answer" class="section level3">
 <h3><span class="header-section-number">4.1.4</span> Example answer</h3>
-<p>Going back to our <a href="#functions-advanced">previous example</a> of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:</p>
+<p>Going back to our <a href="functions-advanced">previous example</a> of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_norm_dist_from_column &lt;-<span class="st"> </span><span class="cf">function</span>(dataset, column_name, <span class="dt">n =</span> <span class="dv">1000</span>) {
   ds_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset[[column_name]])
   ds_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset[[column_name]])
