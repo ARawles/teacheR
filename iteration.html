@@ -169,12 +169,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a><ul>
-<li class="chapter" data-level="4.1" data-path="functions-advanced.html"><a href="functions-advanced.html"><i class="fa fa-check"></i><b>4.1</b> Functions - Advanced</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="functions-advanced.html"><a href="functions-advanced.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
-<li class="chapter" data-level="4.1.2" data-path="functions-advanced.html"><a href="functions-advanced.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
-<li class="chapter" data-level="4.1.3" data-path="functions-advanced.html"><a href="functions-advanced.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functions-advanced.html"><a href="functions-advanced.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
-<li class="chapter" data-level="4.1.5" data-path="functions-advanced.html"><a href="functions-advanced.html#questions-functions-advanced"><i class="fa fa-check"></i><b>4.1.5</b> Questions</a></li>
+<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
+<li class="chapter" data-level="4.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
+<li class="chapter" data-level="4.1.5" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.5</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
@@ -261,13 +261,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {
   <span class="kw">mean</span>(df<span class="op">$</span>value)
 }</code></pre></div>
-<p>Or, if we refer back to our <a href="functions-advanced.html#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we'll also construct a list to store the output:</p>
+<p>Or, if we refer back to our <a href="functions-teachers.html#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we'll also construct a list to store the output:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">output_list &lt;-<span class="st"> </span><span class="kw">list</span>()
 <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {
   output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)
 }
 <span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1]  8.327494 10.449209 11.303405  9.350826 10.653680</code></pre>
+<pre><code>## [1]  9.987080 11.401138 11.494037  9.587924  8.865137</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. This lets us keep track of where we are in the <code>dataframe_list</code> so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.</p>
 </div>
@@ -297,14 +297,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">head</span>(
   <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span>
 )</code></pre></div>
-<pre><code>## [1] 9.030269</code></pre>
+<pre><code>## [1] 10.89211</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter.</p>
+<div id="applying-functions" class="section level4">
+<h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
+<p>Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it's led to the development of the <code>apply</code> set of functions. These act as syntactic sugar to decrease the number of for loops present in your code*.</p>
+<p>* A common argument is that <code>apply</code> functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the <code>apply</code> functions aren't more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.</p>
+<p>We've already seen an example of the <code>lapply</code> (list-apply) function in <a href="functions-teachers.html#functions-as-objects">action</a>, but lets do another one. Let's say we have a list of vectors containing numbers and we want the maximum for each.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">number_list &lt;-<span class="st"> </span><span class="kw">list</span>(
+                  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),
+                  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),
+                  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)
+                )</code></pre></div>
+<p>We can apply the <code>max()</code> function to each item in our list:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 4
+## 
+## [[2]]
+## [1] 500
+## 
+## [[3]]
+## [1] 1001</code></pre>
+<p>As you can see, this is much shorter than writing out a for loop to acheive the same goal.</p>
+<p>The <code>FUN</code> parameter accepts any function (including anonymous) functions, meaning that we can apply any function we like to each item in our list.</p>
+</div>
+<div id="purrr" class="section level4">
+<h4><span class="header-section-number">4.6.4.2</span> purrr</h4>
+<p>The <code>apply</code> family of functions in base R are extremely powerful. However, they are not quite as user-friendly as one might have hoped, and there are some inconsistencies across the different <code>apply</code> functions. To solve this, the <code>purrr</code> provides the <code>map()</code> functions to provide the same functionality but in a more succinct and universal way.</p>
+<p>Personally, I do prefer the <code>purrr</code> functions to the base R functions as I find they're easier to learn to use, however the base R functions do provide the same functionality. Documentation for the <code>purr</code> package can be found at <a href="purrr.tidyverse.org">https://purrr.tidyverse.org</a>.</p>
+</div>
 </div>
 <div id="questions-iteration" class="section level3">
 <h3><span class="header-section-number">4.6.5</span> Questions</h3>
 <ol style="list-style-type: decimal">
 <li>In what situation would you use <code>i in x</code> over <code>i in seq_along(x)</code>?</li>
 <li>Why is <code>seq_along(x)</code> preferable to <code>1:length(x)</code>?</li>
+<li>What would be the for loop code that would be required to replicate <code>lapply(number_list, FUN = max)</code>? Which would be easier to debug?</li>
 </ol>
 
 </div>

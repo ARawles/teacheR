@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.1 Functions | teacheR</title>
+  <meta name="description" content="4.1 Functions | teacheR" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.1 Functions | teacheR" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="cover.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.1 Functions | teacheR" />
+  
+  
+  <meta name="twitter:image" content="cover.png" />
+
+<meta name="author" content="Adam Rawles" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="for-teachers.html"/>
+<link rel="next" href="environments.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a><ul>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="should-i-use-r.html"><a href="should-i-use-r.html"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#rstudio-panes"><i class="fa fa-check"></i><b>2.4.2</b> RStudio Panes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a><ul>
+<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1.1</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="3.1.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.1.2</b> Logical operators</a></li>
+<li class="chapter" data-level="3.1.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>3.1.3</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>3.2.2</b> Naming</a></li>
+<li class="chapter" data-level="3.2.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.3</b> Reassigning variables</a></li>
+<li class="chapter" data-level="3.2.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>3.2.4</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>3.3.2</b> Double</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>3.3.3</b> Integer</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>3.3.5</b> Factors</a></li>
+<li class="chapter" data-level="3.3.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>3.3.6</b> Dates</a></li>
+<li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
+<li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
+<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.4.2</b> Lists</a></li>
+<li class="chapter" data-level="3.4.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>3.4.3</b> Lists vs Vectors</a></li>
+<li class="chapter" data-level="3.4.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>3.4.4</b> Matrices</a></li>
+<li class="chapter" data-level="3.4.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.4.5</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>3.4.6</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>3.5.2</b> Lists</a></li>
+<li class="chapter" data-level="3.5.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>3.5.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.5.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>3.5.4</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>3.5.5</b> Subsetting by criteria</a></li>
+<li class="chapter" data-level="3.5.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>3.5.6</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
+<li class="chapter" data-level="3.6.2" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>3.6.2</b> Questions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a><ul>
+<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
+<li class="chapter" data-level="4.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
+<li class="chapter" data-level="4.1.5" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
+<li class="chapter" data-level="4.2.4" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>4.2.4</b> Function environments</a></li>
+<li class="chapter" data-level="4.2.5" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>4.2.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
+<li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
+<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
+<li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>4.3.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>4.4.1</b> Creating expressions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>4.4.2</b> Evaluating expressions</a></li>
+<li class="chapter" data-level="4.4.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>4.4.3</b> Substitution</a></li>
+<li class="chapter" data-level="4.4.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>4.4.4</b> Quasiquotation</a></li>
+<li class="chapter" data-level="4.4.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>4.4.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>4.5</b> If / Else</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>4.5.1</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>4.6</b> Iteration</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>4.6.1</b> Imperative programming</a></li>
+<li class="chapter" data-level="4.6.2" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>4.6.2</b> For loops</a></li>
+<li class="chapter" data-level="4.6.3" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>4.6.3</b> While loops</a></li>
+<li class="chapter" data-level="4.6.4" data-path="iteration.html"><a href="iteration.html#functional-programming"><i class="fa fa-check"></i><b>4.6.4</b> Functional programming</a></li>
+<li class="chapter" data-level="4.6.5" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>4.6.5</b> Questions</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">teacheR</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functions-teachers" class="section level2">
+<h2><span class="header-section-number">4.1</span> Functions</h2>
+<p>In the &quot;For Students&quot; section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.</p>
+<p>When you start writing our own functions, you'll start to see a massive improvement in your efficiency. By extracting out common tasks to functions and by keeping your functions simple, you can easily expand and debug your project. A rough rule of thumb is that if you've copied some code more than twice, think about extracting it out to a function.</p>
+<p>Let's take a look at an example of where it may be appropriate to shorten your workflow by using a function. Let's say you've got 2 datasets, and you want to get the standard deviation and mean of one column and then create a normal distribution based on those values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataset1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">observation_number =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),
+  <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">35</span>,<span class="dv">13</span>,<span class="dv">20</span>,<span class="dv">40</span>)
+)
+dataset2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">observation_number =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),
+  <span class="dt">income =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>,<span class="dv">600</span>,<span class="dv">900</span>)
+)</code></pre></div>
+<p>Without using functions, our workflow might look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mean_ds1 &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset1<span class="op">$</span>value)
+sd_ds1 &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset1<span class="op">$</span>value)
+normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dt">mean =</span> mean_ds1, <span class="dt">sd =</span> sd_ds1)
+
+mean_ds2 &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset2<span class="op">$</span>income)
+sd_ds2 &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset2<span class="op">$</span>income)
+normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dt">mean =</span> mean_ds2, <span class="dt">sd =</span> sd_ds2)</code></pre></div>
+<p>This isn't too bad, but what if we wanted to add another dataset? We'd have to copy and paste the code yet again. Then, say we wanted not to use the mean but the median, we'd have to replace each call to the <code>mean()</code> function with <code>median()</code> in each block of code.</p>
+<p>If we extract out the commonalities to a function, then not only do we reduce the amount of code we're using, but this also makes future changes or fixes much easier.</p>
+<p>We'll look more specifically out how we create functions in the next few sections, but for now let's imagine what we'd want our function to look like. It'd need to calculate the mean and standard deviation of a column, but that column name or position in the dataframe might change - the column is called 'value' in the first dataset but is called 'income' in the second, and even though they're both the second column in the dataset, we don't want to rely on that in case we have a new dataset where the column we want to use isn't in that position.</p>
+<p>Let's revisit this once we understand how we create functions in R a bit better. If you're comfortable with creating functions in R, then you can skip to the <a href="functions-teachers.html#example-answer">solution</a>.</p>
+<div id="creating-functions" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Creating functions</h3>
+<p>R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn't a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn't an Excel function for you to use and there isn't an easy way to create one without knowing VBA.</p>
+<p>R is different. Creating functions can be very simple and will really change the way you work.</p>
+<p>Creating functions will also highlight an important delineation. Previously, we've been focusing on <em>calling</em> functions. Calling a function is essentially using it. But in order to call a function, it needs to be <em>defined</em>. Base functions are already defined (i.e. someone has already written what the function is going to do), but when you're creating your own functions, you are <em>defining</em> a new function that you're presumably going to call later on.</p>
+<div id="function-structure" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> Function structure</h4>
+<p>If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</code></pre></div>
+<p>Notice how we've got two sets of brackets here. The first (<code>()</code>) is where we define our input parameters. The second (<code>{}</code>) is where we define the body of our function.</p>
+<p>Let's do a simple example. Let's create a function that adds two numbers together:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}</code></pre></div>
+<p>So in this example, I've defined that when anyone uses the function, they need to provide two input parameters named <code>x</code> and <code>y</code>. Something that people tend to struggle with is that the names of your input parameters have no implicit meaning. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why for example in some functions that require a dataframe there will be an input parameter called <code>df</code> or similar. But importantly, these names are technically just arbitrary.</p>
+<p>In the body of the function, we can see that we're just doing something really simple: we're adding <code>x</code> and <code>y</code> together with <code>+</code>.</p>
+<p>Once I've run the code to <strong>define</strong> my function, I can then <strong>call</strong> it like I would any other function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div id="optional-input-parameters" class="section level5">
+<h5><span class="header-section-number">4.1.1.1.1</span> Optional input parameters</h5>
+<p>When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+<span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Sometimes you'll want to provide users with a set of options. To do so, provide a default value of a vector and use the <code>match.arg()</code> function like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">greet_me &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">greeting =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;welcome&quot;</span>)) {
+  greeting &lt;-<span class="st"> </span><span class="kw">match.arg</span>(greeting)
+  greeting
+}</code></pre></div>
+<p>This will ensure that users of the function can only provide one of the values in the vector. If they use the default, then the first value in the vector will be used:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">greet_me</span>(<span class="st">&quot;welcome&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;welcome&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">greet_me</span>()</code></pre></div>
+<pre><code>## [1] &quot;hello&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">greet_me</span>(<span class="st">&quot;wassup&quot;</span>) <span class="co"># This will error because 1 wasn&#39;t an options for y</span></code></pre></div>
+<pre><code>## Error in match.arg(greeting): &#39;arg&#39; should be one of &quot;hello&quot;, &quot;welcome&quot;</code></pre>
+<p><strong>Note:</strong> The <code>match.arg()</code> function only works with character vectors.</p>
+</div>
+</div>
+<div id="section" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> ...</h4>
+<p>You'll notice a crucial distinction between R's <code>sum()</code> function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (<code>x</code> and <code>y</code>). This is because the base <code>sum()</code> function uses a <code>...</code>. This <code>...</code> is essentially shorthand for &quot;as many or as few inputs as the user wants to provide&quot;. To use the <code>...</code>, just add it as in an input parameter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, ...) {
+}</code></pre></div>
+<p>The <code>...</code> works particularly well when you might be creating a function that <em>wraps</em> around another one. A wrapping function is just a function that makes a call to another one within it, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){
+  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
+}</code></pre></div>
+<p>All we're basically doing in the above wrapping around the <code>sum()</code> function to add some specific functionality.</p>
+<p>By using the <code>...</code> here, we can just pass everything that the user provides to the <code>sum()</code> function. This means we don't have to worry about copying any input parameters.</p>
+<div id="return-values" class="section level5">
+<h5><span class="header-section-number">4.1.1.2.1</span> Return values</h5>
+<p>As I mentioned in the &quot;For Students&quot; section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our <code>my_sum_function</code> example, our last evaluation was <code>x + y</code>, so the output of that was what was returned by the function.</p>
+<p>You can also be explicit with your return values by using the <code>return()</code> function. The <code>return()</code> function will return whatever is provided to the <code>return()</code> function. This can be useful if you want to return a value prematurely:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">early_return_function &lt;-<span class="st"> </span><span class="cf">function</span>(x,y, <span class="dt">return_x  =</span> <span class="ot">TRUE</span>) {
+  <span class="cf">if</span> (return_x) {
+    <span class="kw">return</span>(x)
+  }
+  x <span class="op">+</span><span class="st"> </span>y
+}</code></pre></div>
+<p>Here, we can see more clearly that <code>x</code> is returned when <code>return_x</code> is TRUE and <code>x + y</code> is returned otherwise.</p>
+<p>Certain style guides suggest that you should <strong>only</strong> use <code>return()</code> statements for early returns. In other words, the &quot;normal&quot; return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit <code>return()</code> values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.</p>
+</div>
+</div>
+</div>
+<div id="input-validation" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Input validation</h3>
+<p>Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">function_without_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}
+<span class="kw">function_without_check</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="st">&quot;error for me please&quot;</span>)</code></pre></div>
+<pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">function_with_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.numeric</span>(x) <span class="op">||</span><span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(y)) {
+    <span class="kw">warning</span>(<span class="st">&quot;x or y isn&#39;t numeric. Returning NA&quot;</span>)
+    <span class="kw">return</span>(<span class="ot">NA_integer_</span>)
+  } <span class="cf">else</span> {
+    x <span class="op">+</span><span class="st"> </span>y
+  }
+}</code></pre></div>
+</div>
+<div id="functions-as-objects" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Functions as objects</h3>
+<p>Functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the <code>apply</code> logic, the <code>lapply()</code> (list-apply) function requires a <code>FUN</code> parameter that is the function the be applied to each value in the provided list.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_list &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),
+  <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>),
+  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">30</span>)
+)
+
+<span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> sum)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 3
+## 
+## [[2]]
+## [1] 15
+## 
+## [[3]]
+## [1] 50</code></pre>
+<p>Linked with the idea that functions are just another type of an object, there is an important distinction between <code>sum</code> and <code>sum()</code>. The first will return the <code>sum</code> <em>object</em>. That is, not the result of applying inputs to the <code>sum</code> function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum</code></pre></div>
+<pre><code>## function (..., na.rm = FALSE)  .Primitive(&quot;sum&quot;)</code></pre>
+<p>Conversely, <code>sum()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div id="anonymous-functions" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> Anonymous functions</h4>
+<p>Because some functions accept functions as an argument, there is the concept of <strong>anonymous functions</strong> in R. These are just functions that haven't been assigned a name. For example, we might want to use an anonymous function in an <code>lapply</code> call:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x))</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 5
+## 
+## [[3]]
+## [1] 10</code></pre>
+<p>Anonymous functions mean that you don't have to define your function in the traditional way. However, if you're going to use that function more than once, it's advisable to extract it out to a named function and then reference it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x)
+}
+<span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> diff)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 5
+## 
+## [[3]]
+## [1] 10</code></pre>
+</div>
+</div>
+<div id="example-answer" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Example answer</h3>
+<p>Going back to our <a href="functions-teachers">previous example</a> of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_norm_dist_from_column &lt;-<span class="st"> </span><span class="cf">function</span>(dataset, column_name, <span class="dt">n =</span> <span class="dv">1000</span>) {
+  ds_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset[[column_name]])
+  ds_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset[[column_name]])
+  <span class="kw">rnorm</span>(<span class="dt">n =</span> n, <span class="dt">mean =</span> ds_mean, <span class="dt">sd =</span> ds_sd)
+}
+
+normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset1, <span class="st">&quot;value&quot;</span>)
+normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</code></pre></div>
+<p>Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
+<p>This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
+</div>
+<div id="questions-functions-teachers" class="section level3">
+<h3><span class="header-section-number">4.1.5</span> Questions</h3>
+<ol style="list-style-type: decimal">
+<li>How are <code>mean()</code> and <code>sum()</code> different in their implementation of <code>...</code>?</li>
+<li>If functions are objects, how would you construct a function that returns a function? What might be a use for this?</li>
+<li>What happens if you create a function that asks for an argument that is never used? Why isn't there an error?</li>
+</ol>
+<ul>
+<li>Hint: search 'lazy' evaluation</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>What does the <code>missing()</code> function do? How does this go against the lazy approach?</li>
+<li>Why might one use the <code>missing()</code> approach instead of assigning a default value? What are the drawbacks of this?</li>
+</ol>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="for-teachers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="environments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
