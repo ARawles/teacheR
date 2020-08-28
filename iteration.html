@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="if-else.html"/>
-<link rel="next" href="exercises.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -201,7 +201,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.4" data-path="iteration.html"><a href="iteration.html#functional-programming"><i class="fa fa-check"></i><b>4.6.4</b> Functional programming</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>5</b> Exercises</a></li>
 </ul>
 
       </nav>
@@ -261,7 +260,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)
 }
 <span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 11.317024 11.248976 10.063672  9.027256 10.265085</code></pre>
+<pre><code>## [1]  9.694011 10.881511  9.309587  8.737697 10.010320</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. This lets us keep track of where we are in the <code>dataframe_list</code> so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.</p>
 </div>
@@ -291,7 +290,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">head</span>(
   <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span>
 )</code></pre></div>
-<pre><code>## [1] 11.638</code></pre>
+<pre><code>## [1] 8.497427</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter.</p>
 
 </div>
@@ -302,8 +301,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="if-else.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="if-else.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
