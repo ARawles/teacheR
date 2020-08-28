@@ -94,8 +94,8 @@ For `xor()`, you need to provide your criteria in brackets, but this will make m
 
 1. Why does `1 == "1"` return FALSE?
     + Hint: the answer is revealed in the (data types)[data-types] chapter
-2. Reading the (R documentation)[https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html] on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
-    + Hint: the (data structures)[data-structures] section of this book should help
+2. Reading the [R documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
+    + Hint: the [data structures](data-structures) section of this book should help
 
 ## Variable assignment
 
