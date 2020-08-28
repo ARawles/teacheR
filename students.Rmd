@@ -90,6 +90,13 @@ xor(1 == 1, 2 == 2) # FALSE because both are
 
 For `xor()`, you need to provide your criteria in brackets, but this will make much more sense once we look at functions.
 
+### Questions
+
+1. Why does `1 == "1"` return FALSE?
+    + Hint: the answer is revealed in the (data types)[data-types] chapter
+2. Reading the (R documentation)[https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html] on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
+    + Hint: the (data structures)[data-structures] section of this book should help
+
 ## Variable assignment
 
 Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?
@@ -189,6 +196,12 @@ R will also give the variable an appropriate *type* based on the value you assig
 
 Let's look in a bit more detail at the different data types...
 
+
+### Questions
+
+1. Is `.2nd` a valid name? Why/why not?
+2. Why are names like `if`, `function`, and `TRUE` not allowed?
+3. What would happen if you assigned a variable to a name that already exists? For instance, `mean <- 1`. (**HARD**)
 
 ## Data types
 
@@ -490,6 +503,14 @@ A special case is NaN (not a number). NaNs are distinct to NA in that they repre
 
 `NaN`, `Inf` and `-Inf` are all of the numeric type and do not have equivalent values in other data types.
 
+
+### Questions
+
+1. Why are `2` and `2L` different?
+2. What is an ordered factor and how is it different to a character string?
+3. Why does `as.Date("19/01/2019", format = "%d/%m/%y")` return the date 19th Jan 2020 and not 19th Jan 2019?
+4. What does `sum(Inf, -Inf)` return? Why?
+
 ## Data structures
 
 It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:
@@ -619,6 +640,13 @@ data.frame(
 ```
 
 For now though, don't worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they'll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you're ahead of the game.
+
+### Questions
+
+1. If I want to store a set of integers, what data structure should I use and why?
+2. Reading in Excel and .csv files into R will convert them into data.frames. Why do you think this is?
+3. What does `is(matrix())` return? What does this tell us about the underlying difference between matrices and dataframes?
+    + Hint: This explains why matrices need to have columns of the same type
 
 ## Subsetting
 
@@ -768,6 +796,11 @@ Here, because I've only specified two logical values, when it comes to subsettin
 
 So while you can manually subset with a vector of logical values indicating whether to return that value as is returned, it's best to stay away from it.
 
+### Questions
+
+1. Why can dataframes and lists be subsetted in a similar way?
+2. What happens if you miss the last character off when subsetting a dataframe column with `$`? Does the same thing happen when subsetting using `[[]]`?
+
 ## Functions
 
 Being a functional programming language, functions are at the heart of R. We've already used lots of functions in the previous chapters, but now we're going to look in more detail about what a function is.
@@ -897,3 +930,11 @@ x
 This works because the right-hand side of the assignment line is executed first. In other words, when the `sum(x,1)` is evaluated, `x` is still equal to one. This makes sense because otherwise it'd be very hard to keep track of what `x` was equal to!
 
 This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: `object.AddNew` or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. To learn more about environments, there is an [environments](environments.html) chapter in the "For Teachers" section.
+
+### Questions
+
+1. Why does ```<-`(test, 2)`` work? What does this tell us about `<-`?
+2. Why does `mean(1,2)` not return the output you'd expect but `sum(1,2)` does?
+    + Hint: the documentation of both functions will help.
+3. Other than `Sys.Date()`, can you think of another example of a function that be executed without any explcit input parameters?
+                                                                               
