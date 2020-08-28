@@ -214,7 +214,7 @@ Going back to our [previous example](#functions-advanced) of when we might want 
 create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
   ds_mean <- mean(dataset[[column_name]])
   ds_sd <- sd(dataset[[column_name]])
-  rnorm(n = n, mean = ds_mean, sd ds_sd)
+  rnorm(n = n, mean = ds_mean, sd = ds_sd)
 }
 
 normal_dist_ds1 <- create_norm_dist_from_column(dataset1, "value")
