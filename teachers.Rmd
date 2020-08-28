@@ -806,8 +806,9 @@ Or, if we refer back to our [function example](#example-answer) from the Functio
 ```{r}
 output_list <- list()
 for (df in seq_along(dataframe_list)) {
-  list[[df]] <- create_norm_dist_from_column(dataframe_list[[df]], "value")
+  output_list[[df]] <- create_norm_dist_from_column(dataframe_list[[df]], "value")
 }
+head(output_list[[1]], 5)
 ```
 
 In this case, rather than looping through the *values* in the `dataframe_list` list, we're looping through the *indices* using `seq_along()`. This lets us keep track of where we are in the `dataframe_list` so we can assign the output to the right position in `output_list`.
@@ -836,9 +837,9 @@ Instead, within R we can leverage functions to wrap the loops. For example, let'
 norm_dists <- function(dfs, column = "value") {
   output_list <- list()
   for (df in seq_along(dfs)) {
-    list[[df]] <- create_norm_dist_from_column(dfs[[df]], column)
+    output_list[[df]] <- create_norm_dist_from_column(dfs[[df]], column)
   }
-  list
+  output_list
 }
 
 head(
