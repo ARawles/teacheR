@@ -218,8 +218,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## x + 10</code></pre>
 <p>When providing multiple line expressions, wrap the argument in <code>{}</code> like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>({
-x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
-y <span class="op">-</span><span class="st"> </span><span class="dv">5</span>
+  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
+  y <span class="op">-</span><span class="st"> </span><span class="dv">5</span>
 })</code></pre></div>
 <pre><code>## {
 ##     x + 10
@@ -227,7 +227,7 @@ y <span class="op">-</span><span class="st"> </span><span class="dv">5</span>
 ## }</code></pre>
 <p>Unfortunately, testing whether something is an expression in R isn't that easy, because the base R functions are made for the constituent parts of the expression (e.g. <code>is.call()</code>, <code>is.name()</code>, etc.). Instead, you can use the <code>is_expression()</code> function from the <code>rlang</code> package to test whether something is an expression:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rlang<span class="op">::</span><span class="kw">is_expression</span>(
-<span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
+  <span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
 )</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
@@ -239,10 +239,10 @@ y <span class="op">-</span><span class="st"> </span><span class="dv">5</span>
 <pre><code>## [1] 2</code></pre>
 <p>Of course in this example, this is essentially just the same as <code>1 + 1</code> as we're evaluating the expression in the same environment in which it was created. However, the <code>eval()</code> function accepts an <code>envir</code> parameter where you can pass an environment for the expression to be evaluated in:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_environ &lt;-<span class="st"> </span><span class="kw">new.env</span>()
-new_environ<span class="op">$</span>x &lt;-<span class="st"> </span><span class="dv">10</span>
-my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)
+new_environ<span class="op">$</span>w &lt;-<span class="st"> </span><span class="dv">10</span>
+my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(w <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)
 <span class="kw">eval</span>(my_expr) <span class="co"># this will error because x doesn&#39;t exist in our parent environment</span></code></pre></div>
-<pre><code>## [1] 15</code></pre>
+<pre><code>## [1] 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">eval</span>(my_expr, new_environ) <span class="co"># this won&#39;t error because the provided environment has an object named x</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <p>Using this, you can create expressions in one environment without evaluating them, and then evaluate them later in different environments to where they were created.</p>
