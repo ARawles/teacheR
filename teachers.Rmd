@@ -206,6 +206,23 @@ Conversely, `sum()` will *call* the `sum` function with the inputs provided in t
 sum(1,2)
 ```
 
+
+#### Anonymous functions
+
+Because some functions accept functions as an argument, there is the concept of **anonymous functions** in R. These are just functions that haven't been assigned a name. For example, we might want to use an anonymous function in an `lapply` call:
+
+```{r}
+lapply(sum_list, FUN = function(x) max(x) - min(x))
+```
+Anonymous functions mean that you don't have to define your function in the traditional way. However, if you're going to use that function more than once, it's advisable to extract it out to a named function and then reference it:
+
+```{r}
+diff <- function(x) {
+  max(x) - min(x)
+}
+lapply(sum_list, FUN = diff)
+```
+
 ### Example answer
 
 Going back to our [previous example](functions-advanced) of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
@@ -224,6 +241,15 @@ normal_dist_ds2 <- create_norm_dist_from_column(dataset2, "income")
 Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.
 
 This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills  looks at abstraction in more detail.
+
+### Questions
+
+1. How are `mean()` and `sum()` different in their implementation of `...`?
+2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
+3. What happens if you create a function that asks for an argument that is never used? Why isn't there an error?
+  + Hint: search 'lazy' evaluation
+4. What does the `missing()` function do? How does this go against the lazy approach?
+5. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
 
 ## Environments 
 
@@ -367,7 +393,7 @@ Once the function is called, objects in its environment are inaccessible. The lo
 
 #### 'Super' assignment
 
-There will be occasions however when you need to make changes to the global environment. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the controversial `<<-` operator. This is used as an assignment operator to assign a value to the global environment. Observe...
+There will be occasions, however, when you need to make changes to the global environment regardless of what environment you are currently in. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the `<<-` operator. This is used as an assignment operator to assign a value to the global environment. Observe...
 
 
 ```{r}
@@ -389,6 +415,14 @@ count
 Note how when we assign `0` to our `count` variable outside of the function, we don't need to use `<<-`. This is because we're already assigning to the global environment.
 
 Use the `<<-` with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.
+
+### Questions
+
+1. In what situations can we have two environments with the same name? Why is this?
+2. Search 'namespacing'. How does that concept relate to environments?
+  + Hint: This is heavily related to question 1
+3. What might be an issue with create a function that uses superassignment on an object with the name `x`?
+4. What might be an alternative to approach to keeping track of the number of times a function has been called?
 
 
 ## Objects and Classes
@@ -512,7 +546,7 @@ In the S3 system, we rely on generic functions and methods. Generics are functio
 
 As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of **communicating** as being the **generic** - it's the eventual goal. And **talking in the appropriate language** as being the **method**.
 
-Going back to R, if you type `print.` into the console, the autocompleter will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter.
+Going back to R, if you type `print.` into the console, the autocompleter will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter. If there isn't a specific method for the object you've provided, then it will use the default `print.default()` method.
 
 ```{r}
 # here we're using the generic
@@ -528,6 +562,12 @@ While you can often tell if something is an S3 method by it being a generic foll
 The important thing I hoped you've gleaned from this explanation is that you don't really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn't convince you that you don't need to understand the underlying structure of an object to get hands on with R, I don't know what will.
 
 Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
+
+### Questions
+
+1. Why does `is(1L)` return integer, then double, then numeric in that order?
+2. Now we understand inheritance, why can dataframes be subsetted with a `$`?
+3. If we create a dataframe and then call `print.default()` on it, why do we get the output that we do? Why does it look more like a list than a dataframe?
 
 ### Creating classes
 
@@ -556,6 +596,7 @@ Importantly, we've learnt here that setting the class of an object is as easy as
 
 
 #### Constructor functions
+
 To ensure our objects in the same class all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:
 
 
@@ -632,6 +673,10 @@ We can see that in the top example, `post()` has dispatched the `post.default()`
 
 As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it's quick and easy though, it's not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you're careful though, creating custom objects in your projects can be very powerful.
 
+### Questions
+
+1. Why are constructors not a fool-proof way of making sure that all our objects of our class will have the same structure? How else might one create an object of class `address`?
+2. `methods("mean")` returns methods for dates and datetimes, but no other object. Why is this? What does this mean when constructing methods for a new generic?
 
 ## Expressions
 
@@ -705,6 +750,25 @@ A good example of quasiquotation in action is the `dplyr` package. Within the `d
 
 I won't go into quasiquotation here because [Hadley's chapters on the subject](https://adv-r.hadley.nz/quasiquotation.html) in his Advanced R book summarises the topic much better than I ever could. But if you're interested, I would recommend using the `tidyverse` packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.
 
+### Questions
+
+1. Why might an expression like this `fun(x)` be useful? Particularly, when paired with `substitute()`.
+2. What's the difference between
+```{r}
+quote({
+  x <- 1
+  x + 10
+})
+```
+and
+
+```{r}
+list(
+  quote(x <- 1),
+  quote(x + 10)
+)
+```
+Why do they evaluate to different things?
 
 ## If / Else
 
@@ -751,6 +815,11 @@ what_is_it("hello")
 what_is_it(2)
 what_is_it(TRUE)
 ```
+
+### Questions
+
+1. Rather than writing `if (x == 1 | x == 2 | x == 3)`, how could you use the `%in%` operator to make it shorter?
+2. How does the `switch()` function relate to if / else statements?
 
 ## Iteration
 
@@ -847,3 +916,8 @@ head(
 )
 ```
 Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter.
+
+### Questions
+
+1. In what situation would you use `i in x` over `i in seq_along(x)`?
+2. Why is `seq_along(x)` preferable to `1:length(x)`?
