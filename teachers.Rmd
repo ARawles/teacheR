@@ -4,7 +4,7 @@ Now we have a basic understanding of some of the core concepts in R, let's have 
 
 If you're going to teach R, this section will provide you with a good level of understanding. Hopefully, you'll not only know *how* to do something when asked, but *why* you should do it that way.
 
-## Functions - Advanced
+## Functions {#functions-teachers}
 
 In the "For Students" section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.
 
@@ -225,7 +225,7 @@ lapply(sum_list, FUN = diff)
 
 ### Example answer
 
-Going back to our [previous example](functions-advanced) of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
+Going back to our [previous example](functions-teachers) of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
 
 ```{r}
 create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
@@ -242,7 +242,7 @@ Now, instead of copying the code each time we need it, we've extracted the commo
 
 This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills  looks at abstraction in more detail.
 
-### Questions {#questions-functions-advanced}
+### Questions {#questions-functions-teachers}
 
 1. How are `mean()` and `sum()` different in their implementation of `...`?
 2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
@@ -914,7 +914,38 @@ head(
 ```
 Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter.
 
+#### Applying functions
+
+Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it's led to the development of the `apply` set of functions. These act as syntactic sugar to decrease the number of for loops present in your code\*.
+
+\* A common argument is that `apply` functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the `apply` functions aren't more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.
+
+We've already seen an example of the `lapply` (list-apply) function in [action](#functions-as-objects), but lets do another one. Let's say we have a list of vectors containing numbers and we want the maximum for each.
+
+```{r}
+number_list <- list(
+                  c(1,2,3,4),
+                  c(500,250,100,10),
+                  c(1000,1001,1001,1000)
+                )
+```
+
+We can apply the `max()` function to each item in our list:
+```{r}
+lapply(number_list, FUN = max)
+```
+As you can see, this is much shorter than writing out a for loop to acheive the same goal. 
+
+The `FUN` parameter accepts any function (including anonymous) functions, meaning that we can apply any function we like to each item in our list.
+
+#### purrr
+
+The `apply` family of functions in base R are extremely powerful. However, they are not quite as user-friendly as one might have hoped, and there are some inconsistencies across the different `apply` functions. To solve this, the `purrr` provides the `map()` functions to provide the same functionality but in a more succinct and universal way.
+
+Personally, I do prefer the `purrr` functions to the base R functions as I find they're easier to learn to use, however the base R functions do provide the same functionality. Documentation for the `purr` package can be found at [https://purrr.tidyverse.org](purrr.tidyverse.org)
+
 ### Questions {#questions-iteration}
 
 1. In what situation would you use `i in x` over `i in seq_along(x)`?
 2. Why is `seq_along(x)` preferable to `1:length(x)`?
+3. What would be the for loop code that would be required to replicate `lapply(number_list, FUN = max)`? Which would be easier to debug?
