@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.2 Should I use R? | teacheR</title>
-  <meta name="description" content="2.2 Should I use R? | teacheR" />
+  <title>4.5 If / Else | teacheR</title>
+  <meta name="description" content="4.5 If / Else | teacheR" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 Should I use R? | teacheR" />
+  <meta property="og:title" content="4.5 If / Else | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 Should I use R? | teacheR" />
+  <meta name="twitter:title" content="4.5 If / Else | teacheR" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="what-is-r.html"/>
-<link rel="next" href="using-r.html"/>
+<link rel="prev" href="expressions.html"/>
+<link rel="next" href="iteration.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -213,27 +213,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="should-i-use-r" class="section level2">
-<h2><span class="header-section-number">2.2</span> Should I use R?</h2>
-<p>People will forever argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you're reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They're just... different. Personally, I prefer to use R but I understand that other people don't.</p>
-<p>Importantly though, never feel as though you've missed a trick by picking a particular language. Programming is not just a practice, it's a way of thinking, and experience is almost always transferable across languages.</p>
-<p>For reference however, here are a few of the things that you can use R for:</p>
-<ul>
-<li>data analysis</li>
-<li>statistics and machine learning</li>
-<li>reporting and writing technical documents</li>
-<li>web apps</li>
-<li>text analysis</li>
-</ul>
-<p>If you're interested in any of these, then you're in the right place.</p>
+<div id="if-else" class="section level2">
+<h2><span class="header-section-number">4.5</span> If / Else</h2>
+<p>Building on our logical operators, there will often be times where you want to split the logic of your code depending on a criteria. For example, if you've created a function that can accept a character string or a number, you might want to split the body of the function to do something slightly different depending on the class of the provided argument.</p>
+<p>If / else statements in R has a simple structure:</p>
+<pre><code>if (criteria_statement) {
+  what_you_want_to_do
+} else if (other_criteria) {
+  something_else_you_want_to_do
+} else {
+  something_you_want_to_do_if_all_else_fails
+}</code></pre>
+<p>Putting this into practice, a real If / else block may look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {
+  <span class="kw">return</span>(<span class="st">&quot;x is 1&quot;</span>)
+} <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {
+  <span class="kw">return</span>(<span class="st">&quot;x is 2&quot;</span>)
+} <span class="cf">else</span> {
+  <span class="kw">return</span>(<span class="st">&quot;x is not 1 or 2&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;x is 1&quot;</code></pre>
+<p>Implementing this in a function could look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">what_is_it &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="cf">if</span> (<span class="kw">is.character</span>(x)) {
+    <span class="kw">return</span>(<span class="st">&quot;x is a character&quot;</span>)
+  } <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(x)) {
+    <span class="kw">return</span>(<span class="st">&quot;x is numeric&quot;</span>)
+  } <span class="cf">else</span> {
+    <span class="kw">return</span>(<span class="st">&quot;x is something else&quot;</span>)
+  }
+}
+
+<span class="kw">what_is_it</span>(<span class="st">&quot;hello&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;x is a character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">what_is_it</span>(<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] &quot;x is numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">what_is_it</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;x is something else&quot;</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="what-is-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="using-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="expressions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="iteration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.2 Should I use R? | teacheR</title>
-  <meta name="description" content="2.2 Should I use R? | teacheR" />
+  <title>4.6 Iteration | teacheR</title>
+  <meta name="description" content="4.6 Iteration | teacheR" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 Should I use R? | teacheR" />
+  <meta property="og:title" content="4.6 Iteration | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 Should I use R? | teacheR" />
+  <meta name="twitter:title" content="4.6 Iteration | teacheR" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="what-is-r.html"/>
-<link rel="next" href="using-r.html"/>
+<link rel="prev" href="if-else.html"/>
+<link rel="next" href="exercises.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -213,27 +213,91 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="should-i-use-r" class="section level2">
-<h2><span class="header-section-number">2.2</span> Should I use R?</h2>
-<p>People will forever argue about which is better, R or Python or Java or C or writing down mathematical equations on a piece of paper and handing it to a monkey to solve. I imagine you're reading this because you heard that R was good for data analysis, and it absolutely is. And so is Python. They're just... different. Personally, I prefer to use R but I understand that other people don't.</p>
-<p>Importantly though, never feel as though you've missed a trick by picking a particular language. Programming is not just a practice, it's a way of thinking, and experience is almost always transferable across languages.</p>
-<p>For reference however, here are a few of the things that you can use R for:</p>
-<ul>
-<li>data analysis</li>
-<li>statistics and machine learning</li>
-<li>reporting and writing technical documents</li>
-<li>web apps</li>
-<li>text analysis</li>
-</ul>
-<p>If you're interested in any of these, then you're in the right place.</p>
+<div id="iteration" class="section level2">
+<h2><span class="header-section-number">4.6</span> Iteration</h2>
+<p>Functions are an important stepping stone in reducing the amount of code you need to do something (making your code less <strong>verbose</strong>). Another tool in acheiving this goal is the idea of iteration. Iteration just means the process of doing something more than once.</p>
+<p>We'll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for example are operations that you'll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we'll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we'll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.</p>
+<div id="imperative-programming" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> Imperative programming</h3>
 </div>
+<div id="for-loops" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> For loops</h3>
+<p>For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:</p>
+<pre><code>for (identifier in list) {
+ do_something_with_it(identifier)
+}</code></pre>
+<p>In the above, the identifier is used to access the value that is currently being iterated upon. Let's look at a practical example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {
+  <span class="kw">print</span>(i)
+}</code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3</code></pre>
+<p>In this loop, we go through the vector of values 1, 2 and 3, and we print it using the <code>i</code> identifier that we've assigned to the value we're currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we've provided). The first time, <code>i</code> will equal 1. The code will execute, and then <code>i</code> will take the value of 2 and so on.</p>
+<p>This isn't a particular useful example. Let's look at more realistic example. Let's say you've got a list with 2 dataframes in that have the same structure:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(
+                    <span class="kw">data.frame</span>(
+                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)
+                     ),
+                     <span class="kw">data.frame</span>(
+                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)
+                     )
+                   )</code></pre></div>
+<p>And you want to calculate the mean for the <code>value</code> column for each one:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {
+  <span class="kw">mean</span>(df<span class="op">$</span>value)
+}</code></pre></div>
+<p>Or, if we refer back to our <a href="functions-advanced.html#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we'll also construct a list to store the output:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">output_list &lt;-<span class="st"> </span><span class="kw">list</span>()
+<span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {
+  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)
+}
+<span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] 11.145355  8.522802  9.600639 10.644981 10.316892</code></pre>
+<p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. This lets us keep track of where we are in the <code>dataframe_list</code> so we can assign the output to the right position in <code>output_list</code>.</p>
+<p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.</p>
+</div>
+<div id="while-loops" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> While loops</h3>
+<p>While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">0</span>
+<span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {
+  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  <span class="kw">print</span>(x)
+}</code></pre></div>
+<pre><code>## [1] 1
+## [1] 2</code></pre>
+</div>
+<div id="functional-programming" class="section level3">
+<h3><span class="header-section-number">4.6.4</span> Functional programming</h3>
+<p>For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages like C and Python.</p>
+<p>Instead, within R we can leverage functions to wrap the loops. For example, let's look back at our <code>dataframe_list</code> example. We can turn our loop into a function that we can call whenever we have a list of dataframes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {
+  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()
+  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {
+    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)
+  }
+  output_list
+}
+
+<span class="kw">head</span>(
+  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span>
+)</code></pre></div>
+<pre><code>## [1] 11.23678</code></pre>
+<p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter.</p>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="what-is-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="using-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="if-else.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
