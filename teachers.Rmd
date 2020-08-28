@@ -8,6 +8,42 @@ If you're going to teach R, this section will provide you with a good level of u
 
 In the "For Students" section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.
 
+When you start writing our own functions, you'll start to see a massive improvement in your efficiency. By extracting out common tasks to functions and by keeping your functions simple, you can easily expand and debug your project. A rough rule of thumb is that if you've copied some code more than twice, think about extracting it out to a function. 
+
+Let's take a look at an example of where it may be appropriate to shorten your workflow by using a function. Let's say you've got 2 datasets, and you want to get the standard deviation and mean of one column and then create a normal distribution based on those values:
+
+```{r}
+dataset1 <- data.frame(
+  observation_number = c(1,2,3,4,5)
+  value = c(10,35,13,20,40)
+)
+dataset2 <- data.frame(
+  observation_number = c(1,2,3,4,5)
+  income = c(100,200,150,600,900)
+)
+```
+
+Without using functions, our workflow might look like this:
+
+```{r}
+mean_ds1 <- mean(dataset1$value)
+sd_ds1 <- sd(dataset1$value)
+normal_dist_ds1 <- rnorm(1000, mean = mean_ds1, sd = sd_ds1)
+
+mean_ds2 <- mean(dataset2$income)
+sd_ds2 <- sd(dataset2$income)
+normal_dist_ds2 <- rnorm(1000, mean = mean_ds2, sd = sd_ds2)
+```
+
+This isn't too bad, but what if we wanted to add another dataset? We'd have to copy and paste the code yet again. Then, say we wanted not to use the mean but the median, we'd have to replace each call to the `mean()` function with `median()` in each block of code.
+
+If we extract out the commonalities to a function, then not only do we reduce the amount of code we're using, but this also makes future changes or fixes much easier.
+
+We'll look more specifically out how we create functions in the next few sections, but for now let's imagine what we'd want our function to look like.
+It'd need to calculate the mean and standard deviation of a column, but that column name or position in the dataframe might change - the column is called 'value' in the first dataset but is called 'income' in the second, and even though they're both the second column in the dataset, we don't want to rely on that in case we have a new dataset where the column we want to use isn't in that position.
+
+Let's revisit this once we understand how we create functions in R a bit better. If you're comfortable with creating functions in R, then you can skip to the [solution](#example-answer).
+
 ### Creating functions
 
 R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn't a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn't an Excel function for you to use and there isn't an easy way to create one without knowing VBA.
@@ -43,7 +79,6 @@ Once I've run the code to **define** my function, I can then **call** it like I 
 ```{r}
 my_sum_function(x = 5, y = 6)
 ```
-
 
 ##### Optional input parameters
 
@@ -119,11 +154,9 @@ Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `
 
 Certain style guides suggest that you should **only** use `return()` statements for early returns. In other words, the "normal" return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit `return()` values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.
 
-If you're interested, there are some specifics about function inputs in R that can be good to know.
-
 ### Input validation
 
-Firstly, unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
+Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
 
 ```{r, error = TRUE}
 function_without_check <- function(x, y) {
@@ -146,7 +179,7 @@ function_with_check <- function(x, y) {
 
 ### Functions as objects
 
-Secondly, functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` (list-apply) function requires a `FUN` parameter that is the function the be applied to each value in the provided list.
+Functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` (list-apply) function requires a `FUN` parameter that is the function the be applied to each value in the provided list.
 
 ```{r}
 sum_list <- list(
@@ -172,6 +205,25 @@ Conversely, `sum()` will *call* the `sum` function with the inputs provided in t
 ```{r}
 sum(1,2)
 ```
+
+### Example answer
+
+Going back to our [previous example](#functions-advanced) of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
+
+```{r}
+create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
+  ds_mean <- mean(dataset[[column_name]])
+  ds_sd <- sd(dataset[[column_name]])
+  rnorm(n = n, mean = ds_mean, sd ds_sd)
+}
+
+normal_dist_ds1 <- create_norm_dist_from_column(dataset1, "value")
+normal_dist_ds2 <- create_norm_dist_from_column(dataset2, "income")
+```
+
+Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.
+
+This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills  looks at abstraction in more detail.
 
 ## Environments 
 
@@ -686,12 +738,13 @@ Implementing this in a function could look like this:
 
 ```{r}
 what_is_it <- function(x) {
-if (is.character(x)) {
-  return("x is a character")
-} else if (is.numeric(x)) {
-  return("x is numeric")
-} else {
-  return("x is something else")
+  if (is.character(x)) {
+    return("x is a character")
+  } else if (is.numeric(x)) {
+    return("x is numeric")
+  } else {
+    return("x is something else")
+  }
 }
 
 what_is_it("hello")
