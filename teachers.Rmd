@@ -14,11 +14,11 @@ Let's take a look at an example of where it may be appropriate to shorten your w
 
 ```{r}
 dataset1 <- data.frame(
-  observation_number = c(1,2,3,4,5)
+  observation_number = c(1,2,3,4,5),
   value = c(10,35,13,20,40)
 )
 dataset2 <- data.frame(
-  observation_number = c(1,2,3,4,5)
+  observation_number = c(1,2,3,4,5),
   income = c(100,200,150,600,900)
 )
 ```
@@ -753,3 +753,96 @@ what_is_it(TRUE)
 ```
 
 ## Iteration
+
+Functions are an important stepping stone in reducing the amount of code you need to do something (making your code less **verbose**). Another tool in acheiving this goal is the idea of iteration. Iteration just means the process of doing something more than once.
+
+We'll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for example are operations that you'll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we'll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we'll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.
+
+### Imperative programming
+
+### For loops
+
+For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:
+
+```
+for (identifier in list) {
+ do_something_with_it(identifier)
+}
+```
+
+In the above, the identifier is used to access the value that is currently being iterated upon. Let's look at a practical example:
+
+```{r}
+for (i in c(1,2,3)) {
+  print(i)
+}
+```
+In this loop, we go through the vector of values 1, 2 and 3, and we print it using the `i` identifier that we've assigned to the value we're currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we've provided). The first time, `i` will equal 1. The code will execute, and then `i` will take the value of 2 and so on.
+
+This isn't a particular useful example. Let's look at more realistic example. Let's say you've got a list with 2 dataframes in that have the same structure:
+
+```{r}
+dataframe_list <- list(
+                    data.frame(
+                      obs = c(1,2,3),
+                      value = c(10,11,9)
+                     ),
+                     data.frame(
+                      obs = c(1,2,3),
+                      value = c(100,200,150)
+                     )
+                   )
+```
+And you want to calculate the mean for the `value` column for each one:
+
+```{r}
+for (df in dataframe_list) {
+  mean(df$value)
+}
+```
+
+Or, if we refer back to our [function example](#example-answer) from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we'll also construct a list to store the output:
+
+```{r}
+output_list <- list()
+for (df in seq_along(dataframe_list)) {
+  list[[df]] <- create_norm_dist_from_column(dataframe_list[[df]], "value")
+}
+```
+
+In this case, rather than looping through the *values* in the `dataframe_list` list, we're looping through the *indices* using `seq_along()`. This lets us keep track of where we are in the `dataframe_list` so we can assign the output to the right position in `output_list`.
+
+**Note:** If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.
+
+### While loops
+
+While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:
+
+```{r}
+x <- 0
+while(x < 2) {
+  x <- x + 1
+  print(x)
+}
+```
+
+### Functional programming
+
+For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages like C and Python.
+
+Instead, within R we can leverage functions to wrap the loops. For example, let's look back at our `dataframe_list` example.  We can turn our loop into a function that we can call whenever we have a list of dataframes:
+
+```{r}
+norm_dists <- function(dfs, column = "value") {
+  output_list <- list()
+  for (df in seq_along(dfs)) {
+    list[[df]] <- create_norm_dist_from_column(dfs[[df]], column)
+  }
+  list
+}
+
+head(
+  norm_dists(dataframe_list)[[1]], 1
+)
+```
+Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter.
