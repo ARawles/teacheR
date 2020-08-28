@@ -942,7 +942,7 @@ The `FUN` parameter accepts any function (including anonymous) functions, meanin
 
 The `apply` family of functions in base R are extremely powerful. However, they are not quite as user-friendly as one might have hoped, and there are some inconsistencies across the different `apply` functions. To solve this, the `purrr` provides the `map()` functions to provide the same functionality but in a more succinct and universal way.
 
-Personally, I do prefer the `purrr` functions to the base R functions as I find they're easier to learn to use, however the base R functions do provide the same functionality. Documentation for the `purr` package can be found at [https://purrr.tidyverse.org](purrr.tidyverse.org)
+Personally, I do prefer the `purrr` functions to the base R functions as I find they're easier to learn to use, however the base R functions do provide the same functionality. Documentation for the `purr` package can be found at [https://purrr.tidyverse.org](purrr.tidyverse.org).
 
 ### Questions {#questions-iteration}
 
