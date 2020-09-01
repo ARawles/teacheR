@@ -61,6 +61,8 @@ If you feel that there are improvements to be made to the content or how it was 
 3. Other than `Sys.Date()`, can you think of another example of a function that be executed without any explicit input parameters?
     + `Sys.time()` is another in the same style. `c()` and `matrix()` also do not require explicit input parameters to operate.
     
+### For Teachers
+
 #### Functions (teachers) {#functions-teachers-answers}
 
 1. How are `mean()` and `sum()` different in their implementation of `...`?
