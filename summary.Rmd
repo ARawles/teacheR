@@ -136,7 +136,17 @@ list(
 )
 ```
 and why do they evaluate to different things?
-        + The first is a single expression. When we evaluate the first, both lines `x <- 1` and `x + 10` are evaluated at (roughly) the same time. The second is a list of        separate expressions. If we evaluate them using:
+        + The first is a single expression. When we evaluate the first, both lines `x <- 1` and `x + 10` are evaluated at (roughly) the same time: 
+```{r}
+eval(
+    quote({
+        x <- 1
+        x + 10
+    })
+)
+```
+
+        + The second is a list of separate expressions. If we evaluate them using:
         
 ```{r}
 lapply(
