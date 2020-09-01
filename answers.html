@@ -255,18 +255,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="variable-assignments-answers" class="section level4">
 <h4><span class="header-section-number">5.1.1.2</span> Variable Assigment</h4>
 <ol style="list-style-type: decimal">
-<li>Is <code>.2nd</code> a valid name? Why/why not?</li>
-</ol>
+<li>Is <code>.2nd</code> a valid name? Why/why not?
 <ul>
 <li>It begins with a <code>.</code> which is valid, but the first character after the <code>.</code> is a digit which isn't allowed.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Why are names like <code>if</code>, <code>function</code>, and <code>TRUE</code> not allowed?</li>
-</ol>
+</ul></li>
+<li>Why are names like <code>if</code>, <code>function</code>, and <code>TRUE</code> not allowed?
 <ul>
 <li>These are reserved words in R. There are reserved because they are used for specific functions, and so creating variables with these names could very easily confuse things! 3.Why might it be a bad idea to assign a value to a name like <code>mean</code> or <code>sum</code>?</li>
 <li><code>mean()</code> and <code>sum()</code> are functions in base R. Therefore, giving variables the same names can make reading a script very difficult, and might lead you to inadvertently use the incorrect value.</li>
-</ul>
+</ul></li>
+</ol>
 </div>
 <div id="data-types-answers" class="section level4">
 <h4><span class="header-section-number">5.1.1.3</span> Data Types</h4>
@@ -446,8 +444,7 @@ quoted_fun</code></pre></div>
     })
 )</code></pre></div>
 <pre><code>## [1] 11</code></pre>
-<pre><code>    + The second is a list of separate expressions. If we evaluate them using:
-    </code></pre>
+<p>  + The second is a list of separate expressions. If we evaluate them using:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(
     <span class="kw">list</span>(
       <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),
