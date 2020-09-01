@@ -22,8 +22,8 @@ If you feel that there are improvements to be made to the content or how it was 
   + It begins with a `.` which is valid, but the first character after the `.` is a digit which isn't allowed.
 2. Why are names like `if`, `function`, and `TRUE` not allowed?
   + These are reserved words in R. There are reserved because they are used for specific functions, and so creating variables with these names could very easily confuse things!
-3. What would happen if you assigned a variable to a name that already exists? For instance, `mean <- 1`. (**HARD**)
-  + When you try to use the `mean()` function, it still works. This is because when you use the `()`, R knows that you want to apply a function. Therefore, when it finds the `mean` that you created in the global environment, it skips that variable (because it isn't a function), and keeps searching through the environments until it finds the `mean()` function. \\ TO CHECK
+3.Why might it be a bad idea to assign a value to a name like `mean` or `sum`?
+  + `mean()` and `sum()` are functions in base R. Therefore, giving variables the same names can make reading a script very difficult, and might lead you to inadvertently use the incorrect value.
 
 #### Data Types {#data-types-answers}
 
