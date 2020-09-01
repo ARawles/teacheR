@@ -246,7 +246,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li>Reading the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html">R documentation</a> on logical operators, what is the difference between <code>|</code> and <code>||</code> (and <code>&amp;</code> and <code>&amp;&amp;</code>)?
 <ul>
-<li><code>|</code> and <code>&amp;</code> perform the comparison in a step-wise method for vectors. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns <code>TRUE</code> first (<code>1 == 1 &amp; 2 == 2</code>) and then <code>FALSE</code> (<code>2 == 1 &amp; 3 == 2</code>), because it evaluates the criteria for the first and second values in the vector separately. <code>||</code> and <code>&amp;&amp;</code> operate on the first value in each vector only. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns only <code>TRUE</code> and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. <code>1 == 1 &amp; 2 == 2</code>).</li>
+<li><code>|</code> and <code>&amp;</code> perform the comparison in a step-wise method for vectors. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns <code>TRUE</code> first (<code>1 == 1 &amp; 2 == 2</code>) and then <code>FALSE</code> (<code>2 == 1 &amp; 3 == 2</code>), because it evaluates the criteria for the first and second values in the vectors separately. <code>||</code> and <code>&amp;&amp;</code> operate on the first value in each vector only. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns only <code>TRUE</code> and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. <code>1 == 1 &amp; 2 == 2</code>).</li>
 </ul></li>
 </ol>
 </div>
@@ -352,7 +352,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   ret_function
 }
 
-square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</code></pre></div></li>
+square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)
+<span class="kw">square_function</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 9</code></pre></li>
 <li>What happens if you create a function that requires an argument that is never used? Why isn't there an error?
 <ul>
 <li>R only evaluates objects when they are called. So if there's an object that is never used, then it is never evaluated and so there's no error.</li>
@@ -376,7 +378,7 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 <li>Search 'namespacing'. How does that concept relate to environments?
 <ul>
-<li>Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance will be, so the object will be uniquely identifiable.</li>
+<li>Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance and the name will be together, so the object will be uniquely identifiable.</li>
 </ul></li>
 <li>What might be an issue with create a function that uses superassignment on an object with the name <code>x</code>?
 <ul>
@@ -403,9 +405,9 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 <ul>
 <li>Because we can change the class of an object with assignment, someone could create an object that didn't match your constructor function and then assign the class like this: <code>class(not_an_address) &lt;- &quot;address&quot;</code></li>
 </ul></li>
-<li><code>methods(&quot;mean&quot;)</code> returns methods for dates and datetimes (and <code>.default</code> which operators on numeric objects), but no other object. Why is this? What does this mean when constructing methods for a new generic?
+<li><code>methods(&quot;mean&quot;)</code> returns methods for dates and datetimes (and <code>.default</code> which operates on numeric objects), but no other object. Why is this? What does this mean when constructing methods for a new generic?
 <ul>
-<li>These are the only data types for which a <code>mean</code> function would make sense. For instance, finding the mean for a bunch of character strings wouldn't really make much sense (although you could build one if you wanted). These means that you only really need to create methods for your generic that <em>make sense</em>. Otherwise, a default method that can try its best with no promises will do.</li>
+<li>These are the only data types for which a <code>mean</code> function would make sense. For instance, finding the mean for a bunch of character strings wouldn't really make much sense (although you could build one if you wanted). This means that you only really need to create methods for your generic that <em>make sense</em> (i.e. that are appropriate for what you want your generic to do).</li>
 </ul></li>
 </ol>
 </div>
@@ -435,7 +437,7 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 <li>What would be the for loop code that would be required to replicate <code>lapply(number_list, FUN = max)</code>? Which would be easier to debug?
 <ul>
-<li></li>
+<li>Loop code:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))
 <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {
