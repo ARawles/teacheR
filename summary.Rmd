@@ -114,6 +114,7 @@ If you feel that there are improvements to be made to the content or how it was 
 
 1. Why might an expression like this `fun(x)` be useful? Particularly, when paired with `substitute()`.
         + By using subsitute, we can replace `fun` with any function we like:
+        
 ```{r}
 quoted_fun <- substitute(fun(x), env = list(fun = sum, x = 1))
 quoted_fun
@@ -134,8 +135,9 @@ list(
   quote(x + 10)
 )
 ```
-Why do they evaluate to different things?
-        + The first is a single expression. When we evaluate the first, both lines `x <- 1` and `x + 10` are evaluated at (roughly) the same time. The second is a list of separate expressions. If we evaluate them using
+and why do they evaluate to different things?
+        + The first is a single expression. When we evaluate the first, both lines `x <- 1` and `x + 10` are evaluated at (roughly) the same time. The second is a list of        separate expressions. If we evaluate them using:
+        
 ```{r}
 lapply(
     list(
@@ -145,7 +147,7 @@ lapply(
     eval
 )
 ```
-Then each line is evaluated separetly, resulting in two lines instead of 1. 
+Then each line is evaluated separately, resulting in two lines instead of 1. 
  
 #### If / Else {#if-else-answers}
 
