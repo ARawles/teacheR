@@ -19,11 +19,11 @@ If you feel that there are improvements to be made to the content or how it was 
 #### Variable Assigment {#variable-assignments-answers}
 
 1. Is `.2nd` a valid name? Why/why not?
-  + It begins with a `.` which is valid, but the first character after the `.` is a digit which isn't allowed.
+    + It begins with a `.` which is valid, but the first character after the `.` is a digit which isn't allowed.
 2. Why are names like `if`, `function`, and `TRUE` not allowed?
-  + These are reserved words in R. There are reserved because they are used for specific functions, and so creating variables with these names could very easily confuse things!
+    + These are reserved words in R. There are reserved because they are used for specific functions, and so creating variables with these names could very easily confuse things!
 3.Why might it be a bad idea to assign a value to a name like `mean` or `sum`?
-  + `mean()` and `sum()` are functions in base R. Therefore, giving variables the same names can make reading a script very difficult, and might lead you to inadvertently use the incorrect value.
+    + `mean()` and `sum()` are functions in base R. Therefore, giving variables the same names can make reading a script very difficult, and might lead you to inadvertently use the incorrect value.
 
 #### Data Types {#data-types-answers}
 
@@ -146,8 +146,8 @@ eval(
 )
 ```
 
-        + The second is a list of separate expressions. If we evaluate them using:
-        
+\        + The second is a list of separate expressions. If we evaluate them using:
+       
 ```{r}
 lapply(
     list(
