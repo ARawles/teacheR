@@ -359,7 +359,7 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 <li>What does the <code>missing()</code> function do? How does this go against the lazy approach?
 <ul>
-<li><code>missing()</code> checks whether an argument was provided in the function call. This goes against the lazy approach because it ensures that the value is checked even though it may not be called in the body of the function. Rather than erroring when the object isn't found however, <code>missing()</code> returns <code>TRUE</code> if its missing and <code>FALSE</code> if it isn't.</li>
+<li><code>missing()</code> checks whether an argument was provided in the function call. This goes against the lazy approach because it ensures that the value is checked even though it may not be used in the body of the function. Rather than erroring when the object isn't found however, <code>missing()</code> returns <code>TRUE</code> if its missing and <code>FALSE</code> if it isn't.</li>
 </ul></li>
 <li>Why might one use the <code>missing()</code> approach instead of assigning a default value? What are the drawbacks of this?
 <ul>
@@ -367,8 +367,8 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 </ol>
 </div>
-<div id="environments-environments-answers" class="section level4">
-<h4><span class="header-section-number">5.1.1.8</span> Environments (#environments-answers}</h4>
+<div id="environments-answers" class="section level4">
+<h4><span class="header-section-number">5.1.1.8</span> Environments</h4>
 <ol style="list-style-type: decimal">
 <li>In what situations can we have two environments with the same name? Why is this?
 <ul>
@@ -376,7 +376,7 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 <li>Search 'namespacing'. How does that concept relate to environments?
 <ul>
-<li>Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance will be.</li>
+<li>Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance will be, so the object will be uniquely identifiable.</li>
 </ul></li>
 <li>What might be an issue with create a function that uses superassignment on an object with the name <code>x</code>?
 <ul>
@@ -409,8 +409,8 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 </ol>
 </div>
-<div id="if-else-if-else-answers" class="section level4">
-<h4><span class="header-section-number">5.1.1.10</span> If / Else {if-else-answers}</h4>
+<div id="if-else-answers" class="section level4">
+<h4><span class="header-section-number">5.1.1.10</span> If / Else</h4>
 <ol style="list-style-type: decimal">
 <li>Rather than writing <code>if (x == 1 | x == 2 | x == 3)</code>, how could you use the <code>%in%</code> operator to make it shorter?
 <ul>
@@ -422,8 +422,8 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 </ol>
 </div>
-<div id="iteration-iteration-answers" class="section level4">
-<h4><span class="header-section-number">5.1.1.11</span> Iteration {iteration-answers}</h4>
+<div id="iteration-answers" class="section level4">
+<h4><span class="header-section-number">5.1.1.11</span> Iteration</h4>
 <ol style="list-style-type: decimal">
 <li>In what situation would you use <code>i in x</code> over <code>i in seq_along(x)</code>?
 <ul>
