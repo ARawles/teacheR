@@ -80,16 +80,16 @@ If you feel that there are improvements to be made to the content or how it was 
 3. What happens if you create a function that requires an argument that is never used? Why isn't there an error?
     + R only evaluates objects when they are called. So if there's an object that is never used, then it is never evaluated and so there's no error.
 4. What does the `missing()` function do? How does this go against the lazy approach?
-    + `missing()` checks whether an argument was provided in the function call. This goes against the lazy approach because it ensures that the value is checked even though it may not be called in the body of the function. Rather than erroring when the object isn't found however, `missing()` returns `TRUE` if its missing and `FALSE` if it isn't.
+    + `missing()` checks whether an argument was provided in the function call. This goes against the lazy approach because it ensures that the value is checked even though it may not be used in the body of the function. Rather than erroring when the object isn't found however, `missing()` returns `TRUE` if its missing and `FALSE` if it isn't.
 5. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
     + `missing()` allows you to handle errors in more detail and lets you set more complex or conditional default values. However, using `missing()` in this way means that someone who uses your function might not be able to tell what the default value is going to be without seeing the body of the function!
   
-#### Environments (#environments-answers}
+#### Environments {#environments-answers}
 
 1. In what situations can we have two environments with the same name? Why is this?
     + As long as those two environments don't share the same parent environment, then they can have the same name. This is because they will still both have unique identifiers by virtue of having different inherited environments.
 2. Search 'namespacing'. How does that concept relate to environments?
-    + Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance will be.
+    + Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance will be, so the object will be uniquely identifiable.
 3. What might be an issue with create a function that uses superassignment on an object with the name `x`?
     + `x` is quite a common variable name. If someone is using your function and doesn't realise that you're using super assignment with an object named `x`, then you might overwrite their `x` variable.
 
@@ -108,7 +108,7 @@ If you feel that there are improvements to be made to the content or how it was 
     + These are the only data types for which a `mean` function would make sense. For instance, finding the mean for a bunch of character strings wouldn't really make much sense (although you could build one if you wanted). These means that you only really need to create methods for your generic that *make sense*. Otherwise, a default method that can try its best with no promises will do.
     
     
-#### If / Else {if-else-answers}
+#### If / Else {#if-else-answers}
 
 1. Rather than writing `if (x == 1 | x == 2 | x == 3)`, how could you use the `%in%` operator to make it shorter?
     + `if (x %in% c(1,2,3))`
@@ -116,7 +116,7 @@ If you feel that there are improvements to be made to the content or how it was 
     + `switch` takes an expression that returns a character string or number and then evaluates the appropriate argument depending on the value. The `switch` function therefore operates like a string of `if else (x == x)` statements.
 
 
-#### Iteration {iteration-answers}
+#### Iteration {#iteration-answers}
 
 1. In what situation would you use `i in x` over `i in seq_along(x)`?
     + `i in x` is used to access the value at each position in `x`, whereas `i in seq_along(x)` will go along the indices. So if you want to access the value (and you're not doing something like incrementing another variable)
