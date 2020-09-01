@@ -201,7 +201,7 @@ Let's look in a bit more detail at the different data types...
 
 1. Is `.2nd` a valid name? Why/why not?
 2. Why are names like `if`, `function`, and `TRUE` not allowed?
-3. What would happen if you assigned a variable to a name that already exists? For instance, `mean <- 1`. (**HARD**)
+3. Why might it be a bad idea to assign a value to a name like `mean` or `sum`?
 
 ## Data types
 
@@ -509,7 +509,7 @@ A special case is NaN (not a number). NaNs are distinct to NA in that they repre
 1. Why are `2` and `2L` different?
 2. What is an ordered factor and how is it different to a character string?
 3. Why does `as.Date("19/01/2019", format = "%d/%m/%y")` return the date 19th Jan 2020 and not 19th Jan 2019?
-4. What does `sum(Inf, -Inf)` return? Why?
+4. Why does `as.numeric(TRUE)` return 1? What will `as.logical(2)` return?
 
 ## Data structures
 
