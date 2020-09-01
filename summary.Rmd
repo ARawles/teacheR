@@ -13,7 +13,7 @@ If you feel that there are improvements to be made to the content or how it was 
 1. Why does `1 == "1"` return FALSE?
     + Because `1` is a numeric value and `"1"` is a character. Therefore `1` and `"1"` are not the same, even though they may look the same to us.
 2.  Reading the [R documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
-    + `|` and `&` perform the comparison in a step-wise method for vectors. So `c(1,2) == 1 & c(2,3) == 2` returns `TRUE` first (`1 == 1 & 2 == 2`) and then `FALSE` (`2 == 1 & 3 == 2`), because it evaluates the criteria for the first and second values in the vector separately. `||` and `&&` operate on the first value in each vector only. So `c(1,2) == 1 & c(2,3) == 2` returns only `TRUE` and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. `1 == 1 & 2 == 2`).
+    + `|` and `&` perform the comparison in a step-wise method for vectors. So `c(1,2) == 1 & c(2,3) == 2` returns `TRUE` first (`1 == 1 & 2 == 2`) and then `FALSE` (`2 == 1 & 3 == 2`), because it evaluates the criteria for the first and second values in the vectors separately. `||` and `&&` operate on the first value in each vector only. So `c(1,2) == 1 & c(2,3) == 2` returns only `TRUE` and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. `1 == 1 & 2 == 2`).
   
   
 #### Variable Assigment {#variable-assignments-answers}
@@ -76,6 +76,7 @@ If you feel that there are improvements to be made to the content or how it was 
     }
     
     square_function <- function_factory(power = 2)
+    square_function(3)
     ```
 3. What happens if you create a function that requires an argument that is never used? Why isn't there an error?
     + R only evaluates objects when they are called. So if there's an object that is never used, then it is never evaluated and so there's no error.
@@ -89,7 +90,7 @@ If you feel that there are improvements to be made to the content or how it was 
 1. In what situations can we have two environments with the same name? Why is this?
     + As long as those two environments don't share the same parent environment, then they can have the same name. This is because they will still both have unique identifiers by virtue of having different inherited environments.
 2. Search 'namespacing'. How does that concept relate to environments?
-    + Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance will be, so the object will be uniquely identifiable.
+    + Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance and the name will be together, so the object will be uniquely identifiable.
 3. What might be an issue with create a function that uses superassignment on an object with the name `x`?
     + `x` is quite a common variable name. If someone is using your function and doesn't realise that you're using super assignment with an object named `x`, then you might overwrite their `x` variable.
 
@@ -104,8 +105,8 @@ If you feel that there are improvements to be made to the content or how it was 
     + When we print a data frame normally, `print.data.frame()` is called. When we call `print.default()`, we're using a different method that prints the object differently (more akin to a list).
 4. Why are constructors not a fool-proof way of making sure that all our objects of our class will have the same structure? How else might one create an object of class `address`?
     + Because we can change the class of an object with assignment, someone could create an object that didn't match your constructor function and then assign the class like this: `class(not_an_address) <- "address"`
-5. `methods("mean")` returns methods for dates and datetimes (and `.default` which operators on numeric objects), but no other object. Why is this? What does this mean when constructing methods for a new generic?
-    + These are the only data types for which a `mean` function would make sense. For instance, finding the mean for a bunch of character strings wouldn't really make much sense (although you could build one if you wanted). These means that you only really need to create methods for your generic that *make sense*. Otherwise, a default method that can try its best with no promises will do.
+5. `methods("mean")` returns methods for dates and datetimes (and `.default` which operates on numeric objects), but no other object. Why is this? What does this mean when constructing methods for a new generic?
+    + These are the only data types for which a `mean` function would make sense. For instance, finding the mean for a bunch of character strings wouldn't really make much sense (although you could build one if you wanted). This means that you only really need to create methods for your generic that *make sense* (i.e. that are appropriate for what you want your generic to do).
     
     
 #### If / Else {#if-else-answers}
@@ -123,7 +124,7 @@ If you feel that there are improvements to be made to the content or how it was 
 2. Why is `seq_along(x)` preferable to `1:length(x)`?
     + If you have something that has a length of 0, then `1:length(x)` will return `1 0`, which isn't what you want as you'll go from the first index (which won't exist anyway and so will error) and then to the 0th index. `seq_along(x)` will return an empty integer object instead, which is preferable.
 3. What would be the for loop code that would be required to replicate `lapply(number_list, FUN = max)`? Which would be easier to debug?
-    + 
+    + Loop code:
     ```{r, eval = FALSE}
     max_list <- list(rep(NULL, length(number_list)))
     for (i in seq_along(number_list)) {
