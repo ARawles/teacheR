@@ -438,7 +438,7 @@ quoted_fun</code></pre></div>
   <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),
   <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)
 )</code></pre></div>
-<p>Why do they evaluate to different things? + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time. The second is a list of separate expressions. If we evaluate them using</p>
+<p>and why do they evaluate to different things? + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time. The second is a list of separate expressions. If we evaluate them using:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(
     <span class="kw">list</span>(
       <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),
@@ -451,7 +451,7 @@ quoted_fun</code></pre></div>
 ## 
 ## [[2]]
 ## [1] 11</code></pre>
-<p>Then each line is evaluated separetly, resulting in two lines instead of 1.</p>
+<p>Then each line is evaluated separately, resulting in two lines instead of 1.</p>
 </div>
 <div id="if-else-answers" class="section level4">
 <h4><span class="header-section-number">5.1.2.5</span> If / Else</h4>
