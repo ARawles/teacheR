@@ -276,7 +276,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)
 }
 <span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1]  9.893548  8.643421  8.482994 11.542710  9.574569</code></pre>
+<pre><code>## [1] 10.328809 10.901005  9.327643 12.346655 10.674459</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. This lets us keep track of where we are in the <code>dataframe_list</code> so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.</p>
 </div>
@@ -306,7 +306,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">head</span>(
   <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span>
 )</code></pre></div>
-<pre><code>## [1] 10.04436</code></pre>
+<pre><code>## [1] 9.86719</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter.</p>
 <div id="applying-functions" class="section level4">
 <h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
