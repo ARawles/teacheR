@@ -70,7 +70,7 @@ my_sum_function <- function(x, y) {
 }
 ```
 
-So in this example, I've defined that when anyone uses the function, they need to provide two input parameters named `x` and `y`. Something that people tend to struggle with is that the names of your input parameters have no implicit meaning. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why for example in some functions that require a dataframe there will be an input parameter called `df` or similar. But importantly, these names are technically just arbitrary.
+So in this example, I've defined that when anyone uses the function, they need to provide two input parameters named `x` and `y`. Something that people tend to struggle with is that the names of your input parameters have no real *meaning*. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why in some functions that require a dataframe there will be an input parameter called `df` or similar. It can suggest at a glance that the value required for that parameter is a data frame. But just calling it `df` alone has no impact.
 
 In the body of the function, we can see that we're just doing something really simple: we're adding `x` and `y` together with `+`.
 
@@ -148,6 +148,7 @@ early_return_function <- function(x,y, return_x  = TRUE) {
   }
   x + y
 }
+early_return_function(x = 2, y = 10, return_x = TRUE)
 ```
 
 Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `x + y` is returned otherwise.
@@ -156,7 +157,7 @@ Certain style guides suggest that you should **only** use `return()` statements 
 
 ### Input validation
 
-Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that should be imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
+Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that are imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
 
 ```{r, error = TRUE}
 function_without_check <- function(x, y) {
@@ -165,7 +166,7 @@ function_without_check <- function(x, y) {
 function_without_check(x = 2, y = "error for me please")
 ```
 
-```{r, warnings = TRUE}
+```{r, warning = TRUE}
 function_with_check <- function(x, y) {
   if (!is.numeric(x) || !is.numeric(y)) {
     warning("x or y isn't numeric. Returning NA")
@@ -174,6 +175,7 @@ function_with_check <- function(x, y) {
     x + y
   }
 }
+function_with_check(x = 2, y == "warn me please")
 ```
 
 
@@ -192,18 +194,18 @@ lapply(sum_list, FUN = sum)
 ```
 
 Linked with the idea that functions are just another type of an object, there is an important distinction between 
-`sum`
+`substr`
 and
-`sum()`. The first will return the `sum` *object*. That is, not the result of applying inputs to the `sum` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition): 
+`substr()`. The first will return the `substr` *object*. That is, not the result of applying inputs to the `substr` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition): 
 
 ```{r}
-sum
+substr
 ```
 
-Conversely, `sum()` will *call* the `sum` function with the inputs provided in the brackets.
+Conversely, `substr()` will *call* the `sum` function with the inputs provided in the brackets.
 
 ```{r}
-sum(1,2)
+substr("hey there", 1, 3)
 ```
 
 
@@ -236,6 +238,8 @@ create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
 
 normal_dist_ds1 <- create_norm_dist_from_column(dataset1, "value")
 normal_dist_ds2 <- create_norm_dist_from_column(dataset2, "income")
+
+head(normal_dist_ds1, 5)
 ```
 
 Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.
@@ -247,7 +251,7 @@ This is an example of the concept of abstraction, which is a common theme in pro
 1. How are `mean()` and `sum()` different in their implementation of `...`?
 2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
 3. What happens if you create a function that asks for an argument that is never used? Why isn't there an error?
-  + Hint: search 'lazy' evaluation
+    + Hint: search 'lazy' evaluation
 4. What does the `missing()` function do? How does this go against the lazy approach?
 5. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
 
@@ -329,7 +333,7 @@ digraph environments {
 
 So we know that objects in the same environment can't have the same name, but what happens when two different environments happen to have objects with the same name? This is where the concept of **scope** comes in. **Scoping** is the set of rules that governs where R will look for a value.
 
-Well, R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called `sum()`. But, if I define a new function in the global environment called `sum` then which function will be called when I type `sum(...)`. Well, because we know that the search path starts from the most specific environment, R will look for `sum` in the global environment first and it'll find the `sum` that I've just defined. At this point, it'll stop looking because `sum` has been found.
+R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called `sum()`. But, if I define a new function in the global environment called `sum` then which function will be called when I type `sum(...)`. Well, because we know that the search path starts from the most specific environment, R will look for `sum` in the global environment first and it'll find the `sum` that I've just defined. At this point, it'll stop looking because `sum` has been found.
 
 For this reason, it's a good idea to use a package like `conflicted` to  manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.
 
@@ -373,7 +377,7 @@ w <- 5
 sum_custom(x = 1, y = 2)
 ```
 
-In this case, the function looks in the specific environment for `w`, but it doesn't exist. The only objects that exist in the function environment are the `x` and `y` that we've provided. So when R doesn't find it in the more specific environment, it looks in the less-specific global environment. It finds, and so it uses the value it finds.
+In this case, the function looks in the specific environment for `w`, but it doesn't exist. The only objects that exist in the function environment are the `x` and `y` that we've provided. So when R doesn't find it in the more specific environment, it looks in the less-specific global environment. It finds it, and so it uses the value it finds.
 
 This can be a dangerous thing, so always make sure that you're function is accessing the values you think it is.
 
@@ -390,6 +394,22 @@ im_a_sneaky_variable
 
 Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.
 
+### Mutability
+
+Linked with the idea of function environments is mutability. An object is either mutable or immutable. If it is mutable, then it can be edited from within a function environment. If an object is immutable, then it can't. This might seem like an arbitrary distinction, but it has important consequences. If an object is mutable, then calling the same function on that object twice in a row is going to provide different results (because the object will have changed after the first call). If an object is immutable, then calling the same function on the same object will always return the same value.
+
+In R, values are immutable. In other words, when you pass an object to a function, that function operates on a **copy** of the object you provided - the object is not changed in place.
+
+You can replace the value you passed to the function by assigning it to the returned value:
+
+```{r}
+x <- 1
+x <- x + 1
+```
+
+But this hasn't changed the original value of `x`. It's actually just changed the binded value - you've created a new one and told `x` to be of that value now, you haven't changed the original value.
+
+For the most, this exact distinction isn't too important. The important thing to remember is that when you pass an object to a function, **you are operating on a copy of the object, not the original**.
 
 #### 'Super' assignment
 
@@ -420,10 +440,8 @@ Use the `<<-` with care and only assign something to the global environment if y
 
 1. In what situations can we have two environments with the same name? Why is this?
 2. Search 'namespacing'. How does that concept relate to environments?
-  + Hint: This is heavily related to question 1
+    + Hint: This is heavily related to question 1
 3. What might be an issue with create a function that uses superassignment on an object with the name `x`?
-4. What might be an alternative to approach to keeping track of the number of times a function has been called?
-
 
 ## Objects and Classes
 
@@ -464,7 +482,6 @@ digraph class {
 }
 ")
 ```
-
 
 ### What is an object?
 
@@ -533,12 +550,54 @@ Inheritance is an extremely deep topic which we won't go into here, but R object
 ```{r}
 is(1L)
 ```
+Diagramming this like our "vehicle" example would look like this:
+
+```{r echo=FALSE}
+DiagrammeR::grViz("
+digraph inheritance {
+
+  # a 'graph' statement
+  graph [overlap = true]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        style = filled,
+        fillcolor = Grey]
+  vector;
+  
+    node [shape = box,
+        fontname = Helvetica,
+        style = filled,
+        fillcolor = Grey]
+  numeric;
+
+  node [shape = box,
+        fixedsize = true,
+        width = 0.6,
+        fontsize = 7,
+        style = filled,
+        fillcolor = Grey] // sets as circles
+  double;
+  
+    node [shape = box,
+        fontname = Helvetica,
+        style = filled,
+        fillcolor = Grey]
+  integer;
+  
+  vector->numeric
+  numeric->double
+  double->integer
+
+}")
+```
 
 Here we can see that an integer object is made up of the integer, double, numeric classes. The order of inheritance goes from left to right so we know that the integer class inherits from the double class, which inherits from the numeric class.
 
 #### Object-Oriented Systems
 
-Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's [Advanced R](https://adv-r.hadley.nz/) to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.
+Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's [Advanced R](https://adv-r.hadley.nz/) to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects more easily.
 
 ##### S3
 
@@ -559,9 +618,7 @@ If an object inherits multiple classes, then R will look for the correct method 
 
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 
 
-The important thing I hoped you've gleaned from this explanation is that you don't really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn't convince you that you don't need to understand the underlying structure of an object to get hands on with R, I don't know what will.
-
-Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
+**Note:** In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
 
 ### Creating classes
 
