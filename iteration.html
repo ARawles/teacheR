@@ -236,8 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="iteration" class="section level2">
 <h2><span class="header-section-number">4.6</span> Iteration</h2>
-<p>Functions are an important stepping stone in reducing the amount of code you need to do something (making your code less <strong>verbose</strong>). Another tool in acheiving this goal is the idea of iteration. Iteration just means the process of doing something more than once.</p>
-<p>We'll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for example are operations that you'll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we'll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we'll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.</p>
+<p>Functions are an important stepping stone in reducing the amount of code you need to do something (they make your code less <strong>verbose</strong>). Another tool in acheiving this goal is the idea of iteration. Iteration is just the process of doing something more than once.</p>
+<p>We'll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for different groups are all examples of operations that you'll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we'll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we'll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.</p>
 <div id="imperative-programming" class="section level3">
 <h3><span class="header-section-number">4.6.1</span> Imperative programming</h3>
 </div>
@@ -276,8 +276,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)
 }
 <span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] 10.328809 10.901005  9.327643 12.346655 10.674459</code></pre>
-<p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. This lets us keep track of where we are in the <code>dataframe_list</code> so we can assign the output to the right position in <code>output_list</code>.</p>
+<pre><code>## [1] 9.374071 9.014202 8.349654 9.462370 9.085290</code></pre>
+<p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>. Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.</p>
 </div>
 <div id="while-loops" class="section level3">
@@ -306,7 +306,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">head</span>(
   <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span>
 )</code></pre></div>
-<pre><code>## [1] 9.86719</code></pre>
+<pre><code>## [1] 8.602195</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter.</p>
 <div id="applying-functions" class="section level4">
 <h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
