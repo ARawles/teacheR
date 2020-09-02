@@ -268,7 +268,7 @@ Things get a bit more complicated when you provide vectors to multiple arguments
 Make your guesses...
 
 ```{r}
-substr(c("hello", "there"), start = 1, stop = c(4,3))`
+substr(c("hello", "there"), start = 1, stop = c(4,3))
 ```
 R has used the first value in each vector for the first time it runs (`hello` and `4`), and then it's used the second values from each vector when it runs the second time. What about the `start` parameter though? Well because it's only got a length of 1 but the other parameters have a length of 2, the 1 gets **recycled** until it's the same length as the other parameters. If the length of the larger vector isn't a multiple of the smaller one, then the smaller vector is recycled until it's the same length and any extra values are discarded. So the above example is the same as:
 
