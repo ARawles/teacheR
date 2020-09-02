@@ -248,6 +248,35 @@ Now, instead of copying the code each time we need it, we've extracted the commo
 
 This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills  looks at abstraction in more detail.
 
+
+### Vectorised functions
+
+An important concept in R that differs from non-functional programming language is the presence of vectorised functions. Vectorised functions operate a bit like applying a set of values to a function over and over again without needing to use iterative loops (which we'll look at later). For example, if we use the `substr()` function as an example, which creates a substring from a string, we can provide a vector of values to the `x` parameter instead of a single value and we'll get a return value for each one:
+
+```{r}
+substr(c("hello", "there"), start = 1, stop = 4)
+```
+
+Logically, this is quite easy to wrap your head around. R has just applied the same parameters (`start = 1, stop = 4`) to two different strings. In fact, when you provide a single value, you're still providing a vector, it just has a length of 1, so R just applies it once.
+
+This makes repeating functions for multiple values much easier, because you don't need to write any loops or `apply` statements.
+
+#### Recycling
+
+Things get a bit more complicated when you provide vectors to multiple arguments though. For example, what would happen if I provided `stop = c(4,3)` as a parameter to the above function call?
+
+Make your guesses...
+
+```{r}
+substr(c("hello", "there"), start = 1, stop = c(4,3))`
+```
+R has used the first value in each vector for the first time it runs (`hello` and `4`), and then it's used the second values from each vector when it runs the second time. What about the `start` parameter though? Well because it's only got a length of 1 but the other parameters have a length of 2, the 1 gets **recycled** until it's the same length as the other parameters. If the length of the larger vector isn't a multiple of the smaller one, then the smaller vector is recycled until it's the same length and any extra values are discarded. So the above example is the same as:
+
+```{r, eval = FALSE}
+substr(c("hello", "there"), start = c(1,1), stop = c(4,3))
+```
+This idea of repeating an operation again and again is very common in programming, and it's something that we'll look at in more detail in the [Iteration](#iteration) chapter.
+
 ### Questions {#questions-functions-teachers}
 
 1. How are `mean()` and `sum()` different in their implementation of `...`?
