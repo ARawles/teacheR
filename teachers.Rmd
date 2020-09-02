@@ -1011,7 +1011,7 @@ head(
   norm_dists(dataframe_list)[[1]], 1
 )
 ```
-Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter. This is very closely related to the idea of vectorized functions, which we looked at the in [Functions](#vectorised-functions)
+Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter. This is very closely related to the idea of vectorized functions, which we looked at the in [Functions](#vectorised-functions). All vectorised functions will essentially wrap around a loop in same way or another.
 
 #### Applying functions
 
