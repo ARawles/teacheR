@@ -275,7 +275,7 @@ R has used the first value in each vector for the first time it runs (`hello` an
 ```{r, eval = FALSE}
 substr(c("hello", "there"), start = c(1,1), stop = c(4,3))
 ```
-This idea of repeating an operation again and again is very common in programming, and it's something that we'll look at in more detail in the [Iteration](#iteration) chapter.
+This idea of repeating an operation again and again is very common in programming, and it's something that we'll look at in more detail in the [Iteration](iteration) chapter.
 
 ### Questions {#questions-functions-teachers}
 
@@ -1011,7 +1011,7 @@ head(
   norm_dists(dataframe_list)[[1]], 1
 )
 ```
-Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter.
+Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter. This is very closely related to the idea of vectorized functions, which we looked at the in [Functions](#vectorised-functions)
 
 #### Applying functions
 
