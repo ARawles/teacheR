@@ -24,8 +24,6 @@ cover-image: "cover.png"
 ## Overview
 
 This book is a collection of training materials for an introduction to the R statistical computing programming language. Broken down into chapters, I've aimed to cover most of the basics.
-Alongside each chapter is a xaringan presentation. This can help for those looking to learn, but can also function as a first step for those looking to begin teaching R but who don't have the time to fully develop their own training modules.
-Hopefully, all the topics covered in the text version will be covered in the presentation and vice versa, so if you learn visually then you can rest easy knowing that you're not missing out! You can find a link to each presentation on the first page of each chapter.
 
 The book is largely split into two sections. One section ("For Students") that's aimed at those that are entirely new to R. I explain the basics in a way that doesn't require a background in data analysis or computing and you should have a decent understanding of the fundamentals of R if you manage to make it through.
 
