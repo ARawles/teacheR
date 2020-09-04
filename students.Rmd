@@ -261,7 +261,7 @@ Be careful though, just because a conversion seems obvious to you, doesn't mean 
 
 The best way to think of a `double` value is as a number. It can be a whole number (but see [Integers](#integer)) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
 
-As an aside, it's called double because it's stored using double precision.
+As an aside, it's called double because it's stored using [double precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format).
 
 To check whether a value is stored as double (or more generally numeric), use the `is.double()` and `is.numeric()` functions:
 
@@ -287,7 +287,7 @@ Whilst also storing numeric data (like double), integers are specific to whole n
 1.5L
 ```
 
-For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. This is pretty rare though.
+For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.
 
 To check if something is an integer, use the `is.integer()` function:
 
@@ -534,7 +534,27 @@ c(1,2,3,4)
 
 Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type `is(1)`, the second things that pops up after "numeric" is "vector". R is telling us that `1` is a number and that it's also a vector.
 
-All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
+
+#### Coercion
+
+All the values in a vector must be of the same type (e.g. character, numeric, etc.). If you try and create a vector with different data types in it, you'll see that all the values will be coerced to the same type. This is because the type of a vector is stored at the structure level (i.e., what type is the vector?), not at the individual level (i.e. what type is the value in the vector?). Let's look at an example:
+
+```{r}
+c(1, "hello")
+```
+
+You can see that both values get coerced to character strings. If we try:
+
+```{r}
+c(1L, 1.5)
+```
+We see that our integer (`1L`) becomes a double.
+
+Roughly speaking, all of the values in your vector will get coerced to the most *complex* type.
+
+#### Naming 
+
+You can name the values in a vector. To give a value a name, you can simply provide one with a `=` sign when you create your vector:
 
 ```{r}
 c(this_is_the_first_value = 1, this_is_the_second_value = 2)
@@ -570,7 +590,7 @@ list(
 
 Given that lists and vectors are intrinsically linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.
 
-I appreciate that this answer isn't particularly satisfactory however, and so let me give a real life example of when I've used each.
+I appreciate that this answer isn't particularly satisfactory, so let me give a real life example of when I've used each.
 
 <u>Vector</u>
 
