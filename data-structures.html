@@ -253,10 +253,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 <p>Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type <code>is(1)</code>, the second things that pops up after &quot;numeric&quot; is &quot;vector&quot;. R is telling us that <code>1</code> is a number and that it's also a vector.</p>
-<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.), but you can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
+<div id="coercion" class="section level4">
+<h4><span class="header-section-number">3.4.1.1</span> Coercion</h4>
+<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.). If you try and create a vector with different data types in it, you'll see that all the values will be coerced to the same type. This is because the type of a vector is stored at the structure level (i.e., what type is the vector?), not at the individual level (i.e. what type is the value in the vector?). Let's look at an example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;1&quot;     &quot;hello&quot;</code></pre>
+<p>You can see that both values get coerced to character strings. If we try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(1L, <span class="fl">1.5</span>)</code></pre></div>
+<pre><code>## [1] 1.0 1.5</code></pre>
+<p>We see that our integer (<code>1L</code>) becomes a double.</p>
+<p>Roughly speaking, all of the values in your vector will get coerced to the most <em>complex</em> type.</p>
+</div>
+<div id="naming-1" class="section level4">
+<h4><span class="header-section-number">3.4.1.2</span> Naming</h4>
+<p>You can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>##  this_is_the_first_value this_is_the_second_value 
 ##                        1                        2</code></pre>
+</div>
 </div>
 <div id="lists" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Lists</h3>
@@ -292,7 +306,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="lists-vs-vectors" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> Lists vs Vectors</h3>
 <p>Given that lists and vectors are intrinsically linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
-<p>I appreciate that this answer isn't particularly satisfactory however, and so let me give a real life example of when I've used each.</p>
+<p>I appreciate that this answer isn't particularly satisfactory, so let me give a real life example of when I've used each.</p>
 <p><u>Vector</u></p>
 <p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)

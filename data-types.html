@@ -296,7 +296,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="double" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Double</h3>
 <p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see <a href="data-types.html#integer">Integers</a>) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
-<p>As an aside, it's called double because it's stored using double precision.</p>
+<p>As an aside, it's called double because it's stored using <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision</a>.</p>
 <p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -318,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: <code>number &lt;- 1</code>, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an <code>L</code>, like this: <code>number &lt;- 1L</code>. Attempting to store something that isn't an integer as an integer will result in a warning:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.</span>5L</code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
-<p>For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. This is pretty rare though.</p>
+<p>For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.</p>
 <p>To check if something is an integer, use the <code>is.integer()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
