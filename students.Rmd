@@ -1,10 +1,10 @@
 # For Students
 
-This section of the book is aimed at those who are either complete beginners to data analysis and statistical computing or who have some prior experience with another language or software package and they want to learn more about R.
+This section of the book is aimed at those who are either complete beginners in data analysis and statistical computing or who have some prior experience with another language or software package and want to learn more about R.
 
 Here, we'll take a look at the basics but without going into too much detail so as to be confusing. If you make it through this section, when you come out the other side you'll have more than enough knowledge to be able to complete your first real R project.
 
-For those of you that feel you want to understand what underpins the concepts and code we're going to look at or those who want to eventually teach R to others, the following section ("For Teachers") will go into more detail. For example, you'll need to understand what a function is to to use R, but you won't need to know how to create one. In the "For Students" section, we look at what a function is, and then we learn how to create one in the "For Teachers" section.
+For those of you who feel you want to understand what underpins the concepts and code we're going to look at, or those who want to eventually teach R to others, the following section ("For Teachers") will go into more detail. For example, you'll need to understand what a function is to use R, but you won't need to know how to create one. In the "For Students" section, we look at what a function is, and then we learn how to create one in the "For Teachers" section.
 
 ## Operators
 
@@ -167,7 +167,7 @@ As a sidenote, names are case sensitive. That means that you can have two object
 
 ##### Nouns and verbs
 
-Roughly speaking, it's advisable to name your variables as nouns and your functions (which get to later) as verbs. This is because variables can be considered *things* whereas functions *do things*.
+Roughly speaking, it's advisable to name your variables as nouns and your functions (which we get to later) as verbs. This is because variables can be considered *things* whereas functions *do things*.
 
 For example, an appropriate name for the energy-based dataset you're working on might be `energy_dataset`. This is descriptive and unique. An example of good function names are the `sum()` and `mean()` functions; what they do is easily disseminated from their names.
 
@@ -328,7 +328,7 @@ as.character(TRUE)
 
 Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.
 
-A factor level is made up of two things. A label and a number that represents that group. For example, in my countries example, our factor would have the labels "England", "Spain", "France" and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.
+A factor level is made up of two things. A label and a number that represents that group. In my countries example, our factor would have the labels "England", "Spain", "France" and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.
 
 To create a factor, we just use the `factor()` function:
 
@@ -336,9 +336,9 @@ To create a factor, we just use the `factor()` function:
 factor(c("England", "France", "Spain"))
 ```
 
-It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionnaire, you may provide the options "None", "Some", "All". But in your responses, you may see that no one chose the "None" option. In that case, you would still create a factor with three levels, even though only two of them appear.
+It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionnaire, you may provide the options "None", "Some", "All". But in your responses, you may see that no-one chose the "None" option. In that case, you would still create a factor with three levels, even though only two of them appear.
 
-You can also specify whether a factor is *ordered*. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that "Some" is better than "None", and "All" is better than "Some". To create an ordered factor, just specify `ordered = TRUE` in your function. By default, the factor will be ordered in the ordered the values appear, unless you specify levels (see below).
+You can also specify whether a factor is *ordered*. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that "Some" is better than "None", and "All" is better than "Some". To create an ordered factor, just specify `ordered = TRUE` in your function. By default, the factor will be ordered in the order the values appear, unless you specify levels (see below).
 
 To convert something to a factor, use the `factor()` function if you want to specify levels and labels, or `as.factor()` to do it for you:
 
@@ -362,7 +362,7 @@ as.character(factor(c("Some", "None", "All")))
 
 ### Dates
 
-Dates in any language are tricky. Different countries store dates in different formats and different bits of software stores dates in different ways (looking at you Excel). This can make storing values as dates tough.
+Dates in any language are tricky. Different countries store dates in different formats and different bits of software store dates in different ways (looking at you Excel). This can make storing values as dates tough.
 
 The most common way of creating a date is to use the `as.Date()` function. To use this function, you just need to provide your date as a character string:
 
@@ -415,7 +415,7 @@ class(as.Date("2020/01/01"))
 If you thought dates were annoying, datetimes are like dates' little brother who didn't get enough attention as a child and so acts up all the time.
 One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
 
-Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to. By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
+Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
 
 With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.
 
@@ -451,7 +451,7 @@ For example, attempting to parse a character string to a date format that doesn'
 ```{r, warnings = TRUE}
 as.Date("10/01/20", format = "%m%Y%d")
 ```
-R has tried to parse a value from one type into another. The value isn't NULL because it clearly isn't missing, but it couldn't be converted to a Date type, so it's NA.
+R has tried to parse a value from one type into another. The value isn't NULL because it clearly isn't missing, but it couldn't be converted to a date type, so it's NA.
 Unlike NULL, there are different NA values for each datatype (although they'll all look like NA in the console). In the example above, we actually created a NA that has the Date type:
 
 ```{r, warning = TRUE}
