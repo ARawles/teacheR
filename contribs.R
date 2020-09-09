@@ -1,3 +1,4 @@
+library(dplyr)
 raw_contributors <- gh::gh("GET /repos/arawles/teacheR/contributors")
 contributor_logins <- data.frame(login = lapply(raw_contributors, FUN = function(x) {x$login}) %>% unlist(), stringsAsFactors = FALSE)
 
