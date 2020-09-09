@@ -6,8 +6,7 @@ Authors@R:
            family = "Rawles",
            role = c("aut", "cre"),
            email = "adamrawles@hotmail.co.uk")
-Description: This package helps beginner and intermediate users of R develop their skills. Similar to other learning materials,
-    this package provides simple text descriptions and in-line R code, but also provides presentation and feedback-based learning opportunities.
+Description: This package hosts the teacheR book. The book is aimed at those who are new to R or are interested in solidifying their knowledge before teaching others.
 License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
@@ -21,5 +20,6 @@ Imports:
     dplyr,
     purrr,
     tibble,
-    gh
+    gh,
+    glue
 RoxygenNote: 6.1.1
