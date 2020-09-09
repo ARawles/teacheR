@@ -17,5 +17,7 @@ Imports:
     rmarkdown,
     DiagrammeR,
     webshot,
-    rlang
+    rlang,
+    dplyr,
+    purrr
 RoxygenNote: 6.1.1
