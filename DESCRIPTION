@@ -19,5 +19,7 @@ Imports:
     webshot,
     rlang,
     dplyr,
-    purrr
+    purrr,
+    tibble,
+    gh
 RoxygenNote: 6.1.1
