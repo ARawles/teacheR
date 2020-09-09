@@ -43,6 +43,8 @@ contributors <- contributors %>%
     link = glue::glue("[\\@{login}](https://github.com/{login})"),
     desc = ifelse(is.na(name), link, glue::glue("{name} ({link})"))
   )
+  
+ cat(paste0(contributors$desc, collapse = ", "))
 ```
 
 
