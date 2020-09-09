@@ -36,6 +36,7 @@ This is a work in progress, and so I would greatly appreciate any feedback. Anyt
 
 This book was made possible with the help of those who raised issues and proposed pull requests. With thanks to:
 ```{r, results = "asis", echo = FALSE, message = FALSE}
+library(dplyr)
 contributors <- read.csv("contribs.csv", stringsAsFactors = FALSE)
 contributors <- contributors %>% 
   mutate(
