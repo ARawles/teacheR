@@ -47,7 +47,6 @@ So when I run the script, it will run the first line, then the second without me
 
 RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or *IDE*. This means that RStudio doesn't actually run any code, it just passes it to R for you, meaning that you'll need R to really use RStudio.
 
-
 RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can't ever remember using R without RStudio.
 
 In the [previous section](#using-r), we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.
@@ -56,9 +55,25 @@ In the [previous section](#using-r), we talked very briefly of the R console and
 
 At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.
 
-### RStudio Panes
+### Using RStudio
 
-TO DO
+RStudio is an IDE that is under active developement and so I won't go through a tutorial here for fear that it will soon become outdated. The [RStudio website](http://rstudio.com) has lots of tutorials and support to help you get to grips with RStudio, but we'll look at a couple of concepts now to get you started.
+
+#### Console
+
+One of the panes in RStudio will be the R console. This is where your commands are actually executed. When you see a `>` at the console, that means it's waiting for commands. If you don't see one, it usually means that R is processing something so give it a second.
+
+#### Scripts
+
+Typing directly into the console is okay for quick interactive use, but soon you'll be doing more complicated operations that will span multiple lines. To make things easier, RStudio has a **scripts** pane. This is where you can write .R files that store R commmands. You then highlight the lines you want to execute and click "Run" or press Ctrl+Enter on Windows and the lines will be passed one at a time to the console where they are executed.
+
+#### Environment
+
+The **environment** pane shows you all the objects that are in your current environment. Objects and environments aren't concepts we've looked at yet, so for now just think of this pane as a window to any variables you create.
+
+#### Files/plots/help
+
+These panes are fairly self-explanatory. The **files** pane gives you a view to the files on your computer, the **plots** tab shows you any plots that you create, and the **help** pane can be used to look up functions or topics.
 
 ## Packages
 
