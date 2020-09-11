@@ -79,7 +79,7 @@ These panes are fairly self-explanatory. The **files** pane gives you a view to 
 
 As we know, R is a functional programming language, meaning that we rely on functions to do our work for us. And when you install R, you'll have access to thousands of functions that come bundled with it. However, these functions have been chosen because they're more generalisable and basic. Including functions for everything that could be done in R with the base version would result in it being unnecessarily large.
 
-So instead of them being available from the start, people create sets of functions that usually are used for a particularly tasks and then distribute them as a *package*. You can install this package and have access to all these great functions that someone has written for you.
+So instead of them being available from the start, people create sets of functions that usually are used for a particular tasks and then distribute them as a *package*. You can then install this package and have access to all these great functions that someone has written for you.
 
 Some great examples of R packages are:
 
