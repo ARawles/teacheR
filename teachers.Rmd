@@ -817,8 +817,7 @@ new_environ <- new.env()
 new_environ$num <- 10
 my_expr <- quote(num + 5)
 eval(my_expr) # this will error because num doesn't exist in our parent environment
-eval(my_expr, new_environ) # this won't error because the
-                           # provided environment has an object named num
+eval(my_expr, new_environ) # this won't error because num exists in new_environ
 ```
 Using this, you can create expressions in one environment without evaluating them, and then evaluate them later in different environments to where they were created.
 
