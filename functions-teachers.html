@@ -383,7 +383,7 @@ normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<spa
 ##         x &lt;- as.character(x)
 ##     .Internal(substr(x, as.integer(start), as.integer(stop)))
 ## }
-## &lt;bytecode: 0x37ef5e8&gt;
+## &lt;bytecode: 0x33585e8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Conversely, <code>substr()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</code></pre></div>
@@ -428,7 +428,7 @@ normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_
 normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)
 
 <span class="kw">head</span>(normal_dist_ds1, <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1] -1.594284 17.264281 28.169154 10.523574 32.030086</code></pre>
+<pre><code>## [1] 20.112823 39.441764  9.446623 24.040392 31.178840</code></pre>
 <p>Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
 <p>This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
 </div>
