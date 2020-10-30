@@ -27,6 +27,10 @@ jobs:
 
       - name: Install libcurl
         run: sudo apt-get install libcurl4-openssl-dev
+      
+      - name: Install pdflatex
+        run: sudo apt-get install texlive-latex-base
+        
         
       - name: Install pandoc and pandoc citeproc
         run: |
