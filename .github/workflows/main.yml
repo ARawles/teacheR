@@ -30,10 +30,10 @@ jobs:
           brew install pandoc
           brew install pandoc-citeproc
       - name: Install Devtools
-        run: R -e "install.packages('devtools')"
+        run: R -e "install.packages('desc')"
       
-      - name: Install Dependencies
-        run: R -e "devtools::install_deps()"
+      - name: Install dependencies
+        run: R -e "install.packages(subset(desc::desc_get_deps(), type == 'Imports')$package)"
        
       - name: Build the book
         run: |
