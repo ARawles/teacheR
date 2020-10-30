@@ -33,7 +33,7 @@ jobs:
         run: R -e "install.packages('desc')"
       
       - name: Install dependencies
-        run: R -e "install.packages(pkgs = (subset(desc::desc_get_deps(), type == 'Imports')$package))"
+        run: R -e "install.packages(pkgs = (subset(desc::desc_get_deps(), type == 'Imports')\$package))"
        
       - name: Build the book
         run: |
