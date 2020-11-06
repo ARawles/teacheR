@@ -181,7 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
 <li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
 <li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
+<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>3.3.10</b> Implicit Conversion</a></li>
+<li class="chapter" data-level="3.3.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.11</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
 <ul>
@@ -299,35 +300,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  do_something_with_it(identifier)
 }</code></pre>
 <p>In the above, the identifier is used to access the value that is currently being iterated upon. Let’s look at a practical example:</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="iteration.html#cb353-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
-<span id="cb353-2"><a href="iteration.html#cb353-2" aria-hidden="true"></a>  <span class="kw">print</span>(i)</span>
-<span id="cb353-3"><a href="iteration.html#cb353-3" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="iteration.html#cb355-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
+<span id="cb355-2"><a href="iteration.html#cb355-2" aria-hidden="true"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb355-3"><a href="iteration.html#cb355-3" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3</code></pre>
 <p>In this loop, we go through the vector of values 1, 2 and 3, and we print it using the <code>i</code> identifier that we’ve assigned to the value we’re currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we’ve provided). The first time, <code>i</code> will equal 1. The code will execute, and then <code>i</code> will take the value of 2 and so on.</p>
 <p>This isn’t a particular useful example. Let’s look at more realistic example. Let’s say you’ve got a list with 2 dataframes in that have the same structure:</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="iteration.html#cb355-1" aria-hidden="true"></a>dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb355-2"><a href="iteration.html#cb355-2" aria-hidden="true"></a>                    <span class="kw">data.frame</span>(</span>
-<span id="cb355-3"><a href="iteration.html#cb355-3" aria-hidden="true"></a>                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb355-4"><a href="iteration.html#cb355-4" aria-hidden="true"></a>                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)</span>
-<span id="cb355-5"><a href="iteration.html#cb355-5" aria-hidden="true"></a>                     ),</span>
-<span id="cb355-6"><a href="iteration.html#cb355-6" aria-hidden="true"></a>                     <span class="kw">data.frame</span>(</span>
-<span id="cb355-7"><a href="iteration.html#cb355-7" aria-hidden="true"></a>                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb355-8"><a href="iteration.html#cb355-8" aria-hidden="true"></a>                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)</span>
-<span id="cb355-9"><a href="iteration.html#cb355-9" aria-hidden="true"></a>                     )</span>
-<span id="cb355-10"><a href="iteration.html#cb355-10" aria-hidden="true"></a>                   )</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="iteration.html#cb357-1" aria-hidden="true"></a>dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb357-2"><a href="iteration.html#cb357-2" aria-hidden="true"></a>                    <span class="kw">data.frame</span>(</span>
+<span id="cb357-3"><a href="iteration.html#cb357-3" aria-hidden="true"></a>                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb357-4"><a href="iteration.html#cb357-4" aria-hidden="true"></a>                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)</span>
+<span id="cb357-5"><a href="iteration.html#cb357-5" aria-hidden="true"></a>                     ),</span>
+<span id="cb357-6"><a href="iteration.html#cb357-6" aria-hidden="true"></a>                     <span class="kw">data.frame</span>(</span>
+<span id="cb357-7"><a href="iteration.html#cb357-7" aria-hidden="true"></a>                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb357-8"><a href="iteration.html#cb357-8" aria-hidden="true"></a>                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)</span>
+<span id="cb357-9"><a href="iteration.html#cb357-9" aria-hidden="true"></a>                     )</span>
+<span id="cb357-10"><a href="iteration.html#cb357-10" aria-hidden="true"></a>                   )</span></code></pre></div>
 <p>And you want to calculate the mean for the <code>value</code> column for each one:</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="iteration.html#cb356-1" aria-hidden="true"></a><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {</span>
-<span id="cb356-2"><a href="iteration.html#cb356-2" aria-hidden="true"></a>  <span class="kw">mean</span>(df<span class="op">$</span>value)</span>
-<span id="cb356-3"><a href="iteration.html#cb356-3" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="iteration.html#cb358-1" aria-hidden="true"></a><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {</span>
+<span id="cb358-2"><a href="iteration.html#cb358-2" aria-hidden="true"></a>  <span class="kw">mean</span>(df<span class="op">$</span>value)</span>
+<span id="cb358-3"><a href="iteration.html#cb358-3" aria-hidden="true"></a>}</span></code></pre></div>
 <p>Or, if we refer back to our <a href="functions-teachers.html#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we’ll also construct a list to store the output:</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="iteration.html#cb357-1" aria-hidden="true"></a>output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
-<span id="cb357-2"><a href="iteration.html#cb357-2" aria-hidden="true"></a><span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {</span>
-<span id="cb357-3"><a href="iteration.html#cb357-3" aria-hidden="true"></a>  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb357-4"><a href="iteration.html#cb357-4" aria-hidden="true"></a>}</span>
-<span id="cb357-5"><a href="iteration.html#cb357-5" aria-hidden="true"></a><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  9.449018 10.815368  9.188154  7.541145 10.127447</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="iteration.html#cb359-1" aria-hidden="true"></a>output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb359-2"><a href="iteration.html#cb359-2" aria-hidden="true"></a><span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {</span>
+<span id="cb359-3"><a href="iteration.html#cb359-3" aria-hidden="true"></a>  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb359-4"><a href="iteration.html#cb359-4" aria-hidden="true"></a>}</span>
+<span id="cb359-5"><a href="iteration.html#cb359-5" aria-hidden="true"></a><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 10.164518 10.068733  8.566719  9.084784 10.019853</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
 Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
@@ -335,11 +336,11 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <div id="while-loops" class="section level3" number="4.6.3">
 <h3><span class="header-section-number">4.6.3</span> While loops</h3>
 <p>While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="iteration.html#cb359-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb359-2"><a href="iteration.html#cb359-2" aria-hidden="true"></a><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {</span>
-<span id="cb359-3"><a href="iteration.html#cb359-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb359-4"><a href="iteration.html#cb359-4" aria-hidden="true"></a>  <span class="kw">print</span>(x)</span>
-<span id="cb359-5"><a href="iteration.html#cb359-5" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="iteration.html#cb361-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb361-2"><a href="iteration.html#cb361-2" aria-hidden="true"></a><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="cb361-3"><a href="iteration.html#cb361-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb361-4"><a href="iteration.html#cb361-4" aria-hidden="true"></a>  <span class="kw">print</span>(x)</span>
+<span id="cb361-5"><a href="iteration.html#cb361-5" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2</code></pre>
 </div>
@@ -347,31 +348,31 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <h3><span class="header-section-number">4.6.4</span> Functional programming</h3>
 <p>For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages like C and Python.</p>
 <p>Instead, within R we can leverage functions to wrap the loops. For example, let’s look back at our <code>dataframe_list</code> example. We can turn our loop into a function that we can call whenever we have a list of dataframes:</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="iteration.html#cb361-1" aria-hidden="true"></a>norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {</span>
-<span id="cb361-2"><a href="iteration.html#cb361-2" aria-hidden="true"></a>  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
-<span id="cb361-3"><a href="iteration.html#cb361-3" aria-hidden="true"></a>  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {</span>
-<span id="cb361-4"><a href="iteration.html#cb361-4" aria-hidden="true"></a>    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)</span>
-<span id="cb361-5"><a href="iteration.html#cb361-5" aria-hidden="true"></a>  }</span>
-<span id="cb361-6"><a href="iteration.html#cb361-6" aria-hidden="true"></a>  output_list</span>
-<span id="cb361-7"><a href="iteration.html#cb361-7" aria-hidden="true"></a>}</span>
-<span id="cb361-8"><a href="iteration.html#cb361-8" aria-hidden="true"></a></span>
-<span id="cb361-9"><a href="iteration.html#cb361-9" aria-hidden="true"></a><span class="kw">head</span>(</span>
-<span id="cb361-10"><a href="iteration.html#cb361-10" aria-hidden="true"></a>  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
-<span id="cb361-11"><a href="iteration.html#cb361-11" aria-hidden="true"></a>)</span></code></pre></div>
-<pre><code>## [1] 10.69949</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="iteration.html#cb363-1" aria-hidden="true"></a>norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {</span>
+<span id="cb363-2"><a href="iteration.html#cb363-2" aria-hidden="true"></a>  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb363-3"><a href="iteration.html#cb363-3" aria-hidden="true"></a>  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {</span>
+<span id="cb363-4"><a href="iteration.html#cb363-4" aria-hidden="true"></a>    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)</span>
+<span id="cb363-5"><a href="iteration.html#cb363-5" aria-hidden="true"></a>  }</span>
+<span id="cb363-6"><a href="iteration.html#cb363-6" aria-hidden="true"></a>  output_list</span>
+<span id="cb363-7"><a href="iteration.html#cb363-7" aria-hidden="true"></a>}</span>
+<span id="cb363-8"><a href="iteration.html#cb363-8" aria-hidden="true"></a></span>
+<span id="cb363-9"><a href="iteration.html#cb363-9" aria-hidden="true"></a><span class="kw">head</span>(</span>
+<span id="cb363-10"><a href="iteration.html#cb363-10" aria-hidden="true"></a>  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
+<span id="cb363-11"><a href="iteration.html#cb363-11" aria-hidden="true"></a>)</span></code></pre></div>
+<pre><code>## [1] 9.770207</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. This is very closely related to the idea of vectorized functions, which we looked at the in <a href="functions-teachers.html#vectorised-functions">Functions</a>. All vectorised functions will essentially wrap around a loop in same way or another.</p>
 <div id="applying-functions" class="section level4" number="4.6.4.1">
 <h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
 <p>Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it’s led to the development of the <code>apply</code> set of functions. These act as syntactic sugar to decrease the number of for loops present in your code*.</p>
 <p>* A common argument is that <code>apply</code> functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the <code>apply</code> functions aren’t more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.</p>
 <p>We’ve already seen an example of the <code>lapply</code> (list-apply) function in <a href="functions-teachers.html#functions-as-objects">action</a>, but lets do another one. Let’s say we have a list of vectors containing numbers and we want the maximum for each.</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="iteration.html#cb363-1" aria-hidden="true"></a>number_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb363-2"><a href="iteration.html#cb363-2" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
-<span id="cb363-3"><a href="iteration.html#cb363-3" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),</span>
-<span id="cb363-4"><a href="iteration.html#cb363-4" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)</span>
-<span id="cb363-5"><a href="iteration.html#cb363-5" aria-hidden="true"></a>                )</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="iteration.html#cb365-1" aria-hidden="true"></a>number_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb365-2"><a href="iteration.html#cb365-2" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
+<span id="cb365-3"><a href="iteration.html#cb365-3" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),</span>
+<span id="cb365-4"><a href="iteration.html#cb365-4" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)</span>
+<span id="cb365-5"><a href="iteration.html#cb365-5" aria-hidden="true"></a>                )</span></code></pre></div>
 <p>We can apply the <code>max()</code> function to each item in our list:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="iteration.html#cb364-1" aria-hidden="true"></a><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="iteration.html#cb366-1" aria-hidden="true"></a><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 4
 ## 

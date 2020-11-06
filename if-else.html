@@ -181,7 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
 <li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
 <li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
+<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>3.3.10</b> Implicit Conversion</a></li>
+<li class="chapter" data-level="3.3.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.11</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
 <ul>
@@ -289,39 +290,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.5</span> If / Else</h2>
 <p>Building on our logical operators, there will often be times where you want to split the logic of your code depending on a criteria. For example, if you’ve created a function that can accept a character string or a number, you might want to split the body of the function to do something slightly different depending on the class of the provided argument.</p>
 <p>If / else statements in R has a simple structure:</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="if-else.html#cb343-1" aria-hidden="true"></a><span class="cf">if</span> (criteria_statement) {</span>
-<span id="cb343-2"><a href="if-else.html#cb343-2" aria-hidden="true"></a>  what_you_want_to_do</span>
-<span id="cb343-3"><a href="if-else.html#cb343-3" aria-hidden="true"></a>} <span class="cf">else</span> <span class="cf">if</span> (other_criteria) {</span>
-<span id="cb343-4"><a href="if-else.html#cb343-4" aria-hidden="true"></a>  something_else_you_want_to_do</span>
-<span id="cb343-5"><a href="if-else.html#cb343-5" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
-<span id="cb343-6"><a href="if-else.html#cb343-6" aria-hidden="true"></a>  something_you_want_to_do_if_all_else_fails</span>
-<span id="cb343-7"><a href="if-else.html#cb343-7" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="if-else.html#cb345-1" aria-hidden="true"></a><span class="cf">if</span> (criteria_statement) {</span>
+<span id="cb345-2"><a href="if-else.html#cb345-2" aria-hidden="true"></a>  what_you_want_to_do</span>
+<span id="cb345-3"><a href="if-else.html#cb345-3" aria-hidden="true"></a>} <span class="cf">else</span> <span class="cf">if</span> (other_criteria) {</span>
+<span id="cb345-4"><a href="if-else.html#cb345-4" aria-hidden="true"></a>  something_else_you_want_to_do</span>
+<span id="cb345-5"><a href="if-else.html#cb345-5" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
+<span id="cb345-6"><a href="if-else.html#cb345-6" aria-hidden="true"></a>  something_you_want_to_do_if_all_else_fails</span>
+<span id="cb345-7"><a href="if-else.html#cb345-7" aria-hidden="true"></a>}</span></code></pre></div>
 <p>Putting this into practice, a real If / else block may look like this:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="if-else.html#cb344-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb344-2"><a href="if-else.html#cb344-2" aria-hidden="true"></a><span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</span>
-<span id="cb344-3"><a href="if-else.html#cb344-3" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="st">&quot;x is 1&quot;</span>)</span>
-<span id="cb344-4"><a href="if-else.html#cb344-4" aria-hidden="true"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {</span>
-<span id="cb344-5"><a href="if-else.html#cb344-5" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="st">&quot;x is 2&quot;</span>)</span>
-<span id="cb344-6"><a href="if-else.html#cb344-6" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
-<span id="cb344-7"><a href="if-else.html#cb344-7" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="st">&quot;x is not 1 or 2&quot;</span>)</span>
-<span id="cb344-8"><a href="if-else.html#cb344-8" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="if-else.html#cb346-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb346-2"><a href="if-else.html#cb346-2" aria-hidden="true"></a><span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</span>
+<span id="cb346-3"><a href="if-else.html#cb346-3" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="st">&quot;x is 1&quot;</span>)</span>
+<span id="cb346-4"><a href="if-else.html#cb346-4" aria-hidden="true"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="cb346-5"><a href="if-else.html#cb346-5" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="st">&quot;x is 2&quot;</span>)</span>
+<span id="cb346-6"><a href="if-else.html#cb346-6" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
+<span id="cb346-7"><a href="if-else.html#cb346-7" aria-hidden="true"></a>  <span class="kw">return</span>(<span class="st">&quot;x is not 1 or 2&quot;</span>)</span>
+<span id="cb346-8"><a href="if-else.html#cb346-8" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is 1&quot;</code></pre>
 <p>Implementing this in a function could look like this:</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="if-else.html#cb346-1" aria-hidden="true"></a>what_is_it &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb346-2"><a href="if-else.html#cb346-2" aria-hidden="true"></a>  <span class="cf">if</span> (<span class="kw">is.character</span>(x)) {</span>
-<span id="cb346-3"><a href="if-else.html#cb346-3" aria-hidden="true"></a>    <span class="kw">return</span>(<span class="st">&quot;x is a character&quot;</span>)</span>
-<span id="cb346-4"><a href="if-else.html#cb346-4" aria-hidden="true"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(x)) {</span>
-<span id="cb346-5"><a href="if-else.html#cb346-5" aria-hidden="true"></a>    <span class="kw">return</span>(<span class="st">&quot;x is numeric&quot;</span>)</span>
-<span id="cb346-6"><a href="if-else.html#cb346-6" aria-hidden="true"></a>  } <span class="cf">else</span> {</span>
-<span id="cb346-7"><a href="if-else.html#cb346-7" aria-hidden="true"></a>    <span class="kw">return</span>(<span class="st">&quot;x is something else&quot;</span>)</span>
-<span id="cb346-8"><a href="if-else.html#cb346-8" aria-hidden="true"></a>  }</span>
-<span id="cb346-9"><a href="if-else.html#cb346-9" aria-hidden="true"></a>}</span>
-<span id="cb346-10"><a href="if-else.html#cb346-10" aria-hidden="true"></a></span>
-<span id="cb346-11"><a href="if-else.html#cb346-11" aria-hidden="true"></a><span class="kw">what_is_it</span>(<span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="if-else.html#cb348-1" aria-hidden="true"></a>what_is_it &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb348-2"><a href="if-else.html#cb348-2" aria-hidden="true"></a>  <span class="cf">if</span> (<span class="kw">is.character</span>(x)) {</span>
+<span id="cb348-3"><a href="if-else.html#cb348-3" aria-hidden="true"></a>    <span class="kw">return</span>(<span class="st">&quot;x is a character&quot;</span>)</span>
+<span id="cb348-4"><a href="if-else.html#cb348-4" aria-hidden="true"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">is.numeric</span>(x)) {</span>
+<span id="cb348-5"><a href="if-else.html#cb348-5" aria-hidden="true"></a>    <span class="kw">return</span>(<span class="st">&quot;x is numeric&quot;</span>)</span>
+<span id="cb348-6"><a href="if-else.html#cb348-6" aria-hidden="true"></a>  } <span class="cf">else</span> {</span>
+<span id="cb348-7"><a href="if-else.html#cb348-7" aria-hidden="true"></a>    <span class="kw">return</span>(<span class="st">&quot;x is something else&quot;</span>)</span>
+<span id="cb348-8"><a href="if-else.html#cb348-8" aria-hidden="true"></a>  }</span>
+<span id="cb348-9"><a href="if-else.html#cb348-9" aria-hidden="true"></a>}</span>
+<span id="cb348-10"><a href="if-else.html#cb348-10" aria-hidden="true"></a></span>
+<span id="cb348-11"><a href="if-else.html#cb348-11" aria-hidden="true"></a><span class="kw">what_is_it</span>(<span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x is a character&quot;</code></pre>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="if-else.html#cb348-1" aria-hidden="true"></a><span class="kw">what_is_it</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="if-else.html#cb350-1" aria-hidden="true"></a><span class="kw">what_is_it</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x is numeric&quot;</code></pre>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="if-else.html#cb350-1" aria-hidden="true"></a><span class="kw">what_is_it</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="if-else.html#cb352-1" aria-hidden="true"></a><span class="kw">what_is_it</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;x is something else&quot;</code></pre>
 <div id="questions-if-else" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Questions</h3>

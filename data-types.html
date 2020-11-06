@@ -181,7 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
 <li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
 <li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
+<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>3.3.10</b> Implicit Conversion</a></li>
+<li class="chapter" data-level="3.3.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.11</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
 <ul>
@@ -527,13 +528,29 @@ Unlike NULL, there are different NA values for each datatype (although they’ll
 <p><code>Inf</code> and <code>-Inf</code> are similar constructs. They represent infinity and minus infinity respectively. They are valid values but they are not representable with numbers, so they have their own reserved words.</p>
 <p><code>NaN</code>, <code>Inf</code> and <code>-Inf</code> are all of the numeric type and do not have equivalent values in other data types.</p>
 </div>
-<div id="questions-data-types" class="section level3" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> Questions</h3>
+<div id="implicit-conversion" class="section level3" number="3.3.10">
+<h3><span class="header-section-number">3.3.10</span> Implicit Conversion</h3>
+<p>Converting between types using the <code>as.x()</code> functions is nice and easy because the type that you’re converting to is explicitly defined. However, there is also <em>implicit conversion</em> in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let’s look at a proper example.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-types.html#cb151-1" aria-hidden="true"></a><span class="kw">paste0</span>(<span class="st">&quot;I&#39;m a character&quot;</span>, <span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;I&#39;m a character100&quot;</code></pre>
+<p>The <code>paste0()</code> function provides a pretty good example of implicit conversion in the wild. <code>paste0()</code> expects character strings when it’s called, so what happens when you provide it with a number like we did above? Why doesn’t it complain?
+Well it’s because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it’s a bit like a programming autocorrect.</p>
+<div id="dangers-of-implicit-conversion" class="section level4" number="3.3.10.1">
+<h4><span class="header-section-number">3.3.10.1</span> Dangers of implicit conversion</h4>
+<p>As you can imagine, this automatic conversion between types when the user didn’t specifically ask for it can cause problems. For example, when I teach R courses I often ask the attendees what they think <code>R</code> is going to return when I type <code>"TRUE" == TRUE</code>. Without fail, the majority will say that it’s going to be <code>FALSE</code>; one is a character string and the other is a logical value.</p>
+<p>My heart always dies a little bit then when I show them that it actually returns <code>TRUE</code>. “But why?”, they rightly ask. And it’s all because of implicit conversion. When we use the <code>==</code> operator, R will try and coerce the variables so that they’re the same type. In this case, it successfully coerces <code>"TRUE"</code> to <code>TRUE</code>, and so returns <code>TRUE</code>.</p>
+<p>There are, of course, going to be cases where this makes things easier. For instance, say you’ve got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.</p>
+<p>So my advice is simply to be aware of it. Don’t fight it, don’t worry about it unduly, just keep it in the back of your mind for that one time where you can’t seem to figure out why adding two factors together gives you back a number.</p>
+</div>
+</div>
+<div id="questions-data-types" class="section level3" number="3.3.11">
+<h3><span class="header-section-number">3.3.11</span> Questions</h3>
 <ol style="list-style-type: decimal">
 <li>Why are <code>2</code> and <code>2L</code> different?</li>
 <li>What is an ordered factor and how is it different to a character string?</li>
 <li>Why does <code>as.Date("19/01/2019", format = "%d/%m/%y")</code> return the date 19th Jan 2020 and not 19th Jan 2019?</li>
 <li>Why does <code>as.numeric(TRUE)</code> return 1? What will <code>as.logical(2)</code> return?</li>
+<li>Look at the <code>is.identical()</code> function. How is that different from <code>==</code>?</li>
 </ol>
 </div>
 </div>

@@ -181,7 +181,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
 <li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
 <li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
+<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>3.3.10</b> Implicit Conversion</a></li>
+<li class="chapter" data-level="3.3.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.11</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
 <ul>
@@ -399,15 +400,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Example function:</li>
 </ul>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="answers.html#cb366-1" aria-hidden="true"></a>function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</span>
-<span id="cb366-2"><a href="answers.html#cb366-2" aria-hidden="true"></a>  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb366-3"><a href="answers.html#cb366-3" aria-hidden="true"></a>   x <span class="op">^</span><span class="st"> </span>power</span>
-<span id="cb366-4"><a href="answers.html#cb366-4" aria-hidden="true"></a>  }</span>
-<span id="cb366-5"><a href="answers.html#cb366-5" aria-hidden="true"></a>  ret_function</span>
-<span id="cb366-6"><a href="answers.html#cb366-6" aria-hidden="true"></a>}</span>
-<span id="cb366-7"><a href="answers.html#cb366-7" aria-hidden="true"></a></span>
-<span id="cb366-8"><a href="answers.html#cb366-8" aria-hidden="true"></a>square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</span>
-<span id="cb366-9"><a href="answers.html#cb366-9" aria-hidden="true"></a><span class="kw">square_function</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="answers.html#cb368-1" aria-hidden="true"></a>function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</span>
+<span id="cb368-2"><a href="answers.html#cb368-2" aria-hidden="true"></a>  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb368-3"><a href="answers.html#cb368-3" aria-hidden="true"></a>   x <span class="op">^</span><span class="st"> </span>power</span>
+<span id="cb368-4"><a href="answers.html#cb368-4" aria-hidden="true"></a>  }</span>
+<span id="cb368-5"><a href="answers.html#cb368-5" aria-hidden="true"></a>  ret_function</span>
+<span id="cb368-6"><a href="answers.html#cb368-6" aria-hidden="true"></a>}</span>
+<span id="cb368-7"><a href="answers.html#cb368-7" aria-hidden="true"></a></span>
+<span id="cb368-8"><a href="answers.html#cb368-8" aria-hidden="true"></a>square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</span>
+<span id="cb368-9"><a href="answers.html#cb368-9" aria-hidden="true"></a><span class="kw">square_function</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre></li>
 <li>What happens if you create a function that requires an argument that is never used? Why isn’t there an error?
 <ul>
@@ -471,40 +472,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.
 + By using subsitute, we can replace <code>fun</code> with any function we like:</li>
 </ol>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="answers.html#cb368-1" aria-hidden="true"></a>quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</span>
-<span id="cb368-2"><a href="answers.html#cb368-2" aria-hidden="true"></a>quoted_fun</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="answers.html#cb370-1" aria-hidden="true"></a>quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</span>
+<span id="cb370-2"><a href="answers.html#cb370-2" aria-hidden="true"></a>quoted_fun</span></code></pre></div>
 <pre><code>## .Primitive(&quot;sum&quot;)(1)</code></pre>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="answers.html#cb370-1" aria-hidden="true"></a><span class="kw">eval</span>(quoted_fun)</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="answers.html#cb372-1" aria-hidden="true"></a><span class="kw">eval</span>(quoted_fun)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>What’s the difference between</li>
 </ol>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="answers.html#cb372-1" aria-hidden="true"></a><span class="kw">quote</span>({</span>
-<span id="cb372-2"><a href="answers.html#cb372-2" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb372-3"><a href="answers.html#cb372-3" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
-<span id="cb372-4"><a href="answers.html#cb372-4" aria-hidden="true"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="answers.html#cb374-1" aria-hidden="true"></a><span class="kw">quote</span>({</span>
+<span id="cb374-2"><a href="answers.html#cb374-2" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb374-3"><a href="answers.html#cb374-3" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb374-4"><a href="answers.html#cb374-4" aria-hidden="true"></a>})</span></code></pre></div>
 <p>and</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="answers.html#cb373-1" aria-hidden="true"></a><span class="kw">list</span>(</span>
-<span id="cb373-2"><a href="answers.html#cb373-2" aria-hidden="true"></a>  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</span>
-<span id="cb373-3"><a href="answers.html#cb373-3" aria-hidden="true"></a>  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</span>
-<span id="cb373-4"><a href="answers.html#cb373-4" aria-hidden="true"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="answers.html#cb375-1" aria-hidden="true"></a><span class="kw">list</span>(</span>
+<span id="cb375-2"><a href="answers.html#cb375-2" aria-hidden="true"></a>  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</span>
+<span id="cb375-3"><a href="answers.html#cb375-3" aria-hidden="true"></a>  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb375-4"><a href="answers.html#cb375-4" aria-hidden="true"></a>)</span></code></pre></div>
 <p>and why do they evaluate to different things?
 + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time:</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="answers.html#cb374-1" aria-hidden="true"></a><span class="kw">eval</span>(</span>
-<span id="cb374-2"><a href="answers.html#cb374-2" aria-hidden="true"></a>    <span class="kw">quote</span>({</span>
-<span id="cb374-3"><a href="answers.html#cb374-3" aria-hidden="true"></a>        x &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb374-4"><a href="answers.html#cb374-4" aria-hidden="true"></a>        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
-<span id="cb374-5"><a href="answers.html#cb374-5" aria-hidden="true"></a>    })</span>
-<span id="cb374-6"><a href="answers.html#cb374-6" aria-hidden="true"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="answers.html#cb376-1" aria-hidden="true"></a><span class="kw">eval</span>(</span>
+<span id="cb376-2"><a href="answers.html#cb376-2" aria-hidden="true"></a>    <span class="kw">quote</span>({</span>
+<span id="cb376-3"><a href="answers.html#cb376-3" aria-hidden="true"></a>        x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb376-4"><a href="answers.html#cb376-4" aria-hidden="true"></a>        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb376-5"><a href="answers.html#cb376-5" aria-hidden="true"></a>    })</span>
+<span id="cb376-6"><a href="answers.html#cb376-6" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <p>  + The second is a list of separate expressions. If we evaluate them using:</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="answers.html#cb376-1" aria-hidden="true"></a><span class="kw">lapply</span>(</span>
-<span id="cb376-2"><a href="answers.html#cb376-2" aria-hidden="true"></a>    <span class="kw">list</span>(</span>
-<span id="cb376-3"><a href="answers.html#cb376-3" aria-hidden="true"></a>      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</span>
-<span id="cb376-4"><a href="answers.html#cb376-4" aria-hidden="true"></a>      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</span>
-<span id="cb376-5"><a href="answers.html#cb376-5" aria-hidden="true"></a>    ),</span>
-<span id="cb376-6"><a href="answers.html#cb376-6" aria-hidden="true"></a>    eval</span>
-<span id="cb376-7"><a href="answers.html#cb376-7" aria-hidden="true"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="answers.html#cb378-1" aria-hidden="true"></a><span class="kw">lapply</span>(</span>
+<span id="cb378-2"><a href="answers.html#cb378-2" aria-hidden="true"></a>    <span class="kw">list</span>(</span>
+<span id="cb378-3"><a href="answers.html#cb378-3" aria-hidden="true"></a>      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</span>
+<span id="cb378-4"><a href="answers.html#cb378-4" aria-hidden="true"></a>      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb378-5"><a href="answers.html#cb378-5" aria-hidden="true"></a>    ),</span>
+<span id="cb378-6"><a href="answers.html#cb378-6" aria-hidden="true"></a>    eval</span>
+<span id="cb378-7"><a href="answers.html#cb378-7" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -540,10 +541,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Loop code:</li>
 </ul>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="answers.html#cb378-1" aria-hidden="true"></a>max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</span>
-<span id="cb378-2"><a href="answers.html#cb378-2" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</span>
-<span id="cb378-3"><a href="answers.html#cb378-3" aria-hidden="true"></a>  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</span>
-<span id="cb378-4"><a href="answers.html#cb378-4" aria-hidden="true"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="answers.html#cb380-1" aria-hidden="true"></a>max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</span>
+<span id="cb380-2"><a href="answers.html#cb380-2" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</span>
+<span id="cb380-3"><a href="answers.html#cb380-3" aria-hidden="true"></a>  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</span>
+<span id="cb380-4"><a href="answers.html#cb380-4" aria-hidden="true"></a>}</span></code></pre></div></li>
 </ol>
 </div>
 </div>
