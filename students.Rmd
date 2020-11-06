@@ -522,7 +522,7 @@ My heart always dies a little bit then when I show them that it actually returns
 
 There are, of course, going to be cases where this makes things easier. For instance, say you've got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.
 
-So my advice is simply to be aware of it. Don't fight it, don't worry about it unduly, just keep it in the back of your mind for that one time where you can't seem to figure out why adding two factors together gives you back a number.
+So my advice is simply to be aware of it. Don't fight it, don't worry about it unduly, just keep it in the back of your mind for that one time where you can't seem to figure out why you can divide things by `TRUE`.
 
 ### Questions {#questions-data-types}
 
@@ -571,7 +571,7 @@ c(1L, 1.5)
 ```
 We see that our integer (`1L`) becomes a double.
 
-Roughly speaking, all of the values in your vector will get coerced to the most *complex* type.
+This is related to the concept of **implicit conversion** in R. Roughly speaking, all of the values in your vector will get coerced to the most *complex* type.
 
 #### Naming 
 
