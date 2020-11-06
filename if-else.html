@@ -289,13 +289,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.5</span> If / Else</h2>
 <p>Building on our logical operators, there will often be times where you want to split the logic of your code depending on a criteria. For example, if you’ve created a function that can accept a character string or a number, you might want to split the body of the function to do something slightly different depending on the class of the provided argument.</p>
 <p>If / else statements in R has a simple structure:</p>
-<pre><code>if (criteria_statement) {
-  what_you_want_to_do
-} else if (other_criteria) {
-  something_else_you_want_to_do
-} else {
-  something_you_want_to_do_if_all_else_fails
-}</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="if-else.html#cb343-1" aria-hidden="true"></a><span class="cf">if</span> (criteria_statement) {</span>
+<span id="cb343-2"><a href="if-else.html#cb343-2" aria-hidden="true"></a>  what_you_want_to_do</span>
+<span id="cb343-3"><a href="if-else.html#cb343-3" aria-hidden="true"></a>} <span class="cf">else</span> <span class="cf">if</span> (other_criteria) {</span>
+<span id="cb343-4"><a href="if-else.html#cb343-4" aria-hidden="true"></a>  something_else_you_want_to_do</span>
+<span id="cb343-5"><a href="if-else.html#cb343-5" aria-hidden="true"></a>} <span class="cf">else</span> {</span>
+<span id="cb343-6"><a href="if-else.html#cb343-6" aria-hidden="true"></a>  something_you_want_to_do_if_all_else_fails</span>
+<span id="cb343-7"><a href="if-else.html#cb343-7" aria-hidden="true"></a>}</span></code></pre></div>
 <p>Putting this into practice, a real If / else block may look like this:</p>
 <div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="if-else.html#cb344-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
 <span id="cb344-2"><a href="if-else.html#cb344-2" aria-hidden="true"></a><span class="cf">if</span> (x <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</span>
