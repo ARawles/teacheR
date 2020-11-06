@@ -41,9 +41,10 @@ jobs:
       - name: Cache Renv packages
         uses: actions/cache@v2
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: r-${{ hashFiles('renv.lock') }}
-          restore-keys: r-
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
 
       - name: Cache bookdown results
         uses: actions/cache@v2
