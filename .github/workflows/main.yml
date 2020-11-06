@@ -29,7 +29,9 @@ jobs:
         run: sudo apt-get install libcurl4-openssl-dev
       
       - name: Install pdflatex
-        run: sudo apt-get install texlive
+        run: |
+          sudo apt-get install texlive
+          tlmgr init-usertree
         
         
       - name: Install pandoc and pandoc citeproc
