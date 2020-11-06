@@ -376,7 +376,7 @@ base::sum(1,2)
 
 ### Function environments
 
-Functions, when they called, create their own more specific environment. The parent of this environment will be the environment in which it was called (most often this will be the global environment).
+Functions, when they are called, create their own more specific environment. The parent of this environment will be the environment in which it was called (most often this will be the global environment).
 
 This breeds some specific behaviours. For example, say you've written a function that expects two input parameters, `x` and `y`. Well, what would happen if someone had already defined an `x` and `y` variable in their script? Which value should R use?
 
