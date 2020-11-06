@@ -503,6 +503,26 @@ A special case is NaN (not a number). NaNs are distinct to NA in that they repre
 
 `NaN`, `Inf` and `-Inf` are all of the numeric type and do not have equivalent values in other data types.
 
+### Implicit Conversion
+
+Converting between types using the `as.x()` functions is nice and easy because the type that you're converting to is explicitly defined. However, there is also *implicit conversion* in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let's look at a proper example.
+
+```{r}
+paste0("I'm a character", 100)
+```
+
+The `paste0()` function provides a pretty good example of implicit conversion in the wild. `paste0()` expects character strings when it's called, so what happens when you provide it with a number like we did above? Why doesn't it complain?
+Well it's because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it's a bit like a programming autocorrect.
+
+#### Dangers of implicit conversion
+
+As you can imagine, this automatic conversion between types when the user didn't specifically ask for it can cause problems. For example, when I teach R courses I often ask the attendees what they think `R` is going to return when I type `"TRUE" == TRUE`. Without fail, the majority will say that it's going to be `FALSE`; one is a character string and the other is a logical value.
+
+My heart always dies a little bit then when I show them that it actually returns `TRUE`. "But why?", they rightly ask. And it's all because of implicit conversion. When we use the `==` operator, R will try and coerce the variables so that they're the same type. In this case, it successfully coerces `"TRUE"` to `TRUE`, and so returns `TRUE`.
+
+There are, of course, going to be cases where this makes things easier. For instance, say you've got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.
+
+So my advice is simply to be aware of it. Don't fight it, don't worry about it unduly, just keep it in the back of your mind for that one time where you can't seem to figure out why adding two factors together gives you back a number.
 
 ### Questions {#questions-data-types}
 
@@ -510,6 +530,7 @@ A special case is NaN (not a number). NaNs are distinct to NA in that they repre
 2. What is an ordered factor and how is it different to a character string?
 3. Why does `as.Date("19/01/2019", format = "%d/%m/%y")` return the date 19th Jan 2020 and not 19th Jan 2019?
 4. Why does `as.numeric(TRUE)` return 1? What will `as.logical(2)` return?
+5. Look at the `is.identical()` function. How is that different from `==`?
 
 ## Data structures
 
