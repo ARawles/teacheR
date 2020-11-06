@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.6 Iteration | teacheR</title>
   <meta name="description" content="4.6 Iteration | teacheR" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.6 Iteration | teacheR" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="if-else.html"/>
 <link rel="next" href="summary.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,50 +50,74 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -107,37 +132,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a><ul>
-<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
 <li class="chapter" data-level="2.2" data-path="should-i-use-r.html"><a href="should-i-use-r.html"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
 <li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
 <li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a><ul>
-<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a><ul>
+<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="3.1.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.1.2</b> Logical operators</a></li>
 <li class="chapter" data-level="3.1.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>3.1.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a><ul>
+<li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
 <li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>3.2.2</b> Naming</a></li>
 <li class="chapter" data-level="3.2.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.3</b> Reassigning variables</a></li>
 <li class="chapter" data-level="3.2.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>3.2.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a><ul>
+<li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
 <li class="chapter" data-level="3.3.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>3.3.2</b> Double</a></li>
 <li class="chapter" data-level="3.3.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>3.3.3</b> Integer</a></li>
@@ -149,7 +183,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
 <li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a><ul>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
 <li class="chapter" data-level="3.4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.4.2</b> Lists</a></li>
 <li class="chapter" data-level="3.4.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>3.4.3</b> Lists vs Vectors</a></li>
@@ -157,7 +192,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.4.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.4.5</b> Dataframes</a></li>
 <li class="chapter" data-level="3.4.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>3.4.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a><ul>
+<li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="3.5.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>3.5.2</b> Lists</a></li>
 <li class="chapter" data-level="3.5.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>3.5.3</b> Matrices</a></li>
@@ -165,13 +201,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>3.5.5</b> Subsetting by criteria</a></li>
 <li class="chapter" data-level="3.5.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>3.5.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a><ul>
+<li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
 <li class="chapter" data-level="3.6.2" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>3.6.2</b> Questions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a><ul>
-<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a><ul>
+<li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
 <li class="chapter" data-level="4.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
 <li class="chapter" data-level="4.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
@@ -179,7 +218,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>4.1.5</b> Vectorised functions</a></li>
 <li class="chapter" data-level="4.1.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
+<li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
 <li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
 <li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
@@ -187,24 +227,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.5" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>4.2.5</b> Mutability</a></li>
 <li class="chapter" data-level="4.2.6" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>4.2.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
 <li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
 <li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
 <li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
 <li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>4.3.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a><ul>
+<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>4.4.1</b> Creating expressions</a></li>
 <li class="chapter" data-level="4.4.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>4.4.2</b> Evaluating expressions</a></li>
 <li class="chapter" data-level="4.4.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>4.4.3</b> Substitution</a></li>
 <li class="chapter" data-level="4.4.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>4.4.4</b> Quasiquotation</a></li>
 <li class="chapter" data-level="4.4.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>4.4.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>4.5</b> If / Else</a><ul>
+<li class="chapter" data-level="4.5" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>4.5</b> If / Else</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>4.5.1</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>4.6</b> Iteration</a><ul>
+<li class="chapter" data-level="4.6" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>4.6</b> Iteration</a>
+<ul>
 <li class="chapter" data-level="4.6.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>4.6.1</b> Imperative programming</a></li>
 <li class="chapter" data-level="4.6.2" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>4.6.2</b> For loops</a></li>
 <li class="chapter" data-level="4.6.3" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>4.6.3</b> While loops</a></li>
@@ -212,12 +256,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.5" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>4.6.5</b> Questions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a><ul>
-<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5.1</b> Answers</a><ul>
+<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5.1</b> Answers</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="answers.html"><a href="answers.html#for-students-1"><i class="fa fa-check"></i><b>5.1.1</b> For Students</a></li>
 <li class="chapter" data-level="5.1.2" data-path="answers.html"><a href="answers.html#for-teachers-1"><i class="fa fa-check"></i><b>5.1.2</b> For Teachers</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>5.2</b> Next Steps</a><ul>
+<li class="chapter" data-level="5.2" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>5.2</b> Next Steps</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="next-steps.html"><a href="next-steps.html#operate"><i class="fa fa-check"></i><b>5.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
@@ -238,92 +285,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="iteration" class="section level2">
+<div id="iteration" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Iteration</h2>
 <p>Functions are an important stepping stone in reducing the amount of code you need to do something (they make your code less <strong>verbose</strong>). Another tool in acheiving this goal is the idea of iteration. Iteration is just the process of doing something more than once.</p>
-<p>We'll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for different groups are all examples of operations that you'll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we'll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we'll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.</p>
-<div id="imperative-programming" class="section level3">
+<p>We’ll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for different groups are all examples of operations that you’ll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we’ll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we’ll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.</p>
+<div id="imperative-programming" class="section level3" number="4.6.1">
 <h3><span class="header-section-number">4.6.1</span> Imperative programming</h3>
 </div>
-<div id="for-loops" class="section level3">
+<div id="for-loops" class="section level3" number="4.6.2">
 <h3><span class="header-section-number">4.6.2</span> For loops</h3>
 <p>For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:</p>
 <pre><code>for (identifier in list) {
  do_something_with_it(identifier)
 }</code></pre>
-<p>In the above, the identifier is used to access the value that is currently being iterated upon. Let's look at a practical example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {
-  <span class="kw">print</span>(i)
-}</code></pre></div>
+<p>In the above, the identifier is used to access the value that is currently being iterated upon. Let’s look at a practical example:</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="iteration.html#cb353-1" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
+<span id="cb353-2"><a href="iteration.html#cb353-2" aria-hidden="true"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb353-3"><a href="iteration.html#cb353-3" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3</code></pre>
-<p>In this loop, we go through the vector of values 1, 2 and 3, and we print it using the <code>i</code> identifier that we've assigned to the value we're currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we've provided). The first time, <code>i</code> will equal 1. The code will execute, and then <code>i</code> will take the value of 2 and so on.</p>
-<p>This isn't a particular useful example. Let's look at more realistic example. Let's say you've got a list with 2 dataframes in that have the same structure:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(
-                    <span class="kw">data.frame</span>(
-                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)
-                     ),
-                     <span class="kw">data.frame</span>(
-                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)
-                     )
-                   )</code></pre></div>
+<p>In this loop, we go through the vector of values 1, 2 and 3, and we print it using the <code>i</code> identifier that we’ve assigned to the value we’re currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we’ve provided). The first time, <code>i</code> will equal 1. The code will execute, and then <code>i</code> will take the value of 2 and so on.</p>
+<p>This isn’t a particular useful example. Let’s look at more realistic example. Let’s say you’ve got a list with 2 dataframes in that have the same structure:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="iteration.html#cb355-1" aria-hidden="true"></a>dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb355-2"><a href="iteration.html#cb355-2" aria-hidden="true"></a>                    <span class="kw">data.frame</span>(</span>
+<span id="cb355-3"><a href="iteration.html#cb355-3" aria-hidden="true"></a>                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb355-4"><a href="iteration.html#cb355-4" aria-hidden="true"></a>                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)</span>
+<span id="cb355-5"><a href="iteration.html#cb355-5" aria-hidden="true"></a>                     ),</span>
+<span id="cb355-6"><a href="iteration.html#cb355-6" aria-hidden="true"></a>                     <span class="kw">data.frame</span>(</span>
+<span id="cb355-7"><a href="iteration.html#cb355-7" aria-hidden="true"></a>                      <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb355-8"><a href="iteration.html#cb355-8" aria-hidden="true"></a>                      <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)</span>
+<span id="cb355-9"><a href="iteration.html#cb355-9" aria-hidden="true"></a>                     )</span>
+<span id="cb355-10"><a href="iteration.html#cb355-10" aria-hidden="true"></a>                   )</span></code></pre></div>
 <p>And you want to calculate the mean for the <code>value</code> column for each one:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {
-  <span class="kw">mean</span>(df<span class="op">$</span>value)
-}</code></pre></div>
-<p>Or, if we refer back to our <a href="functions-teachers.html#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we'll also construct a list to store the output:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">output_list &lt;-<span class="st"> </span><span class="kw">list</span>()
-<span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {
-  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)
-}
-<span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</code></pre></div>
-<pre><code>## [1]  9.588396 10.206380  8.981885 10.874031  9.845494</code></pre>
-<p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we're looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>. Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
-<p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="iteration.html#cb356-1" aria-hidden="true"></a><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {</span>
+<span id="cb356-2"><a href="iteration.html#cb356-2" aria-hidden="true"></a>  <span class="kw">mean</span>(df<span class="op">$</span>value)</span>
+<span id="cb356-3"><a href="iteration.html#cb356-3" aria-hidden="true"></a>}</span></code></pre></div>
+<p>Or, if we refer back to our <a href="functions-teachers.html#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we’ll also construct a list to store the output:</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="iteration.html#cb357-1" aria-hidden="true"></a>output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb357-2"><a href="iteration.html#cb357-2" aria-hidden="true"></a><span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {</span>
+<span id="cb357-3"><a href="iteration.html#cb357-3" aria-hidden="true"></a>  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb357-4"><a href="iteration.html#cb357-4" aria-hidden="true"></a>}</span>
+<span id="cb357-5"><a href="iteration.html#cb357-5" aria-hidden="true"></a><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 10.724003 10.093698  8.698528  7.913267  9.144870</code></pre>
+<p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
+Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
+<p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
 </div>
-<div id="while-loops" class="section level3">
+<div id="while-loops" class="section level3" number="4.6.3">
 <h3><span class="header-section-number">4.6.3</span> While loops</h3>
 <p>While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">0</span>
-<span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {
-  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
-  <span class="kw">print</span>(x)
-}</code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="iteration.html#cb359-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb359-2"><a href="iteration.html#cb359-2" aria-hidden="true"></a><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="cb359-3"><a href="iteration.html#cb359-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb359-4"><a href="iteration.html#cb359-4" aria-hidden="true"></a>  <span class="kw">print</span>(x)</span>
+<span id="cb359-5"><a href="iteration.html#cb359-5" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2</code></pre>
 </div>
-<div id="functional-programming" class="section level3">
+<div id="functional-programming" class="section level3" number="4.6.4">
 <h3><span class="header-section-number">4.6.4</span> Functional programming</h3>
 <p>For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages like C and Python.</p>
-<p>Instead, within R we can leverage functions to wrap the loops. For example, let's look back at our <code>dataframe_list</code> example. We can turn our loop into a function that we can call whenever we have a list of dataframes:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {
-  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()
-  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {
-    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)
-  }
-  output_list
-}
-
-<span class="kw">head</span>(
-  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span>
-)</code></pre></div>
-<pre><code>## [1] 10.86795</code></pre>
+<p>Instead, within R we can leverage functions to wrap the loops. For example, let’s look back at our <code>dataframe_list</code> example. We can turn our loop into a function that we can call whenever we have a list of dataframes:</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="iteration.html#cb361-1" aria-hidden="true"></a>norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {</span>
+<span id="cb361-2"><a href="iteration.html#cb361-2" aria-hidden="true"></a>  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb361-3"><a href="iteration.html#cb361-3" aria-hidden="true"></a>  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {</span>
+<span id="cb361-4"><a href="iteration.html#cb361-4" aria-hidden="true"></a>    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)</span>
+<span id="cb361-5"><a href="iteration.html#cb361-5" aria-hidden="true"></a>  }</span>
+<span id="cb361-6"><a href="iteration.html#cb361-6" aria-hidden="true"></a>  output_list</span>
+<span id="cb361-7"><a href="iteration.html#cb361-7" aria-hidden="true"></a>}</span>
+<span id="cb361-8"><a href="iteration.html#cb361-8" aria-hidden="true"></a></span>
+<span id="cb361-9"><a href="iteration.html#cb361-9" aria-hidden="true"></a><span class="kw">head</span>(</span>
+<span id="cb361-10"><a href="iteration.html#cb361-10" aria-hidden="true"></a>  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
+<span id="cb361-11"><a href="iteration.html#cb361-11" aria-hidden="true"></a>)</span></code></pre></div>
+<pre><code>## [1] 9.863982</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. This is very closely related to the idea of vectorized functions, which we looked at the in <a href="functions-teachers.html#vectorised-functions">Functions</a>. All vectorised functions will essentially wrap around a loop in same way or another.</p>
-<div id="applying-functions" class="section level4">
+<div id="applying-functions" class="section level4" number="4.6.4.1">
 <h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
-<p>Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it's led to the development of the <code>apply</code> set of functions. These act as syntactic sugar to decrease the number of for loops present in your code*.</p>
-<p>* A common argument is that <code>apply</code> functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the <code>apply</code> functions aren't more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.</p>
-<p>We've already seen an example of the <code>lapply</code> (list-apply) function in <a href="functions-teachers.html#functions-as-objects">action</a>, but lets do another one. Let's say we have a list of vectors containing numbers and we want the maximum for each.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">number_list &lt;-<span class="st"> </span><span class="kw">list</span>(
-                  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),
-                  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),
-                  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)
-                )</code></pre></div>
+<p>Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it’s led to the development of the <code>apply</code> set of functions. These act as syntactic sugar to decrease the number of for loops present in your code*.</p>
+<p>* A common argument is that <code>apply</code> functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the <code>apply</code> functions aren’t more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.</p>
+<p>We’ve already seen an example of the <code>lapply</code> (list-apply) function in <a href="functions-teachers.html#functions-as-objects">action</a>, but lets do another one. Let’s say we have a list of vectors containing numbers and we want the maximum for each.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="iteration.html#cb363-1" aria-hidden="true"></a>number_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb363-2"><a href="iteration.html#cb363-2" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
+<span id="cb363-3"><a href="iteration.html#cb363-3" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),</span>
+<span id="cb363-4"><a href="iteration.html#cb363-4" aria-hidden="true"></a>                  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)</span>
+<span id="cb363-5"><a href="iteration.html#cb363-5" aria-hidden="true"></a>                )</span></code></pre></div>
 <p>We can apply the <code>max()</code> function to each item in our list:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="iteration.html#cb364-1" aria-hidden="true"></a><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 4
 ## 
@@ -335,13 +383,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>As you can see, this is much shorter than writing out a for loop to acheive the same goal.</p>
 <p>The <code>FUN</code> parameter accepts any function (including anonymous) functions, meaning that we can apply any function we like to each item in our list.</p>
 </div>
-<div id="purrr" class="section level4">
+<div id="purrr" class="section level4" number="4.6.4.2">
 <h4><span class="header-section-number">4.6.4.2</span> purrr</h4>
 <p>The <code>apply</code> family of functions in base R are extremely powerful. However, they are not quite as user-friendly as one might have hoped, and there are some inconsistencies across the different <code>apply</code> functions. To solve this, the <code>purrr</code> provides the <code>map()</code> functions to provide the same functionality but in a more succinct and universal way.</p>
-<p>Personally, I do prefer the <code>purrr</code> functions to the base R functions as I find they're easier to learn to use, however the base R functions do provide the same functionality. Documentation for the <code>purr</code> package can be found at <a href="purrr.tidyverse.org">https://purrr.tidyverse.org</a>.</p>
+<p>Personally, I do prefer the <code>purrr</code> functions to the base R functions as I find they’re easier to learn to use, however the base R functions do provide the same functionality. Documentation for the <code>purr</code> package can be found at <a href="purrr.tidyverse.org">https://purrr.tidyverse.org</a>.</p>
 </div>
 </div>
-<div id="questions-iteration" class="section level3">
+<div id="questions-iteration" class="section level3" number="4.6.5">
 <h3><span class="header-section-number">4.6.5</span> Questions</h3>
 <ol style="list-style-type: decimal">
 <li>In what situation would you use <code>i in x</code> over <code>i in seq_along(x)</code>?</li>
@@ -413,7 +461,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
