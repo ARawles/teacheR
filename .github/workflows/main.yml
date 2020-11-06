@@ -30,10 +30,7 @@ jobs:
       
       - name: Install pdflatex
         run: |
-          sudo apt-get install texlive
-          sudo tlmgr update --self
-          sudo tlmgr install framed
-        
+          sudo apt-get install texlive-latex-extra        
         
       - name: Install pandoc and pandoc citeproc
         run: |
