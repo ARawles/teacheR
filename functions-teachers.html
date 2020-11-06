@@ -434,7 +434,7 @@ and
 ##         x &lt;- as.character(x)
 ##     .Internal(substr(x, as.integer(start), as.integer(stop)))
 ## }
-## &lt;bytecode: 0x55e1303b8f30&gt;
+## &lt;bytecode: 0x559d5339df68&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Conversely, <code>substr()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
 <div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions-teachers.html#cb256-1" aria-hidden="true"></a><span class="kw">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
@@ -479,7 +479,7 @@ and
 <span id="cb262-8"><a href="functions-teachers.html#cb262-8" aria-hidden="true"></a>normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</span>
 <span id="cb262-9"><a href="functions-teachers.html#cb262-9" aria-hidden="true"></a></span>
 <span id="cb262-10"><a href="functions-teachers.html#cb262-10" aria-hidden="true"></a><span class="kw">head</span>(normal_dist_ds1, <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 29.848909  8.816168 11.105439 17.122532 45.389718</code></pre>
+<pre><code>## [1] 38.395566 14.187324 22.406646  8.520974 35.067214</code></pre>
 <p>Now, instead of copying the code each time we need it, we’ve extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
 <p>This is an example of the concept of abstraction, which is a common theme in programming. If you’re interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you’ve hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
 </div>
