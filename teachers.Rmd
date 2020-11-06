@@ -869,7 +869,7 @@ Why do they evaluate to different things?
 Building on our logical operators, there will often be times where you want to split the logic of your code depending on a criteria. For example, if you've created a function that can accept a character string or a number, you might want to split the body of the function to do something slightly different depending on the class of the provided argument.
 
 If / else statements in R has a simple structure:
-```
+```{r, eval = FALSE}
 if (criteria_statement) {
   what_you_want_to_do
 } else if (other_criteria) {
