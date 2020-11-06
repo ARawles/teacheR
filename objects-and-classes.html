@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.3 Objects and Classes | Teach Yourself or Others R</title>
-  <meta name="description" content="4.3 Objects and Classes | Teach Yourself or Others R" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <title>4.3 Objects and Classes | teacheR</title>
+  <meta name="description" content="4.3 Objects and Classes | teacheR" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.3 Objects and Classes | Teach Yourself or Others R" />
+  <meta property="og:title" content="4.3 Objects and Classes | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.3 Objects and Classes | Teach Yourself or Others R" />
+  <meta name="twitter:title" content="4.3 Objects and Classes | teacheR" />
   
   
   <meta name="twitter:image" content="cover.png" />
@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="environments.html"/>
-<link rel="next" href="exercises.html"/>
+<link rel="next" href="expressions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,69 +49,50 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -127,7 +108,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a><ul>
-<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
@@ -136,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#rstudio-panes"><i class="fa fa-check"></i><b>2.4.2</b> RStudio Panes</a></li>
+<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
@@ -146,10 +129,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="3.1.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.1.2</b> Logical operators</a></li>
+<li class="chapter" data-level="3.1.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>3.1.3</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
-<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.2</b> Reassigning variables</a></li>
+<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>3.2.2</b> Naming</a></li>
+<li class="chapter" data-level="3.2.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.3</b> Reassigning variables</a></li>
+<li class="chapter" data-level="3.2.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>3.2.4</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
@@ -159,6 +145,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>3.3.5</b> Factors</a></li>
 <li class="chapter" data-level="3.3.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>3.3.6</b> Dates</a></li>
 <li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
+<li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
+<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.10</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
@@ -166,6 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>3.4.3</b> Lists vs Vectors</a></li>
 <li class="chapter" data-level="3.4.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>3.4.4</b> Matrices</a></li>
 <li class="chapter" data-level="3.4.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.4.5</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>3.4.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
@@ -173,29 +163,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>3.5.3</b> Matrices</a></li>
 <li class="chapter" data-level="3.5.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>3.5.4</b> Dataframes</a></li>
 <li class="chapter" data-level="3.5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>3.5.5</b> Subsetting by criteria</a></li>
+<li class="chapter" data-level="3.5.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>3.5.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
+<li class="chapter" data-level="3.6.2" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>3.6.2</b> Questions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a><ul>
-<li class="chapter" data-level="4.1" data-path="functions-1.html"><a href="functions-1.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="functions-1.html"><a href="functions-1.html#input-validation"><i class="fa fa-check"></i><b>4.1.1</b> Input validation</a></li>
-<li class="chapter" data-level="4.1.2" data-path="functions-1.html"><a href="functions-1.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.2</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.3" data-path="functions-1.html"><a href="functions-1.html#creating-functions"><i class="fa fa-check"></i><b>4.1.3</b> Creating functions</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functions-1.html"><a href="functions-1.html#function-environments"><i class="fa fa-check"></i><b>4.1.4</b> Function environments</a></li>
+<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
+<li class="chapter" data-level="4.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
+<li class="chapter" data-level="4.1.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>4.1.5</b> Vectorised functions</a></li>
+<li class="chapter" data-level="4.1.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
+<li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
+<li class="chapter" data-level="4.2.4" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>4.2.4</b> Function environments</a></li>
+<li class="chapter" data-level="4.2.5" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>4.2.5</b> Mutability</a></li>
+<li class="chapter" data-level="4.2.6" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>4.2.6</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
 <li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
 <li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
-<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>4.3.4</b> Inheritance</a></li>
+<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
+<li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>4.3.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>4.4.1</b> Creating expressions</a></li>
+<li class="chapter" data-level="4.4.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>4.4.2</b> Evaluating expressions</a></li>
+<li class="chapter" data-level="4.4.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>4.4.3</b> Substitution</a></li>
+<li class="chapter" data-level="4.4.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>4.4.4</b> Quasiquotation</a></li>
+<li class="chapter" data-level="4.4.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>4.4.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>4.5</b> If / Else</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>4.5.1</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>4.6</b> Iteration</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>4.6.1</b> Imperative programming</a></li>
+<li class="chapter" data-level="4.6.2" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>4.6.2</b> For loops</a></li>
+<li class="chapter" data-level="4.6.3" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>4.6.3</b> While loops</a></li>
+<li class="chapter" data-level="4.6.4" data-path="iteration.html"><a href="iteration.html#functional-programming"><i class="fa fa-check"></i><b>4.6.4</b> Functional programming</a></li>
+<li class="chapter" data-level="4.6.5" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>4.6.5</b> Questions</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>5</b> Exercises</a></li>
+<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a><ul>
+<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5.1</b> Answers</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="answers.html"><a href="answers.html#for-students-1"><i class="fa fa-check"></i><b>5.1.1</b> For Students</a></li>
+<li class="chapter" data-level="5.1.2" data-path="answers.html"><a href="answers.html#for-teachers-1"><i class="fa fa-check"></i><b>5.1.2</b> For Teachers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>5.2</b> Next Steps</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="next-steps.html"><a href="next-steps.html#operate"><i class="fa fa-check"></i><b>5.2.1</b> opeRate</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -205,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Teach Yourself or Others R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">teacheR</a>
           </h1>
         </div>
 
@@ -215,17 +240,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="objects-and-classes" class="section level2">
 <h2><span class="header-section-number">4.3</span> Objects and Classes</h2>
-<p>Objects and classes are a fairly ubiquitous concept across programming languages and data analysis tools. We’ll briefly look at what an object is in R, but by no means is this an exhaustive description.</p>
+<p>Objects and classes are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.</p>
 <div id="what-is-a-class" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> What is a class?</h3>
-<p>The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they’re from, where their parents are from, their hair colour, their likes and dislikes, and so on and so on. When we want to store data in a structured and formal way in a computer system, however, this isn’t particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an class is; a pre-defined structure to store important attributes or features of a <strong>thing</strong>.</p>
-<p>Let’s take the person instance again. Let’s say we’re going to store data on a number of individuals, we won’t be able to store everything about them. So we’ll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we’re going to store the same information for each one. So lets say we’re going to do some geographical analysis, we might want to include a person’s name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a “person”. Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.</p>
-<p>So our class is “person”, and it has the attributes “name”, “nationality”, and “ethnicity”. Now this obviously doesn’t capture everything about a person, but it’s enough for what we want to do.</p>
+<p>The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, their hair colour, their likes and dislikes, and so on and so on. When we want to store data in a structured and formal way in a computer system, however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what an class is; a pre-defined structure to store important attributes or features of a <strong>thing</strong>.</p>
+<p>Let's take the person instance again. Let's say we're going to store data on a number of individuals, we won't be able to store everything about them. So we'll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we're going to store the same information for each one. So lets say we're going to do some geographical analysis, we might want to include a person's name, their nationality, and perhaps their ethnicity. So for each person we want to store, we can store these three attributes. And we might call this data structure a &quot;person&quot;. Well this is exactly what an class is; a collection of attributes and features that is shared objects instances of the same type.</p>
+<p>So our class is &quot;person&quot;, and it has the attributes &quot;name&quot;, &quot;nationality&quot;, and &quot;ethnicity&quot;. Now this obviously doesn't capture everything about a person, but it's enough for what we want to do.</p>
+<p>Graphing that object might look something like this:</p>
+<div id="htmlwidget-8a2395c04645cf025fc4" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8a2395c04645cf025fc4">{"x":{"diagram":"\ndigraph class {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Person\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.8,\n        fontsize = 8] // sets as circles\n  Name; Nationality; Ethnicity\n\n  # several \"edge\" statements\n  Person->Name Person->Nationality Person->Ethnicity \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="what-is-an-object" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> What is an object?</h3>
-<p>An object is just an instance of a class. So if you create a person from our “person” called John, then “John” is the object an “person” is the class.</p>
-<p>When you create a dataframe for example, you’re creating a <code>data.frame</code> object from the basic structure of the <code>data.frame</code> class.</p>
+<p>An object is just an instance of a class. So if you create a person from our &quot;person&quot; called John, then &quot;John&quot; is the object an &quot;person&quot; is the class.</p>
+<p>When you create a dataframe for example, you're creating a <code>data.frame</code> object from the basic structure of the <code>data.frame</code> class.</p>
 </div>
 <div id="objects-and-classes-in-r" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Objects and Classes in R</h3>
@@ -236,60 +264,150 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Everything that exists is an object.</li>
 <li>Everything that happens is a function call.</li>
 </ul>
-<p>— John Chambers&quot;</p>
+<p>--- John Chambers&quot;</p>
 </blockquote>
 <p>So every function, dataframe, plot, list, vector, integer, everything is an object.</p>
 <p>To see the class of an object in R, use the <code>class()</code> function.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">class</span>(<span class="kw">data.frame</span>()) <span class="co"># here we&#39;re finding the class of an empty data.frame</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">data.frame</span>()) <span class="co"># here we&#39;re finding the class of an empty data.frame</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="kw">class</span>(data.frame) <span class="co"># here we&#39;re finding the class of the data.frame() function</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(data.frame) <span class="co"># here we&#39;re finding the class of the data.frame() function</span></code></pre></div>
 <pre><code>## [1] &quot;function&quot;</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1"><span class="kw">class</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-</div>
-<div id="inheritance" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Inheritance</h3>
-<p>Sometimes, different classes are interelated. For example, if you were storing data on cars, then you might have a “car” class. But if you’re storing data on lots of different makes of cars, you might also have classes for each brand (e.g. “Ford”, “Ferrari”, etc.). All of these classes are still cars, and so you don’t want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. This highlights the benefits of inheritance. By creating a “car” class and allowing your subsequent model classes to inherit all of the attributes of the “car” class, you can avoid duplication. This way, when you want to add any attributes to all of your cars, you can just do it via the “car” class rather than changing each model class.</p>
-<p>Inheritance is an extremely deep topic which we won’t go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"><span class="kw">is</span>(1L)</a></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;             &quot;vector&quot;             
-## [5] &quot;data.frameRowLabels&quot;</code></pre>
+<div id="inheritance" class="section level4">
+<h4><span class="header-section-number">4.3.3.1</span> Inheritance</h4>
+<p>Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a &quot;vehicle&quot; class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. &quot;car&quot;, &quot;motorbike&quot;, etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a &quot;vehicle&quot; class and allowing your subsequent classes to inherit all of the attributes of the &quot;vehicle&quot; class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the &quot;vehicle&quot; class rather than changing each type of vehicle class.</p>
+<p>Diagramming this relationship:</p>
+<div id="htmlwidget-ce2b7f03282a412e0e99" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ce2b7f03282a412e0e99">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  Vehicle;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  Car; Motorbike; Van\n  \n  Vehicle->Car\n  Vehicle->Van\n  Vehicle->Motorbike\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(1L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
+## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
+<p>Diagramming this like our &quot;vehicle&quot; example would look like this:</p>
+<div id="htmlwidget-e6583e3d0c2e726c53a7" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e6583e3d0c2e726c53a7">{"x":{"diagram":"\ndigraph inheritance {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  vector;\n  \n    node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  numeric;\n\n  node [shape = box,\n        fixedsize = true,\n        width = 0.6,\n        fontsize = 7,\n        style = filled,\n        fillcolor = Grey] // sets as circles\n  double;\n  \n    node [shape = box,\n        fontname = Helvetica,\n        style = filled,\n        fillcolor = Grey]\n  integer;\n  \n  vector->numeric\n  numeric->double\n  double->integer\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Here we can see that an integer object is made up of the integer, double, numeric classes. The order of inheritance goes from left to right so we know that the integer class inherits from the double class, which inherits from the numeric class.</p>
+</div>
 <div id="object-oriented-systems" class="section level4">
-<h4><span class="header-section-number">4.3.4.1</span> Object-Oriented Systems</h4>
-<p>Unfortunately (or fortunately, depending on your point of view), R doesn’t have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We’re not going to go into the difference here, but I recommend Hadley’s <a href="https://adv-r.hadley.nz/">Advanced R</a> to better understand the difference between the two. For now, I’m just going to explain the basics of the S3 system as I think it’s the easiest to understand and helps convey the philosophy behind why we use objects slightly more easily.</p>
+<h4><span class="header-section-number">4.3.3.2</span> Object-Oriented Systems</h4>
+<p>Unfortunately (or fortunately, depending on your point of view), R doesn't have a single way of storing objects. In fact, there are 2 object-oriented (OO) programming systems in base R, and more (like R6) can be added via packages. These two base OO systems are S3 and S4, and they differ in the way that objects are constructed, stored, and interacted with. We're not going to go into the difference here, but I recommend Hadley's <a href="https://adv-r.hadley.nz/">Advanced R</a> to better understand the difference between the two. For now, I'm just going to explain the basics of the S3 system as I think it's the easiest to understand and helps convey the philosophy behind why we use objects more easily.</p>
 <div id="s3" class="section level5">
-<h5><span class="header-section-number">4.3.4.1.1</span> S3</h5>
-<p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to acheive it’s goal. In other words, we acheive a fairly high level goal like printing by calling a function that is specific to the object we’re working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
-<p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it’s the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
-<p>Going back to R, if you type <code>print.</code> into the console, the autocompleter will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you’ve passed as an input parameter.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="co"># here we&#39;re using the generic</span></a>
-<a class="sourceLine" id="cb212-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>)) </a></code></pre></div>
+<h5><span class="header-section-number">4.3.3.2.1</span> S3</h5>
+<p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to achieve it's goal. In other words, we achieve a fairly high level goal like printing by calling a function that is specific to the object we're working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
+<p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it's the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
+<p>Going back to R, if you type <code>print.</code> into the console, the autocompleter will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter. If there isn't a specific method for the object you've provided, then it will use the default <code>print.default()</code> method.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># here we&#39;re using the generic</span>
+<span class="kw">print</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>)) </code></pre></div>
 <pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="co"># because we&#39;re printing a Date object,</span></a>
-<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="co"># this is the method that is actually used</span></a>
-<a class="sourceLine" id="cb214-3" data-line-number="3"><span class="kw">print.Date</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># because we&#39;re printing a Date object,</span>
+<span class="co"># this is the method that is actually used</span>
+<span class="kw">print.Date</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
-<p>While you can often tell if something is an S3 method by it being a generic followed by a <code>.</code> and then an object name, don’t rely on this, because people often use <code>.</code> to separate words in functions that can make them look like S3 methods when they’re not.</p>
-<p>The important thing I hoped you’ve gleaned from this explanation is that you don’t really need to know what your object is to use a generic. Yes, there are generics that only have methods for specific objects and so it may be important to know what type your object is to make sure you can use a particular generic, R takes care of which method is dispatched for you. If that doesn’t convince you that you don’t need to understand the underlying structure of an object to get hands on with R, I don’t know what will.</p>
-<p>Note: In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person’s bank account might have the method <code>Balance()</code>, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.</p>
-</div>
-</div>
-<div id="creating-objects" class="section level4">
-<h4><span class="header-section-number">4.3.4.2</span> Creating objects</h4>
-<p>The obvious question is “Can I make my own objects in R?”. The answer is yes. And quite easily too. Whether you should or not is a different story. I’m not going to go over how to create an object in S3 or S4 or any other OO system here because there is more than enough for an entire book, but there are plenty of resources out there that can help you.</p>
-
+<p>If an object inherits multiple classes, then R will look for the correct method starting from it's most specific class. So for example, if an object has classes <code>c(&quot;class_1&quot;, &quot;class_2&quot;)</code>, then R would look for <code>print.class_1()</code> and only look for <code>print.class_2()</code> (and then <code>print.default()</code>) if it couldn't find <code>print.class_1()</code>.</p>
+<p>While you can often tell if something is an S3 method by it being a generic followed by a <code>.</code> and then an object name, don't rely on this, because people often use <code>.</code> to separate words in functions that can make them look like S3 methods when they're not.</p>
+<p><strong>Note:</strong> In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method <code>Balance()</code>, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.</p>
 </div>
 </div>
 </div>
-<!-- </div> -->
+<div id="creating-classes" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Creating classes</h3>
+<p>The obvious question is &quot;Can I make my own class in R?&quot;. The answer is yes. And quite easily too. Whether you should or not is a different story. We're just going to look very briefly at creating a class in using S3 for now, but I'd recommend Hadley's <a href="http://adv-r.had.co.nz/">Advanced R</a> for a deeper look at the different systems and how to use them.</p>
+<div id="class-attribute" class="section level4">
+<h4><span class="header-section-number">4.3.4.1</span> Class attribute</h4>
+<p>In S3, the class of an object is defined by its <code>class</code> attribute, which stores a vector of class names. To see an object's class, we use the <code>class()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>This class attribute will determine what method is dispatched when we call a generic on this object. So here, if we called <code>print()</code> on <code>1</code>, then it would look for <code>print.numeric()</code> and dispatch that method to print the object. Technically, this just calls <code>print.default()</code> because the default method knows how to print numeric values but the logic remains.</p>
+<p>Something which will make OO programmers everywhere cringe, is that the class attribute for an R object is modifiable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">var_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">1</span>
+<span class="kw">class</span>(var_<span class="dv">1</span>) &lt;-<span class="st"> &quot;custom_class&quot;</span>
+<span class="kw">class</span>(var_<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;custom_class&quot;</code></pre>
+<p>Now, when we attempt to print the <code>var_1</code> variable, R will look for the appropriate method based on it's class (<code>custom_class</code>), which would be <code>print.custom_class()</code>. In this case, a <code>print.custom_class</code> method doesn't exist, so it'll default to the <code>print.default()</code> method:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(var_<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 1
+## attr(,&quot;class&quot;)
+## [1] &quot;custom_class&quot;</code></pre>
+<p>Importantly, we've learnt here that setting the class of an object is as easy as using the <code>class()</code> function and the <code>&lt;-</code> operator.</p>
+</div>
+<div id="constructor-functions" class="section level4">
+<h4><span class="header-section-number">4.3.4.2</span> Constructor functions</h4>
+<p>To ensure our objects in the same class all have a similar structure, we want to make a constructor function that requires certain values. For example, let's create a class to store addresses, and we'll say that we need the house name, the road and the city. Our constructor function might look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">address &lt;-<span class="st"> </span><span class="cf">function</span>(house_name, road, city) {
+  address &lt;-<span class="st"> </span><span class="kw">list</span>(
+    <span class="dt">house_name =</span> house_name,
+    <span class="dt">road =</span> road,
+    <span class="dt">city =</span> city
+    )
+  <span class="kw">class</span>(address) &lt;-<span class="st"> &quot;address&quot;</span>
+  <span class="kw">return</span>(address)
+}</code></pre></div>
+<p>Now to create an object from my constructor function, I just need to use the <code>address()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_address &lt;-<span class="st"> </span><span class="kw">address</span>(<span class="st">&quot;4&quot;</span>, <span class="st">&quot;Pleasant Drive&quot;</span>, <span class="st">&quot;London&quot;</span>)
+<span class="kw">class</span>(my_address)</code></pre></div>
+<pre><code>## [1] &quot;address&quot;</code></pre>
+<p>Now, if I called <code>print(my_address)</code>, R would look for a <code>print.address()</code> method. But, it wouldn't find one and so would turn to <code>print.default()</code> which would print our object like any other list. Therefore, we might want to write our own method to print our new object how we want to.</p>
+</div>
+<div id="creating-methods" class="section level4">
+<h4><span class="header-section-number">4.3.4.3</span> Creating methods</h4>
+<p>To create a method, all we need to do is create a function with the name of our generic followed by a '.' and then name of our class. So from our previous example, our method would look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">print.address &lt;-<span class="st"> </span><span class="cf">function</span>(address) {
+  <span class="kw">cat</span>(<span class="st">&quot;The house name is: &quot;</span>, address<span class="op">$</span>house_name, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+  <span class="kw">cat</span>(<span class="st">&quot;The road is: &quot;</span>, address<span class="op">$</span>road, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+  <span class="kw">cat</span>(<span class="st">&quot;The city is: &quot;</span>, address<span class="op">$</span>city, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+}</code></pre></div>
+<p>Now when we call <code>print()</code> on our new object, it will find the <code>print.address()</code> method and use that to print our object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my_address)</code></pre></div>
+<pre><code>## The house name is:  4 
+## The road is:  Pleasant Drive 
+## The city is:  London</code></pre>
+</div>
+<div id="creating-generics" class="section level4">
+<h4><span class="header-section-number">4.3.4.4</span> Creating generics</h4>
+<p>You can also create your own generic functions for your classes. Generic functions have a very simple structure. Let's say we want to create a new generic called <code>post</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">UseMethod</span>(<span class="st">&quot;post&quot;</span>)
+}</code></pre></div>
+<p>This is just telling R that when the <code>post()</code> function is called on an object, look for the appropriate <code>post</code> method to use. Without us writing any methods, this would be useless because R wouldn't have any methods to use!</p>
+<p>Let's create a default method that can be applied if we don't have a more specific class:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post.default &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="kw">cat</span>(<span class="st">&quot;Your object is now in the post! Expect it in 5 to 10 weeks&quot;</span>)
+}</code></pre></div>
+<p>In our example, this default method isn't going to be very useful but it demonstrates that we need a default method to be dispatched if we haven't written a specific method for that object class.</p>
+<p>Let's write a method for our <code>address</code> object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">post.address &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  <span class="kw">cat</span>(<span class="st">&quot;Your object has been posted to &quot;</span>, x<span class="op">$</span>house_name, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>road, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>city, <span class="st">&quot;!&quot;</span>)
+}</code></pre></div>
+<p>Now, if we call our new generic on two different classes of object and compare:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">post</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## Your object is now in the post! Expect it in 5 to 10 weeks</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">post</span>(my_address)</code></pre></div>
+<pre><code>## Your object has been posted to  4   Pleasant Drive   London !</code></pre>
+<p>We can see that in the top example, <code>post()</code> has dispatched the <code>post.default()</code> method. In the second example though, it's dispatched the <code>post.address()</code> method.</p>
+<p>As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it's quick and easy though, it's not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you're careful though, creating custom objects in your projects can be very powerful.</p>
+</div>
+</div>
+<div id="questions-objects-and-classes" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Questions</h3>
+<ol style="list-style-type: decimal">
+<li>Why does <code>is(1L)</code> return integer, then double, then numeric in that order?</li>
+<li>Now we understand inheritance, why can dataframes be subsetted with a <code>$</code>?</li>
+<li>If we create a dataframe and then call <code>print.default()</code> on it, why do we get the output that we do? Why does it look more like a list than a dataframe?</li>
+<li>Why are constructors not a fool-proof way of making sure that all our objects of our class will have the same structure? How else might one create an object of class <code>address</code>?</li>
+<li><code>methods(&quot;mean&quot;)</code> returns methods for dates and datetimes, but no other object. Why is this? What does this mean when constructing methods for a new generic?</li>
+</ol>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
 <a href="environments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="expressions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -344,7 +462,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
