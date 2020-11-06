@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb359-3"><a href="iteration.html#cb359-3" aria-hidden="true"></a>  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
 <span id="cb359-4"><a href="iteration.html#cb359-4" aria-hidden="true"></a>}</span>
 <span id="cb359-5"><a href="iteration.html#cb359-5" aria-hidden="true"></a><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 10.164518 10.068733  8.566719  9.084784 10.019853</code></pre>
+<pre><code>## [1]  9.555851  8.823729  8.984552  8.328919 11.518391</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
 Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
@@ -359,7 +359,7 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <span id="cb363-9"><a href="iteration.html#cb363-9" aria-hidden="true"></a><span class="kw">head</span>(</span>
 <span id="cb363-10"><a href="iteration.html#cb363-10" aria-hidden="true"></a>  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
 <span id="cb363-11"><a href="iteration.html#cb363-11" aria-hidden="true"></a>)</span></code></pre></div>
-<pre><code>## [1] 9.770207</code></pre>
+<pre><code>## [1] 10.02993</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. This is very closely related to the idea of vectorized functions, which we looked at the in <a href="functions-teachers.html#vectorised-functions">Functions</a>. All vectorised functions will essentially wrap around a loop in same way or another.</p>
 <div id="applying-functions" class="section level4" number="4.6.4.1">
 <h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
