@@ -434,7 +434,7 @@ and
 ##         x &lt;- as.character(x)
 ##     .Internal(substr(x, as.integer(start), as.integer(stop)))
 ## }
-## &lt;bytecode: 0x55e28d68a308&gt;
+## &lt;bytecode: 0x558a94128278&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Conversely, <code>substr()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
 <div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions-teachers.html#cb256-1" aria-hidden="true"></a><span class="kw">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
@@ -468,7 +468,7 @@ and
 </div>
 <div id="example-answer" class="section level3" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Example answer</h3>
-<p>Going back to our <a href="functions-teachers">previous example</a> of when we might want to make a function, what might our function actually look like. Recapping, we know we need to calculate the mean and sd of a column, but that the name of the column might change. Using what we’ve just learnt, let’s have a go:</p>
+<p>Going back to our <a href="functions-teachers">previous example</a> of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we’ve just learnt, let’s have a go:</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="functions-teachers.html#cb262-1" aria-hidden="true"></a>create_norm_dist_from_column &lt;-<span class="st"> </span><span class="cf">function</span>(dataset, column_name, <span class="dt">n =</span> <span class="dv">1000</span>) {</span>
 <span id="cb262-2"><a href="functions-teachers.html#cb262-2" aria-hidden="true"></a>  ds_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset[[column_name]])</span>
 <span id="cb262-3"><a href="functions-teachers.html#cb262-3" aria-hidden="true"></a>  ds_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset[[column_name]])</span>
@@ -479,7 +479,7 @@ and
 <span id="cb262-8"><a href="functions-teachers.html#cb262-8" aria-hidden="true"></a>normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</span>
 <span id="cb262-9"><a href="functions-teachers.html#cb262-9" aria-hidden="true"></a></span>
 <span id="cb262-10"><a href="functions-teachers.html#cb262-10" aria-hidden="true"></a><span class="kw">head</span>(normal_dist_ds1, <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] -2.560486 23.957655 27.898913  9.601658 36.919384</code></pre>
+<pre><code>## [1] 43.543656 44.419778 28.330483  6.604394 16.597145</code></pre>
 <p>Now, instead of copying the code each time we need it, we’ve extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
 <p>This is an example of the concept of abstraction, which is a common theme in programming. If you’re interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you’ve hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
 </div>
