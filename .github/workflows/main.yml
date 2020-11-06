@@ -24,7 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+        with:
+          persist-credentials: false
+          
       - name: Setup R
         uses: r-lib/actions/setup-r@v1
 
