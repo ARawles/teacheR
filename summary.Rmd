@@ -35,7 +35,9 @@ If you feel that there are improvements to be made to the content or how it was 
     + The `%y` part of the `format` paramter tells R that the year value is 2 digits long. R therefore parses the date as `19/01/20` and ignores everything after it - resulting in 19th Jan 2020.
 4. Why does `as.numeric(TRUE)` return 1? What will `as.logical(2)` return?
     + `TRUE` and `FALSE` have historically been stored as `1` and `0` respectively, so `as.logical(1)` will also return TRUE. R treats any numeric value greater than 0 as `TRUE`, so `as.logical(2)` will return TRUE.
-
+5. Look at the `identical()` function. How is that different from `==`?
+    + The `identical()` function does not use implicit conversion whereas `==` does. You can test this by comparing `identical(1, 1L)` and `1 == 1L`.
+    
 #### Data Structures {#data-structures-answers}
 
 1. If I want to store a set of integers, what data structure should I use and why?
