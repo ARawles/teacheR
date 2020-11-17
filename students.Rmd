@@ -530,7 +530,7 @@ So my advice is simply to be aware of it. Don't fight it, don't worry about it u
 2. What is an ordered factor and how is it different to a character string?
 3. Why does `as.Date("19/01/2019", format = "%d/%m/%y")` return the date 19th Jan 2020 and not 19th Jan 2019?
 4. Why does `as.numeric(TRUE)` return 1? What will `as.logical(2)` return?
-5. Look at the `is.identical()` function. How is that different from `==`?
+5. Look at the `identical()` function. How is that different from `==`?
 
 ## Data structures
 
@@ -571,7 +571,7 @@ c(1L, 1.5)
 ```
 We see that our integer (`1L`) becomes a double.
 
-This is related to the concept of **implicit conversion** in R. Roughly speaking, all of the values in your vector will get coerced to the most *complex* type.
+This is related to the concept of [**implicit conversion**](#implicit-conversion) in R. Roughly speaking, all of the values in your vector will get coerced to the most *complex* type.
 
 #### Naming 
 
