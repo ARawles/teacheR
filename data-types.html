@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.3 Data types | teacheR</title>
   <meta name="description" content="3.3 Data types | teacheR" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.3 Data types | teacheR" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="variable-assignment.html"/>
 <link rel="next" href="data-structures.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
@@ -139,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+<li class="chapter" data-level="1.3" data-path="why-teacher.html"><a href="why-teacher.html"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -328,18 +331,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type.</p>
 <p>Logical variables are used a lot in response questionnaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
 <p>To test whether something is stored as logical, we use the <code>is.logical()</code> function:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-types.html#cb42-1" aria-hidden="true"></a><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-types.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-types.html#cb44-1" aria-hidden="true"></a><span class="kw">is.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-types.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To convert a value to logical, use the <code>as.logical()</code> function:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-types.html#cb46-1" aria-hidden="true"></a><span class="kw">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-types.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1" aria-hidden="true"></a><span class="kw">as.logical</span>(<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-types.html#cb50-1" aria-hidden="true"></a><span class="kw">as.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-types.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-types.html#cb52-1" aria-hidden="true"></a><span class="kw">as.logical</span>(<span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-types.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Be careful though, just because a conversion seems obvious to you, doesn’t mean you’ll get the expected result! For instance, what do you think <code>as.logical(2)</code> should return? See for yourself.</p>
 </div>
@@ -348,34 +351,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see <a href="data-types.html#integer">Integers</a>) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
 <p>As an aside, it’s called double because it’s stored using <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision</a>.</p>
 <p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-types.html#cb54-1" aria-hidden="true"></a><span class="kw">is.double</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-types.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-types.html#cb56-1" aria-hidden="true"></a><span class="kw">is.numeric</span>(<span class="st">&quot;not numeric&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-types.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(<span class="st">&quot;not numeric&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-types.html#cb58-1" aria-hidden="true"></a><span class="kw">is.double</span>(2L) <span class="co"># see the next section for why this returns FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-types.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(2L) <span class="co"># see the next section for why this returns FALSE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To convert a value to a double, use the <code>as.double()</code> or <code>as.numeric()</code> functions:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-types.html#cb60-1" aria-hidden="true"></a><span class="kw">as.double</span>(<span class="st">&quot;5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-types.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;5&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-types.html#cb62-1" aria-hidden="true"></a><span class="kw">as.numeric</span>(<span class="st">&quot;10&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-types.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;10&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-types.html#cb64-1" aria-hidden="true"></a><span class="kw">as.double</span>(<span class="st">&quot;im going to cause a warning&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-types.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;im going to cause a warning&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
 <div id="integer" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Integer</h3>
 <p>Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: <code>number &lt;- 1</code>, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an <code>L</code>, like this: <code>number &lt;- 1L</code>. Attempting to store something that isn’t an integer as an integer will result in a warning:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types.html#cb67-1" aria-hidden="true"></a><span class="fl">1.5</span>L</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
 <p>For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.</p>
 <p>To check if something is an integer, use the <code>is.integer()</code> function:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-types.html#cb69-1" aria-hidden="true"></a><span class="kw">is.integer</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-types.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types.html#cb71-1" aria-hidden="true"></a><span class="kw">is.integer</span>(2L)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(2L)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>To convert to an integer, use the <code>L</code> suffix or the <code>as.integer()</code> function:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types.html#cb73-1" aria-hidden="true"></a>1L</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types.html#cb73-1" aria-hidden="true" tabindex="-1"></a>1L</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
 <div id="character" class="section level3" number="3.3.4">
@@ -383,16 +386,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what’s inside the quotation marks, it will be stored as character. For example,
 <code>"5"</code> stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, <code>{r, error = TRUE} "5" + 5</code> doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
 <p>To check whether something is stored as a character, use the <code>is.character()</code> function:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types.html#cb75-1" aria-hidden="true"></a><span class="kw">is.character</span>(<span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types.html#cb77-1" aria-hidden="true"></a><span class="kw">is.character</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-types.html#cb79-1" aria-hidden="true"></a><span class="kw">is.character</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-types.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To convert something to a character, use the <code>as.character()</code> function:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-types.html#cb81-1" aria-hidden="true"></a><span class="kw">as.character</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-types.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;5&quot;</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-types.html#cb83-1" aria-hidden="true"></a><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-types.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;TRUE&quot;</code></pre>
 </div>
 <div id="factors" class="section level3" number="3.3.5">
@@ -400,19 +403,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.</p>
 <p>A factor level is made up of two things. A label and a number that represents that group. In my countries example, our factor would have the labels “England”, “Spain”, “France” and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.</p>
 <p>To create a factor, we just use the <code>factor()</code> function:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-types.html#cb85-1" aria-hidden="true"></a><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-types.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] England France  Spain  
 ## Levels: England France Spain</code></pre>
 <p>It’s also worth remembering that you can have levels that don’t appear in the data you have. For example, in a questionnaire, you may provide the options “None”, “Some”, “All”. But in your responses, you may see that no-one chose the “None” option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
 <p>You can also specify whether a factor is <em>ordered</em>. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that “Some” is better than “None”, and “All” is better than “Some”. To create an ordered factor, just specify <code>ordered = TRUE</code> in your function. By default, the factor will be ordered in the order the values appear, unless you specify levels (see below).</p>
 <p>To convert something to a factor, use the <code>factor()</code> function if you want to specify levels and labels, or <code>as.factor()</code> to do it for you:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1" aria-hidden="true"></a><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] Some All 
 ## Levels: None Some All</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-types.html#cb89-1" aria-hidden="true"></a><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-types.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] Some All 
 ## Levels: None &lt; Some &lt; All</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1" aria-hidden="true"></a><span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] Some All 
 ## Levels: All Some</code></pre>
 <p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
@@ -420,7 +423,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="converting-from-factors" class="section level4" number="3.3.5.1">
 <h4><span class="header-section-number">3.3.5.1</span> Converting from factors</h4>
 <p>Sometimes you’ll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we’ve already seen:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1" aria-hidden="true"></a><span class="kw">as.character</span>(<span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;All&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;All&quot;</span>)))</span></code></pre></div>
 <pre><code>## [1] &quot;Some&quot; &quot;None&quot; &quot;All&quot;</code></pre>
 </div>
 </div>
@@ -428,28 +431,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.3.6</span> Dates</h3>
 <p>Dates in any language are tricky. Different countries store dates in different formats and different bits of software store dates in different ways (looking at you Excel). This can make storing values as dates tough.</p>
 <p>The most common way of creating a date is to use the <code>as.Date()</code> function. To use this function, you just need to provide your date as a character string:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-types.html#cb95-1" aria-hidden="true"></a><span class="kw">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-types.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2019-01-01&quot;</code></pre>
 <p>But Adam, how does R know which one is the month and which is the day? Good question, thank you for asking. By default, R expects your character string to be in the order “Year/Month/Day”. If you don’t provide it in that format, you’ll get a nonsense output:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-types.html#cb97-1" aria-hidden="true"></a><span class="kw">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-types.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;1-12-20&quot;</code></pre>
 <p>If your data is in a different format however, you can specify the format:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-types.html#cb99-1" aria-hidden="true"></a><span class="kw">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-types.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2019-12-01&quot;</code></pre>
 <p>Here, we’re telling R that the string is in the format “Day/Month/Year”. A list of the different codes that can be used in the format parameter can be found <a href="https://www.statmethods.net/input/dates.html">here</a>, or by typing “R date codes” into Google.</p>
 <p>Because nothing in life is simple, sometimes you’ll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it’s a number, our <code>as.Date(..., format = ...)</code> doesn’t work. Instead, we can still use the <code>as.Date()</code> function, but we need to specify what the origin date is that the number refers to.</p>
 <p>By default, when importing from Excel in Windows, the origin date is December 31st 1899. More commonly, the date January 1st 1970 (also known as the epoch date) is used.</p>
 <p>Anyway, to specify your origin, we use the <code>origin</code> parameter, like this:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-types.html#cb101-1" aria-hidden="true"></a><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-types.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="dv">18262</span>, <span class="at">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
 <p>Notice the format I’ve provided the origin in. It’s the same as the default that R expects, and I would recommend copying that format wherever possible. If you’re someone who just wants to watch the world burn, then you can specify a format for your origin as well…’</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-types.html#cb103-1" aria-hidden="true"></a><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-types.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="dv">18262</span>, <span class="at">origin =</span> <span class="fu">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
 <p>but where’s the humanity in that?</p>
 <p>Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the <code>is()</code> or <code>class()</code> functions. If the first value returned is “Date”, then you know it’s a date:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-types.html#cb105-1" aria-hidden="true"></a><span class="kw">is</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-types.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-types.html#cb107-1" aria-hidden="true"></a><span class="kw">class</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-types.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
 </div>
 <div id="datetimes-posixct" class="section level3" number="3.3.7">
@@ -458,67 +461,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 One of the reasons for this is that datetimes aren’t actually called datetimes. They’re called POSIXct in R. So whenever you see that dreadful word, just remember “ah, Adam told me that means datetime” and you’ll be fine.</p>
 <p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you’re referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
 <p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-types.html#cb109-1" aria-hidden="true"></a><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-types.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-types.html#cb111-1" aria-hidden="true"></a><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;NZ&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-types.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;NZ&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 NZDT&quot;</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-types.html#cb113-1" aria-hidden="true"></a><span class="kw">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-types.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="at">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
 <p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> and <code>class()</code> functions instead:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-types.html#cb115-1" aria-hidden="true"></a><span class="kw">is</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-types.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-types.html#cb117-1" aria-hidden="true"></a><span class="kw">class</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-types.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
 </div>
 <div id="na-and-null" class="section level3" number="3.3.8">
 <h3><span class="header-section-number">3.3.8</span> NA and NULL</h3>
 <p>The R language has two closely related values, <strong>NA</strong> and <strong>NULL</strong>.</p>
 <p><em>NULL</em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no ‘type’ because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="data-types.html#cb119-1" aria-hidden="true"></a><span class="kw">is.character</span>(<span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="data-types.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-types.html#cb121-1" aria-hidden="true"></a><span class="kw">is.null</span>(<span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-types.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-types.html#cb123-1" aria-hidden="true"></a><span class="st">&quot;NULL&quot;</span> <span class="op">==</span><span class="st"> </span><span class="ot">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-types.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;NULL&quot;</span> <span class="sc">==</span> <span class="cn">NULL</span></span></code></pre></div>
 <pre><code>## logical(0)</code></pre>
 <p>On the other hand, <em>NA</em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can’t assign an appropriate value.</p>
 <p>For example, attempting to parse a character string to a date format that doesn’t match will result in a NA value:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-types.html#cb125-1" aria-hidden="true"></a><span class="kw">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-types.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>R has tried to parse a value from one type into another. The value isn’t NULL because it clearly isn’t missing, but it couldn’t be converted to a date type, so it’s NA.
 Unlike NULL, there are different NA values for each datatype (although they’ll all look like NA in the console). In the example above, we actually created a NA that has the Date type:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-types.html#cb127-1" aria-hidden="true"></a>errant_date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span>
-<span id="cb127-2"><a href="data-types.html#cb127-2" aria-hidden="true"></a><span class="kw">is</span>(errant_date)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-types.html#cb127-1" aria-hidden="true" tabindex="-1"></a>errant_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span>
+<span id="cb127-2"><a href="data-types.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(errant_date)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
 <p>This is because R knows what type the NA <em>should</em> be, but it couldn’t assign in a proper value.</p>
 <p>The same behaviour can be observed for other data types:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-types.html#cb129-1" aria-hidden="true"></a><span class="kw">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-types.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-types.html#cb132-1" aria-hidden="true"></a><span class="kw">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-types.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data-types.html#cb134-1" aria-hidden="true"></a><span class="kw">is</span>(<span class="kw">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data-types.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning in is(as.numeric(&quot;not a number&quot;)): NAs introduced by coercion</code></pre>
 <pre><code>## [1] &quot;numeric&quot; &quot;vector&quot;</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-types.html#cb137-1" aria-hidden="true"></a><span class="kw">is</span>(<span class="kw">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-types.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot; &quot;vector&quot;</code></pre>
 <p>To test whether something is NA, we use the <code>is.na()</code> function. You don’t need to worry about what type the NA is, this will test if it is an NA of any type.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-types.html#cb139-1" aria-hidden="true"></a><span class="kw">is.na</span>(<span class="ot">NA_character_</span>) <span class="co"># this will be an NA that is of type &#39;character&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-types.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_character_</span>) <span class="co"># this will be an NA that is of type &#39;character&#39;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-types.html#cb141-1" aria-hidden="true"></a><span class="kw">is.na</span>(<span class="ot">NA_integer_</span>) <span class="co"># this will be an NA that is of type &#39;integer&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-types.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_integer_</span>) <span class="co"># this will be an NA that is of type &#39;integer&#39;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div id="dealing-with-nas" class="section level4" number="3.3.8.1">
 <h4><span class="header-section-number">3.3.8.1</span> Dealing with NAs</h4>
 <p>Dealing with NAs is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one NA will often return NA:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-types.html#cb143-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="ot">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-types.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-types.html#cb145-1" aria-hidden="true"></a><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="ot">NA</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-types.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>))</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data-types.html#cb147-1" aria-hidden="true"></a><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data-types.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>In some cases, those NAs will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.</p>
 <p>Alternatively, data imports can often return NA values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.</p>
 <p>Ultimately, how you deal with NA values is a question that you’ll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the NA values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the NA values from the supplied list of values:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-types.html#cb149-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-types.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 </div>
@@ -531,7 +534,7 @@ Unlike NULL, there are different NA values for each datatype (although they’ll
 <div id="implicit-conversion" class="section level3" number="3.3.10">
 <h3><span class="header-section-number">3.3.10</span> Implicit Conversion</h3>
 <p>Converting between types using the <code>as.x()</code> functions is nice and easy because the type that you’re converting to is explicitly defined. However, there is also <em>implicit conversion</em> in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let’s look at a proper example.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-types.html#cb151-1" aria-hidden="true"></a><span class="kw">paste0</span>(<span class="st">&quot;I&#39;m a character&quot;</span>, <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-types.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">&quot;I&#39;m a character&quot;</span>, <span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;I&#39;m a character100&quot;</code></pre>
 <p>The <code>paste0()</code> function provides a pretty good example of implicit conversion in the wild. <code>paste0()</code> expects character strings when it’s called, so what happens when you provide it with a number like we did above? Why doesn’t it complain?
 Well it’s because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it’s a bit like a programming autocorrect.</p>
@@ -550,7 +553,7 @@ Well it’s because R automtically converts it for us. It takes that number, con
 <li>What is an ordered factor and how is it different to a character string?</li>
 <li>Why does <code>as.Date("19/01/2019", format = "%d/%m/%y")</code> return the date 19th Jan 2020 and not 19th Jan 2019?</li>
 <li>Why does <code>as.numeric(TRUE)</code> return 1? What will <code>as.logical(2)</code> return?</li>
-<li>Look at the <code>is.identical()</code> function. How is that different from <code>==</code>?</li>
+<li>Look at the <code>identical()</code> function. How is that different from <code>==</code>?</li>
 </ol>
 </div>
 </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Environments | teacheR</title>
   <meta name="description" content="4.2 Environments | teacheR" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Environments | teacheR" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="functions-teachers.html"/>
 <link rel="next" href="objects-and-classes.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
@@ -139,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+<li class="chapter" data-level="1.3" data-path="why-teacher.html"><a href="why-teacher.html"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -296,15 +299,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.2.1</span> Environment basics</h3>
 <p>At its core, an environment is a collection of objects. A bit like a list, environments store multiple objects in a single structure.</p>
 <p>To create a new environment, we use the <code>new.env()</code> function.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="environments.html#cb271-1" aria-hidden="true"></a>new_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="environments.html#cb271-1" aria-hidden="true" tabindex="-1"></a>new_env <span class="ot">&lt;-</span> <span class="fu">new.env</span>()</span></code></pre></div>
 <p>To add items to our environment, we can add them like we would a list using the <code>$</code> operator:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="environments.html#cb272-1" aria-hidden="true"></a>new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;hello&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="environments.html#cb272-1" aria-hidden="true" tabindex="-1"></a>new_env<span class="sc">$</span>first_object <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span></code></pre></div>
 <p>To list all of the objects in an environment, we use the <code>ls()</code> function:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="environments.html#cb273-1" aria-hidden="true"></a><span class="kw">ls</span>(new_env)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="environments.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(new_env)</span></code></pre></div>
 <pre><code>## [1] &quot;first_object&quot;</code></pre>
 <p>Importantly, you can’t have two objects in the same environment with the same name. If you try, you’ll just overwrite the previous value:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="environments.html#cb275-1" aria-hidden="true"></a>new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;world&quot;</span></span>
-<span id="cb275-2"><a href="environments.html#cb275-2" aria-hidden="true"></a>new_env<span class="op">$</span>first_object</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="environments.html#cb275-1" aria-hidden="true" tabindex="-1"></a>new_env<span class="sc">$</span>first_object <span class="ot">&lt;-</span> <span class="st">&quot;world&quot;</span></span>
+<span id="cb275-2"><a href="environments.html#cb275-2" aria-hidden="true" tabindex="-1"></a>new_env<span class="sc">$</span>first_object</span></code></pre></div>
 <pre><code>## [1] &quot;world&quot;</code></pre>
 </div>
 <div id="environment-inheritance" class="section level3" number="4.2.2">
@@ -313,8 +316,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Every environment (with the exception of what we call the empty environment) has a parent. For example, when I created my <code>new_env</code> environment before, this was created in the <strong>global environment</strong>. The global environment is the environment that objects are assigned to when working in R interactively. The global environment’s parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function. These package environments will contain everything that the package developer included with the package (i.e. functions, maybe some datasets, etc.).</p>
 <p>At the top of the environments of packages you’ve loaded will be the <strong>base environment</strong> which is the environment of base R. Finally, the base environment’s parent is the <strong>empty environment</strong> which does not have a parent.</p>
 <p>The hierarchy of these environments looks like this:</p>
-<div id="htmlwidget-16f5a754aa2d1fad7f0a" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-16f5a754aa2d1fad7f0a">{"x":{"diagram":"\ndigraph environments {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fillcolor = Grey,\n        style= filled]\n  \"empty environment\";\n  \"base environment\";\n  \"package environment\n(e.g. package:BMRSr)\";\n  \"global environment\";\n\n  # several \"edge\" statements\n  \"empty environment\"->\"base environment\"\n  \"base environment\"->\"package environment\n(e.g. package:BMRSr)\"\n  \"package environment\n(e.g. package:BMRSr)\"->\"global environment\" \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-77fdc314bbc7de4f55c6" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-77fdc314bbc7de4f55c6">{"x":{"diagram":"\ndigraph environments {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fillcolor = Grey,\n        style= filled]\n  \"empty environment\";\n  \"base environment\";\n  \"package environment\n(e.g. package:BMRSr)\";\n  \"global environment\";\n\n  # several \"edge\" statements\n  \"empty environment\"->\"base environment\"\n  \"base environment\"->\"package environment\n(e.g. package:BMRSr)\"\n  \"package environment\n(e.g. package:BMRSr)\"->\"global environment\" \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="scope" class="section level3" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Scope</h3>
@@ -322,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called <code>sum()</code>. But, if I define a new function in the global environment called <code>sum</code> then which function will be called when I type <code>sum(...)</code>. Well, because we know that the search path starts from the most specific environment, R will look for <code>sum</code> in the global environment first and it’ll find the <code>sum</code> that I’ve just defined. At this point, it’ll stop looking because <code>sum</code> has been found.</p>
 <p>For this reason, it’s a good idea to use a package like <code>conflicted</code> to manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.</p>
 <p>Alternatively, you can specific with which environment R should look for a particular function by prefixing the function with its package and <code>::</code>. For example, if I decided against my better judgement to define a function called <code>sum</code> in my environment, and then I wanted to call the base function, I could do so like this:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="environments.html#cb277-1" aria-hidden="true"></a>base<span class="op">::</span><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="environments.html#cb277-1" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 <div id="function-environments" class="section level3" number="4.2.4">
@@ -330,34 +333,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Functions, when they are called, create their own more specific environment. The parent of this environment will be the environment in which it was called (most often this will be the global environment).</p>
 <p>This breeds some specific behaviours. For example, say you’ve written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
 <p>Let’s see what happens.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="environments.html#cb279-1" aria-hidden="true"></a>sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</span>
-<span id="cb279-2"><a href="environments.html#cb279-2" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb279-3"><a href="environments.html#cb279-3" aria-hidden="true"></a>}</span>
-<span id="cb279-4"><a href="environments.html#cb279-4" aria-hidden="true"></a></span>
-<span id="cb279-5"><a href="environments.html#cb279-5" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb279-6"><a href="environments.html#cb279-6" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb279-7"><a href="environments.html#cb279-7" aria-hidden="true"></a></span>
-<span id="cb279-8"><a href="environments.html#cb279-8" aria-hidden="true"></a><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="environments.html#cb279-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
+<span id="cb279-2"><a href="environments.html#cb279-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb279-3"><a href="environments.html#cb279-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb279-4"><a href="environments.html#cb279-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-5"><a href="environments.html#cb279-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb279-6"><a href="environments.html#cb279-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb279-7"><a href="environments.html#cb279-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-8"><a href="environments.html#cb279-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn’t really make much difference. The function creates its own more specific environment when it’s called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
 <p>But what happens if a variable doesn’t exist in the more specific function environment? Let’s take a look.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="environments.html#cb281-1" aria-hidden="true"></a>sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</span>
-<span id="cb281-2"><a href="environments.html#cb281-2" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w</span>
-<span id="cb281-3"><a href="environments.html#cb281-3" aria-hidden="true"></a>}</span>
-<span id="cb281-4"><a href="environments.html#cb281-4" aria-hidden="true"></a></span>
-<span id="cb281-5"><a href="environments.html#cb281-5" aria-hidden="true"></a>w &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb281-6"><a href="environments.html#cb281-6" aria-hidden="true"></a></span>
-<span id="cb281-7"><a href="environments.html#cb281-7" aria-hidden="true"></a><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="environments.html#cb281-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
+<span id="cb281-2"><a href="environments.html#cb281-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y <span class="sc">+</span> w</span>
+<span id="cb281-3"><a href="environments.html#cb281-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb281-4"><a href="environments.html#cb281-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-5"><a href="environments.html#cb281-5" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb281-6"><a href="environments.html#cb281-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-7"><a href="environments.html#cb281-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn’t exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we’ve provided. So when R doesn’t find it in the more specific environment, it looks in the less-specific global environment. It finds it, and so it uses the value it finds.</p>
 <p>This can be a dangerous thing, so always make sure that you’re function is accessing the values you think it is.</p>
 <p>So does R work the other way? Does it ever look in a more specific environment? Nope.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="environments.html#cb283-1" aria-hidden="true"></a>sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</span>
-<span id="cb283-2"><a href="environments.html#cb283-2" aria-hidden="true"></a>  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb283-3"><a href="environments.html#cb283-3" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb283-4"><a href="environments.html#cb283-4" aria-hidden="true"></a>}</span>
-<span id="cb283-5"><a href="environments.html#cb283-5" aria-hidden="true"></a></span>
-<span id="cb283-6"><a href="environments.html#cb283-6" aria-hidden="true"></a>im_a_sneaky_variable</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="environments.html#cb283-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb283-2"><a href="environments.html#cb283-2" aria-hidden="true" tabindex="-1"></a>  im_a_sneaky_variable <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb283-3"><a href="environments.html#cb283-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb283-4"><a href="environments.html#cb283-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb283-5"><a href="environments.html#cb283-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb283-6"><a href="environments.html#cb283-6" aria-hidden="true" tabindex="-1"></a>im_a_sneaky_variable</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
 <p>Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.</p>
 </div>
@@ -366,27 +369,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Linked with the idea of function environments is mutability. An object is either mutable or immutable. If it is mutable, then it can be edited from within a function environment. If an object is immutable, then it can’t. This might seem like an arbitrary distinction, but it has important consequences. If an object is mutable, then calling the same function on that object twice in a row is going to provide different results (because the object will have changed after the first call). If an object is immutable, then calling the same function on the same object will always return the same value.</p>
 <p>In R, values are immutable. In other words, when you pass an object to a function, that function operates on a <strong>copy</strong> of the object you provided - the object is not changed in place.</p>
 <p>You can replace the value you passed to the function by assigning it to the returned value:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="environments.html#cb285-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb285-2"><a href="environments.html#cb285-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="environments.html#cb285-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb285-2"><a href="environments.html#cb285-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <p>But this hasn’t changed the original value of <code>x</code>. It’s actually just changed the binded value - you’ve created a new one and told <code>x</code> to be of that value now, you haven’t changed the original value.</p>
 <p>For the most, this exact distinction isn’t too important. The important thing to remember is that when you pass an object to a function, <strong>you are operating on a copy of the object, not the original</strong>.</p>
 <div id="super-assignment" class="section level4" number="4.2.5.1">
 <h4><span class="header-section-number">4.2.5.1</span> ‘Super’ assignment</h4>
 <p>There will be occasions, however, when you need to make changes to the global environment regardless of what environment you are currently in. For instance, say you want to increment a counter every time a function is called, regardless of where it’s called from. In these cases, you can use the <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe…</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="environments.html#cb286-1" aria-hidden="true"></a>sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</span>
-<span id="cb286-2"><a href="environments.html#cb286-2" aria-hidden="true"></a>  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb286-3"><a href="environments.html#cb286-3" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
-<span id="cb286-4"><a href="environments.html#cb286-4" aria-hidden="true"></a>}</span>
-<span id="cb286-5"><a href="environments.html#cb286-5" aria-hidden="true"></a></span>
-<span id="cb286-6"><a href="environments.html#cb286-6" aria-hidden="true"></a>count &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb286-7"><a href="environments.html#cb286-7" aria-hidden="true"></a></span>
-<span id="cb286-8"><a href="environments.html#cb286-8" aria-hidden="true"></a><span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="environments.html#cb286-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
+<span id="cb286-2"><a href="environments.html#cb286-2" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb286-3"><a href="environments.html#cb286-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb286-4"><a href="environments.html#cb286-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb286-5"><a href="environments.html#cb286-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb286-6"><a href="environments.html#cb286-6" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb286-7"><a href="environments.html#cb286-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb286-8"><a href="environments.html#cb286-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="environments.html#cb288-1" aria-hidden="true"></a>count</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="environments.html#cb288-1" aria-hidden="true" tabindex="-1"></a>count</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="environments.html#cb290-1" aria-hidden="true"></a><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="environments.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="environments.html#cb292-1" aria-hidden="true"></a>count</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="environments.html#cb292-1" aria-hidden="true" tabindex="-1"></a>count</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don’t need to use <code>&lt;&lt;-</code>. This is because we’re already assigning to the global environment.</p>
 <p>Use the <code>&lt;&lt;-</code> with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.</p>

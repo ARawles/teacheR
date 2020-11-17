@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.5 Packages | teacheR</title>
   <meta name="description" content="2.5 Packages | teacheR" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.5 Packages | teacheR" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="rstudio.html"/>
 <link rel="next" href="for-students.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
@@ -139,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+<li class="chapter" data-level="1.3" data-path="why-teacher.html"><a href="why-teacher.html"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -305,15 +308,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.5.1</span> Installing packages</h3>
 <p>You can think of installing a package as a bit like installing a program on your computer. You only need to install it once, but then you’ll need to open it each time you use it.</p>
 <p>Installing packages is really easy; you just use the <code>install.packages()</code> function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="packages.html#cb3-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;BMRSr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="packages.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BMRSr&quot;</span>)</span></code></pre></div>
 <p>You can choose where the package installs by supplying a path to the <code>lib</code> parameter (e.g. <code>lib = "C:/me/desktop"</code>), but by default it will install it into your default library folder. You can find the path to this default library folder with the <code>.libPaths()</code> function.</p>
 <p>Once the package has been installed, you only need to reinstall it if there’s a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don’t need all of them for every project you do. So instead, we load specific packages we want each time.</p>
 <p>To load a package, use the <code>library()</code> function. Place this somewhere near the start of your script so that it’s obvious which packages someone will need if they’re reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.</p>
 <p>But Adam, what happens if I load two packages that have functions with the same name? Ah, that’s a great question. Later in the book ([#Environments]) we’re going to look at exactly how R deals with this issues, but I’ll give a simple explanation for now. When R loads your packages, it will do it in a specific order. The later on the package is loaded, the higher it’s precedence. That means that when you try and use a function with a name that’s in more than one of the packages you’ve loaded, it will default to the latest package you’ve loaded.</p>
 <p>To help avoid these situations, there are some things in place. Firstly, when you load a package that includes function names that are already used, you’ll get a conflict warning. Secondly, to avoid this confusion altogether, you can be explicit about which package your function came from. To do that, just prefix your function with the package name and <code>::</code> when you use it, like this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="packages.html#cb4-1" aria-hidden="true"></a>dplyr<span class="op">::</span><span class="kw">mutate</span>()</span>
-<span id="cb4-2"><a href="packages.html#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="packages.html#cb4-3" aria-hidden="true"></a><span class="kw">mutate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="packages.html#cb4-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">mutate</span>()</span>
+<span id="cb4-2"><a href="packages.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="packages.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>()</span></code></pre></div>
 <p>Finally, there is a package called <code>conflicted</code> that you can use to avoid these issues. Rather than giving a certain package precedence because it was loaded later, attempting to use a function that could come from more than one package will cause an error and you’ll need to be explicit with which one you mean.</p>
 <p>Personally, I use the prefix method. Yes it’s a little bit more verbose, but it makes it 100 times easier for someone else to know exactly where your function has come from without the need for extra packages. This also tends to be the approach that I take because there’s nothing worse than coming back to a script a year later and forgetting which packages you need because you didn’t include the correct library calls.</p>
 
