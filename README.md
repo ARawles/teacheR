@@ -1,8 +1,6 @@
 
 # teacheR <a href='http://teacher.arawles.co.uk'><img src='logo.png' align="right" height="139" /></a>
 
-[![Travis build
-status](https://travis-ci.org/ARawles/teacheR.svg?branch=master)](https://travis-ci.org/ARawles/teacheR)
 [![CI Actions Status](https://github.com/ARawles/teacheR/workflows/CI/badge.svg)](https://github.com/ARawles/teacheR/actions)
 
 
