@@ -2,6 +2,7 @@
 title: "teacheR"
 subtitle: "Teach Yourself or Others R"
 author: "Adam Rawles"
+always_allow_html: true
 site: bookdown::bookdown_site
 documentclass: book
 output:
