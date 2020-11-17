@@ -12,7 +12,7 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     bookdown,
-    rmarkdown,
+    rmarkdown (>=2.5),
     DiagrammeR,
     rlang,
     dplyr,
