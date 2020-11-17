@@ -3,6 +3,7 @@
 
 [![Travis build
 status](https://travis-ci.org/ARawles/teacheR.svg?branch=master)](https://travis-ci.org/ARawles/teacheR)
+[![CI Actions Status](https://github.com/ARawles/teacheR/workflows/CI/badge.svg)](https://github.com/ARawles/teacheR/actions)
 
 
 <img src="cover.png" width="250" height="375" alt="Cover image" align="left" style="margin: 0 1em 0 1em" />
