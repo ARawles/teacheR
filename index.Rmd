@@ -30,7 +30,7 @@ The book is largely split into two sections. One section ("For Students") that's
 In the second section ("For Teachers"), we look at some of the topics in greater detail, looking at the theory and specifics that underpin what we've learnt in the previous section. For those interested in teaching R to others, this section provides an introduction to the underlying workings of R that can be extremely helpful when questions from your students begin to arise. For example, we look at functions in both sections, however we cover the basics of what a function is and how to use one in the "For Students" section, and how to create functions in the "For Teachers" section.
 
 
-This is a work in progress, and so I would greatly appreciate any feedback. Anything from typos to content suggestions, feel free to raise a [GitHub issue](https://github.com/arawles/teacher/issues) if you feel something should be changed.
+I'm constantly looking to improve this book so feedback is very welcome. Anything from typos to content suggestions, feel free to raise a [GitHub issue](https://github.com/arawles/teacher/issues) if you feel something should be changed.
 
 ### Acknowledgements
 
@@ -66,8 +66,12 @@ Whilst this is probably a good thing to keep in mind for any type of training, I
 
 Secondly, R and particularly all of its packages are prone to change. For this reason, people may make statements relative to one version of R that aren't necessarily true in the future. Things have changed over the years, and so answers from a 10 year-old Stack Overflow question may not still be true when you come across them. A microcosmic version of this are some recent changes in the `tidyr` package. Historically, converting data from/to long and short formats was done using the `spread()` and `gather()` functions. However, in newer releases, these functions are deprecated in favour of `pivot_wider()` and `pivot_longer()`, which provide the same functionality but also some extra bits. The practical implication of this suggestion is don't always read one tutorial on a subject before you dive in.
 
+## Why teacheR?
 
+Most books are written as though you are a student. They teach you things so that you can pass a test or do whatever it was you need to do to move onto the next level or finish your project. This is very useful when you have a very specific goal in mind. For instance, people often get into R because they have a particular project they want to work on or because they think it could be useful for their work. Reading a book tailored to that type of project or work can therefore be very useful.
 
+However, learning R this way, or learning anything for that matter, can present with some problems later down the line. Primarily, you've just learnt to do something very specific. There will certainly be tips and skills that will be transferable to future projects, but even then, once you've got a hammer, everything can start looking very nail-like.
 
+And so I often try and take a different approach when learning and teaching R. **Imagine that you're learning R not as a means to an end, but because you're going to teach it to someone else**. This forces a more balanced and universal understanding, and can really help with your knowledge retention. When I began teaching R, my knowledge of R and how it works grew much faster than it ever had. And it was because of the teaching; people will ask insightful questions, ask you what happens when you do this or that and why does that happen, and those questions will force you to better understand R and how it works. It's perfectly okay to say that you don't know the answer when teaching, but when someone asks you why `"TRUE"` is apparently the same as `TRUE` but `"True"` isn't the same as `TRUE`, I defy anyone who's not curious enough to look it up afterwards.
 
-
+So when you read this book, don't think of yourself as a lowly student who's learning R to pass their A Levels. Instead, think of yourself as a teacher in training.
