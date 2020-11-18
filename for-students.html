@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s have a look at each one in detail:</p>
 <div id="logical" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Logical</h3>
-<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type.</p>
+<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type. We look at <code>NA</code> values a <a href="for-students.html#na-and-null">little bit later on</a>.</p>
 <p>Logical variables are used a lot in response questionnaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
 <p>To test whether something is stored as logical, we use the <code>is.logical()</code> function:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="for-students.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
@@ -631,24 +631,34 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 </div>
 <div id="na-and-null" class="section level3" number="3.3.8">
 <h3><span class="header-section-number">3.3.8</span> NA and NULL</h3>
-<p>The R language has two closely related values, <strong>NA</strong> and <strong>NULL</strong>.</p>
-<p><em>NULL</em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no ‘type’ because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
+<p>The R language has two kind of related values, <strong><code>NA</code></strong> and <strong><code>NULL</code></strong>.</p>
+<div id="null" class="section level4" number="3.3.8.1">
+<h4><span class="header-section-number">3.3.8.1</span> NULL</h4>
+<p><em><code>NULL</code></em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no ‘type’ because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="for-students.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="for-students.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="for-students.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;NULL&quot;</span> <span class="sc">==</span> <span class="cn">NULL</span></span></code></pre></div>
+<p><code>is.character()</code> returns <code>FALSE</code> because <code>NULL</code> doesn’t have a data type (it’s the absence of a value), whereas <code>is.null()</code> returns <code>TRUE</code> because it is <code>NULL</code>.</p>
+<p>What happens when you compare values to <code>NULL</code> using our logical operators? Well, this is where the idea of <code>NULL</code> having a length of 0 comes in. If you type <code>length(NULL)</code>, you’ll see it will return 0. So when you’re comparing a value against <code>NULL</code> like this:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="for-students.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Am I NULL?&quot;</span> <span class="sc">==</span> <span class="cn">NULL</span></span></code></pre></div>
 <pre><code>## logical(0)</code></pre>
-<p>On the other hand, <em>NA</em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can’t assign an appropriate value.</p>
-<p>For example, attempting to parse a character string to a date format that doesn’t match will result in a NA value:</p>
+<p>You get an output that is of length 0. And that makes sense, because <code>NULL</code> is missing/has 0 zero length. So basically you’re then comparing something (<code>"Am I NULL?"</code>) to nothing (<code>NULL</code>). Therefore, your output is nothing (or length 0).</p>
+<p>Dealing with <code>NULL</code> can be a bit tricky, so the important thing to remember is that <code>NULL</code> represents something missing, and have length 0. Unlike, <code>NA</code>…</p>
+</div>
+<div id="na" class="section level4" number="3.3.8.2">
+<h4><span class="header-section-number">3.3.8.2</span> NA</h4>
+<p>On the other hand, <em><code>NA</code></em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can’t assign an appropriate value.</p>
+<p><code>NA</code> isn’t of length 0 like <code>NULL</code> because it is a value, it’s just invalid. In other words, there’s something there, but it doesn’t really make sense what it is.</p>
+<p>For example, attempting to parse a character string to a date format that doesn’t match will result in a <code>NA</code> value:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="for-students.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>R has tried to parse a value from one type into another. The value isn’t NULL because it clearly isn’t missing, but it couldn’t be converted to a date type, so it’s NA.
-Unlike NULL, there are different NA values for each datatype (although they’ll all look like NA in the console). In the example above, we actually created a NA that has the Date type:</p>
+<p>R has tried to parse a value from one type into another. The value isn’t <code>NULL</code> because it clearly isn’t missing, but it couldn’t be converted to a date type, so it’s <code>NA</code>.
+Unlike NULL, there are different <code>NA</code> values for each datatype (although they’ll all look like <code>NA</code> in the console). In the example above, we actually created a <code>NA</code> that has the Date type:</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="for-students.html#cb127-1" aria-hidden="true" tabindex="-1"></a>errant_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span>
 <span id="cb127-2"><a href="for-students.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(errant_date)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
-<p>This is because R knows what type the NA <em>should</em> be, but it couldn’t assign in a proper value.</p>
+<p>This is because R knows what type the <code>NA</code> <em>should</em> be, but it couldn’t assign in a proper value.</p>
 <p>The same behaviour can be observed for other data types:</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="for-students.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
@@ -660,30 +670,31 @@ Unlike NULL, there are different NA values for each datatype (although they’ll
 <pre><code>## [1] &quot;numeric&quot; &quot;vector&quot;</code></pre>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="for-students.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot; &quot;vector&quot;</code></pre>
-<p>To test whether something is NA, we use the <code>is.na()</code> function. You don’t need to worry about what type the NA is, this will test if it is an NA of any type.</p>
+<p>To test whether something is <code>NA</code>, we use the <code>is.na()</code> function. You don’t need to worry about what type the <code>NA</code> is, this will test if it is an <code>NA</code> of any type.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="for-students.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_character_</span>) <span class="co"># this will be an NA that is of type &#39;character&#39;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="for-students.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_integer_</span>) <span class="co"># this will be an NA that is of type &#39;integer&#39;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div id="dealing-with-nas" class="section level4" number="3.3.8.1">
-<h4><span class="header-section-number">3.3.8.1</span> Dealing with NAs</h4>
-<p>Dealing with NAs is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one NA will often return NA:</p>
+</div>
+<div id="dealing-with-nas" class="section level4" number="3.3.8.3">
+<h4><span class="header-section-number">3.3.8.3</span> Dealing with NAs</h4>
+<p>Dealing with <code>NA</code>s is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one <code>NA</code> will often return <code>NA</code>:</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="for-students.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="for-students.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>))</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="for-students.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>In some cases, those NAs will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.</p>
-<p>Alternatively, data imports can often return NA values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.</p>
-<p>Ultimately, how you deal with NA values is a question that you’ll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the NA values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the NA values from the supplied list of values:</p>
+<p>In some cases, those <code>NA</code>s will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.</p>
+<p>Alternatively, data imports can often return <code>NA</code> values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.</p>
+<p>Ultimately, how you deal with <code>NA</code> values is a question that you’ll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the <code>NA</code> values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the <code>NA</code> values from the supplied list of values:</p>
 <div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="for-students.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 </div>
 <div id="nan-and-infinity" class="section level3" number="3.3.9">
 <h3><span class="header-section-number">3.3.9</span> NaN and Infinity</h3>
-<p>A special case is NaN (not a number). NaNs are distinct to NA in that they represent a valid value. More precisely, NaN represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.</p>
+<p>A special case is <code>NaN</code> (not a number). NaNs are distinct to <code>NA</code> in that they represent a valid value. More precisely, <code>NaN</code> represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.</p>
 <p><code>Inf</code> and <code>-Inf</code> are similar constructs. They represent infinity and minus infinity respectively. They are valid values but they are not representable with numbers, so they have their own reserved words.</p>
 <p><code>NaN</code>, <code>Inf</code> and <code>-Inf</code> are all of the numeric type and do not have equivalent values in other data types.</p>
 </div>

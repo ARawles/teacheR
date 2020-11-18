@@ -40,6 +40,8 @@ converting-from-factors
 dates
 datetimes-posixct
 na-and-null
+null
+na
 dealing-with-nas
 nan-and-infinity
 implicit-conversion
