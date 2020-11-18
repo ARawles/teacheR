@@ -658,9 +658,18 @@ Before moving onto the other data structures, I just want to quickly mention tha
 
 Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.
 
-I say watered down, because matrices can only contain values of the same type (like vectors). This means that storing complex datasets in matrices isn't really very easy. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.
+I say watered down, because matrices can only contain values of the same type. In fact, a matrix is really just a vector in 2D. For example, if I had a vector of the numbers 1 to 10, I could easily convert it into a matrix just by setting what I wanted the dimensions to be with the `dim()` function like so:
 
-Creating a matrix is easy using the `matrix()` function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:
+```{r}
+im_gunna_be_a_matrix <- 1:10
+dim(im_gunna_be_a_matrix) <- c(2,5)
+im_gunna_be_a_matrix
+is(im_gunna_be_a_matrix)
+```
+
+Matrices aren't really designed for storing complex datasets. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.
+
+Creating a matrix is easy. You can give a vector dimensions like we did above, or you can use the `matrix()` function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:
 
 ```{r}
 matrix(c(1:4), nrow = 2, ncol = 2)
@@ -670,7 +679,7 @@ By default, the matrix is filled by column first (i.e. it starts at column 1 and
 
 ### Dataframes
 
-Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet than matrices.
+Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet or table than matrices do.
 
 To create a dataframe, we use the `data.frame()` function. To this function, we provide our values as columns:
 
@@ -679,7 +688,7 @@ data.frame(col_1 = c(1,2,3),
            col_2 = c("hello", "world", "howsitgoing"))
 ```
 
-More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. To demonstrate this, when we type...
+More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. It's *a tiny* bit like the relationship between vectors and matrices; matrices are built on vectors and dataframes are built on lists. To demonstrate this, when we type...
 
 ```{r}
 is(data.frame())
@@ -729,7 +738,9 @@ But Adam, I hear you ask, `c(10,20,30,40)[1]` and `c(10,20,30,40)[[1]]` just gav
 
 Well, they kind of returned the same thing, but they didn't. So no, they're not interchangeable.
 
-Essentially, `[]` returns the *container* at the provided index, where `[[]]` returns the *value* at the provided index. Let's see a practical example of how these are different:
+Essentially, `[]` returns the *container* at the provided index, where `[[]]` returns the *value* at the provided index. Another way of thinking about it is that `[]` is a subsetting operator (you're taking a subset of the original set) whereas `[[]]` is an extraction operator (you're extracting a value out of the vector). As a real-world analogy, say you have ten salt shakers lined up in a row with salt in each one. Using the `[]` operator will give you the salt shaker (and the salt) you asked for. Using `[[]]` will give you just the salt inside the shaker, but not the shaker.
+
+Let's see a practical example in R of the difference:
 
 ```{r}
 c(value_1 = 10,
@@ -746,7 +757,7 @@ It's a very subtle difference, but it is an important one. Make sure that if you
 
 ### Lists
 
-Lists can be subsetted in the same way as vectors - `[]` returns the container at the index provided and `[[]]` returns the value:
+Lists can be subsetted in the same way as vectors - `[]` returns the container at the index provided and `[[]]` returns just the value:
 
 ```{r}
 list(
