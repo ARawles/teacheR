@@ -172,7 +172,7 @@ function_without_check(x = 2, y = "error for me please")
 function_with_check <- function(x, y) {
   if (!is.numeric(x) || !is.numeric(y)) {
     warning("x or y isn't numeric. Returning NA")
-    return(NA_integer_)
+    NA_integer_
   } else {
     x + y
   }

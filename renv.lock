@@ -1,14 +1,10 @@
 {
   "R": {
-    "Version": "3.6.3",
+    "Version": "4.0.2",
     "Repositories": [
       {
         "Name": "CRAN",
         "URL": "https://cran.rstudio.com"
-      },
-      {
-        "Name": "local",
-        "URL": "file:///Q:/R/local-cran"
       }
     ]
   },
