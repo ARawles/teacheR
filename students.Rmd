@@ -177,7 +177,7 @@ Sometimes, you'll want to use names that have more than one word, like our `ener
 ```{r}
 `dont call your variable this` <- 1
 ```
-**Please don't ever do this.** It will just make things 100% more complicated down the line. Instead, I highly recommend that you use camel case (`EnergyDataset`), `_`s (`energy_dataset`) or `.`s (`energy_dataset`).
+**Please don't ever do this.** It will just make things 100% more complicated down the line. Instead, I highly recommend that you use camel case (`EnergyDataset`), `_`s (`energy_dataset`) or `.`s (`energy.dataset`).
 
 Personally, I use `_`s because camel case is more difficult to read at a glance and there is a group of R functions that use `.` in their name and you don't want to get confused with those, but it's really just a preference. I would only say that it's better to be consistent than to choose the right convention.
 
