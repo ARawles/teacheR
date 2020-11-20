@@ -1,4 +1,4 @@
-teacher
+teacher-1st-edition
 overview
 acknowledgements
 about-me
