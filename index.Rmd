@@ -18,7 +18,7 @@ cover-image: "cover.png"
     
 ---
 
-# teacheR
+# teacheR (1st Edition)
 
 <img src="cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" />
 
