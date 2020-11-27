@@ -15,6 +15,8 @@ output:
         - ["_main.epub", "EBook"]
 favicon: "favicon.ico"
 cover-image: "cover.png"
+description: "Teach yourself or others R with this introduction to the fundamentals of the R language."
+github-repo: ARawles/teacheR
     
 ---
 
