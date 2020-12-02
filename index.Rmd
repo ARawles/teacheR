@@ -13,10 +13,8 @@ output:
       - ["teacheR.pdf", "PDF"]
       - ["teacheR.mobi", "Kindle EBook"]
       - ["teacheR.epub", "EPUB EBook"]
-      
 bookdown::pdf_book:
-  extra_dependencies: ["float"]
-  
+  latex_engine: "xelatex"
 bookdown::epub_book:
   cover_image: "cover.png"
 documentclass: book
