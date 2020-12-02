@@ -1,0 +1,22 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[hyphens]{url}
+\usepackage{float}
+
+                          
+% Define book size
+\usepackage[paperwidth=6in, paperheight=9in]{geometry} %  margin=2cm
+                          
+% wrap url
+\Urlmuskip=0mu plus 1mu\relax
+                          

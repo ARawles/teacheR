@@ -15,6 +15,7 @@ output:
         - ["teacheR.epub", "EPUB EBook"]
   bookdown::pdf_book:
     extra_dependencies: ["float"]
+    template: template.tex
   bookdown::epub_book:
     cover_image: "cover.png"
 documentclass: book
