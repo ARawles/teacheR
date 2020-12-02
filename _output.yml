@@ -4,7 +4,8 @@ bookdown::gitbook:
       collapse: subsection
     download:
       - ["_main.pdf", "PDF"]
-      - ["_main.epub", "EBook"]
+      - ["_teacheR.mobi", "Kindle EBook"]
+      - ["_main.epub", "EPUB EBook"]
       
 bookdown::pdf_book:
   template: template.tex
