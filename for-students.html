@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 For Students | teacheR</title>
-  <meta name="description" content="3 For Students | teacheR" />
+  <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 For Students | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
-  
-  
+  <meta property="og:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
+  <meta name="github-repo" content="ARawles/teacheR" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="3 For Students | teacheR" />
   
-  
+  <meta name="twitter:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="twitter:image" content="cover.png" />
 
 <meta name="author" content="Adam Rawles" />
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1st Edition)</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
 <ul>
@@ -348,10 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="questions-operators" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Questions</h3>
 <ol style="list-style-type: decimal">
-<li>Why does <code>1 == "1"</code> return FALSE?
-<ul>
-<li>Hint: the answer is revealed in the (data types)[data-types] chapter</li>
-</ul></li>
+<li>Why do <code>1 != 2</code> and <code>!(1 == 2)</code> both equal true?</li>
 <li>Reading the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html">R documentation</a> on logical operators, what is the difference between <code>|</code> and <code>||</code> (and <code>&amp;</code> and <code>&amp;&amp;</code>)?
 <ul>
 <li>Hint: the <a href="data-structures">data structures</a> section of this book should help</li>
@@ -363,7 +360,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> Variable assignment</h2>
 <p>Do you ever tell a story to a friend, and then someone else walks in once you’ve finished and so you have to tell the whole thing again?</p>
 <p>Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.</p>
-<p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
+<p>Also, if you realised you’d misremembered something, then you’d just have to change the story as it was written down, rather than going to each of your friends and explaining your error.</p>
+<p>This is essentially what we can do in R. Sometimes you’ll use the same value again and again in your script. For example, say you’re looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but that’s a lot of error. And what happens if the value changed? You’d then have to go through and change it every time it appears.</p>
 <p>Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.</p>
 <div id="creating-variables" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Creating variables</h3>
