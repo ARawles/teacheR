@@ -70,6 +70,8 @@ jobs:
           R -e "source('contribs.R')"
           R -e "source('./diagrams/diagrams.R')"
           R -e "bookdown::render_book('index.Rmd')"
+          R -e "bookdown::render_book('index.Rmd' 'bookdown::pdf_book')"
+          R -e "bookdown::render_book('index.Rmd' 'bookdown::epub_book')"
           R -e "bookdown::calibre('docs/teacheR.epub', 'docs/teacheR.mobi')
 
       # Deploys the files to GitHubPages
