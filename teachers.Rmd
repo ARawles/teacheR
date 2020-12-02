@@ -477,7 +477,7 @@ So our class is "person", and it has the attributes "name", "nationality", and "
 Graphing that object might look something like this:
 
 ```{r echo=FALSE, fig.cap="Example `Person` object", out.width = "50%", fig.align = "center"}
-include_graphics("./diagrams/objects.png")
+knitr::include_graphics("./diagrams/objects.png")
 ```
 
 ### What is an object?
