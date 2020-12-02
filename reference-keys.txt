@@ -1,3 +1,7 @@
+fig:unnamed-chunk-111
+fig:unnamed-chunk-118
+fig:unnamed-chunk-120
+fig:unnamed-chunk-122
 teacher-1st-edition
 overview
 acknowledgements
