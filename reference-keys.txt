@@ -123,7 +123,8 @@ iteration
 imperative-programming
 for-loops
 while-loops
-functional-programming
+declarative-and-functional-programming
+declarative-vs-imperative
 applying-functions
 purrr
 questions-iteration
