@@ -10,4 +10,5 @@ bookdown::pdf_book:
   template: template.tex
   extra_dependencies: ["float"]
   
-bookdown::epub_book: default
+bookdown::epub_book:
+  cover_image: "cover.png"
