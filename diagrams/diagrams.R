@@ -88,6 +88,7 @@ digraph environments {
   node [shape = box,
         fontname = Helvetica,
         fillcolor = Grey,
+        width = 0.6,
         style= filled]
   'empty environment';
   'base environment';
