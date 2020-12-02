@@ -439,7 +439,7 @@ and
 ##         x &lt;- as.character(x)
 ##     .Internal(substr(x, as.integer(start), as.integer(stop)))
 ## }
-## &lt;bytecode: 0x561d57e29590&gt;
+## &lt;bytecode: 0x562de5c07d78&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Conversely, <code>substr()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="for-teachers.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
@@ -484,7 +484,7 @@ and
 <span id="cb268-8"><a href="for-teachers.html#cb268-8" aria-hidden="true" tabindex="-1"></a>normal_dist_ds2 <span class="ot">&lt;-</span> <span class="fu">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</span>
 <span id="cb268-9"><a href="for-teachers.html#cb268-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb268-10"><a href="for-teachers.html#cb268-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(normal_dist_ds1, <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 24.326094 -2.005048 45.573227 -7.336614  6.023291</code></pre>
+<pre><code>## [1] 18.9715572 -0.9930776 -0.1279943 51.9462689 20.0791621</code></pre>
 <p>Now, instead of copying the code each time we need it, we’ve extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
 <p>This is an example of the concept of abstraction, which is a common theme in programming. If you’re interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you’ve hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
 </div>
@@ -698,7 +698,7 @@ Figure 4.3: Example of inheritance using cars
 ## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
 <p>Diagramming this like our “vehicle” example would look like this:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-122"></span>
-<img src="diagrams/inheritance_numeric.png" alt="Inheritance of the integer class" width="50%" />
+<img src="diagrams/inheritance_numeric.png" alt="Inheritance of the integer class" width="20%" />
 <p class="caption">
 Figure 4.4: Inheritance of the integer class
 </p>
@@ -981,7 +981,7 @@ Figure 4.4: Inheritance of the integer class
 <span id="cb363-3"><a href="for-teachers.html#cb363-3" aria-hidden="true" tabindex="-1"></a>  output_list[[df]] <span class="ot">&lt;-</span> <span class="fu">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
 <span id="cb363-4"><a href="for-teachers.html#cb363-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb363-5"><a href="for-teachers.html#cb363-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  9.048020  9.953176  9.021264  8.074338 10.911494</code></pre>
+<pre><code>## [1] 10.502766 10.898556  8.683885 10.257295  9.789247</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
 Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
@@ -1012,7 +1012,7 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <span id="cb367-9"><a href="for-teachers.html#cb367-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
 <span id="cb367-10"><a href="for-teachers.html#cb367-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
 <span id="cb367-11"><a href="for-teachers.html#cb367-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] 10.15947</code></pre>
+<pre><code>## [1] 9.503744</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. This is very closely related to the idea of vectorized functions, which we looked at the in <a href="for-teachers.html#vectorised-functions">Functions</a>. All vectorised functions will essentially wrap around a loop in same way or another.</p>
 <div id="applying-functions" class="section level4" number="4.6.4.1">
 <h4><span class="header-section-number">4.6.4.1</span> Applying functions</h4>
