@@ -8,12 +8,16 @@ digraph inheritance {
   # several 'node' statements
   node [shape = box,
         fontname = Helvetica,
+        width = 0.6,
+        fontsize = 7,
         style = filled,
         fillcolor = Grey]
   vector;
   
     node [shape = box,
         fontname = Helvetica,
+         width = 0.6,
+        fontsize = 7,
         style = filled,
         fillcolor = Grey]
   numeric;
@@ -28,6 +32,8 @@ digraph inheritance {
   
     node [shape = box,
         fontname = Helvetica,
+        width = 0.6,
+        fontsize = 7,
         style = filled,
         fillcolor = Grey]
   integer;
@@ -39,7 +45,7 @@ digraph inheritance {
 }") %>%
   DiagrammeRsvg::export_svg() %>%
   charToRaw() %>%
-  rsvg::rsvg_png("diagrams/inheritance_numeric.png", width = 930, height = 3250)
+  rsvg::rsvg_png("diagrams/inheritance_numeric.png", width = 640, height = 3250)
 
 
 DiagrammeR::grViz("
