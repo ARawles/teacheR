@@ -17,7 +17,7 @@ favicon: "favicon.ico"
 cover-image: "cover.png"
 description: "Teach yourself or others R with this introduction to the fundamentals of the R language."
 github-repo: ARawles/teacheR
-    
+links-as-notes: true
 ---
 
 # teacheR (1^st^ Edition)
