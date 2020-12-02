@@ -3,8 +3,8 @@ bookdown::gitbook:
     toc:
       collapse: subsection
     download:
-      - ["_main.pdf", "PDF"]
-      - ["_main.epub", "EBook"]
+      - ["teacheR.pdf", "PDF"]
+      - ["teacheR.epub", "EBook"]
       
 bookdown::pdf_book:
   template: template.tex
