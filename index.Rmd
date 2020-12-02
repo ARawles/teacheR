@@ -4,6 +4,21 @@ subtitle: "Teach Yourself or Others R"
 author: "Adam Rawles"
 always_allow_html: true
 site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+  config:
+    toc:
+      collapse: subsection
+    download:
+      - ["teacheR.pdf", "PDF"]
+      - ["teacheR.mobi", "Kindle EBook"]
+      - ["teacheR.epub", "EPUB EBook"]
+      
+bookdown::pdf_book:
+  extra_dependencies: ["float"]
+  
+bookdown::epub_book:
+  cover_image: "cover.png"
 documentclass: book
 favicon: "favicon.ico"
 cover-image: "cover.png"
