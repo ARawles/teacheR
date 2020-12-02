@@ -70,7 +70,7 @@ RStudio is an IDE that is under active developement and so I won't go through a 
 
 #### Console
 
-One of the panes in RStudio will be the R console. This is where your commands are actually executed. When you see a `>` at the console, that means it's waiting for commands. If you don't see one, it usually means that R is processing something so give it a second. If you see a `+` at the console it means that your previous line wasn't a complete command and so R is waiting for you to finish it off. The best thing when you see that is to press "Esc" and check your command to make it's syntactically valid.
+One of the panes in RStudio will be the R console. This is where your commands are actually executed. When you see a `>` at the console, that means it's waiting for commands. If you don't see one, it usually means that R is processing something so give it a second. If you see a `+` at the console it means that your previous line wasn't a complete command and so R is waiting for you to finish it off. The best thing when you see that is to press "Esc" and check your command to make sure it's syntactically valid.
 
 #### Scripts
 
