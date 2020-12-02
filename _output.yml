@@ -1,0 +1,13 @@
+bookdown::gitbook:
+  config:
+    toc:
+      collapse: subsection
+    download:
+      - ["_main.pdf", "PDF"]
+      - ["_main.epub", "EBook"]
+      
+bookdown::pdf_book:
+  template: template.tex
+  extra_dependencies: ["float"]
+  
+bookdown::epub_book: default
