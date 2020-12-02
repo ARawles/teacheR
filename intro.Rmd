@@ -1,3 +1,12 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
 # Introduction
 
 This chapter gives a brief intro into what R is and whether you should use it. For many of you, you may already be aware of the vast majority of this information, but for those who are brand new to R or even to data analysis and programming, this is a good place to start.

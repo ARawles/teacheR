@@ -1,3 +1,12 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
 # Summary
 
 Overall, I hope that this book has helped you grasp the basics of the R programming language. If you're a student, then I hope this was pitched at the correct level to challenge you. If you're a teacher, then I hope this book helped round out your knowledge of R such that you would feel comfortable imparting your knowledge onto those that want to hear it.
@@ -10,8 +19,8 @@ If you feel that there are improvements to be made to the content or how it was 
 
 #### Operators {#operators-answers}
 
-1. Why does `1 == "1"` return FALSE?
-    + Because `1` is a numeric value and `"1"` is a character. Therefore `1` and `"1"` are not the same, even though they may look the same to us.
+1. Why do `1 != 2` and `!(1 == 2)` both equal true?
+    + The `!` operator is an inverter - it negates the following criteria. So both of our statements here mean `not equal to`, even though they're written differently.
 2.  Reading the [R documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
     + `|` and `&` perform the comparison in a step-wise method for vectors. So `c(1,2) == 1 & c(2,3) == 2` returns `TRUE` first (`1 == 1 & 2 == 2`) and then `FALSE` (`2 == 1 & 3 == 2`), because it evaluates the criteria for the first and second values in the vectors separately. `||` and `&&` operate on the first value in each vector only. So `c(1,2) == 1 & c(2,3) == 2` returns only `TRUE` and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. `1 == 1 & 2 == 2`).
   

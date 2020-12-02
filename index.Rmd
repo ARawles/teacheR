@@ -20,6 +20,15 @@ github-repo: ARawles/teacheR
 links-as-notes: true
 ---
 
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
 # teacheR (1^st^ Edition)
 
 <img src="cover.png" width="250" height="375" alt="Cover image" align="right" style="margin: 0 1em 0 1em" />

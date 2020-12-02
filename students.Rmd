@@ -1,3 +1,12 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
 # For Students
 
 This section of the book is aimed at those who are either complete beginners in data analysis and statistical computing or who have some prior experience with another language or software package and want to learn more about R.
@@ -92,8 +101,7 @@ For `xor()`, you need to provide your criteria in brackets, but this will make m
 
 ### Questions {#questions-operators}
 
-1. Why does `1 == "1"` return FALSE?
-    + Hint: the answer is revealed in the (data types)[data-types] chapter
+1. Why do `1 != 2` and `!(1 == 2)` both equal true?
 2. Reading the [R documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
     + Hint: the [data structures](data-structures) section of this book should help
 
@@ -103,7 +111,9 @@ Do you ever tell a story to a friend, and then someone else walks in once you've
 
 Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.
 
-This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but what happens if the value changed? You'd then have to go through and change it every time it appears.
+Also, if you realised you'd misremembered something, then you'd just have to change the story as it was written down, rather than going to each of your friends and explaining your error.
+
+This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but that's a lot of error. And what happens if the value changed? You'd then have to go through and change it every time it appears.
 
 Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.
 
