@@ -64,7 +64,7 @@ contributors <- contributors %>%
 
 I began using R in my second year of university, during an internship looking at publication bias correction methods. I was under the tutorship of a member of staff who helped me immensely, but I must confess that I have never taken an official course in R, online or in person. I like to think, however, that this is not always a bad thing. Learning from the bottom up and struggling along the way is a fantastic way to acquire knowledge and instills a very important lesson:
 
-<b> You're not going to know everything there is to know about R. Ever. But that's okay. </b>
+**You're not going to know everything there is to know about R. Ever. But that's okay.**
 
 I'm now 4 years into my R career and I use R every day. With that in mind, I don't think there has ever been a day when I haven't referred to a tutorial, or Stack Overflow, or even just Googled the name of a function that I've used 1000 times before. There is a great repository of knowledge for R and it's one of the things I love most about the R community. So please never feel as though you're an impostor in a world of R gurus. In reality, everyone else is just as lost as you. But if you keep ticking along and never feel that learning something new in R isn't worth your time, you'll end up doing some great things.
 
@@ -72,7 +72,7 @@ And in a roundabout way, that is part of the reason I decided to develop these m
 
 The only final note I have before we start learning how to use R is another bit of advice:
 
-<b> Don't believe everything you read </b>
+**Don't believe everything you read**
 
 Whilst this is probably a good thing to keep in mind for any type of training, I feel it's particularly relevant with R for two reasons. Firstly, when it comes to programming languages, lots of people have opinions. Some are true, most are not. Most things you read are a mix between fact and opinion, so take everything with a pinch of salt. For example, the developers of the `ggplot2` package are fervently against arbitrary second axes and so support for them in `ggplot2` is limited. I also share this view, but that doesn't mean that I'm right - read, learn, but question and make your own mind up.
 

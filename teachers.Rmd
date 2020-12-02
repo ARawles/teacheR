@@ -344,29 +344,30 @@ At the top of the environments of packages you've loaded will be the **base envi
 
 The hierarchy of these environments looks like this:
 
-```{r, echo=FALSE}
-DiagrammeR::grViz("
-digraph environments {
-
-  # a 'graph' statement
-  graph [overlap = true]
-
-  # several 'node' statements
-  node [shape = box,
-        fontname = Helvetica,
-        fillcolor = Grey,
-        style= filled]
-  'empty environment';
-  'base environment';
-  'package environment\n(e.g. package:BMRSr)';
-  'global environment';
-
-  # several 'edge' statements
-  'empty environment'->'base environment'
-  'base environment'->'package environment\n(e.g. package:BMRSr)'
-  'package environment\n(e.g. package:BMRSr)'->'global environment' 
-}
-")
+```{r, echo=FALSE, fig.cap="Environment hierarchy", out.width = "50%", fig.align = "center"}
+# DiagrammeR::grViz("
+# digraph environments {
+# 
+#   # a 'graph' statement
+#   graph [overlap = true]
+# 
+#   # several 'node' statements
+#   node [shape = box,
+#         fontname = Helvetica,
+#         fillcolor = Grey,
+#         style= filled]
+#   'empty environment';
+#   'base environment';
+#   'package environment\n(e.g. package:BMRSr)';
+#   'global environment';
+# 
+#   # several 'edge' statements
+#   'empty environment'->'base environment'
+#   'base environment'->'package environment\n(e.g. package:BMRSr)'
+#   'package environment\n(e.g. package:BMRSr)'->'global environment' 
+# }
+# ")
+knitr::include_graphics("./diagrams/environments.png")
 ```
 
 ### Scope
@@ -497,30 +498,31 @@ So our class is "person", and it has the attributes "name", "nationality", and "
 
 Graphing that object might look something like this:
 
-```{r echo=FALSE}
-DiagrammeR::grViz("
-digraph class {
-
-  # a 'graph' statement
-  graph [overlap = true]
-
-  # several 'node' statements
-  node [shape = box,
-        fontname = Helvetica,
-        style = filled,
-        fillcolor = Grey]
-  Person
-
-  node [shape = circle,
-        fixedsize = true,
-        width = 0.8,
-        fontsize = 8] // sets as circles
-  Name; Nationality; Ethnicity
-
-  # several 'edge' statements
-  Person->Name Person->Nationality Person->Ethnicity 
-}
-")
+```{r echo=FALSE, fig.cap="Example `Person` object", out.width = "50%", fig.align = "center"}
+# DiagrammeR::grViz("
+# digraph class {
+# 
+#   # a 'graph' statement
+#   graph [overlap = true]
+# 
+#   # several 'node' statements
+#   node [shape = box,
+#         fontname = Helvetica,
+#         style = filled,
+#         fillcolor = Grey]
+#   Person
+# 
+#   node [shape = circle,
+#         fixedsize = true,
+#         width = 0.8,
+#         fontsize = 8] // sets as circles
+#   Name; Nationality; Ethnicity
+# 
+#   # several 'edge' statements
+#   Person->Name Person->Nationality Person->Ethnicity 
+# }
+# ")
+knitr::include_graphics("./diagrams/objects.png")
 ```
 
 ### What is an object?
@@ -556,33 +558,34 @@ Sometimes, different classes are interrelated. For example, if you were storing 
 
 Diagramming this relationship:
 
-```{r echo=FALSE}
-DiagrammeR::grViz("
-digraph inheritance {
-
-  # a 'graph' statement
-  graph [overlap = true]
-
-  # several 'node' statements
-  node [shape = box,
-        fontname = Helvetica,
-        style = filled,
-        fillcolor = Grey]
-  Vehicle;
-
-  node [shape = box,
-        fixedsize = true,
-        width = 0.6,
-        fontsize = 7,
-        style = filled,
-        fillcolor = Grey] // sets as circles
-  Car; Motorbike; Van
-  
-  Vehicle->Car
-  Vehicle->Van
-  Vehicle->Motorbike
-
-}")
+```{r echo=FALSE, fig.cap="Example of inheritance using cars", out.width = "50%", fig.align = "center"}
+# DiagrammeR::grViz("
+# digraph inheritance {
+# 
+#   # a 'graph' statement
+#   graph [overlap = true]
+# 
+#   # several 'node' statements
+#   node [shape = box,
+#         fontname = Helvetica,
+#         style = filled,
+#         fillcolor = Grey]
+#   Vehicle;
+# 
+#   node [shape = box,
+#         fixedsize = true,
+#         width = 0.6,
+#         fontsize = 7,
+#         style = filled,
+#         fillcolor = Grey] // sets as circles
+#   Car; Motorbike; Van
+#   
+#   Vehicle->Car
+#   Vehicle->Van
+#   Vehicle->Motorbike
+# 
+# }")
+knitr::include_graphics("./diagrams/inheritance_cars.png")
 ```
 
 Inheritance is an extremely deep topic which we won't go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the `is()` function:
@@ -592,45 +595,46 @@ is(1L)
 ```
 Diagramming this like our "vehicle" example would look like this:
 
-```{r echo=FALSE}
-DiagrammeR::grViz("
-digraph inheritance {
-
-  # a 'graph' statement
-  graph [overlap = true]
-
-  # several 'node' statements
-  node [shape = box,
-        fontname = Helvetica,
-        style = filled,
-        fillcolor = Grey]
-  vector;
-  
-    node [shape = box,
-        fontname = Helvetica,
-        style = filled,
-        fillcolor = Grey]
-  numeric;
-
-  node [shape = box,
-        fixedsize = true,
-        width = 0.6,
-        fontsize = 7,
-        style = filled,
-        fillcolor = Grey] // sets as circles
-  double;
-  
-    node [shape = box,
-        fontname = Helvetica,
-        style = filled,
-        fillcolor = Grey]
-  integer;
-  
-  vector->numeric
-  numeric->double
-  double->integer
-
-}")
+```{r echo=FALSE, fig.cap="Inheritance of the integer class", out.width = "50%", fig.align = "center"}
+# DiagrammeR::grViz("
+# digraph inheritance {
+# 
+#   # a 'graph' statement
+#   graph [overlap = true]
+# 
+#   # several 'node' statements
+#   node [shape = box,
+#         fontname = Helvetica,
+#         style = filled,
+#         fillcolor = Grey]
+#   vector;
+#   
+#     node [shape = box,
+#         fontname = Helvetica,
+#         style = filled,
+#         fillcolor = Grey]
+#   numeric;
+# 
+#   node [shape = box,
+#         fixedsize = true,
+#         width = 0.6,
+#         fontsize = 7,
+#         style = filled,
+#         fillcolor = Grey] // sets as circles
+#   double;
+#   
+#     node [shape = box,
+#         fontname = Helvetica,
+#         style = filled,
+#         fillcolor = Grey]
+#   integer;
+#   
+#   vector->numeric
+#   numeric->double
+#   double->integer
+# 
+# }")
+knitr::include_graphics("./diagrams/inheritance_numeric.png")
 ```
 
 Here we can see that an integer object is made up of the integer, double, numeric classes. The order of inheritance goes from left to right so we know that the integer class inherits from the double class, which inherits from the numeric class.

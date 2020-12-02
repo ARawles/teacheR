@@ -19,5 +19,7 @@ Imports:
     purrr,
     tibble,
     gh,
-    glue
+    glue,
+    rsvg,
+    formatR
 RoxygenNote: 6.1.1
