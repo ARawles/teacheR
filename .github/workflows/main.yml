@@ -28,8 +28,8 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@v1
 
-      - name: Install libcurl
-        run: sudo apt-get install libcurl4-openssl-dev
+      - name: Install libcurl and v8
+        run: sudo apt-get install libcurl4-openssl-dev libv8-dev
       
 #      - name: Install pdflatex
 #        run: |
@@ -68,9 +68,8 @@ jobs:
       - name: Build the book
         run: |
           R -e "source('contribs.R')"
+          R -e "source('./diagrams/diagrams.R')"
           R -e "bookdown::render_book('index.Rmd')"
-          R -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"
-          R -e "bookdown::render_book(input = 'index.Rmd', output_format = bookdown::epub_book(cover_image = 'cover.png'))"
 
       # Deploys the files to GitHubPages
       - name: Deploy to GitHub Pages
