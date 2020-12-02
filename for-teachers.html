@@ -437,7 +437,7 @@ and
 ##         x &lt;- as.character(x)
 ##     .Internal(substr(x, as.integer(start), as.integer(stop)))
 ## }
-## &lt;bytecode: 0x55725dfdead8&gt;
+## &lt;bytecode: 0x55680d236438&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Conversely, <code>substr()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="for-teachers.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
@@ -482,7 +482,7 @@ and
 <span id="cb268-8"><a href="for-teachers.html#cb268-8" aria-hidden="true" tabindex="-1"></a>normal_dist_ds2 <span class="ot">&lt;-</span> <span class="fu">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</span>
 <span id="cb268-9"><a href="for-teachers.html#cb268-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb268-10"><a href="for-teachers.html#cb268-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(normal_dist_ds1, <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 37.00243 21.56469 20.54624 24.19141 15.50091</code></pre>
+<pre><code>## [1] 15.689529 25.486156 25.925950  1.639811 35.017092</code></pre>
 <p>Now, instead of copying the code each time we need it, we’ve extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
 <p>This is an example of the concept of abstraction, which is a common theme in programming. If you’re interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you’ve hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
 </div>
@@ -987,7 +987,7 @@ Figure 4.4: Inheritance of the integer class
 <span id="cb363-3"><a href="for-teachers.html#cb363-3" aria-hidden="true" tabindex="-1"></a>  output_list[[df]] <span class="ot">&lt;-</span> <span class="fu">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
 <span id="cb363-4"><a href="for-teachers.html#cb363-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb363-5"><a href="for-teachers.html#cb363-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 11.065878  8.187858  9.124866 11.717683 11.052887</code></pre>
+<pre><code>## [1] 9.578890 9.077113 8.890772 9.524657 9.742994</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
 Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
@@ -1019,7 +1019,7 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <span id="cb367-9"><a href="for-teachers.html#cb367-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
 <span id="cb367-10"><a href="for-teachers.html#cb367-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
 <span id="cb367-11"><a href="for-teachers.html#cb367-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] 9.680956</code></pre>
+<pre><code>## [1] 9.211736</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. We don’t need to write a new for loop for our new datasets, we can just apply them to our function. We’ve moved from the imperative (exactly what should happen to calculate each distribution) to the declarative (give me the normal distribution and I’m not bothered how you do it). Although we haven’t actually changed how the normal distribution is created, we have changed how we get that distribution.</p>
 <p>Declarative programming in R is very closely related to the idea of vectorized functions, which we looked at the in <a href="for-teachers.html#vectorised-functions">Functions</a>. Vectorised functions abstract away the complexities of writing imperative code but they still utilise control stuctures at their core.</p>
 <div id="declarative-vs-imperative" class="section level4" number="4.6.2.1">
@@ -1048,7 +1048,10 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 ## [[3]]
 ## [1] 1001</code></pre>
 <p>As you can see, this is much shorter than writing out a for loop to acheive the same goal.</p>
-<p>The <code>FUN</code> parameter accepts any function (including anonymous) functions, meaning that we can apply any function we like to each item in our list.</p>
+<p>Another function is the <code>apply</code> family is <code>sapply()</code> that will attempt to simplify its output. Using the previous example and the <code>sapply()</code> function, we get a vector instead of a list:</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="for-teachers.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(number_list, <span class="at">FUN =</span> max)</span></code></pre></div>
+<pre><code>## [1]    4  500 1001</code></pre>
+<p>The <code>FUN</code> parameter for this set of functions accepts any function object (including anonymous functions), meaning that we can apply any function we like to each item in our list.</p>
 </div>
 <div id="purrr" class="section level4" number="4.6.2.3">
 <h4><span class="header-section-number">4.6.2.3</span> purrr</h4>
