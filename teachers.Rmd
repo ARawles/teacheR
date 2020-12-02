@@ -827,7 +827,17 @@ We'll often find ourselves doing the same thing again and again in programming. 
 
 ### Imperative programming
 
-### For loops
+Imperative programming is a programming paradigm that focuses on *how* an operation should be performed. For instance, if you wanted to add up all the numbers in a vector with an imperative approach, you would create a loop to go through and add each number to a grand total. You've clearly defined (with a control stucture like a loop) how the operation should be performed. Imperative programming languages have the benefit that understanding exactly what is happening is much easier. You can follow the flow of logic and what's happening at each stage. Imperative languages are very common and you will inevitably have heard of some of the more famous languages that are based on imperative programming:
+
+* Ruby
+* Python
+* C++
+* C
+* Java
+
+ Central to an imperative programming language are its control stuctures. Control structures define the order of execution and although the exact control structures that are supported in each language change, a fairly universal control structure is the for loop.
+
+#### For loops
 
 For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:
 
@@ -883,7 +893,7 @@ Using the `seq_along()` approach lets us keep track of where we are in the `data
 
 **Note:** If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.
 
-### While loops
+#### While loops
 
 While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:
 
@@ -895,11 +905,11 @@ while(x < 2) {
 }
 ```
 
-### Functional programming
+### Declarative and functional programming
 
-For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages like C and Python.
+For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages purely imperative languages like C and Python.
 
-Instead, within R we can leverage functions to wrap the loops. For example, let's look back at our `dataframe_list` example.  We can turn our loop into a function that we can call whenever we have a list of dataframes:
+Instead, within R we can leverage functions to wrap the loops. This means that we can spend less time writing exactly how something should be done and focus on what we want out of it. By using functions to move away from writing out for loops, we start to shift paradigms from the *imperative* to the *declarative*. With imperative programming, you define *how* things should happen. With declarative programming, you focus more on the *what* you want to happen. For example, let's look back at our `dataframe_list` example.  We can turn our loop into a function that we can call whenever we have a list of dataframes:
 
 ```{r}
 norm_dists <- function(dfs, column = "value") {
@@ -914,7 +924,15 @@ head(
   norm_dists(dataframe_list)[[1]], 1
 )
 ```
-Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter. This is very closely related to the idea of vectorized functions, which we looked at the in [Functions](#vectorised-functions). All vectorised functions will essentially wrap around a loop in same way or another.
+Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter. We don't need to write a new for loop for our new datasets, we can just apply them to our function. We've moved from the imperative (exactly what should happen to calculate each distribution) to the declarative (give me the normal distribution and I'm not bothered how you do it). Although we haven't actually changed how the normal distribution is created, we have changed how we get that distribution.
+
+Declarative programming in R is very closely related to the idea of vectorized functions, which we looked at the in [Functions](#vectorised-functions). Vectorised functions abstract away the complexities of writing imperative code but they still utilise control stuctures at their core.
+
+#### Declarative vs Imperative
+
+It's not really a case of one approach being better than the other, and in R you'll often find yourself using both. In my personal experience, I relied heavily on imperative paradigms when I started using R because it made more sense to me. Then gradually as I became more familiar with how R worked at its core, I began to move to using more declarative approaches and the `apply` functions which we'll look at next. But I never forgot that this functional approach was still relying on imperative programming at its core.
+
+So my advice if you're new to R is to use both. Write out for loops *and* learn how to create and use functions to the same end. That way you'll always have the right tool for the job and you'll be more able to apply your knowledge to new languages in the future.
 
 #### Applying functions
 
