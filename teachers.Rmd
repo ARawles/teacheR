@@ -954,9 +954,16 @@ We can apply the `max()` function to each item in our list:
 ```{r}
 lapply(number_list, FUN = max)
 ```
+
 As you can see, this is much shorter than writing out a for loop to acheive the same goal. 
 
-The `FUN` parameter accepts any function (including anonymous) functions, meaning that we can apply any function we like to each item in our list.
+Another function is the `apply` family is `sapply()` that will attempt to simplify its output. Using the previous example and the `sapply()` function, we get a vector instead of a list:
+
+```{r}
+sapply(number_list, FUN = max)
+```
+
+The `FUN` parameter for this set of functions accepts any function object (including anonymous functions), meaning that we can apply any function we like to each item in our list.
 
 #### purrr
 
