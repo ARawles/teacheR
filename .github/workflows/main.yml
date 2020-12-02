@@ -28,8 +28,8 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@v1
 
-      - name: Install libcurl
-        run: sudo apt-get install libcurl4-openssl-dev
+      - name: Install libcurl and v8
+        run: sudo apt-get install libcurl4-openssl-dev libv8-dev
       
 #      - name: Install pdflatex
 #        run: |
