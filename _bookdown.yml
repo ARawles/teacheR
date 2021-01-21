@@ -23,6 +23,6 @@ rmd_files: [
   "objects.Rmd",
   "expressions.Rmd",
   "if.Rmd",
-  "iteration.Rmd"
+  "iteration.Rmd",
   
   "summary.Rmd"]
