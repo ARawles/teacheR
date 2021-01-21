@@ -126,7 +126,7 @@ im_a_sneaky_variable
 
 Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.
 
-## Mutability
+### Mutability
 
 Linked with the idea of function environments is mutability. An object is either mutable or immutable. If it is mutable, then it can be edited from within a function environment. If an object is immutable, then it can't. This might seem like an arbitrary distinction, but it has important consequences. If an object is mutable, then calling the same function on that object twice in a row is going to provide different results (because the object will have changed after the first call). If an object is immutable, then calling the same function on the same object will always return the same value.
 
@@ -143,7 +143,7 @@ But this hasn't changed the original value of `x`. It's actually just changed th
 
 For the most, this exact distinction isn't too important. The important thing to remember is that when you pass an object to a function, **you are operating on a copy of the object, not the original**.
 
-#### 'Super' assignment
+### 'Super' assignment
 
 There will be occasions, however, when you need to make changes to the global environment regardless of what environment you are currently in. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the `<<-` operator. This is used as an assignment operator to assign a value to the global environment. Observe...
 
