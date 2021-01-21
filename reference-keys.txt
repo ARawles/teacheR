@@ -20,7 +20,7 @@ environment
 filesplotshelp
 packages
 installing-packages
-for-students
+introduction-1
 operators
 arithmetic-operators
 logical-operators
@@ -75,7 +75,7 @@ optional-input-parameters
 outputs
 reassigning-outputs
 questions-functions
-intro
+introduction-2
 functions-teachers
 creating-functions
 function-structure
@@ -134,7 +134,7 @@ purrr
 questions-iteration
 summary
 answers
-for-students-1
+for-students
 operators-answers
 variable-assignments-answers
 data-types-answers
