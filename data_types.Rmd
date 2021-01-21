@@ -1,0 +1,344 @@
+# Data types
+
+Data can be stored in lots of different forms. For example, `"TRUE"` and `TRUE` are stored as two different types, even though they look very similar to us.
+
+The main different data types are:
+
+* logical
+    + TRUE
+    + FALSE
+* double (numeric)
+    + 12.5
+    + 19
+    + 99999
+* integer (numeric)
+    + 2L
+    + 34L
+* character
+    + "hello"
+    + "my name is"
+* factors
+* dates
+    + 2019-06-01
+
+* datetime (POSIXct)
+
+    + 2019-06-01 12:00:00
+
+
+Let's have a look at each one in detail:
+
+## Logical
+
+A logical variable can only have two *real* values, `TRUE` or `FALSE`. I say two *real* values, because you can also have things like `NA`, but that's true of any data type. We look at `NA` values a [little bit later on](#na-and-null).
+
+Logical variables are used a lot in response questionnaires, where the answer to the question is either "Yes" or "No" (`TRUE` or `FALSE`). I would recommend converting any character strings like "Yes" or "No" or "TRUE" or "FALSE" to a logical variable rather than leaving them as characters, because it'll make your analysis less verbose (use fewer lines of code), even if it doesn't change the underlying logic.
+
+To test whether something is stored as logical, we use the `is.logical()` function:
+
+```{r}
+is.logical(TRUE)
+is.logical("TRUE")
+```
+
+To convert a value to logical, use the `as.logical()` function:
+
+```{r}
+as.logical(1)
+as.logical(0)
+as.logical("TRUE")
+as.logical("FALSE")
+```
+
+Be careful though, just because a conversion seems obvious to you, doesn't mean you'll get the expected result! For instance, what do you think `as.logical(2)` should return? See for yourself.
+
+## Double
+
+The best way to think of a `double` value is as a number. It can be a whole number (but see [Integers](#integer)) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.
+
+As an aside, it's called double because it's stored using [double precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format).
+
+To check whether a value is stored as double (or more generally numeric), use the `is.double()` and `is.numeric()` functions:
+
+```{r}
+is.double(2)
+is.numeric("not numeric")
+is.double(2L) # see the next section for why this returns FALSE
+```
+
+To convert a value to a double, use the `as.double()` or `as.numeric()` functions:
+
+```{r, warning = TRUE}
+as.double("5")
+as.numeric("10")
+as.double("im going to cause a warning")
+```
+
+## Integer
+
+Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning:
+
+```{r, warning = TRUE, message=TRUE}
+1.5L
+```
+
+For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.
+
+To check if something is an integer, use the `is.integer()` function:
+
+```{r}
+is.integer(2)
+is.integer(2L)
+```
+
+To convert to an integer, use the `L` suffix or the `as.integer()` function:
+
+```{r}
+1L
+
+```
+
+## Character
+
+Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what's inside the quotation marks, it will be stored as character. For example,
+`"5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} "5" + 5``` doesn't work, because you're trying to add text to a number, which doesn't make sense.
+
+To check whether something is stored as a character, use the `is.character()` function:
+
+```{r}
+is.character("hello")
+is.character(5)
+is.character(TRUE)
+```
+
+
+To convert something to a character, use the `as.character()` function:
+
+```{r}
+as.character(5)
+as.character(TRUE)
+```
+
+## Factors
+
+Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.
+
+A factor level is made up of two things. A label and a number that represents that group. In my countries example, our factor would have the labels "England", "Spain", "France" and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.
+
+To create a factor, we just use the `factor()` function:
+
+```{r}
+factor(c("England", "France", "Spain"))
+```
+
+It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionnaire, you may provide the options "None", "Some", "All". But in your responses, you may see that no-one chose the "None" option. In that case, you would still create a factor with three levels, even though only two of them appear.
+
+You can also specify whether a factor is *ordered*. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that "Some" is better than "None", and "All" is better than "Some". To create an ordered factor, just specify `ordered = TRUE` in your function. By default, the factor will be ordered in the order the values appear, unless you specify levels (see below).
+
+To convert something to a factor, use the `factor()` function if you want to specify levels and labels, or `as.factor()` to do it for you:
+
+```{r}
+factor(c("Some", "All"), levels = c("None", "Some", "All"))
+factor(c("Some", "All"), levels = c("None", "Some", "All"), ordered = TRUE)
+as.factor(c("Some", "All"))
+```
+
+Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.
+
+*Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using `data.frame()` or `read.table()`. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.*
+
+### Converting from factors
+
+Sometimes you'll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we've already seen:
+
+```{r}
+as.character(factor(c("Some", "None", "All")))
+```
+
+## Dates
+
+Dates in any language are tricky. Different countries store dates in different formats and different bits of software store dates in different ways (looking at you Excel). This can make storing values as dates tough.
+
+The most common way of creating a date is to use the `as.Date()` function. To use this function, you just need to provide your date as a character string:
+
+```{r}
+as.Date("2019/01/01")
+```
+
+But Adam, how does R know which one is the month and which is the day? Good question, thank you for asking. By default, R expects your character string to be in the order "Year/Month/Day". If you don't provide it in that format, you'll get a nonsense output:
+
+```{r}
+as.Date("01/12/2019")
+```
+
+If your data is in a different format however, you can specify the format:
+
+```{r}
+as.Date("01/12/2019", format = "%d/%m/%Y")
+```
+
+Here, we're telling R that the string is in the format "Day/Month/Year". A list of the different codes that can be used in the format parameter can be found [here](https://www.statmethods.net/input/dates.html), or by typing "R date codes" into Google.
+
+Because nothing in life is simple, sometimes you'll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it's a number, our `as.Date(..., format = ...)` doesn't work. Instead, we can still use the `as.Date()` function, but we need to specify what the origin date is that the number refers to.
+
+By default, when importing from Excel in Windows, the origin date is December 31st 1899. More commonly, the date January 1st 1970 (also known as the epoch date) is used.
+
+Anyway, to specify your origin, we use the `origin` parameter, like this:
+
+```{r}
+as.Date(18262, origin = "1970/01/01")
+```
+
+Notice the format I've provided the origin in. It's the same as the default that R expects, and I would recommend copying that format wherever possible. If you're someone who just wants to watch the world burn, then you can specify a format for your origin as well...'
+
+
+```{r}
+as.Date(18262, origin = as.Date("01/01/1970", format = "%d/%m/%Y"))
+```
+
+but where's the humanity in that?
+
+Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the `is()` or `class()` functions. If the first value returned is "Date", then you know it's a date:
+
+```{r}
+is(as.Date("2020/01/01"))
+class(as.Date("2020/01/01"))
+```
+
+## Datetimes (POSIXct)
+
+If you thought dates were annoying, datetimes are like dates' little brother who didn't get enough attention as a child and so acts up all the time.
+One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
+
+Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
+
+With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.
+
+```{r}
+as.POSIXct("2020/01/01 12:00:00")
+as.POSIXct("2020/01/01 12:00:00", tz = "NZ")
+as.POSIXct(1577880000, origin = "1970/01/01")
+```
+
+
+Similar to dates, there is no `as.POSIXct()` function in base R, so we use the `is()` and `class()` functions instead:
+
+```{r}
+is(as.POSIXct("2020/01/01 12:00:00"))
+class(as.POSIXct("2020/01/01 12:00:00"))
+```
+
+## NA and NULL
+
+The R language has two kind of related values, **`NA`** and **`NULL`**.
+
+### NULL
+
+*`NULL`* indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no 'type' because it represents an absence of something, so passing a null value to any of the `is.[type]()` functions will return FALSE. Instead, checking whether a value is NULL is done with the `is.null()` function:
+
+```{r}
+is.character(NULL)
+is.null(NULL)
+```
+
+`is.character()` returns `FALSE` because `NULL` doesn't have a data type (it's the absence of a value), whereas `is.null()` returns `TRUE` because it is `NULL`.
+
+What happens when you compare values to `NULL` using our logical operators? Well, this is where the idea of `NULL` having a length of 0 comes in. If you type `length(NULL)`, you'll see it will return 0. So when you're comparing a value against `NULL` like this:
+
+```{r}
+"Am I NULL?" == NULL
+```
+You get an output that is of length 0. And that makes sense, because `NULL` is missing/has 0 zero length. So basically you're then comparing something (`"Am I NULL?"`) to nothing (`NULL`). Therefore, your output is nothing (or length 0).
+
+Dealing with `NULL` can be a bit tricky, so the important thing to remember is that `NULL` represents something missing, and have length 0. Unlike, `NA`...
+
+### NA
+
+On the other hand, *`NA`* (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can't assign an appropriate value.
+
+`NA` isn't of length 0 like `NULL` because it is a value, it's just invalid. In other words, there's something there, but it doesn't really make sense what it is.
+
+For example, attempting to parse a character string to a date format that doesn't match will result in a `NA` value:
+```{r, warnings = TRUE}
+as.Date("10/01/20", format = "%m%Y%d")
+```
+R has tried to parse a value from one type into another. The value isn't `NULL` because it clearly isn't missing, but it couldn't be converted to a date type, so it's `NA`.
+Unlike NULL, there are different `NA` values for each datatype (although they'll all look like `NA` in the console). In the example above, we actually created a `NA` that has the Date type:
+
+```{r, warning = TRUE}
+errant_date <- as.Date("10/01/20", format = "%m%Y%d")
+is(errant_date)
+```
+This is because R knows what type the `NA` *should* be, but it couldn't assign in a proper value.
+
+The same behaviour can be observed for other data types:
+
+```{r, warning = TRUE}
+as.numeric("not a number")
+as.logical("not a logical")
+is(as.numeric("not a number"))
+is(as.logical("not a logical"))
+```
+
+To test whether something is `NA`, we use the `is.na()` function. You don't need to worry about what type the `NA` is, this will test if it is an `NA` of any type.
+
+```{r}
+is.na(NA_character_) # this will be an NA that is of type 'character'
+is.na(NA_integer_) # this will be an NA that is of type 'integer'
+```
+### Dealing with NAs
+
+Dealing with `NA`s is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one `NA` will often return `NA`:
+
+```{r}
+sum(1,2,NA)
+mean(c(1,NA))
+NA + 1
+```
+
+In some cases, those `NA`s will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.
+
+Alternatively, data imports can often return `NA` values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.
+
+Ultimately, how you deal with `NA` values is a question that you'll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the `NA` values when summing or calculating an average or similar, then these functions often have an `na.rm` parameter than can be used to remove the `NA` values from the supplied list of values:
+
+```{r}
+sum(1,2,NA, na.rm = TRUE)
+```
+
+## NaN and Infinity
+
+A special case is `NaN` (not a number). NaNs are distinct to `NA` in that they represent a valid value. More precisely, `NaN` represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.
+
+`Inf` and `-Inf` are similar constructs. They represent infinity and minus infinity respectively. They are valid values but they are not representable with numbers, so they have their own reserved words.
+
+`NaN`, `Inf` and `-Inf` are all of the numeric type and do not have equivalent values in other data types.
+
+## Implicit Conversion
+
+Converting between types using the `as.x()` functions is nice and easy because the type that you're converting to is explicitly defined. However, there is also *implicit conversion* in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let's look at a proper example.
+
+```{r}
+paste0("I'm a character", 100)
+```
+
+The `paste0()` function provides a pretty good example of implicit conversion in the wild. `paste0()` expects character strings when it's called, so what happens when you provide it with a number like we did above? Why doesn't it complain?
+Well it's because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it's a bit like a programming autocorrect.
+
+### Dangers of implicit conversion
+
+As you can imagine, this automatic conversion between types when the user didn't specifically ask for it can cause problems. For example, when I teach R courses I often ask the attendees what they think `R` is going to return when I type `"TRUE" == TRUE`. Without fail, the majority will say that it's going to be `FALSE`; one is a character string and the other is a logical value.
+
+My heart always dies a little bit then when I show them that it actually returns `TRUE`. "But why?", they rightly ask. And it's all because of implicit conversion. When we use the `==` operator, R will try and coerce the variables so that they're the same type. In this case, it successfully coerces `"TRUE"` to `TRUE`, and so returns `TRUE`.
+
+There are, of course, going to be cases where this makes things easier. For instance, say you've got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.
+
+So my advice is simply to be aware of it. Don't fight it, don't worry about it unduly, just keep it in the back of your mind for that one time where you can't seem to figure out why you can divide things by `TRUE`.
+
+## Questions {#questions-data-types}
+
+1. Why are `2` and `2L` different?
+2. What is an ordered factor and how is it different to a character string?
+3. Why does `as.Date("19/01/2019", format = "%d/%m/%y")` return the date 19th Jan 2020 and not 19th Jan 2019?
+4. Why does `as.numeric(TRUE)` return 1? What will `as.logical(2)` return?
+5. Look at the `identical()` function. How is that different from `==`?

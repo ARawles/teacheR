@@ -7,7 +7,22 @@ rmd_files: [
   
   "intro.Rmd",
   
+  "for_students.Rmd",
   "students.Rmd",
+  "operators.Rmd",
+  "variable_assignment.Rmd",
+  "data_types.Rmd",
+  "data_structures.Rmd",
+  "subsetting.Rmd",
+  "functions.Rmd",
+  
+  "for_teachers.Rmd",
   "teachers.Rmd",
+  "functions_advanced.Rmd",
+  "environments.Rmd",
+  "objects.Rmd",
+  "expressions.Rmd",
+  "if.Rmd",
+  "iteration.Rmd"
   
   "summary.Rmd"]

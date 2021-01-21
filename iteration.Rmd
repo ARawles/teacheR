@@ -1,0 +1,157 @@
+# Iteration
+
+Functions are an important stepping stone in reducing the amount of code you need to do something (they make your code less **verbose**). Another tool in acheiving this goal is the idea of iteration. Iteration is just the process of doing something more than once.
+
+We'll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for different groups are all examples of operations that you'll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we'll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we'll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.
+
+## Imperative programming
+
+Imperative programming is a programming paradigm that focuses on *how* an operation should be performed. For instance, if you wanted to add up all the numbers in a vector with an imperative approach, you would create a loop to go through and add each number to a grand total. You've clearly defined (with a control stucture like a loop) how the operation should be performed. Imperative programming languages have the benefit that understanding exactly what is happening is much easier. You can follow the flow of logic and what's happening at each stage. Imperative languages are very common and you will inevitably have heard of some of the more famous languages that are based on imperative programming:
+
+* Ruby
+* Python
+* C++
+* C
+* Java
+
+Central to an imperative programming language are its control stuctures. Control structures define the order of execution and although the exact control structures that are supported in each language change, a fairly universal control structure is the for loop.
+
+### For loops
+
+For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:
+
+```{r, eval = FALSE}
+for (identifier in list) {
+do_something_with_it(identifier)
+}
+```
+
+In the above, the identifier is used to access the value that is currently being iterated upon. Let's look at a practical example:
+
+```{r}
+for (i in c(1,2,3)) {
+  print(i)
+}
+```
+In this loop, we go through the vector of values 1, 2 and 3, and we print it using the `i` identifier that we've assigned to the value we're currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we've provided). The first time, `i` will equal 1. The code will execute, and then `i` will take the value of 2 and so on.
+
+This isn't a particular useful example. Let's look at more realistic example. Let's say you've got a list with 2 dataframes in that have the same structure:
+
+```{r}
+dataframe_list <- list(
+data.frame(
+obs = c(1,2,3),
+value = c(10,11,9)
+),
+data.frame(
+obs = c(1,2,3),
+value = c(100,200,150)
+)
+)
+```
+And you want to calculate the mean for the `value` column for each one:
+
+```{r}
+for (df in dataframe_list) {
+mean(df$value)
+}
+```
+
+Or, if we refer back to our [function example](#example-answer) from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we'll also construct a list to store the output:
+
+```{r}
+output_list <- list()
+for (df in seq_along(dataframe_list)) {
+output_list[[df]] <- create_norm_dist_from_column(dataframe_list[[df]], "value")
+}
+head(output_list[[1]], 5)
+```
+
+In this case, rather than looping through the *values* in the `dataframe_list` list, we're looping through the *indices* using `seq_along()`. `seq_along()` just creates a vector with all the indices in. So for a list with two values in it, this is *almost* equivalent to `1:2`.
+Using the `seq_along()` approach lets us keep track of where we are in the `dataframe_list`, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in `output_list`.
+
+**Note:** If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn't really a big deal.
+
+### While loops
+
+While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:
+
+```{r}
+x <- 0
+while(x < 2) {
+  x <- x + 1
+  print(x)
+}
+```
+
+## Declarative and functional programming
+
+For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages purely imperative languages like C and Python.
+
+Instead, within R we can leverage functions to wrap the loops. This means that we can spend less time writing exactly how something should be done and focus on what we want out of it. By using functions to move away from writing out for loops, we start to shift paradigms from the *imperative* to the *declarative*. With imperative programming, you define *how* things should happen. With declarative programming, you focus more on the *what* you want to happen. For example, let's look back at our `dataframe_list` example.  We can turn our loop into a function that we can call whenever we have a list of dataframes:
+
+```{r}
+norm_dists <- function(dfs, column = "value") {
+  output_list <- list()
+  for (df in seq_along(dfs)) {
+    output_list[[df]] <- create_norm_dist_from_column(dfs[[df]], column)
+  }
+  output_list
+}
+
+head(
+  norm_dists(dataframe_list)[[1]], 1
+)
+```
+Now, whenever we have a list of dataframes we can just use our `norm_dists()` function and provide the column name to the `column` parameter. We don't need to write a new for loop for our new datasets, we can just apply them to our function. We've moved from the imperative (exactly what should happen to calculate each distribution) to the declarative (give me the normal distribution and I'm not bothered how you do it). Although we haven't actually changed how the normal distribution is created, we have changed how we get that distribution.
+
+Declarative programming in R is very closely related to the idea of vectorized functions, which we looked at the in [Functions](#vectorised-functions). Vectorised functions abstract away the complexities of writing imperative code but they still utilise control stuctures at their core.
+
+### Declarative vs Imperative
+
+It's not really a case of one approach being better than the other, and in R you'll often find yourself using both. In my personal experience, I relied heavily on imperative paradigms when I started using R because it made more sense to me. Then gradually as I became more familiar with how R worked at its core, I began to move to using more declarative approaches and the `apply` functions which we'll look at next. But I never forgot that this functional approach was still relying on imperative programming at its core.
+
+So my advice if you're new to R is to use both. Write out for loops *and* learn how to create and use functions to the same end. That way you'll always have the right tool for the job and you'll be more able to apply your knowledge to new languages in the future.
+
+### Applying functions
+
+Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it's led to the development of the `apply` set of functions. These act as syntactic sugar to decrease the number of for loops present in your code\*.
+
+\* A common argument is that `apply` functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the `apply` functions aren't more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.
+
+We've already seen an example of the `lapply` (list-apply) function in [action](#functions-as-objects), but lets do another one. Let's say we have a list of vectors containing numbers and we want the maximum for each.
+
+```{r}
+number_list <- list(
+c(1,2,3,4),
+c(500,250,100,10),
+c(1000,1001,1001,1000)
+)
+```
+
+We can apply the `max()` function to each item in our list:
+```{r}
+lapply(number_list, FUN = max)
+```
+
+As you can see, this is much shorter than writing out a for loop to acheive the same goal. 
+
+Another function is the `apply` family is `sapply()` that will attempt to simplify its output. Using the previous example and the `sapply()` function, we get a vector instead of a list:
+
+```{r}
+sapply(number_list, FUN = max)
+```
+
+The `FUN` parameter for this set of functions accepts any function object (including anonymous functions), meaning that we can apply any function we like to each item in our list.
+
+### purrr
+
+The `apply` family of functions in base R are extremely powerful. However, they are not quite as user-friendly as one might have hoped, and there are some inconsistencies across the different `apply` functions. To solve this, the `purrr` provides the `map()` functions to provide the same functionality but in a more succinct and universal way.
+
+Personally, I do prefer the `purrr` functions to the base R functions as I find they're easier to learn to use, however the base R functions do provide the same functionality. Documentation for the `purr` package can be found at [https://purrr.tidyverse.org](purrr.tidyverse.org).
+
+## Questions {#questions-iteration}
+
+1. In what situation would you use `i in x` over `i in seq_along(x)`?
+2. Why is `seq_along(x)` preferable to `1:length(x)`?
+3. What would be the for loop code that would be required to replicate `lapply(number_list, FUN = max)`? Which would be easier to debug?

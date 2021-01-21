@@ -1,0 +1,52 @@
+# If / Else
+
+Building on our logical operators, there will often be times where you want to split the logic of your code depending on a criteria. For example, if you've created a function that can accept a character string or a number, you might want to split the body of the function to do something slightly different depending on the class of the provided argument.
+
+## Structure
+
+If / else statements in R has a simple structure:
+  ```{r, eval = FALSE}
+if (criteria_statement) {
+  what_you_want_to_do
+} else if (other_criteria) {
+  something_else_you_want_to_do
+} else {
+  something_you_want_to_do_if_all_else_fails
+}
+```
+
+Putting this into practice, a real If / else block may look like this:
+  
+  ```{r}
+x <- 1
+if (x == 1) {
+  return("x is 1")
+} else if (x == 2) {
+  return("x is 2")
+} else {
+  return("x is not 1 or 2")
+}
+```
+
+Implementing this in a function could look like this:
+  
+  ```{r}
+what_is_it <- function(x) {
+  if (is.character(x)) {
+    return("x is a character")
+  } else if (is.numeric(x)) {
+    return("x is numeric")
+  } else {
+    return("x is something else")
+  }
+}
+
+what_is_it("hello")
+what_is_it(2)
+what_is_it(TRUE)
+```
+
+## Questions {#questions-if-else}
+
+1. Rather than writing `if (x == 1 | x == 2 | x == 3)`, how could you use the `%in%` operator to make it shorter?
+  2. How does the `switch()` function relate to if / else statements?

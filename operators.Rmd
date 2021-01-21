@@ -1,0 +1,89 @@
+# Operators
+
+Operators perform an action or represent something. For example, a great example of an operator is `+`. The `+` is a type of arithmetic operator that adds things together.
+
+In this section, we're going to look at the more common arithmetic operators that are used for simple maths in R, and then at some logical operators that are used to evaluate whether a criteria has been fulfilled.
+
+
+## Arithmetic operators
+
+At the base of lots of programming languages are the arithmetic operators. These are your symbols that perform things like addition, subtraction, multiplication, etc. Because these operations are so ubiquitous however, the symbols that are used are often very similar across languages, so if you've used Excel or Python or SPSS or anything similar before, then these should be fairly straightforward.
+
+Here are the main operators in use:
+  
+  ```{r}
+2 + 2  # addition
+```
+
+```{r}
+10 - 5 # subtraction
+```
+
+```{r}
+5 * 4 # multiplication
+```
+
+```{r}
+100 / 25 # division
+```
+
+
+## Logical operators
+
+Logical operators are slightly different to arithmetic operators - they are used to evaluate a particular criteria. For example, are two values equal. Or, are two values equal *and* two other values different.
+
+To compare whether two things are equal, we use two equal signs (`==`) in R:
+  
+  ```{r}
+1 == 1 # equal
+```
+
+Why two I hear you say? Well, a bit later on we'll see that we use a single equals sign for something else.
+
+To compare whether two things are different (not equal), we use `!=`:
+
+```{r}
+1 != 2 # not equal
+```
+
+The `!` sign is also used in other types of criteria, so the best way to think about it is that it inverts the criteria you're testing. So in this case, it's inverting the "equals" criteria, making it "not equal".
+
+Testing whether a value is smaller or larger than another is done with the `<` and `>` operators:
+
+```{r}
+2 > 1  # greater than
+2 < 4 # less than
+```
+
+Applying our logic with the `!` sign, we can also test whether something is *not* smaller or *not* larger:
+
+```{r}
+1 >! 2 # not greater than
+2 <! 4 # not less than
+```
+
+Why is the `!` sign before the equals sign in the "not equal" to code, but after the "less than/greater than" sign? No idea. It'd probably make more sense if they were the same, but I suppose worse things happen at sea.
+
+
+There are three more logical operators, and they are the "and", "or", and "xor" operators. These are used to test whether at least one or more than one or only one of the logical comparisons are true or false:
+  
+  ```{r}
+1 == 1 | 2 == 3 # or (i.e. are either of these TRUE)
+
+1 == 1 & 2 == 3 # and (i.e. are these both TRUE)
+```
+
+The xor operator is a bit different:
+  
+  ```{r}
+xor(1 == 1, 2 == 3) # TRUE because only 1 is
+xor(1 == 1, 2 == 2) # FALSE because both are
+```
+
+For `xor()`, you need to provide your criteria in brackets, but this will make much more sense once we look at functions.
+
+## Questions {#questions-operators}
+
+1. Why do `1 != 2` and `!(1 == 2)` both equal true?
+2. Reading the [R documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html) on logical operators, what is the difference between `|` and `||` (and `&` and `&&`)?
+  + Hint: the [data structures](data-structures) section of this book should help

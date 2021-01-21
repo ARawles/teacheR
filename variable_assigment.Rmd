@@ -1,0 +1,107 @@
+# Variable assignment
+
+Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?
+
+Well, imagine after the second friend walks in, another friend comes in, and you have to start the story over again, and then another friend comes in and so on and so forth. What would be the best way to save you repeating yourself? As weird as it would look, if you wrote the story down then anyone who came in could just read it, rather than you having to go through the effort of explaining the whole thing each time.
+
+Also, if you realised you'd misremembered something, then you'd just have to change the story as it was written down, rather than going to each of your friends and explaining your error.
+
+This is essentially what we can do in R. Sometimes you'll use the same value again and again in your script. For example, say you're looking at total expenditure over a year, the value for the amount spent would probably come up quite a lot. Now, you could just type that value in every time you need it, but that's a lot of error. And what happens if the value changed? You'd then have to go through and change it every time it appears.
+
+Instead, you could store the value in a variable, and then reference the variable every time you need it. This way, if you ever have to change the value, you only need to change it once.
+
+## Creating variables
+
+Creating variables in R is really easy. All you need to do is provide a valid name, use the `<-` symbol, and then provide a value to assign:
+
+```{r}
+hello_im_a_variable <- 100
+hello_im_a_variable
+```
+
+Now, whenever you want to use your variable, you just need to provide the variable name in place of the value:
+
+```{r}
+hello_im_a_variable / 10
+```
+
+You can even use your variable to create new variables:
+
+```{r}
+hello_im_another_variable <- hello_im_a_variable / 20
+hello_im_another_variable
+```
+
+When you come across other people's work, you may see that they use `=` instead of `<-` when they create their variables. Even though it's not the end of the world if you do do that, I would recommend getting into the habit of using `<-`. `<-` is purely used for assignment, whereas `=` is actually also used when we call functions, and so it can get a bit confusing if you use them interchangeably.
+
+As a side note, you'll see that the value of the variable isn't outputted when we assign it. If we want to see the value, we need just the name.
+
+## Naming
+
+Naming objects and variables in R mostly comes down to preference. There are some hard and fast rules that need to be followed which we'll discuss and also a few common naming conventions but which one you use is up to you.
+
+### Valid names
+
+R is pretty lenient when it comes to names but there are some red lines:
+
+* Names must start with a character or a dot (but then the second character can't be a digit)
+* Names can only contain letters, numbers, underscores, and dots
+
+Similar to this, there are some reserved words that can't be used as object names:
+
+* break
+* if
+* else
+* FALSE
+* TRUE
+* for
+* function
+* Inf
+* NaN
+* NA
+* next
+* repeat
+* return
+* while
+
+As a sidenote, names are case sensitive. That means that you can have two objects called `test` and `Test` that can be referred to separately. Generally, this isn't the best idea.
+
+### Naming conventions
+
+#### Nouns and verbs
+
+Roughly speaking, it's advisable to name your variables as nouns and your functions (which we get to later) as verbs. This is because variables can be considered *things* whereas functions *do things*.
+
+For example, an appropriate name for the energy-based dataset you're working on might be `energy_dataset`. This is descriptive and unique. An example of good function names are the `sum()` and `mean()` functions; what they do is easily disseminated from their names.
+
+#### Multiple words
+
+Sometimes, you'll want to use names that have more than one word, like our `energy_dataset` example. If you're convinced that the best way to do this is to include an actual space, you can create objects with spaces in their names by surrounding the name in backticks \`:
+```{r}
+`dont call your variable this` <- 1
+```
+**Please don't ever do this.** It will just make things 100% more complicated down the line. Instead, I highly recommend that you use camel case (`EnergyDataset`), `_`s (`energy_dataset`) or `.`s (`energy.dataset`).
+
+Personally, I use `_`s because camel case is more difficult to read at a glance and there is a group of R functions that use `.` in their name and you don't want to get confused with those, but it's really just a preference. I would only say that it's better to be consistent than to choose the right convention.
+
+## Reassigning variables
+
+Variables are very flexible. You can overwrite a previously defined variable just be reassigning a new value to the same name:
+
+```{r}
+variable_1 <- 100
+variable_1 <- "I'm not 100 anymore"
+variable_1
+
+```
+
+R will also give the variable an appropriate *type* based on the value you assign. So for example, if you assign `20` to a variable, then that variable will be stored as a number. If you assign something in quotation marks like `"hello"`, then R will store it as text.
+
+Let's look in a bit more detail at the different data types...
+
+
+## Questions {#questions-variable-assignment}
+
+1. Is `.2nd` a valid name? Why/why not?
+2. Why are names like `if`, `function`, and `TRUE` not allowed?
+3. Why might it be a bad idea to assign a value to a name like `mean` or `sum`?

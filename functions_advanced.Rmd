@@ -1,0 +1,319 @@
+# Functions {#functions-teachers}
+
+In the "For Students" section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.
+
+When you start writing our own functions, you'll start to see a massive improvement in your efficiency. By extracting out common tasks to functions and by keeping your functions simple, you can easily expand and debug your project. A rough rule of thumb is that if you've copied some code more than twice, think about extracting it out to a function. 
+
+Let's take a look at an example of where it may be appropriate to shorten your workflow by using a function. Let's say you've got 2 datasets, and you want to get the standard deviation and mean of one column and then create a normal distribution based on those values:
+  
+  ```{r}
+dataset1 <- data.frame(
+  observation_number = c(1,2,3,4,5),
+  value = c(10,35,13,20,40)
+)
+dataset2 <- data.frame(
+  observation_number = c(1,2,3,4,5),
+  income = c(100,200,150,600,900)
+)
+```
+
+Without using functions, our workflow might look like this:
+  
+  ```{r}
+mean_ds1 <- mean(dataset1$value)
+sd_ds1 <- sd(dataset1$value)
+normal_dist_ds1 <- rnorm(1000, mean = mean_ds1, sd = sd_ds1)
+
+mean_ds2 <- mean(dataset2$income)
+sd_ds2 <- sd(dataset2$income)
+normal_dist_ds2 <- rnorm(1000, mean = mean_ds2, sd = sd_ds2)
+```
+
+This isn't too bad, but what if we wanted to add another dataset? We'd have to copy and paste the code yet again. Then, say we wanted not to use the mean but the median, we'd have to replace each call to the `mean()` function with `median()` in each block of code.
+
+If we extract out the commonalities to a function, then not only do we reduce the amount of code we're using, but this also makes future changes or fixes much easier.
+
+We'll look more specifically out how we create functions in the next few sections, but for now let's imagine what we'd want our function to look like.
+It'd need to calculate the mean and standard deviation of a column, but that column name or position in the dataframe might change - the column is called 'value' in the first dataset but is called 'income' in the second, and even though they're both the second column in the dataset, we don't want to rely on that in case we have a new dataset where the column we want to use isn't in that position.
+
+Let's revisit this once we understand how we create functions in R a bit better. If you're comfortable with creating functions in R, then you can skip to the [solution](#example-function).
+
+## Creating functions
+
+R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn't a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn't an Excel function for you to use and there isn't an easy way to create one without knowing VBA.
+
+R is different. Creating functions can be very simple and will really change the way you work.
+
+Creating functions will also highlight an important delineation. Previously, we've been focusing on *calling* functions. Calling a function is essentially using it. But in order to call a function, it needs to be *defined*. Base functions are already defined (i.e. someone has already written what the function is going to do), but when you're creating your own functions, you are *defining* a new function that you're presumably going to call later on.
+
+### Function structure
+
+If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the `function` keyword like this:
+
+```{r}
+my_first_function <- function() {}
+```
+
+Notice how we've got two sets of brackets here. The first (`()`) is where we define our input parameters. The second (`{}`) is where we define the body of our function.
+
+Let's do a simple example. Let's create a function that adds two numbers together:
+  
+  ```{r}
+my_sum_function <- function(x, y) {
+  x + y
+}
+```
+
+So in this example, I've defined that when anyone uses the function, they need to provide two input parameters named `x` and `y`. Something that people tend to struggle with is that the names of your input parameters have no real *meaning*. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why in some functions that require a dataframe there will be an input parameter called `df` or similar. It can suggest at a glance that the value required for that parameter is a data frame. But just calling it `df` alone has no impact.
+
+In the body of the function, we can see that we're just doing something really simple: we're adding `x` and `y` together with `+`.
+
+Once I've run the code to **define** my function, I can then **call** it like I would any other function:
+  
+  ```{r}
+my_sum_function(x = 5, y = 6)
+```
+### Input Parameters
+
+#### Optional input parameters
+
+When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:
+  
+  ```{r}
+add_mostly_2 <- function(x, y = 2){
+  x + y
+}
+
+add_mostly_2(x = 5)
+
+add_mostly_2(x = 5, y = 3)
+```
+
+Sometimes you'll want to provide users with a set of options. To do so, provide a default value of a vector and use the `match.arg()` function like this:
+
+```{r}
+greet_me <- function(greeting = c("hello", "welcome")) {
+  greeting <- match.arg(greeting)
+  greeting
+}
+```
+This will ensure that users of the function can only provide one of the values in the vector. If they use the default, then the first value in the vector will be used:
+
+```{r}
+greet_me("welcome")
+greet_me()
+```
+
+```{r, error = TRUE}
+greet_me("wassup") # This will error because 1 wasn't an options for y
+```
+
+**Note:** The `match.arg()` function only works with character vectors.
+
+#### ...
+
+You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
+  ```{r,eval=FALSE}
+dot_dot_dot_function <- function(...) {
+  .
+  .
+  .
+}
+```
+
+The `...` works particularly well when you might be creating a function that *wraps* around another one. A wrapping function is just a function that makes a call to another one within it, like this:
+  
+  ```{r}
+sum_and_add_2 <- function(...){
+  sum(...) + 2
+}
+```
+
+All we're basically doing in the above wrapping around the `sum()` function to add some specific functionality.
+
+By using the `...` here, we can just pass everything that the user provides to the `sum()` function. This means we don't have to worry about copying any input parameters.
+
+
+#### Input validation
+
+Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that are imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
+
+```{r, error = TRUE}
+function_without_check <- function(x, y) {
+  x + y
+}
+function_without_check(x = 2, y = "error for me please")
+```
+
+```{r, warning = TRUE}
+function_with_check <- function(x, y) {
+  if (!is.numeric(x) || !is.numeric(y)) {
+    warning("x or y isn't numeric. Returning NA")
+    NA_integer_
+  } else {
+    x + y
+  }
+}
+function_with_check(x = 2, y = "warn me please")
+```
+
+#### Missing Inputs
+
+When you're defining your input parameters, you can define optional parameters (i.e. they have a default value), or required parameters (i.e. they don't have a default value). However, these 'required' parameters aren't really strictly required for two reasons that we'll look at now.
+
+##### Lazy evaluation
+
+What happens if you define a required input parameter (i.e. it doesn't have a default value), but then you don't use it? Do we see an error, or does R carry on like normal?
+                                                         
+                                                         Let's have a look:
+
+```{r}
+use_me_please <- function(x, y, w) {
+  x + y
+}
+
+use_me_please(x = 1, y = 2)
+```
+
+As you can see, we don't get an error. This is due to something called **lazy evaluation**. Lazy evaluation just means that objects don't get evaluated until they're actually used. This is in contrast to strict or direct evaluation, in which objects are evaluated before they're called.
+
+##### `missing()`
+
+Missing 'required' parameters can also be caught and handled using the `missing()` function. The `missing()` function will return a logical value defining whether the argument was provided with a value:
+
+```{r}
+missed_that_one <- function(x) {
+  missing(x)
+}
+missed_that_one()
+missed_that_one(1)
+```
+You can therefore use the `missing()` function to check if a parameter has been supplied and reassign a new value or handle any errors.
+
+Personally, I try and stay away from using this approach in my functions. By not providing a default value, a user will need to more closely read your documentation to know if they actually have to provide a value to your function. If instead you assign your parameter a default value (such as `NA` or `NULL`) however, then the user knows for sure that that parameter isn't required for the function to work. Most developers nowadays take a similar approach - make a required parameter required when is it actually required - but this isn't a universal practice so be aware.
+
+### Return values
+
+As I mentioned in the "For Students" section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our `my_sum_function` example, our last evaluation was `x + y`, so the output of that was what was returned by the function.
+
+You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
+  
+  ```{r}
+early_return_function <- function(x,y, return_x  = TRUE) {
+  if (return_x) {
+    return(x)
+  }
+  x + y
+}
+early_return_function(x = 2, y = 10, return_x = TRUE)
+```
+
+Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `x + y` is returned otherwise.
+
+Certain style guides suggest that you should **only** use `return()` statements for early returns. In other words, the "normal" return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit `return()` values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.
+
+### Functions as objects
+
+Functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` (list-apply) function requires a `FUN` parameter that is the function the be applied to each value in the provided list.
+
+```{r}
+sum_list <- list(
+  c(1,2),
+  c(5,10),
+  c(20,30)
+)
+
+lapply(sum_list, FUN = sum)
+```
+
+Linked with the idea that functions are just another type of an object, there is an important distinction between 
+`substr`
+and
+`substr()`. The first will return the `substr` *object*. That is, not the result of applying inputs to the `substr` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition): 
+  
+  ```{r}
+substr
+```
+
+Conversely, `substr()` will *call* the `sum` function with the inputs provided in the brackets.
+
+```{r}
+substr("hey there", 1, 3)
+```
+
+
+## Anonymous functions
+
+Because some functions accept functions as an argument, there is the concept of **anonymous functions** in R. These are just functions that haven't been assigned a name. For example, we might want to use an anonymous function in an `lapply` call:
+
+```{r}
+lapply(sum_list, FUN = function(x) max(x) - min(x))
+```
+Anonymous functions mean that you don't have to define your function in the traditional way. However, if you're going to use that function more than once, it's advisable to extract it out to a named function and then reference it:
+  
+  ```{r}
+diff <- function(x) {
+  max(x) - min(x)
+}
+lapply(sum_list, FUN = diff)
+```
+
+## Example function
+
+Going back to our [previous example](functions-teachers) of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
+  
+  ```{r}
+create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
+  ds_mean <- mean(dataset[[column_name]])
+  ds_sd <- sd(dataset[[column_name]])
+  rnorm(n = n, mean = ds_mean, sd = ds_sd)
+}
+
+normal_dist_ds1 <- create_norm_dist_from_column(dataset1, "value")
+normal_dist_ds2 <- create_norm_dist_from_column(dataset2, "income")
+
+head(normal_dist_ds1, 5)
+```
+
+Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.
+
+This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.
+
+
+## Vectorised functions
+
+An important concept in R that differs from non-functional programming language is the presence of vectorised functions. Vectorised functions operate a bit like applying a set of values to a function over and over again without needing to use iterative loops (which we'll look at later). For example, if we use the `substr()` function as an example, which creates a substring from a string, we can provide a vector of values to the `x` parameter instead of a single value and we'll get a return value for each one:
+
+```{r}
+substr(c("hello", "there"), start = 1, stop = 4)
+```
+
+Logically, this is quite easy to wrap your head around. R has just applied the same parameters (`start = 1, stop = 4`) to two different strings. In fact, when you provide a single value, you're still providing a vector, it just has a length of 1, so R just applies it once.
+
+This makes repeating functions for multiple values much easier, because you don't need to write any loops or `apply` statements.
+
+### Recycling
+
+Things get a bit more complicated when you provide vectors to multiple arguments though. For example, what would happen if I provided `stop = c(4,3)` as a parameter to the above function call?
+
+Make your guesses...
+
+```{r}
+substr(c("hello", "there"), start = 1, stop = c(4,3))
+```
+R has used the first value in each vector for the first time it runs (`hello` and `4`), and then it's used the second values from each vector when it runs the second time. What about the `start` parameter though? Well because it's only got a length of 1 but the other parameters have a length of 2, the 1 gets **recycled** until it's the same length as the other parameters. If the length of the larger vector isn't a multiple of the smaller one, then the smaller vector is recycled until it's the same length and any extra values are discarded. So the above example is the same as:
+  
+  ```{r, eval = FALSE}
+substr(c("hello", "there"), start = c(1,1), stop = c(4,3))
+```
+This idea of repeating an operation again and again is very common in programming, and it's something that we'll look at in more detail in the [Iteration](iteration) chapter.
+
+## Questions {#questions-functions-teachers}
+
+1. How are `mean()` and `sum()` different in their implementation of `...`?
+  2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
+  3. Look at the `ellipsis` package. What issue does this package look to solve?
+  4. What issues might arise when passing `...` to multiple functions inside your function?
+  5. How could you solve these issues using the `do.call()` function?
+  6. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
+  

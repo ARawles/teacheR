@@ -1,0 +1,96 @@
+# Expressions
+
+When we use R, we write code which is then passed to the console to be executed (evaluated). Before the code is executed though, it is just an **expression**.
+
+An expression can therefore be defined as a section of R code that has not yet been fully evaluated. That does not mean that all expressions have to be *valid*. For example, a piece of code like this `mean()` is a valid expression, but will error when it is evaluated because `mean` is missing its required arguments.
+
+Expressions themselves are made up of 4 constituent parts: calls, constants, names and pairlists. For now though, we're not going to look at the bits that make up expressions, but instead we'll focus on expressions as a whole.
+
+## Creating expressions
+
+Creating an expression (an unevaluated piece of code) is done in base R using the `quote()` function. Unfortunately, the `expression()` function in R doesn't actually create an expression in the sense we're talking about, so use `quote()` instead.
+
+When creating single line expressions, you can just provide the expression directly within the `quote()` function:
+  
+  ```{r}
+quote(x + 10)
+```
+
+When providing multiple line expressions, wrap the argument in `{}` like this:
+  
+  ```{r}
+quote({
+  x + 10
+  y - 5
+})
+```
+
+Unfortunately, testing whether something is an expression in R isn't that easy, because the base R functions are made for the constituent parts of the expression (e.g. `is.call()`, `is.name()`, etc.). Instead, you can use the `is_expression()` function from the `rlang` package to test whether something is an expression:
+
+```{r}
+rlang::is_expression(
+  quote(1 + 1)
+)
+```
+
+## Evaluating expressions
+
+Once you've created your expression, you can evaluate it using the `eval()` function:
+  ```{r}
+my_expr <- quote(1 + 1)
+eval(my_expr)
+```
+
+Of course in this example, this is essentially just the same as `1 + 1` as we're evaluating the expression in the same environment in which it was created. However, the `eval()` function accepts an `envir` parameter where you can pass an environment for the expression to be evaluated in:
+
+```{r, error = TRUE}
+new_environ <- new.env()
+new_environ$num <- 10
+my_expr <- quote(num + 5)
+eval(my_expr) # this will error because num doesn't exist in our parent environment
+eval(my_expr, new_environ) # this won't error because num exists in new_environ
+```
+Using this, you can create expressions in one environment without evaluating them, and then evaluate them later in different environments to where they were created.
+
+## Substitution
+
+As well as hard coding in the objects and names in our expression, we can substitute in values from our environment. For example, lets say we wanted to create an `x <- y + 1` expression, but we wanted to change what the value of `y` was when we created it. We could acheive this by using the `substitute()` function. `substitute()` requires two parameters, `expr` which must be an expression, and `env` which must be an environment or a list and contains the objects you want to substitute.
+
+```{r}
+substitute(x <- y + 1, list(y = 1))
+```
+
+As you can see, this doesn't *evaluate* the expression, it simple substitutes the provided names with the values provided in the `env` parameter. This can be a really powerful tool for building up expressions.
+
+## Quasiquotation
+
+A related subject to expressions and substitution is the idea of **quasiquotation**, used heavily in the `tidyverse` packages. Quasiquotation is the process of quoting (creating expressions) and unquoting (evaluating) parts of that expression.
+
+A good example of quasiquotation in action is the `dplyr` package. Within the `dplyr` package functions, you'll provide column names to various analysis and data manipulation functions. When you provide those names however, you provide them as raw names (i.e. not in quotation marks): `dplyr::mutate(data, new_column = old_column + 1)`. Those column names are then quoted (as in `quote()`) and then evaluated in the context of the dataset that you've provided:
+
+```{r}
+test_df <- data.frame(col_1 = c(1,2,3))
+eval(quote(col_1), env = test_df)
+```
+
+I won't go into quasiquotation here because [Hadley's chapters on the subject](https://adv-r.hadley.nz/quasiquotation.html) in his Advanced R book summarises the topic much better than I ever could. But if you're interested, I would recommend using the `tidyverse` packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.
+                                             
+## Questions {#questions-expressions}
+1. Why might an expression like this `fun(x)` be useful? Particularly, when paired with `substitute()`.
+2. What's the difference between
+```{r, eval = FALSE}
+quote({
+  x <- 1
+  x + 10
+})
+```
+and
+
+```{r, eval = FALSE}
+list(
+  quote(x <- 1),
+  quote(x + 10)
+)
+```
+Why do they evaluate to different things?
+
