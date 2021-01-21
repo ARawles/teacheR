@@ -126,47 +126,7 @@ greet_me("wassup") # This will error because 1 wasn't an options for y
 
 **Note:** The `match.arg()` function only works with character vectors.
 
-#### ...
-
-You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
-```{r}
-dot_dot_dot_function <- function(x, y, ...) {
-}
-```
-
-The `...` works particularly well when you might be creating a function that *wraps* around another one. A wrapping function is just a function that makes a call to another one within it, like this:
-
-```{r}
-sum_and_add_2 <- function(...){
-  sum(...) + 2
-}
-```
-
-All we're basically doing in the above wrapping around the `sum()` function to add some specific functionality.
-
-By using the `...` here, we can just pass everything that the user provides to the `sum()` function. This means we don't have to worry about copying any input parameters.
-
-##### Return values
-
-As I mentioned in the "For Students" section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our `my_sum_function` example, our last evaluation was `x + y`, so the output of that was what was returned by the function.
-
-You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
-
-```{r}
-early_return_function <- function(x,y, return_x  = TRUE) {
-  if (return_x) {
-    return(x)
-  }
-  x + y
-}
-early_return_function(x = 2, y = 10, return_x = TRUE)
-```
-
-Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `x + y` is returned otherwise.
-
-Certain style guides suggest that you should **only** use `return()` statements for early returns. In other words, the "normal" return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit `return()` values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.
-
-### Input validation
+##### Input validation
 
 Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that are imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.
 
@@ -189,6 +149,82 @@ function_with_check <- function(x, y) {
 function_with_check(x = 2, y = "warn me please")
 ```
 
+#### Missing Inputs
+
+When you're defining your input parameters, you can define optional parameters (i.e. they have a default value), or required parameters (i.e. they don't have a default value). However, these 'required' parameters aren't really strictly required for two reasons that we'll look at now.
+
+##### Lazy evaluation
+
+What happens if you define a required input parameter (i.e. it doesn't have a default value), but then you don't use it? Do we see an error, or does R carry on like normal?
+
+Let's have a look:
+
+```{r}
+use_me_please <- function(x, y, w) {
+  x + y
+}
+
+use_me_please(x = 1, y = 2)
+```
+
+As you can see, we don't get an error. This is due to something called **lazy evaluation**. Lazy evaluation just means that objects don't get evaluated until they're actually used. This is in contrast to strict or direct evaluation, in which objects are evaluated before they're called.
+
+##### `missing()`
+
+There is a programmatic way of checking whethere something is missing. The `missing()` function will return a logical value defining whether the argument was provided with a value:
+
+```{r}
+missed_that_one <- function(x) {
+  missing(x)
+}
+missed_that_one()
+missed_that_one(1)
+```
+
+Personally, I try and stay away from using this approach in my functions. By not providing a default value, a user will need to more closely read your documentation to know if they actually have to provide a value to your function. If instead you assign your parameter a default value (such as `NA` or `NULL`) however, then the user knows for sure that that parameter isn't required for the function to work. Most developers nowadays take a similar approach - make a required parameter required when is it actually required - but this isn't a universal practice so be aware.
+
+#### ...
+
+You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
+```{r,eval=FALSE}
+dot_dot_dot_function <- function(...) {
+  .
+  .
+  .
+}
+```
+
+The `...` works particularly well when you might be creating a function that *wraps* around another one. A wrapping function is just a function that makes a call to another one within it, like this:
+
+```{r}
+sum_and_add_2 <- function(...){
+  sum(...) + 2
+}
+```
+
+All we're basically doing in the above wrapping around the `sum()` function to add some specific functionality.
+
+By using the `...` here, we can just pass everything that the user provides to the `sum()` function. This means we don't have to worry about copying any input parameters.
+
+#### Return values
+
+As I mentioned in the "For Students" section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our `my_sum_function` example, our last evaluation was `x + y`, so the output of that was what was returned by the function.
+
+You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
+
+```{r}
+early_return_function <- function(x,y, return_x  = TRUE) {
+  if (return_x) {
+    return(x)
+  }
+  x + y
+}
+early_return_function(x = 2, y = 10, return_x = TRUE)
+```
+
+Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `x + y` is returned otherwise.
+
+Certain style guides suggest that you should **only** use `return()` statements for early returns. In other words, the "normal" return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit `return()` values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.
 
 ### Functions as objects
 
@@ -236,7 +272,7 @@ diff <- function(x) {
 lapply(sum_list, FUN = diff)
 ```
 
-### Example answer
+### Example function
 
 Going back to our [previous example](functions-teachers) of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
 
@@ -290,10 +326,10 @@ This idea of repeating an operation again and again is very common in programmin
 
 1. How are `mean()` and `sum()` different in their implementation of `...`?
 2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
-3. What happens if you create a function that asks for an argument that is never used? Why isn't there an error?
-    + Hint: search 'lazy' evaluation
-4. What does the `missing()` function do? How does this go against the lazy approach?
-5. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
+3. Look at the `ellipsis` package. What issue does this package look to solve?
+4. What issues might arise when passing `...` to multiple functions inside your function?
+5. How could you solve these issues using the `do.call()` function?
+6. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
 
 ## Environments 
 

@@ -91,11 +91,13 @@ If you feel that there are improvements to be made to the content or how it was 
     square_function <- function_factory(power = 2)
     square_function(3)
     ```
-3. What happens if you create a function that requires an argument that is never used? Why isn't there an error?
-    + R only evaluates objects when they are called. So if there's an object that is never used, then it is never evaluated and so there's no error.
-4. What does the `missing()` function do? How does this go against the lazy approach?
-    + `missing()` checks whether an argument was provided in the function call. This goes against the lazy approach because it ensures that the value is checked even though it may not be used in the body of the function. Rather than erroring when the object isn't found however, `missing()` returns `TRUE` if its missing and `FALSE` if it isn't.
-5. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
+3. Look at the `ellipsis` package. What issue does this package look to solve?
+    + If you provide incorrect or misspelled arguments to a function via `...`, then these will be silently ignored, making debugging difficult. For instance, if we run `mean(1,2,3)`, which looks like perfectly valid code. We get `1`. This is because `mean()` expects a vector of values to calculate the mean for as the first argument (`x`), with all other arguments being passed via `...`. The `ellipsis` package can be used to check that the parameters provided are actually used.
+4. What issues might arise when passing `...` to multiple functions inside your function?
+    + If an argument provided in the ellipsis matches an argument name in more than one function, then every function with the matching argument name will use that value. For instance, if you pass the `...` to two functions, both of which accept an `x` parameter, then the value of `x` provided to your function will be used for both.
+5. How could you solve these issues using the `do.call()` function?
+    + The `do.call()` function allows you to call a function and provide a list of input parameters. To define a function that passes arguments to more than one function, you could have input parameters such as `fun1_options` and `fun2_options` that are lists of input parameters. Then, by using `do.call(fun1, args = fun1_options)` and `do.call(fun2, fun2_options)`, you can specify arguments to each function separately without worrying about name conflicts with `...`.
+6. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
     + `missing()` allows you to handle errors in more detail and lets you set more complex or conditional default values. However, using `missing()` in this way means that someone who uses your function might not be able to tell what the default value is going to be without seeing the body of the function!
   
 #### Environments {#environments-answers}

@@ -883,8 +883,6 @@ So while you can manually subset with a vector of logical values indicating whet
 
 Being a functional programming language, functions are at the heart of R. We've already used lots of functions in the previous chapters, but now we're going to look in more detail about what a function is.
 
-### Function basics
-
 John Chambers, creator of the S programming language upon which R is based and core member of the R programming language project, said this:
 
 > "To understand computations in R, two slogans are helpful:   
@@ -907,7 +905,7 @@ Similarly, whenever you created a factor or a matrix or a dataframe or whatever,
 As confusing as functions will inevitably become, just try to remember the core of what a function is:
 When you call a function, there's an input, something happens, and there's an output.
 
-#### Functions in R
+### Functions in R
 
 So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (`()`) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
 
@@ -927,7 +925,7 @@ But it doesn't have brackets. Instead, we can use a shorthand where we provide t
 
 It's just that this looks a little weird to us, so we often use the shorthand way. But the long and short of it is: an easy way to tell when someone is calling (using) a function is to look for the `()` after the function name.
 
-#### Inputs
+### Inputs
 
 We know that to use a function in R, we have to provide inputs\*. And we also know that we provide our inputs within the brackets after the function name. But how do we know what values are allowed?
 
@@ -937,7 +935,7 @@ By typing a `?` followed by the name of the function into the console (e.g. `?le
 
 In some cases, you'll see a `...` as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the `c()` function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the `c()` function basically bundles everything you provide to it into that `...` parameter.
 
-##### Explicit input parameters
+#### Explicit input parameters
 
 If you type `?c()` into the console however, you'll see that there are also some other input parameters: `recursive` and `use.names`. Well Adam, if `...` just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing **explicit** input parameters. When we're explicit, we're saying exactly which input parameter we're referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let's look at the `substr()` function as an example.
 
@@ -969,7 +967,7 @@ Also, notice how we're using `=` here and not anything else like `<-`? This is a
 
 So how does this link back with the `...`? Well, with the `c()` function, every unnamed parameter you provide is bundled into the `...` parameter. To give values for the `recursive` and `use.names` parameters, you'd need to provide them *explicitly* (e.g. `recursive = TRUE`). This will be true of many functions where you see a `...`. If you're not explicit with the parameters that you don't want to be included in the `...`, you're going to have a bad time.
 
-##### Optional input parameters
+#### Optional input parameters
 
 For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there's a default value, but you can override it if needed.
 
@@ -980,14 +978,15 @@ For instance, when we create a vector using the `c()` function, there are two op
 c(1,10,15, use.names = FALSE)
 ```
 
-#### Outputs
+Values without default values are often called *required parameters*. This is a bit of a misnomer because there will be instances where you won't provide a value to these parameters and the function will work just fine. This is down to two things that we'll look at in the For Teachers section: lazy evaluation and the `missing()` function. Most developers try and stay away from having required parameters that aren't actually required, but you'll still see them around (e.g. you can use the `download.file()` function without providing a value to the `method` parameter even though it doesn't have a default value.
+
+### Outputs
 
 First and foremost, in R you can have as many input as you like to a function. However, a function will only ever return one *thing*. I say one *thing*, because functions can return a list which itself can contain multiple values, but just keep this in mind: **Functions in R have a single return value**.
 
+#### Reassigning outputs
 
-##### Reassigning outputs
-
-Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. Here's a quick example:
+Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. We call this **immutability**. Here's a quick example:
 
 ```{r}
 x <- 1
