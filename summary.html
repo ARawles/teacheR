@@ -58,6 +58,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -203,8 +204,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="for-students.html"><a href="for-students.html#functions"><i class="fa fa-check"></i><b>3.6</b> Functions</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="for-students.html"><a href="for-students.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
-<li class="chapter" data-level="3.6.2" data-path="for-students.html"><a href="for-students.html#questions-functions"><i class="fa fa-check"></i><b>3.6.2</b> Questions</a></li>
+<li class="chapter" data-level="3.6.1" data-path="for-students.html"><a href="for-students.html#functions-in-r"><i class="fa fa-check"></i><b>3.6.1</b> Functions in R</a></li>
+<li class="chapter" data-level="3.6.2" data-path="for-students.html"><a href="for-students.html#inputs"><i class="fa fa-check"></i><b>3.6.2</b> Inputs</a></li>
+<li class="chapter" data-level="3.6.3" data-path="for-students.html"><a href="for-students.html#outputs"><i class="fa fa-check"></i><b>3.6.3</b> Outputs</a></li>
+<li class="chapter" data-level="3.6.4" data-path="for-students.html"><a href="for-students.html#questions-functions"><i class="fa fa-check"></i><b>3.6.4</b> Questions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a>
@@ -212,11 +215,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="for-teachers.html"><a href="for-teachers.html#functions-teachers"><i class="fa fa-check"></i><b>4.1</b> Functions</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="for-teachers.html"><a href="for-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
-<li class="chapter" data-level="4.1.2" data-path="for-teachers.html"><a href="for-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
-<li class="chapter" data-level="4.1.3" data-path="for-teachers.html"><a href="for-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.4" data-path="for-teachers.html"><a href="for-teachers.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
-<li class="chapter" data-level="4.1.5" data-path="for-teachers.html"><a href="for-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>4.1.5</b> Vectorised functions</a></li>
-<li class="chapter" data-level="4.1.6" data-path="for-teachers.html"><a href="for-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.6</b> Questions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="for-teachers.html"><a href="for-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.2</b> Functions as objects</a></li>
+<li class="chapter" data-level="4.1.3" data-path="for-teachers.html"><a href="for-teachers.html#example-function"><i class="fa fa-check"></i><b>4.1.3</b> Example function</a></li>
+<li class="chapter" data-level="4.1.4" data-path="for-teachers.html"><a href="for-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>4.1.4</b> Vectorised functions</a></li>
+<li class="chapter" data-level="4.1.5" data-path="for-teachers.html"><a href="for-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.5</b> Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="for-teachers.html"><a href="for-teachers.html#environments"><i class="fa fa-check"></i><b>4.2</b> Environments</a>
 <ul>
@@ -405,23 +407,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Example function:</li>
 </ul>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="summary.html#cb374-1" aria-hidden="true" tabindex="-1"></a>function_factory <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">power =</span> <span class="dv">2</span>){</span>
-<span id="cb374-2"><a href="summary.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  ret_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb374-3"><a href="summary.html#cb374-3" aria-hidden="true" tabindex="-1"></a>   x <span class="sc">^</span> power</span>
-<span id="cb374-4"><a href="summary.html#cb374-4" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb374-5"><a href="summary.html#cb374-5" aria-hidden="true" tabindex="-1"></a>  ret_function</span>
-<span id="cb374-6"><a href="summary.html#cb374-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb374-7"><a href="summary.html#cb374-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb374-8"><a href="summary.html#cb374-8" aria-hidden="true" tabindex="-1"></a>square_function <span class="ot">&lt;-</span> <span class="fu">function_factory</span>(<span class="at">power =</span> <span class="dv">2</span>)</span>
-<span id="cb374-9"><a href="summary.html#cb374-9" aria-hidden="true" tabindex="-1"></a><span class="fu">square_function</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="summary.html#cb380-1" aria-hidden="true" tabindex="-1"></a>function_factory <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">power =</span> <span class="dv">2</span>){</span>
+<span id="cb380-2"><a href="summary.html#cb380-2" aria-hidden="true" tabindex="-1"></a>  ret_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb380-3"><a href="summary.html#cb380-3" aria-hidden="true" tabindex="-1"></a>   x <span class="sc">^</span> power</span>
+<span id="cb380-4"><a href="summary.html#cb380-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb380-5"><a href="summary.html#cb380-5" aria-hidden="true" tabindex="-1"></a>  ret_function</span>
+<span id="cb380-6"><a href="summary.html#cb380-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb380-7"><a href="summary.html#cb380-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb380-8"><a href="summary.html#cb380-8" aria-hidden="true" tabindex="-1"></a>square_function <span class="ot">&lt;-</span> <span class="fu">function_factory</span>(<span class="at">power =</span> <span class="dv">2</span>)</span>
+<span id="cb380-9"><a href="summary.html#cb380-9" aria-hidden="true" tabindex="-1"></a><span class="fu">square_function</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre></li>
-<li>What happens if you create a function that requires an argument that is never used? Why isn’t there an error?
+<li>Look at the <code>ellipsis</code> package. What issue does this package look to solve?
 <ul>
-<li>R only evaluates objects when they are called. So if there’s an object that is never used, then it is never evaluated and so there’s no error.</li>
+<li>If you provide incorrect or misspelled arguments to a function via <code>...</code>, then these will be silently ignored, making debugging difficult. For instance, if we run <code>mean(1,2,3)</code>, which looks like perfectly valid code. We get <code>1</code>. This is because <code>mean()</code> expects a vector of values to calculate the mean for as the first argument (<code>x</code>), with all other arguments being passed via <code>...</code>. The <code>ellipsis</code> package can be used to check that the parameters provided are actually used.</li>
 </ul></li>
-<li>What does the <code>missing()</code> function do? How does this go against the lazy approach?
+<li>What issues might arise when passing <code>...</code> to multiple functions inside your function?
 <ul>
-<li><code>missing()</code> checks whether an argument was provided in the function call. This goes against the lazy approach because it ensures that the value is checked even though it may not be used in the body of the function. Rather than erroring when the object isn’t found however, <code>missing()</code> returns <code>TRUE</code> if its missing and <code>FALSE</code> if it isn’t.</li>
+<li>If an argument provided in the ellipsis matches an argument name in more than one function, then every function with the matching argument name will use that value. For instance, if you pass the <code>...</code> to two functions, both of which accept an <code>x</code> parameter, then the value of <code>x</code> provided to your function will be used for both.</li>
+</ul></li>
+<li>How could you solve these issues using the <code>do.call()</code> function?
+<ul>
+<li>The <code>do.call()</code> function allows you to call a function and provide a list of input parameters. To define a function that passes arguments to more than one function, you could have input parameters such as <code>fun1_options</code> and <code>fun2_options</code> that are lists of input parameters. Then, by using <code>do.call(fun1, args = fun1_options)</code> and <code>do.call(fun2, fun2_options)</code>, you can specify arguments to each function separately without worrying about name conflicts with <code>...</code>.</li>
 </ul></li>
 <li>Why might one use the <code>missing()</code> approach instead of assigning a default value? What are the drawbacks of this?
 <ul>
@@ -477,40 +483,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.
 + By using subsitute, we can replace <code>fun</code> with any function we like:</li>
 </ol>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="summary.html#cb376-1" aria-hidden="true" tabindex="-1"></a>quoted_fun <span class="ot">&lt;-</span> <span class="fu">substitute</span>(<span class="fu">fun</span>(x), <span class="at">env =</span> <span class="fu">list</span>(<span class="at">fun =</span> sum, <span class="at">x =</span> <span class="dv">1</span>))</span>
-<span id="cb376-2"><a href="summary.html#cb376-2" aria-hidden="true" tabindex="-1"></a>quoted_fun</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="summary.html#cb382-1" aria-hidden="true" tabindex="-1"></a>quoted_fun <span class="ot">&lt;-</span> <span class="fu">substitute</span>(<span class="fu">fun</span>(x), <span class="at">env =</span> <span class="fu">list</span>(<span class="at">fun =</span> sum, <span class="at">x =</span> <span class="dv">1</span>))</span>
+<span id="cb382-2"><a href="summary.html#cb382-2" aria-hidden="true" tabindex="-1"></a>quoted_fun</span></code></pre></div>
 <pre><code>## .Primitive(&quot;sum&quot;)(1)</code></pre>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="summary.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eval</span>(quoted_fun)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="summary.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eval</span>(quoted_fun)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>What’s the difference between</li>
 </ol>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="summary.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quote</span>({</span>
-<span id="cb380-2"><a href="summary.html#cb380-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb380-3"><a href="summary.html#cb380-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb380-4"><a href="summary.html#cb380-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="summary.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quote</span>({</span>
+<span id="cb386-2"><a href="summary.html#cb386-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb386-3"><a href="summary.html#cb386-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb386-4"><a href="summary.html#cb386-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p>and</p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="summary.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb381-2"><a href="summary.html#cb381-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quote</span>(x <span class="ot">&lt;-</span> <span class="dv">1</span>),</span>
-<span id="cb381-3"><a href="summary.html#cb381-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quote</span>(x <span class="sc">+</span> <span class="dv">10</span>)</span>
-<span id="cb381-4"><a href="summary.html#cb381-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="summary.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb387-2"><a href="summary.html#cb387-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quote</span>(x <span class="ot">&lt;-</span> <span class="dv">1</span>),</span>
+<span id="cb387-3"><a href="summary.html#cb387-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quote</span>(x <span class="sc">+</span> <span class="dv">10</span>)</span>
+<span id="cb387-4"><a href="summary.html#cb387-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>and why do they evaluate to different things?
 + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time:</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="summary.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eval</span>(</span>
-<span id="cb382-2"><a href="summary.html#cb382-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">quote</span>({</span>
-<span id="cb382-3"><a href="summary.html#cb382-3" aria-hidden="true" tabindex="-1"></a>        x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb382-4"><a href="summary.html#cb382-4" aria-hidden="true" tabindex="-1"></a>        x <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb382-5"><a href="summary.html#cb382-5" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb382-6"><a href="summary.html#cb382-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="summary.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eval</span>(</span>
+<span id="cb388-2"><a href="summary.html#cb388-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">quote</span>({</span>
+<span id="cb388-3"><a href="summary.html#cb388-3" aria-hidden="true" tabindex="-1"></a>        x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb388-4"><a href="summary.html#cb388-4" aria-hidden="true" tabindex="-1"></a>        x <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb388-5"><a href="summary.html#cb388-5" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb388-6"><a href="summary.html#cb388-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <p>  + The second is a list of separate expressions. If we evaluate them using:</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="summary.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(</span>
-<span id="cb384-2"><a href="summary.html#cb384-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
-<span id="cb384-3"><a href="summary.html#cb384-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">quote</span>(x <span class="ot">&lt;-</span> <span class="dv">1</span>),</span>
-<span id="cb384-4"><a href="summary.html#cb384-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">quote</span>(x <span class="sc">+</span> <span class="dv">10</span>)</span>
-<span id="cb384-5"><a href="summary.html#cb384-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb384-6"><a href="summary.html#cb384-6" aria-hidden="true" tabindex="-1"></a>    eval</span>
-<span id="cb384-7"><a href="summary.html#cb384-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="summary.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(</span>
+<span id="cb390-2"><a href="summary.html#cb390-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb390-3"><a href="summary.html#cb390-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">quote</span>(x <span class="ot">&lt;-</span> <span class="dv">1</span>),</span>
+<span id="cb390-4"><a href="summary.html#cb390-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">quote</span>(x <span class="sc">+</span> <span class="dv">10</span>)</span>
+<span id="cb390-5"><a href="summary.html#cb390-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb390-6"><a href="summary.html#cb390-6" aria-hidden="true" tabindex="-1"></a>    eval</span>
+<span id="cb390-7"><a href="summary.html#cb390-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -546,10 +552,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Loop code:</li>
 </ul>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="summary.html#cb386-1" aria-hidden="true" tabindex="-1"></a>max_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">rep</span>(<span class="cn">NULL</span>, <span class="fu">length</span>(number_list)))</span>
-<span id="cb386-2"><a href="summary.html#cb386-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(number_list)) {</span>
-<span id="cb386-3"><a href="summary.html#cb386-3" aria-hidden="true" tabindex="-1"></a>  max_list[[i]] <span class="ot">&lt;-</span> <span class="fu">max</span>(number_list[[i]])</span>
-<span id="cb386-4"><a href="summary.html#cb386-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="summary.html#cb392-1" aria-hidden="true" tabindex="-1"></a>max_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">rep</span>(<span class="cn">NULL</span>, <span class="fu">length</span>(number_list)))</span>
+<span id="cb392-2"><a href="summary.html#cb392-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(number_list)) {</span>
+<span id="cb392-3"><a href="summary.html#cb392-3" aria-hidden="true" tabindex="-1"></a>  max_list[[i]] <span class="ot">&lt;-</span> <span class="fu">max</span>(number_list[[i]])</span>
+<span id="cb392-4"><a href="summary.html#cb392-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
 </ol>
 </div>
 </div>
