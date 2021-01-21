@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.3 Data types | teacheR</title>
-  <meta name="description" content="3.3 Data types | teacheR" />
+  <title>6 Data types | teacheR</title>
+  <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.3 Data types | teacheR" />
+  <meta property="og:title" content="6 Data types | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
-  
-  
+  <meta property="og:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
+  <meta name="github-repo" content="ARawles/teacheR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.3 Data types | teacheR" />
+  <meta name="twitter:title" content="6 Data types | teacheR" />
   
-  
+  <meta name="twitter:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="twitter:image" content="cover.png" />
 
 <meta name="author" content="Adam Rawles" />
@@ -52,16 +52,13 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/viz-1.8.2/viz.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -134,142 +131,195 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
-<li class="chapter" data-level="1.3" data-path="why-teacher.html"><a href="why-teacher.html"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="should-i-use-r.html"><a href="should-i-use-r.html"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
+<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1.1</b> Arithmetic operators</a></li>
-<li class="chapter" data-level="3.1.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.1.2</b> Logical operators</a></li>
-<li class="chapter" data-level="3.1.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>3.1.3</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
-<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>3.2.2</b> Naming</a></li>
-<li class="chapter" data-level="3.2.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.3</b> Reassigning variables</a></li>
-<li class="chapter" data-level="3.2.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>3.2.4</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
-<li class="chapter" data-level="3.3.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>3.3.2</b> Double</a></li>
-<li class="chapter" data-level="3.3.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>3.3.3</b> Integer</a></li>
-<li class="chapter" data-level="3.3.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
-<li class="chapter" data-level="3.3.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>3.3.5</b> Factors</a></li>
-<li class="chapter" data-level="3.3.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>3.3.6</b> Dates</a></li>
-<li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
-<li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
-<li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>3.3.10</b> Implicit Conversion</a></li>
-<li class="chapter" data-level="3.3.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.11</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.4.2</b> Lists</a></li>
-<li class="chapter" data-level="3.4.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>3.4.3</b> Lists vs Vectors</a></li>
-<li class="chapter" data-level="3.4.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>3.4.4</b> Matrices</a></li>
-<li class="chapter" data-level="3.4.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.4.5</b> Dataframes</a></li>
-<li class="chapter" data-level="3.4.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>3.4.6</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.5.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>3.5.2</b> Lists</a></li>
-<li class="chapter" data-level="3.5.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>3.5.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.5.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>3.5.4</b> Dataframes</a></li>
-<li class="chapter" data-level="3.5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>3.5.5</b> Subsetting by criteria</a></li>
-<li class="chapter" data-level="3.5.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>3.5.6</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
-<li class="chapter" data-level="3.6.2" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>3.6.2</b> Questions</a></li>
+<li class="chapter" data-level="2.5.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a>
+<li class="part"><span><b>I For Students</b></span></li>
+<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
-<li class="chapter" data-level="4.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
-<li class="chapter" data-level="4.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
-<li class="chapter" data-level="4.1.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>4.1.5</b> Vectorised functions</a></li>
-<li class="chapter" data-level="4.1.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.6</b> Questions</a></li>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>4.1</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>4.2</b> Logical operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>4.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a>
+<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
-<li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
-<li class="chapter" data-level="4.2.4" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>4.2.4</b> Function environments</a></li>
-<li class="chapter" data-level="4.2.5" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>4.2.5</b> Mutability</a></li>
-<li class="chapter" data-level="4.2.6" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>4.2.6</b> Questions</a></li>
+<li class="chapter" data-level="5.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>5.1</b> Creating variables</a></li>
+<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#valid-names"><i class="fa fa-check"></i><b>5.2.1</b> Valid names</a></li>
+<li class="chapter" data-level="5.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming-conventions"><i class="fa fa-check"></i><b>5.2.2</b> Naming conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
-<li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
-<li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
-<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
-<li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>4.3.5</b> Questions</a></li>
+<li class="chapter" data-level="5.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>5.3</b> Reassigning variables</a></li>
+<li class="chapter" data-level="5.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>5.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a>
+<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>4.4.1</b> Creating expressions</a></li>
-<li class="chapter" data-level="4.4.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>4.4.2</b> Evaluating expressions</a></li>
-<li class="chapter" data-level="4.4.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>4.4.3</b> Substitution</a></li>
-<li class="chapter" data-level="4.4.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>4.4.4</b> Quasiquotation</a></li>
-<li class="chapter" data-level="4.4.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>4.4.5</b> Questions</a></li>
+<li class="chapter" data-level="6.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>6.1</b> Logical</a></li>
+<li class="chapter" data-level="6.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>6.2</b> Double</a></li>
+<li class="chapter" data-level="6.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>6.3</b> Integer</a></li>
+<li class="chapter" data-level="6.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>6.4</b> Character</a></li>
+<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>4.5</b> If / Else</a>
+<li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
+<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>4.5.1</b> Questions</a></li>
+<li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
+<li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
+<li class="chapter" data-level="6.8.3" data-path="data-types.html"><a href="data-types.html#dealing-with-nas"><i class="fa fa-check"></i><b>6.8.3</b> Dealing with NAs</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>4.6</b> Iteration</a>
+<li class="chapter" data-level="6.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>6.9</b> NaN and Infinity</a></li>
+<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>4.6.1</b> Imperative programming</a></li>
-<li class="chapter" data-level="4.6.2" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>4.6.2</b> For loops</a></li>
-<li class="chapter" data-level="4.6.3" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>4.6.3</b> While loops</a></li>
-<li class="chapter" data-level="4.6.4" data-path="iteration.html"><a href="iteration.html#functional-programming"><i class="fa fa-check"></i><b>4.6.4</b> Functional programming</a></li>
-<li class="chapter" data-level="4.6.5" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>4.6.5</b> Questions</a></li>
+<li class="chapter" data-level="6.10.1" data-path="data-types.html"><a href="data-types.html#dangers-of-implicit-conversion"><i class="fa fa-check"></i><b>6.10.1</b> Dangers of implicit conversion</a></li>
 </ul></li>
+<li class="chapter" data-level="6.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>6.11</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a>
+<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5.1</b> Answers</a>
+<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="answers.html"><a href="answers.html#for-students-1"><i class="fa fa-check"></i><b>5.1.1</b> For Students</a></li>
-<li class="chapter" data-level="5.1.2" data-path="answers.html"><a href="answers.html#for-teachers-1"><i class="fa fa-check"></i><b>5.1.2</b> For Teachers</a></li>
+<li class="chapter" data-level="7.1.1" data-path="data-structures.html"><a href="data-structures.html#coercion"><i class="fa fa-check"></i><b>7.1.1</b> Coercion</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures.html"><a href="data-structures.html#naming-1"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>5.2</b> Next Steps</a>
+<li class="chapter" data-level="7.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
+<li class="chapter" data-level="7.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>7.3</b> Lists vs Vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>7.4</b> Matrices</a></li>
+<li class="chapter" data-level="7.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
+<li class="chapter" data-level="7.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>7.6</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="next-steps.html"><a href="next-steps.html#operate"><i class="fa fa-check"></i><b>5.2.1</b> opeRate</a></li>
+<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
+<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
+<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
+<li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>8.5</b> Subsetting by criteria</a></li>
+<li class="chapter" data-level="8.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>8.6</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>9.1</b> Functions in R</a></li>
+<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="functions.html"><a href="functions.html#explicit-input-parameters"><i class="fa fa-check"></i><b>9.2.1</b> Explicit input parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="functions.html"><a href="functions.html#reassigning-outputs"><i class="fa fa-check"></i><b>9.3.1</b> Reassigning outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>9.4</b> Questions</a></li>
+</ul></li>
+<li class="part"><span><b>II For Teachers</b></span></li>
+<li class="chapter" data-level="10" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>10</b> Intro</a></li>
+<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#function-structure"><i class="fa fa-check"></i><b>11.1.1</b> Function structure</a></li>
+<li class="chapter" data-level="11.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-parameters"><i class="fa fa-check"></i><b>11.1.2</b> Input Parameters</a></li>
+<li class="chapter" data-level="11.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#return-values"><i class="fa fa-check"></i><b>11.1.3</b> Return values</a></li>
+<li class="chapter" data-level="11.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>11.1.4</b> Functions as objects</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="functions-teachers.html"><a href="functions-teachers.html#anonymous-functions"><i class="fa fa-check"></i><b>11.2</b> Anonymous functions</a></li>
+<li class="chapter" data-level="11.3" data-path="functions-teachers.html"><a href="functions-teachers.html#example-function"><i class="fa fa-check"></i><b>11.3</b> Example function</a></li>
+<li class="chapter" data-level="11.4" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.4</b> Vectorised functions</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="functions-teachers.html"><a href="functions-teachers.html#recycling"><i class="fa fa-check"></i><b>11.4.1</b> Recycling</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>11.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>12.1.1</b> Environment inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
+<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a></li>
+<li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.4</b> Mutability</a></li>
+<li class="chapter" data-level="12.5" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>13.1</b> What is a class?</a></li>
+<li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>13.2</b> What is an object?</a></li>
+<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.3</b> Objects and Classes in R</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>13.3.1</b> Inheritance</a></li>
+<li class="chapter" data-level="13.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>13.3.2</b> Object-Oriented Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.4</b> Creating classes</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#class-attribute"><i class="fa fa-check"></i><b>13.4.1</b> Class attribute</a></li>
+<li class="chapter" data-level="13.4.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor-functions"><i class="fa fa-check"></i><b>13.4.2</b> Constructor functions</a></li>
+<li class="chapter" data-level="13.4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-methods"><i class="fa fa-check"></i><b>13.4.3</b> Creating methods</a></li>
+<li class="chapter" data-level="13.4.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-generics"><i class="fa fa-check"></i><b>13.4.4</b> Creating generics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>13.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>14.1</b> Creating expressions</a></li>
+<li class="chapter" data-level="14.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>14.2</b> Evaluating expressions</a></li>
+<li class="chapter" data-level="14.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>14.3</b> Substitution</a></li>
+<li class="chapter" data-level="14.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>14.4</b> Quasiquotation</a></li>
+<li class="chapter" data-level="14.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>14.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="if-else.html"><a href="if-else.html#structure"><i class="fa fa-check"></i><b>15.1</b> Structure</a></li>
+<li class="chapter" data-level="15.2" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>15.2</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>16.1.1</b> For loops</a></li>
+<li class="chapter" data-level="16.1.2" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>16.1.2</b> While loops</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="iteration.html"><a href="iteration.html#declarative-vs-imperative"><i class="fa fa-check"></i><b>16.2.1</b> Declarative vs Imperative</a></li>
+<li class="chapter" data-level="16.2.2" data-path="iteration.html"><a href="iteration.html#applying-functions"><i class="fa fa-check"></i><b>16.2.2</b> Applying functions</a></li>
+<li class="chapter" data-level="16.2.3" data-path="iteration.html"><a href="iteration.html#purrr"><i class="fa fa-check"></i><b>16.2.3</b> purrr</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>16.3</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="summary.html"><a href="summary.html#for-students-1"><i class="fa fa-check"></i><b>17.1.1</b> For Students</a></li>
+<li class="chapter" data-level="17.1.2" data-path="summary.html"><a href="summary.html#for-teachers"><i class="fa fa-check"></i><b>17.1.2</b> For Teachers</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="summary.html"><a href="summary.html#operate"><i class="fa fa-check"></i><b>17.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -289,46 +339,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-types" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Data types</h2>
+<div id="data-types" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Data types</h1>
 <p>Data can be stored in lots of different forms. For example, <code>"TRUE"</code> and <code>TRUE</code> are stored as two different types, even though they look very similar to us.</p>
 <p>The main different data types are:</p>
 <ul>
-<li><p>logical</p>
+<li>logical
 <ul>
 <li>TRUE</li>
 <li>FALSE</li>
 </ul></li>
-<li><p>double (numeric)</p>
+<li>double (numeric)
 <ul>
 <li>12.5</li>
 <li>19</li>
 <li>99999</li>
 </ul></li>
-<li><p>integer (numeric)</p>
+<li>integer (numeric)
 <ul>
 <li>2L</li>
 <li>34L</li>
 </ul></li>
-<li><p>character</p>
+<li>character
 <ul>
 <li>“hello”</li>
 <li>“my name is”</li>
 </ul></li>
-<li><p>factors</p></li>
-<li><p>dates</p>
+<li>factors</li>
+<li>dates
 <ul>
 <li>2019-06-01</li>
 </ul></li>
-<li><p>datetime (POSIXct)</p>
+<li>datetime (POSIXct)
 <ul>
 <li>2019-06-01 12:00:00</li>
 </ul></li>
 </ul>
 <p>Let’s have a look at each one in detail:</p>
-<div id="logical" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Logical</h3>
-<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type.</p>
+<div id="logical" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Logical</h2>
+<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type. We look at <code>NA</code> values a <a href="data-types.html#na-and-null">little bit later on</a>.</p>
 <p>Logical variables are used a lot in response questionnaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
 <p>To test whether something is stored as logical, we use the <code>is.logical()</code> function:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-types.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
@@ -346,8 +396,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] FALSE</code></pre>
 <p>Be careful though, just because a conversion seems obvious to you, doesn’t mean you’ll get the expected result! For instance, what do you think <code>as.logical(2)</code> should return? See for yourself.</p>
 </div>
-<div id="double" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Double</h3>
+<div id="double" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Double</h2>
 <p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see <a href="data-types.html#integer">Integers</a>) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
 <p>As an aside, it’s called double because it’s stored using <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision</a>.</p>
 <p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
@@ -366,8 +416,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
-<div id="integer" class="section level3" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> Integer</h3>
+<div id="integer" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Integer</h2>
 <p>Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: <code>number &lt;- 1</code>, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an <code>L</code>, like this: <code>number &lt;- 1L</code>. Attempting to store something that isn’t an integer as an integer will result in a warning:</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
@@ -381,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types.html#cb73-1" aria-hidden="true" tabindex="-1"></a>1L</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
-<div id="character" class="section level3" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> Character</h3>
+<div id="character" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Character</h2>
 <p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what’s inside the quotation marks, it will be stored as character. For example,
 <code>"5"</code> stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, <code>{r, error = TRUE} "5" + 5</code> doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
 <p>To check whether something is stored as a character, use the <code>is.character()</code> function:</p>
@@ -398,8 +448,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-types.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;TRUE&quot;</code></pre>
 </div>
-<div id="factors" class="section level3" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> Factors</h3>
+<div id="factors" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Factors</h2>
 <p>Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.</p>
 <p>A factor level is made up of two things. A label and a number that represents that group. In my countries example, our factor would have the labels “England”, “Spain”, “France” and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.</p>
 <p>To create a factor, we just use the <code>factor()</code> function:</p>
@@ -420,15 +470,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Levels: All Some</code></pre>
 <p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
 <p><em>Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using <code>data.frame()</code> or <code>read.table()</code>. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.</em></p>
-<div id="converting-from-factors" class="section level4" number="3.3.5.1">
-<h4><span class="header-section-number">3.3.5.1</span> Converting from factors</h4>
+<div id="converting-from-factors" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Converting from factors</h3>
 <p>Sometimes you’ll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we’ve already seen:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;All&quot;</span>)))</span></code></pre></div>
 <pre><code>## [1] &quot;Some&quot; &quot;None&quot; &quot;All&quot;</code></pre>
 </div>
 </div>
-<div id="dates" class="section level3" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> Dates</h3>
+<div id="dates" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Dates</h2>
 <p>Dates in any language are tricky. Different countries store dates in different formats and different bits of software store dates in different ways (looking at you Excel). This can make storing values as dates tough.</p>
 <p>The most common way of creating a date is to use the <code>as.Date()</code> function. To use this function, you just need to provide your date as a character string:</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-types.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</span></code></pre></div>
@@ -455,8 +505,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-types.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
 </div>
-<div id="datetimes-posixct" class="section level3" number="3.3.7">
-<h3><span class="header-section-number">3.3.7</span> Datetimes (POSIXct)</h3>
+<div id="datetimes-posixct" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> Datetimes (POSIXct)</h2>
 <p>If you thought dates were annoying, datetimes are like dates’ little brother who didn’t get enough attention as a child and so acts up all the time.
 One of the reasons for this is that datetimes aren’t actually called datetimes. They’re called POSIXct in R. So whenever you see that dreadful word, just remember “ah, Adam told me that means datetime” and you’ll be fine.</p>
 <p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you’re referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
@@ -473,26 +523,36 @@ One of the reasons for this is that datetimes aren’t actually called datetimes
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-types.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
 </div>
-<div id="na-and-null" class="section level3" number="3.3.8">
-<h3><span class="header-section-number">3.3.8</span> NA and NULL</h3>
-<p>The R language has two closely related values, <strong>NA</strong> and <strong>NULL</strong>.</p>
-<p><em>NULL</em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no ‘type’ because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
+<div id="na-and-null" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> NA and NULL</h2>
+<p>The R language has two kind of related values, <strong><code>NA</code></strong> and <strong><code>NULL</code></strong>.</p>
+<div id="null" class="section level3" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> NULL</h3>
+<p><em><code>NULL</code></em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no ‘type’ because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="data-types.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-types.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(<span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-types.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;NULL&quot;</span> <span class="sc">==</span> <span class="cn">NULL</span></span></code></pre></div>
+<p><code>is.character()</code> returns <code>FALSE</code> because <code>NULL</code> doesn’t have a data type (it’s the absence of a value), whereas <code>is.null()</code> returns <code>TRUE</code> because it is <code>NULL</code>.</p>
+<p>What happens when you compare values to <code>NULL</code> using our logical operators? Well, this is where the idea of <code>NULL</code> having a length of 0 comes in. If you type <code>length(NULL)</code>, you’ll see it will return 0. So when you’re comparing a value against <code>NULL</code> like this:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-types.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Am I NULL?&quot;</span> <span class="sc">==</span> <span class="cn">NULL</span></span></code></pre></div>
 <pre><code>## logical(0)</code></pre>
-<p>On the other hand, <em>NA</em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can’t assign an appropriate value.</p>
-<p>For example, attempting to parse a character string to a date format that doesn’t match will result in a NA value:</p>
+<p>You get an output that is of length 0. And that makes sense, because <code>NULL</code> is missing/has 0 zero length. So basically you’re then comparing something (<code>"Am I NULL?"</code>) to nothing (<code>NULL</code>). Therefore, your output is nothing (or length 0).</p>
+<p>Dealing with <code>NULL</code> can be a bit tricky, so the important thing to remember is that <code>NULL</code> represents something missing, and have length 0. Unlike, <code>NA</code>…</p>
+</div>
+<div id="na" class="section level3" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> NA</h3>
+<p>On the other hand, <em><code>NA</code></em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can’t assign an appropriate value.</p>
+<p><code>NA</code> isn’t of length 0 like <code>NULL</code> because it is a value, it’s just invalid. In other words, there’s something there, but it doesn’t really make sense what it is.</p>
+<p>For example, attempting to parse a character string to a date format that doesn’t match will result in a <code>NA</code> value:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-types.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>R has tried to parse a value from one type into another. The value isn’t NULL because it clearly isn’t missing, but it couldn’t be converted to a date type, so it’s NA.
-Unlike NULL, there are different NA values for each datatype (although they’ll all look like NA in the console). In the example above, we actually created a NA that has the Date type:</p>
+<p>R has tried to parse a value from one type into another. The value isn’t <code>NULL</code> because it clearly isn’t missing, but it couldn’t be converted to a date type, so it’s <code>NA</code>.
+Unlike NULL, there are different <code>NA</code> values for each datatype (although they’ll all look like <code>NA</code> in the console). In the example above, we actually created a <code>NA</code> that has the Date type:</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-types.html#cb127-1" aria-hidden="true" tabindex="-1"></a>errant_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span>
 <span id="cb127-2"><a href="data-types.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(errant_date)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
-<p>This is because R knows what type the NA <em>should</em> be, but it couldn’t assign in a proper value.</p>
+<p>This is because R knows what type the <code>NA</code> <em>should</em> be, but it couldn’t assign in a proper value.</p>
 <p>The same behaviour can be observed for other data types:</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-types.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
@@ -504,50 +564,51 @@ Unlike NULL, there are different NA values for each datatype (although they’ll
 <pre><code>## [1] &quot;numeric&quot; &quot;vector&quot;</code></pre>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-types.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot; &quot;vector&quot;</code></pre>
-<p>To test whether something is NA, we use the <code>is.na()</code> function. You don’t need to worry about what type the NA is, this will test if it is an NA of any type.</p>
+<p>To test whether something is <code>NA</code>, we use the <code>is.na()</code> function. You don’t need to worry about what type the <code>NA</code> is, this will test if it is an <code>NA</code> of any type.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-types.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_character_</span>) <span class="co"># this will be an NA that is of type &#39;character&#39;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-types.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_integer_</span>) <span class="co"># this will be an NA that is of type &#39;integer&#39;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div id="dealing-with-nas" class="section level4" number="3.3.8.1">
-<h4><span class="header-section-number">3.3.8.1</span> Dealing with NAs</h4>
-<p>Dealing with NAs is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one NA will often return NA:</p>
+</div>
+<div id="dealing-with-nas" class="section level3" number="6.8.3">
+<h3><span class="header-section-number">6.8.3</span> Dealing with NAs</h3>
+<p>Dealing with <code>NA</code>s is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one <code>NA</code> will often return <code>NA</code>:</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-types.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-types.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>))</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data-types.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>In some cases, those NAs will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.</p>
-<p>Alternatively, data imports can often return NA values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.</p>
-<p>Ultimately, how you deal with NA values is a question that you’ll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the NA values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the NA values from the supplied list of values:</p>
+<p>In some cases, those <code>NA</code>s will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.</p>
+<p>Alternatively, data imports can often return <code>NA</code> values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.</p>
+<p>Ultimately, how you deal with <code>NA</code> values is a question that you’ll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the <code>NA</code> values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the <code>NA</code> values from the supplied list of values:</p>
 <div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-types.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 </div>
-<div id="nan-and-infinity" class="section level3" number="3.3.9">
-<h3><span class="header-section-number">3.3.9</span> NaN and Infinity</h3>
-<p>A special case is NaN (not a number). NaNs are distinct to NA in that they represent a valid value. More precisely, NaN represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.</p>
+<div id="nan-and-infinity" class="section level2" number="6.9">
+<h2><span class="header-section-number">6.9</span> NaN and Infinity</h2>
+<p>A special case is <code>NaN</code> (not a number). NaNs are distinct to <code>NA</code> in that they represent a valid value. More precisely, <code>NaN</code> represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.</p>
 <p><code>Inf</code> and <code>-Inf</code> are similar constructs. They represent infinity and minus infinity respectively. They are valid values but they are not representable with numbers, so they have their own reserved words.</p>
 <p><code>NaN</code>, <code>Inf</code> and <code>-Inf</code> are all of the numeric type and do not have equivalent values in other data types.</p>
 </div>
-<div id="implicit-conversion" class="section level3" number="3.3.10">
-<h3><span class="header-section-number">3.3.10</span> Implicit Conversion</h3>
+<div id="implicit-conversion" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Implicit Conversion</h2>
 <p>Converting between types using the <code>as.x()</code> functions is nice and easy because the type that you’re converting to is explicitly defined. However, there is also <em>implicit conversion</em> in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let’s look at a proper example.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-types.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">&quot;I&#39;m a character&quot;</span>, <span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;I&#39;m a character100&quot;</code></pre>
 <p>The <code>paste0()</code> function provides a pretty good example of implicit conversion in the wild. <code>paste0()</code> expects character strings when it’s called, so what happens when you provide it with a number like we did above? Why doesn’t it complain?
 Well it’s because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it’s a bit like a programming autocorrect.</p>
-<div id="dangers-of-implicit-conversion" class="section level4" number="3.3.10.1">
-<h4><span class="header-section-number">3.3.10.1</span> Dangers of implicit conversion</h4>
+<div id="dangers-of-implicit-conversion" class="section level3" number="6.10.1">
+<h3><span class="header-section-number">6.10.1</span> Dangers of implicit conversion</h3>
 <p>As you can imagine, this automatic conversion between types when the user didn’t specifically ask for it can cause problems. For example, when I teach R courses I often ask the attendees what they think <code>R</code> is going to return when I type <code>"TRUE" == TRUE</code>. Without fail, the majority will say that it’s going to be <code>FALSE</code>; one is a character string and the other is a logical value.</p>
 <p>My heart always dies a little bit then when I show them that it actually returns <code>TRUE</code>. “But why?”, they rightly ask. And it’s all because of implicit conversion. When we use the <code>==</code> operator, R will try and coerce the variables so that they’re the same type. In this case, it successfully coerces <code>"TRUE"</code> to <code>TRUE</code>, and so returns <code>TRUE</code>.</p>
 <p>There are, of course, going to be cases where this makes things easier. For instance, say you’ve got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.</p>
 <p>So my advice is simply to be aware of it. Don’t fight it, don’t worry about it unduly, just keep it in the back of your mind for that one time where you can’t seem to figure out why you can divide things by <code>TRUE</code>.</p>
 </div>
 </div>
-<div id="questions-data-types" class="section level3" number="3.3.11">
-<h3><span class="header-section-number">3.3.11</span> Questions</h3>
+<div id="questions-data-types" class="section level2" number="6.11">
+<h2><span class="header-section-number">6.11</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>Why are <code>2</code> and <code>2L</code> different?</li>
 <li>What is an ordered factor and how is it different to a character string?</li>
@@ -555,6 +616,7 @@ Well it’s because R automtically converts it for us. It takes that number, con
 <li>Why does <code>as.numeric(TRUE)</code> return 1? What will <code>as.logical(2)</code> return?</li>
 <li>Look at the <code>identical()</code> function. How is that different from <code>==</code>?</li>
 </ol>
+
 </div>
 </div>
             </section>
@@ -605,7 +667,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["teacheR.pdf", "PDF"], ["teacheR.mobi", "Kindle EBook"], ["teacheR.epub", "EPUB EBook"]],
 "toc": {
 "collapse": "subsection"
 }

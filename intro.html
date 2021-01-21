@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>16 Iteration | teacheR</title>
+  <title>10 Intro | teacheR</title>
   <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="16 Iteration | teacheR" />
+  <meta property="og:title" content="10 Intro | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ARawles/teacheR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="16 Iteration | teacheR" />
+  <meta name="twitter:title" content="10 Intro | teacheR" />
   
   <meta name="twitter:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="twitter:image" content="cover.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="if-else.html"/>
-<link rel="next" href="summary.html"/>
+<link rel="prev" href="functions.html"/>
+<link rel="next" href="functions-teachers.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -339,145 +339,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="iteration" class="section level1" number="16">
-<h1><span class="header-section-number">16</span> Iteration</h1>
-<p>Functions are an important stepping stone in reducing the amount of code you need to do something (they make your code less <strong>verbose</strong>). Another tool in acheiving this goal is the idea of iteration. Iteration is just the process of doing something more than once.</p>
-<p>We’ll often find ourselves doing the same thing again and again in programming. Calculating the means for lots of different columns, or different datasets, or making plots for different groups are all examples of operations that you’ll rarely only do once. There are two approaches to this: imperative programming and functional programming. First, we’ll take a look at imperative programming (for loops) as this is more akin to lots of other programming language. Later, however, we’ll look at how we can better utilise the fact that R is a functional programming to solve some iteration problems more easily and with fewer errors.</p>
-<div id="imperative-programming" class="section level2" number="16.1">
-<h2><span class="header-section-number">16.1</span> Imperative programming</h2>
-<p>Imperative programming is a programming paradigm that focuses on <em>how</em> an operation should be performed. For instance, if you wanted to add up all the numbers in a vector with an imperative approach, you would create a loop to go through and add each number to a grand total. You’ve clearly defined (with a control stucture like a loop) how the operation should be performed. Imperative programming languages have the benefit that understanding exactly what is happening is much easier. You can follow the flow of logic and what’s happening at each stage. Imperative languages are very common and you will inevitably have heard of some of the more famous languages that are based on imperative programming:</p>
-<ul>
-<li>Ruby</li>
-<li>Python</li>
-<li>C++</li>
-<li>C</li>
-<li>Java</li>
-</ul>
-<p>Central to an imperative programming language are its control stuctures. Control structures define the order of execution and although the exact control structures that are supported in each language change, a fairly universal control structure is the for loop.</p>
-<div id="for-loops" class="section level3" number="16.1.1">
-<h3><span class="header-section-number">16.1.1</span> For loops</h3>
-<p>For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="iteration.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (identifier <span class="cf">in</span> list) {</span>
-<span id="cb364-2"><a href="iteration.html#cb364-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do_something_with_it</span>(identifier)</span>
-<span id="cb364-3"><a href="iteration.html#cb364-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>In the above, the identifier is used to access the value that is currently being iterated upon. Let’s look at a practical example:</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="iteration.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
-<span id="cb365-2"><a href="iteration.html#cb365-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb365-3"><a href="iteration.html#cb365-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## [1] 1
-## [1] 2
-## [1] 3</code></pre>
-<p>In this loop, we go through the vector of values 1, 2 and 3, and we print it using the <code>i</code> identifier that we’ve assigned to the value we’re currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we’ve provided). The first time, <code>i</code> will equal 1. The code will execute, and then <code>i</code> will take the value of 2 and so on.</p>
-<p>This isn’t a particular useful example. Let’s look at more realistic example. Let’s say you’ve got a list with 2 dataframes in that have the same structure:</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="iteration.html#cb367-1" aria-hidden="true" tabindex="-1"></a>dataframe_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb367-2"><a href="iteration.html#cb367-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb367-3"><a href="iteration.html#cb367-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb367-4"><a href="iteration.html#cb367-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)</span>
-<span id="cb367-5"><a href="iteration.html#cb367-5" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb367-6"><a href="iteration.html#cb367-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb367-7"><a href="iteration.html#cb367-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">obs =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb367-8"><a href="iteration.html#cb367-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)</span>
-<span id="cb367-9"><a href="iteration.html#cb367-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb367-10"><a href="iteration.html#cb367-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>And you want to calculate the mean for the <code>value</code> column for each one:</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="iteration.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {</span>
-<span id="cb368-2"><a href="iteration.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(df<span class="sc">$</span>value)</span>
-<span id="cb368-3"><a href="iteration.html#cb368-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Or, if we refer back to our <a href="#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we’ll also construct a list to store the output:</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="iteration.html#cb369-1" aria-hidden="true" tabindex="-1"></a>output_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb369-2"><a href="iteration.html#cb369-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (df <span class="cf">in</span> <span class="fu">seq_along</span>(dataframe_list)) {</span>
-<span id="cb369-3"><a href="iteration.html#cb369-3" aria-hidden="true" tabindex="-1"></a>  output_list[[df]] <span class="ot">&lt;-</span> <span class="fu">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb369-4"><a href="iteration.html#cb369-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb369-5"><a href="iteration.html#cb369-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 10.929312  9.663462  9.297481 11.843913 10.495794</code></pre>
-<p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
-Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
-<p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
-</div>
-<div id="while-loops" class="section level3" number="16.1.2">
-<h3><span class="header-section-number">16.1.2</span> While loops</h3>
-<p>While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="iteration.html#cb371-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb371-2"><a href="iteration.html#cb371-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(x <span class="sc">&lt;</span> <span class="dv">2</span>) {</span>
-<span id="cb371-3"><a href="iteration.html#cb371-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb371-4"><a href="iteration.html#cb371-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
-<span id="cb371-5"><a href="iteration.html#cb371-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## [1] 1
-## [1] 2</code></pre>
-</div>
-</div>
-<div id="declarative-and-functional-programming" class="section level2" number="16.2">
-<h2><span class="header-section-number">16.2</span> Declarative and functional programming</h2>
-<p>For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages purely imperative languages like C and Python.</p>
-<p>Instead, within R we can leverage functions to wrap the loops. This means that we can spend less time writing exactly how something should be done and focus on what we want out of it. By using functions to move away from writing out for loops, we start to shift paradigms from the <em>imperative</em> to the <em>declarative</em>. With imperative programming, you define <em>how</em> things should happen. With declarative programming, you focus more on the <em>what</em> you want to happen. For example, let’s look back at our <code>dataframe_list</code> example. We can turn our loop into a function that we can call whenever we have a list of dataframes:</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="iteration.html#cb373-1" aria-hidden="true" tabindex="-1"></a>norm_dists <span class="ot">&lt;-</span> <span class="cf">function</span>(dfs, <span class="at">column =</span> <span class="st">&quot;value&quot;</span>) {</span>
-<span id="cb373-2"><a href="iteration.html#cb373-2" aria-hidden="true" tabindex="-1"></a>  output_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb373-3"><a href="iteration.html#cb373-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (df <span class="cf">in</span> <span class="fu">seq_along</span>(dfs)) {</span>
-<span id="cb373-4"><a href="iteration.html#cb373-4" aria-hidden="true" tabindex="-1"></a>    output_list[[df]] <span class="ot">&lt;-</span> <span class="fu">create_norm_dist_from_column</span>(dfs[[df]], column)</span>
-<span id="cb373-5"><a href="iteration.html#cb373-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb373-6"><a href="iteration.html#cb373-6" aria-hidden="true" tabindex="-1"></a>  output_list</span>
-<span id="cb373-7"><a href="iteration.html#cb373-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb373-8"><a href="iteration.html#cb373-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb373-9"><a href="iteration.html#cb373-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb373-10"><a href="iteration.html#cb373-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></span>
-<span id="cb373-11"><a href="iteration.html#cb373-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] 10.35604</code></pre>
-<p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. We don’t need to write a new for loop for our new datasets, we can just apply them to our function. We’ve moved from the imperative (exactly what should happen to calculate each distribution) to the declarative (give me the normal distribution and I’m not bothered how you do it). Although we haven’t actually changed how the normal distribution is created, we have changed how we get that distribution.</p>
-<p>Declarative programming in R is very closely related to the idea of vectorized functions, which we looked at the in <a href="functions-teachers.html#vectorised-functions">Functions</a>. Vectorised functions abstract away the complexities of writing imperative code but they still utilise control stuctures at their core.</p>
-<div id="declarative-vs-imperative" class="section level3" number="16.2.1">
-<h3><span class="header-section-number">16.2.1</span> Declarative vs Imperative</h3>
-<p>It’s not really a case of one approach being better than the other, and in R you’ll often find yourself using both. In my personal experience, I relied heavily on imperative paradigms when I started using R because it made more sense to me. Then gradually as I became more familiar with how R worked at its core, I began to move to using more declarative approaches and the <code>apply</code> functions which we’ll look at next. But I never forgot that this functional approach was still relying on imperative programming at its core.</p>
-<p>So my advice if you’re new to R is to use both. Write out for loops <em>and</em> learn how to create and use functions to the same end. That way you’ll always have the right tool for the job and you’ll be more able to apply your knowledge to new languages in the future.</p>
-</div>
-<div id="applying-functions" class="section level3" number="16.2.2">
-<h3><span class="header-section-number">16.2.2</span> Applying functions</h3>
-<p>Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it’s led to the development of the <code>apply</code> set of functions. These act as syntactic sugar to decrease the number of for loops present in your code*.</p>
-<p>* A common argument is that <code>apply</code> functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the <code>apply</code> functions aren’t more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.</p>
-<p>We’ve already seen an example of the <code>lapply</code> (list-apply) function in <a href="functions-teachers.html#functions-as-objects">action</a>, but lets do another one. Let’s say we have a list of vectors containing numbers and we want the maximum for each.</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="iteration.html#cb375-1" aria-hidden="true" tabindex="-1"></a>number_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb375-2"><a href="iteration.html#cb375-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</span>
-<span id="cb375-3"><a href="iteration.html#cb375-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),</span>
-<span id="cb375-4"><a href="iteration.html#cb375-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)</span>
-<span id="cb375-5"><a href="iteration.html#cb375-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>We can apply the <code>max()</code> function to each item in our list:</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="iteration.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(number_list, <span class="at">FUN =</span> max)</span></code></pre></div>
-<pre><code>## [[1]]
-## [1] 4
-## 
-## [[2]]
-## [1] 500
-## 
-## [[3]]
-## [1] 1001</code></pre>
-<p>As you can see, this is much shorter than writing out a for loop to acheive the same goal.</p>
-<p>Another function is the <code>apply</code> family is <code>sapply()</code> that will attempt to simplify its output. Using the previous example and the <code>sapply()</code> function, we get a vector instead of a list:</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="iteration.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(number_list, <span class="at">FUN =</span> max)</span></code></pre></div>
-<pre><code>## [1]    4  500 1001</code></pre>
-<p>The <code>FUN</code> parameter for this set of functions accepts any function object (including anonymous functions), meaning that we can apply any function we like to each item in our list.</p>
-</div>
-<div id="purrr" class="section level3" number="16.2.3">
-<h3><span class="header-section-number">16.2.3</span> purrr</h3>
-<p>The <code>apply</code> family of functions in base R are extremely powerful. However, they are not quite as user-friendly as one might have hoped, and there are some inconsistencies across the different <code>apply</code> functions. To solve this, the <code>purrr</code> provides the <code>map()</code> functions to provide the same functionality but in a more succinct and universal way.</p>
-<p>Personally, I do prefer the <code>purrr</code> functions to the base R functions as I find they’re easier to learn to use, however the base R functions do provide the same functionality. Documentation for the <code>purr</code> package can be found at <a href="purrr.tidyverse.org">https://purrr.tidyverse.org</a>.</p>
-</div>
-</div>
-<div id="questions-iteration" class="section level2" number="16.3">
-<h2><span class="header-section-number">16.3</span> Questions</h2>
-<ol style="list-style-type: decimal">
-<li>In what situation would you use <code>i in x</code> over <code>i in seq_along(x)</code>?</li>
-<li>Why is <code>seq_along(x)</code> preferable to <code>1:length(x)</code>?</li>
-<li>What would be the for loop code that would be required to replicate <code>lapply(number_list, FUN = max)</code>? Which would be easier to debug?</li>
-</ol>
+<div id="intro" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Intro</h1>
+<p>Now we have a basic understanding of some of the core concepts in R, let’s have a look at them in a bit more detail. In contrast to the previous section, here were going to focus on the underpinnings of R. You can kind of think of this section as being less practical and more theoretical.</p>
+<p>Previous experience in different programming language will definitely help you, but it’s not mandatory. We’re going to take a look at some core programming concepts in the next few sections, and the explanations here should be more than enough. If you do have experience in other languages, then these sections will hopefully outline some of the idiosyncrasies of R that make it different to other languages.</p>
+<p>If you’re going to teach R, this section will provide you with a good level of understanding. Hopefully, you’ll not only know <em>how</em> to do something when asked, but <em>why</em> you should do it that way.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="if-else.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-teachers.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

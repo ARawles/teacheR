@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Subsetting | teacheR</title>
-  <meta name="description" content="3.5 Subsetting | teacheR" />
+  <title>8 Subsetting | teacheR</title>
+  <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Subsetting | teacheR" />
+  <meta property="og:title" content="8 Subsetting | teacheR" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="cover.png" />
-  
-  
+  <meta property="og:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
+  <meta name="github-repo" content="ARawles/teacheR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Subsetting | teacheR" />
+  <meta name="twitter:title" content="8 Subsetting | teacheR" />
   
-  
+  <meta name="twitter:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="twitter:image" content="cover.png" />
 
 <meta name="author" content="Adam Rawles" />
@@ -52,16 +52,13 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/viz-1.8.2/viz.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -134,142 +131,195 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="overview.html"><a href="overview.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="about-me.html"><a href="about-me.html"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
-<li class="chapter" data-level="1.3" data-path="why-teacher.html"><a href="why-teacher.html"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="should-i-use-r.html"><a href="should-i-use-r.html"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="using-r.html"><a href="using-r.html"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="rstudio.html"><a href="rstudio.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
+<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="packages.html"><a href="packages.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>3.1</b> Operators</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>3.1.1</b> Arithmetic operators</a></li>
-<li class="chapter" data-level="3.1.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>3.1.2</b> Logical operators</a></li>
-<li class="chapter" data-level="3.1.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>3.1.3</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>3.2</b> Variable assignment</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>3.2.1</b> Creating variables</a></li>
-<li class="chapter" data-level="3.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>3.2.2</b> Naming</a></li>
-<li class="chapter" data-level="3.2.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>3.2.3</b> Reassigning variables</a></li>
-<li class="chapter" data-level="3.2.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>3.2.4</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>3.3</b> Data types</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>3.3.1</b> Logical</a></li>
-<li class="chapter" data-level="3.3.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>3.3.2</b> Double</a></li>
-<li class="chapter" data-level="3.3.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>3.3.3</b> Integer</a></li>
-<li class="chapter" data-level="3.3.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>3.3.4</b> Character</a></li>
-<li class="chapter" data-level="3.3.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>3.3.5</b> Factors</a></li>
-<li class="chapter" data-level="3.3.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>3.3.6</b> Dates</a></li>
-<li class="chapter" data-level="3.3.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>3.3.7</b> Datetimes (POSIXct)</a></li>
-<li class="chapter" data-level="3.3.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>3.3.8</b> NA and NULL</a></li>
-<li class="chapter" data-level="3.3.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>3.3.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="3.3.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>3.3.10</b> Implicit Conversion</a></li>
-<li class="chapter" data-level="3.3.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>3.3.11</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3.4</b> Data structures</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>3.4.2</b> Lists</a></li>
-<li class="chapter" data-level="3.4.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>3.4.3</b> Lists vs Vectors</a></li>
-<li class="chapter" data-level="3.4.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>3.4.4</b> Matrices</a></li>
-<li class="chapter" data-level="3.4.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>3.4.5</b> Dataframes</a></li>
-<li class="chapter" data-level="3.4.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>3.4.6</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>3.5</b> Subsetting</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.5.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>3.5.2</b> Lists</a></li>
-<li class="chapter" data-level="3.5.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>3.5.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.5.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>3.5.4</b> Dataframes</a></li>
-<li class="chapter" data-level="3.5.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>3.5.5</b> Subsetting by criteria</a></li>
-<li class="chapter" data-level="3.5.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>3.5.6</b> Questions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3.6</b> Functions</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="functions.html"><a href="functions.html#function-basics"><i class="fa fa-check"></i><b>3.6.1</b> Function basics</a></li>
-<li class="chapter" data-level="3.6.2" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>3.6.2</b> Questions</a></li>
+<li class="chapter" data-level="2.5.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="for-teachers.html"><a href="for-teachers.html"><i class="fa fa-check"></i><b>4</b> For Teachers</a>
+<li class="part"><span><b>I For Students</b></span></li>
+<li class="chapter" data-level="3" data-path="for-students.html"><a href="for-students.html"><i class="fa fa-check"></i><b>3</b> For Students</a></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>4.1</b> Functions</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>4.1.1</b> Creating functions</a></li>
-<li class="chapter" data-level="4.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-validation"><i class="fa fa-check"></i><b>4.1.2</b> Input validation</a></li>
-<li class="chapter" data-level="4.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>4.1.3</b> Functions as objects</a></li>
-<li class="chapter" data-level="4.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#example-answer"><i class="fa fa-check"></i><b>4.1.4</b> Example answer</a></li>
-<li class="chapter" data-level="4.1.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>4.1.5</b> Vectorised functions</a></li>
-<li class="chapter" data-level="4.1.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>4.1.6</b> Questions</a></li>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>4.1</b> Arithmetic operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>4.2</b> Logical operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>4.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>4.2</b> Environments</a>
+<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>4.2.1</b> Environment basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>4.2.2</b> Environment inheritance</a></li>
-<li class="chapter" data-level="4.2.3" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>4.2.3</b> Scope</a></li>
-<li class="chapter" data-level="4.2.4" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>4.2.4</b> Function environments</a></li>
-<li class="chapter" data-level="4.2.5" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>4.2.5</b> Mutability</a></li>
-<li class="chapter" data-level="4.2.6" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>4.2.6</b> Questions</a></li>
+<li class="chapter" data-level="5.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>5.1</b> Creating variables</a></li>
+<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#valid-names"><i class="fa fa-check"></i><b>5.2.1</b> Valid names</a></li>
+<li class="chapter" data-level="5.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming-conventions"><i class="fa fa-check"></i><b>5.2.2</b> Naming conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>4.3</b> Objects and Classes</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>4.3.1</b> What is a class?</a></li>
-<li class="chapter" data-level="4.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>4.3.2</b> What is an object?</a></li>
-<li class="chapter" data-level="4.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>4.3.3</b> Objects and Classes in R</a></li>
-<li class="chapter" data-level="4.3.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>4.3.4</b> Creating classes</a></li>
-<li class="chapter" data-level="4.3.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>4.3.5</b> Questions</a></li>
+<li class="chapter" data-level="5.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>5.3</b> Reassigning variables</a></li>
+<li class="chapter" data-level="5.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>5.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>4.4</b> Expressions</a>
+<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>4.4.1</b> Creating expressions</a></li>
-<li class="chapter" data-level="4.4.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>4.4.2</b> Evaluating expressions</a></li>
-<li class="chapter" data-level="4.4.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>4.4.3</b> Substitution</a></li>
-<li class="chapter" data-level="4.4.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>4.4.4</b> Quasiquotation</a></li>
-<li class="chapter" data-level="4.4.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>4.4.5</b> Questions</a></li>
+<li class="chapter" data-level="6.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>6.1</b> Logical</a></li>
+<li class="chapter" data-level="6.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>6.2</b> Double</a></li>
+<li class="chapter" data-level="6.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>6.3</b> Integer</a></li>
+<li class="chapter" data-level="6.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>6.4</b> Character</a></li>
+<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>4.5</b> If / Else</a>
+<li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
+<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>4.5.1</b> Questions</a></li>
+<li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
+<li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
+<li class="chapter" data-level="6.8.3" data-path="data-types.html"><a href="data-types.html#dealing-with-nas"><i class="fa fa-check"></i><b>6.8.3</b> Dealing with NAs</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>4.6</b> Iteration</a>
+<li class="chapter" data-level="6.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>6.9</b> NaN and Infinity</a></li>
+<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>4.6.1</b> Imperative programming</a></li>
-<li class="chapter" data-level="4.6.2" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>4.6.2</b> For loops</a></li>
-<li class="chapter" data-level="4.6.3" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>4.6.3</b> While loops</a></li>
-<li class="chapter" data-level="4.6.4" data-path="iteration.html"><a href="iteration.html#functional-programming"><i class="fa fa-check"></i><b>4.6.4</b> Functional programming</a></li>
-<li class="chapter" data-level="4.6.5" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>4.6.5</b> Questions</a></li>
+<li class="chapter" data-level="6.10.1" data-path="data-types.html"><a href="data-types.html#dangers-of-implicit-conversion"><i class="fa fa-check"></i><b>6.10.1</b> Dangers of implicit conversion</a></li>
 </ul></li>
+<li class="chapter" data-level="6.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>6.11</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>5</b> Summary</a>
+<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i><b>5.1</b> Answers</a>
+<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="answers.html"><a href="answers.html#for-students-1"><i class="fa fa-check"></i><b>5.1.1</b> For Students</a></li>
-<li class="chapter" data-level="5.1.2" data-path="answers.html"><a href="answers.html#for-teachers-1"><i class="fa fa-check"></i><b>5.1.2</b> For Teachers</a></li>
+<li class="chapter" data-level="7.1.1" data-path="data-structures.html"><a href="data-structures.html#coercion"><i class="fa fa-check"></i><b>7.1.1</b> Coercion</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures.html"><a href="data-structures.html#naming-1"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="next-steps.html"><a href="next-steps.html"><i class="fa fa-check"></i><b>5.2</b> Next Steps</a>
+<li class="chapter" data-level="7.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
+<li class="chapter" data-level="7.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>7.3</b> Lists vs Vectors</a></li>
+<li class="chapter" data-level="7.4" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>7.4</b> Matrices</a></li>
+<li class="chapter" data-level="7.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
+<li class="chapter" data-level="7.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>7.6</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="next-steps.html"><a href="next-steps.html#operate"><i class="fa fa-check"></i><b>5.2.1</b> opeRate</a></li>
+<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
+<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
+<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
+<li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>8.5</b> Subsetting by criteria</a></li>
+<li class="chapter" data-level="8.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>8.6</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>9.1</b> Functions in R</a></li>
+<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="functions.html"><a href="functions.html#explicit-input-parameters"><i class="fa fa-check"></i><b>9.2.1</b> Explicit input parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="functions.html"><a href="functions.html#reassigning-outputs"><i class="fa fa-check"></i><b>9.3.1</b> Reassigning outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>9.4</b> Questions</a></li>
+</ul></li>
+<li class="part"><span><b>II For Teachers</b></span></li>
+<li class="chapter" data-level="10" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>10</b> Intro</a></li>
+<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#function-structure"><i class="fa fa-check"></i><b>11.1.1</b> Function structure</a></li>
+<li class="chapter" data-level="11.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-parameters"><i class="fa fa-check"></i><b>11.1.2</b> Input Parameters</a></li>
+<li class="chapter" data-level="11.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#return-values"><i class="fa fa-check"></i><b>11.1.3</b> Return values</a></li>
+<li class="chapter" data-level="11.1.4" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>11.1.4</b> Functions as objects</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="functions-teachers.html"><a href="functions-teachers.html#anonymous-functions"><i class="fa fa-check"></i><b>11.2</b> Anonymous functions</a></li>
+<li class="chapter" data-level="11.3" data-path="functions-teachers.html"><a href="functions-teachers.html#example-function"><i class="fa fa-check"></i><b>11.3</b> Example function</a></li>
+<li class="chapter" data-level="11.4" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.4</b> Vectorised functions</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="functions-teachers.html"><a href="functions-teachers.html#recycling"><i class="fa fa-check"></i><b>11.4.1</b> Recycling</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>11.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>12.1.1</b> Environment inheritance</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
+<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a></li>
+<li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.4</b> Mutability</a></li>
+<li class="chapter" data-level="12.5" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>13.1</b> What is a class?</a></li>
+<li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>13.2</b> What is an object?</a></li>
+<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.3</b> Objects and Classes in R</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>13.3.1</b> Inheritance</a></li>
+<li class="chapter" data-level="13.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>13.3.2</b> Object-Oriented Systems</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.4</b> Creating classes</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#class-attribute"><i class="fa fa-check"></i><b>13.4.1</b> Class attribute</a></li>
+<li class="chapter" data-level="13.4.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor-functions"><i class="fa fa-check"></i><b>13.4.2</b> Constructor functions</a></li>
+<li class="chapter" data-level="13.4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-methods"><i class="fa fa-check"></i><b>13.4.3</b> Creating methods</a></li>
+<li class="chapter" data-level="13.4.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-generics"><i class="fa fa-check"></i><b>13.4.4</b> Creating generics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>13.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>14.1</b> Creating expressions</a></li>
+<li class="chapter" data-level="14.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>14.2</b> Evaluating expressions</a></li>
+<li class="chapter" data-level="14.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>14.3</b> Substitution</a></li>
+<li class="chapter" data-level="14.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>14.4</b> Quasiquotation</a></li>
+<li class="chapter" data-level="14.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>14.5</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="if-else.html"><a href="if-else.html#structure"><i class="fa fa-check"></i><b>15.1</b> Structure</a></li>
+<li class="chapter" data-level="15.2" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>15.2</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>16.1.1</b> For loops</a></li>
+<li class="chapter" data-level="16.1.2" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>16.1.2</b> While loops</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="iteration.html"><a href="iteration.html#declarative-vs-imperative"><i class="fa fa-check"></i><b>16.2.1</b> Declarative vs Imperative</a></li>
+<li class="chapter" data-level="16.2.2" data-path="iteration.html"><a href="iteration.html#applying-functions"><i class="fa fa-check"></i><b>16.2.2</b> Applying functions</a></li>
+<li class="chapter" data-level="16.2.3" data-path="iteration.html"><a href="iteration.html#purrr"><i class="fa fa-check"></i><b>16.2.3</b> purrr</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>16.3</b> Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="summary.html"><a href="summary.html#for-students-1"><i class="fa fa-check"></i><b>17.1.1</b> For Students</a></li>
+<li class="chapter" data-level="17.1.2" data-path="summary.html"><a href="summary.html#for-teachers"><i class="fa fa-check"></i><b>17.1.2</b> For Teachers</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="summary.html"><a href="summary.html#operate"><i class="fa fa-check"></i><b>17.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -289,109 +339,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="subsetting" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Subsetting</h2>
+<div id="subsetting" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Subsetting</h1>
 <p>There will be occasions where you don’t want all the values in a vector/list/matrix/dataframe. Instead, you’ll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you’re using.</p>
 <p><strong>Note</strong>: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
-<div id="vectors-1" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Vectors</h3>
+<div id="vectors-1" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Vectors</h2>
 <p>Vectors are simple. Just use square brackets (<code>[]</code> or <code>[[]]</code>) after your vector and provide the index or indices of the values that you want:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="subsetting.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="subsetting.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="subsetting.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="subsetting.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>## [1] 10 40</code></pre>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="subsetting.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="subsetting.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 10 20 30</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="subsetting.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="subsetting.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[["value_1"]]</code>.</p>
 <p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangeable?</p>
 <p>Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable.</p>
-<p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Let’s see a practical example of how these are different:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="subsetting.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">value_1 =</span> <span class="dv">10</span>,</span>
-<span id="cb182-2"><a href="subsetting.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</span></code></pre></div>
+<p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Another way of thinking about it is that <code>[]</code> is a subsetting operator (you’re taking a subset of the original set) whereas <code>[[]]</code> is an extraction operator (you’re extracting a value out of the vector). As a real-world analogy, say you have ten salt shakers lined up in a row with salt in each one. Using the <code>[]</code> operator will give you the salt shaker (and the salt) you asked for. Using <code>[[]]</code> will give you just the salt inside the shaker, but not the shaker.</p>
+<p>Let’s see a practical example in R of the difference:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="subsetting.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">value_1 =</span> <span class="dv">10</span>,</span>
+<span id="cb186-2"><a href="subsetting.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## value_1 
 ##      10</code></pre>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="subsetting.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">value_1 =</span> <span class="dv">10</span>,</span>
-<span id="cb184-2"><a href="subsetting.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="subsetting.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">value_1 =</span> <span class="dv">10</span>,</span>
+<span id="cb188-2"><a href="subsetting.html#cb188-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we’ve essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we’ve just been given the value. What we’ve done here is extracted the value out from that position.</p>
 <p>As a result of this difference, <strong><code>[]</code> can be used with more that one index (e.g. <code>[1:5]</code> or <code>[c(1,3)]</code>) whereas <code>[[]]</code> can only be used with a single index</strong>.</p>
 <p>It’s a very subtle difference, but it is an important one. Make sure that if you want the value, use <code>[[]]</code>, and if you want the whole part of the vector, use <code>[]</code>.</p>
 </div>
-<div id="lists-1" class="section level3" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Lists</h3>
-<p>Lists can be subsetted in the same way as vectors - <code>[]</code> returns the container at the index provided and <code>[[]]</code> returns the value:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="subsetting.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb186-2"><a href="subsetting.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb186-3"><a href="subsetting.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</span>
-<span id="cb186-4"><a href="subsetting.html#cb186-4" aria-hidden="true" tabindex="-1"></a>)[[<span class="dv">1</span>]]</span></code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="subsetting.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb188-2"><a href="subsetting.html#cb188-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb188-3"><a href="subsetting.html#cb188-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</span>
-<span id="cb188-4"><a href="subsetting.html#cb188-4" aria-hidden="true" tabindex="-1"></a>)[<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## $value_1
-## [1] 1 2 3</code></pre>
-<p>A key difference with lists however, is that you can also subset based on the name of the value in the list using the <code>$</code> operator:</p>
+<div id="lists-1" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Lists</h2>
+<p>Lists can be subsetted in the same way as vectors - <code>[]</code> returns the container at the index provided and <code>[[]]</code> returns just the value:</p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="subsetting.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
 <span id="cb190-2"><a href="subsetting.html#cb190-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
 <span id="cb190-3"><a href="subsetting.html#cb190-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</span>
-<span id="cb190-4"><a href="subsetting.html#cb190-4" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>value_1</span></code></pre></div>
+<span id="cb190-4"><a href="subsetting.html#cb190-4" aria-hidden="true" tabindex="-1"></a>)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<p>This is equivalent to:</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="subsetting.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
 <span id="cb192-2"><a href="subsetting.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
 <span id="cb192-3"><a href="subsetting.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</span>
-<span id="cb192-4"><a href="subsetting.html#cb192-4" aria-hidden="true" tabindex="-1"></a>)[[<span class="st">&quot;value_1&quot;</span>]]</span></code></pre></div>
+<span id="cb192-4"><a href="subsetting.html#cb192-4" aria-hidden="true" tabindex="-1"></a>)[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## $value_1
+## [1] 1 2 3</code></pre>
+<p>A key difference with lists however, is that you can also subset based on the name of the value in the list using the <code>$</code> operator:</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="subsetting.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb194-2"><a href="subsetting.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb194-3"><a href="subsetting.html#cb194-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</span>
+<span id="cb194-4"><a href="subsetting.html#cb194-4" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>value_1</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>This is equivalent to:</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="subsetting.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb196-2"><a href="subsetting.html#cb196-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb196-3"><a href="subsetting.html#cb196-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</span>
+<span id="cb196-4"><a href="subsetting.html#cb196-4" aria-hidden="true" tabindex="-1"></a>)[[<span class="st">&quot;value_1&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Another key difference is that lists can, of course, hold recursive values. This means that subsetting a list can return another list, that can also be subsetted and so on:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="subsetting.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
-<span id="cb194-2"><a href="subsetting.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">list_1 =</span> <span class="fu">list</span>(</span>
-<span id="cb194-3"><a href="subsetting.html#cb194-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">list_2 =</span> <span class="fu">list</span>(</span>
-<span id="cb194-4"><a href="subsetting.html#cb194-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">list_3 =</span> <span class="st">&quot;hello&quot;</span></span>
-<span id="cb194-5"><a href="subsetting.html#cb194-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb194-6"><a href="subsetting.html#cb194-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb194-7"><a href="subsetting.html#cb194-7" aria-hidden="true" tabindex="-1"></a>)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="subsetting.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb198-2"><a href="subsetting.html#cb198-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">list_1 =</span> <span class="fu">list</span>(</span>
+<span id="cb198-3"><a href="subsetting.html#cb198-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">list_2 =</span> <span class="fu">list</span>(</span>
+<span id="cb198-4"><a href="subsetting.html#cb198-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">list_3 =</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb198-5"><a href="subsetting.html#cb198-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb198-6"><a href="subsetting.html#cb198-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb198-7"><a href="subsetting.html#cb198-7" aria-hidden="true" tabindex="-1"></a>)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## $list_1
 ## $list_1$list_2
 ## $list_1$list_2$list_3
 ## [1] &quot;hello&quot;</code></pre>
 <p>And of course, you can do the same thing with the <code>[[]]</code> operator if you only want the value and not the container.</p>
 </div>
-<div id="matrices-1" class="section level3" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Matrices</h3>
+<div id="matrices-1" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Matrices</h2>
 <p>Matrices are two dimension, meaning they can’t be subsetted with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values: one for the row and another for the column:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="subsetting.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="subsetting.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
 ## [2,]    2    7
 ## [3,]    3    8
 ## [4,]    4    9
 ## [5,]    5   10</code></pre>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="subsetting.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="subsetting.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
-<div id="dataframes-1" class="section level3" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Dataframes</h3>
+<div id="dataframes-1" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Dataframes</h2>
 <p>Dataframes can be subsetted in the same way as matrices (using the <code>[]</code> operator). However, dataframes can also be subsetted (like lists), using the <code>$</code> operator and the name of the column:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="subsetting.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb200-2"><a href="subsetting.html#cb200-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb200-3"><a href="subsetting.html#cb200-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)</span>
-<span id="cb200-4"><a href="subsetting.html#cb200-4" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>col_1</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="subsetting.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb204-2"><a href="subsetting.html#cb204-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_1 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb204-3"><a href="subsetting.html#cb204-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_2 =</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)</span>
+<span id="cb204-4"><a href="subsetting.html#cb204-4" aria-hidden="true" tabindex="-1"></a>)<span class="sc">$</span>col_1</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Why does this approach work for dataframes? Well, as I alluded to <a href="data-structures.html#dataframes">before</a>, dataframes store columns as lists. But technically, the dataframe itself is also stored as a kind of list, with each column being another entry in that list. So, just like we can subset lists using <code>$</code>, we can subset dataframes with it as well because a dataframe is like a fancy list.</p>
 </div>
-<div id="subsetting-by-criteria" class="section level3" number="3.5.5">
-<h3><span class="header-section-number">3.5.5</span> Subsetting by criteria</h3>
+<div id="subsetting-by-criteria" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Subsetting by criteria</h2>
 <p>Sometimes, you might not know the indices of the items you want to extract from a datastructure. Instead, you might want to do something like “extract all numbers from a vector that are less than three”. To do this, we essentially find the indices of the values that match our criteria and then subset the data structure like we learned previously.</p>
 <p>Let’s look at subsetting a vector as an example:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="subsetting.html#cb202-1" aria-hidden="true" tabindex="-1"></a>vector1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">14</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="subsetting.html#cb206-1" aria-hidden="true" tabindex="-1"></a>vector1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">14</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">50</span>)</span></code></pre></div>
 <p>Let’s say want to extract all of the values below 20. To find the indices of the values that match our criteria, we just use our logical operators:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="subsetting.html#cb203-1" aria-hidden="true" tabindex="-1"></a>vector1 <span class="sc">&lt;</span> <span class="dv">20</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="subsetting.html#cb207-1" aria-hidden="true" tabindex="-1"></a>vector1 <span class="sc">&lt;</span> <span class="dv">20</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE</code></pre>
 <p>This returns TRUE if the value is less than 20, and FALSE if it isn’t. We can then pass this vector of TRUE and FALSEs in <code>[]</code> after the vector to only return the values we want:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="subsetting.html#cb205-1" aria-hidden="true" tabindex="-1"></a>vector1[vector1 <span class="sc">&lt;</span> <span class="dv">20</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="subsetting.html#cb209-1" aria-hidden="true" tabindex="-1"></a>vector1[vector1 <span class="sc">&lt;</span> <span class="dv">20</span>]</span></code></pre></div>
 <pre><code>## [1] 10 15 14</code></pre>
 <p>Other data structures can also be subsetted in the same way, but for matrices or dataframes, it’s easier to use something like <code>subset</code> or <code>dplyr::filter()</code> (although <code>subset</code> has its own limitations).</p>
 <p>You’ll notice that this is ever so slightly different to the way we were subsetting before. Previously, we were providing just the indices of the values we wanted (e.g. 1,2 and 4). But here, we’re actually providing a vector of TRUE and FALSE values to indicate which values we want. The structure is slightly different, but the logic is the same.</p>
@@ -400,17 +451,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>It takes longer to write out</li>
 <li>If you don’t provide the same number of logical values (i.e. TRUEs and FALSEs) as there are values in the vector, then the logical values are <strong>recycled</strong>. That means that if you have a vector that’s 6 values long, and you provide a logical vector to subset it that is only three values long, then your logical vector is going to be repeated. This can lead to unwanted results:</li>
 </ol>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="subsetting.html#cb207-1" aria-hidden="true" tabindex="-1"></a>vector1[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="subsetting.html#cb211-1" aria-hidden="true" tabindex="-1"></a>vector1[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div>
 <pre><code>## [1] 10 14 21</code></pre>
 <p>Here, because I’ve only specified two logical values, when it comes to subsetting time, those two values will be recycled to create a vector like this <code>c(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE)</code>. This is why we get three values returned instead of the expected one.</p>
 <p>So while you can manually subset with a vector of logical values indicating whether to return that value as is returned, it’s best to stay away from it.</p>
 </div>
-<div id="questions-subsetting" class="section level3" number="3.5.6">
-<h3><span class="header-section-number">3.5.6</span> Questions</h3>
+<div id="questions-subsetting" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>Why can dataframes and lists be subsetted in a similar way?</li>
 <li>What happens if you miss the last character off when subsetting a dataframe column with <code>$</code> (e.g. <code>df$co</code> instea of <code>df$col</code>)? Does the same thing happen when subsetting using <code>[[]]</code>?</li>
 </ol>
+
 </div>
 </div>
             </section>
@@ -461,7 +513,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": [["teacheR.pdf", "PDF"], ["teacheR.mobi", "Kindle EBook"], ["teacheR.epub", "EPUB EBook"]],
 "toc": {
 "collapse": "subsection"
 }
