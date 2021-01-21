@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Variable assignment
 
 Do you ever tell a story to a friend, and then someone else walks in once you've finished and so you have to tell the whole thing again?

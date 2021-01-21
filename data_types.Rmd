@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Data types
 
 Data can be stored in lots of different forms. For example, `"TRUE"` and `TRUE` are stored as two different types, even though they look very similar to us.
@@ -20,9 +30,7 @@ The main different data types are:
 * factors
 * dates
     + 2019-06-01
-
 * datetime (POSIXct)
-
     + 2019-06-01 12:00:00
 
 

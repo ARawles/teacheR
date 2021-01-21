@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Objects and Classes
 
 Objects and classes are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.
@@ -25,8 +35,8 @@ When you create a dataframe for example, you're creating a `data.frame` object f
 ## Objects and Classes in R
 
 Looking more specifically at R, what kind of objects do we see. Well, according to John Chambers, the founder of the S programming language upon which R is based, everything is:
-  
-  > "To understand computations in R, two slogans are helpful:   
+
+> "To understand computations in R, two slogans are helpful:   
 >
 >  *  Everything that exists is an object.
 >  *  Everything that happens is a function call.
@@ -48,8 +58,8 @@ class(1)
 Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a "vehicle" class. But if you're storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. "car", "motorbike", etc.). All of these classes are still vehicles, and so you don't want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don't. Cars and vans have doors but motorbikes don't. This highlights the benefits of inheritance. By creating a "vehicle" class and allowing your subsequent classes to inherit all of the attributes of the "vehicle" class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the "vehicle" class rather than changing each type of vehicle class.
 
 Diagramming this relationship:
-  
-  ```{r echo=FALSE, fig.cap="Example of inheritance using cars", out.width = "50%", fig.align = "center"}
+
+```{r echo=FALSE, fig.cap="Example of inheritance using cars", out.width = "50%", fig.align = "center"}
 knitr::include_graphics("./diagrams/inheritance_cars.png")
 ```
 
@@ -113,8 +123,8 @@ class(var_1) <- "custom_class"
 class(var_1)
 ```
 Now, when we attempt to print the `var_1` variable, R will look for the appropriate method based on it's class (`custom_class`), which would be `print.custom_class()`. In this case, a `print.custom_class` method doesn't exist, so it'll default to the `print.default()` method:
-  
-  ```{r}
+
+```{r}
 print(var_1)
 ```
 
@@ -132,7 +142,7 @@ address <- function(house_name, road, city) {
     house_name = house_name,
     road = road,
     city = city
-    )
+  )
   class(address) <- "address"
   return(address)
 }
@@ -149,16 +159,16 @@ Now, if I called `print(my_address)`, R would look for a `print.address()` metho
 ### Creating methods
 
 To create a method, all we need to do is create a function with the name of our generic followed by a '.' and then name of our class. So from our previous example, our method would look like this:
-  ```{r}
+```{r}
 print.address <- function(address) {
-  cat("The house name is: ", address$house_name, "\n")
-  cat("The road is: ", address$road, "\n")
-  cat("The city is: ", address$city, "\n")
+cat("The house name is: ", address$house_name, "\n")
+cat("The road is: ", address$road, "\n")
+cat("The city is: ", address$city, "\n")
 }
 ```
 
 Now when we call `print()` on our new object, it will find the `print.address()` method and use that to print our object:
-  ```{r}
+```{r}
 print(my_address)
 ```
 
@@ -172,12 +182,12 @@ post <- function(x) {
 }
 ```
 This is just telling R that when the `post()` function is called on an object, look for the appropriate `post` method to use. Without us writing any methods, this would be useless because R wouldn't have any methods to use!
-  
-  Let's create a default method that can be applied if we don't have a more specific class:
-  
-  ```{r}
+
+Let's create a default method that can be applied if we don't have a more specific class:
+
+```{r}
 post.default <- function(x){
-  cat("Your object is now in the post! Expect it in 5 to 10 weeks")
+cat("Your object is now in the post! Expect it in 5 to 10 weeks")
 }
 ```
 In our example, this default method isn't going to be very useful but it demonstrates that we need a default method to be dispatched if we haven't written a specific method for that object class.

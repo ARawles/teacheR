@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Data structures
 
 It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:

@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Expressions
 
 When we use R, we write code which is then passed to the console to be executed (evaluated). Before the code is executed though, it is just an **expression**.
@@ -11,14 +21,14 @@ Expressions themselves are made up of 4 constituent parts: calls, constants, nam
 Creating an expression (an unevaluated piece of code) is done in base R using the `quote()` function. Unfortunately, the `expression()` function in R doesn't actually create an expression in the sense we're talking about, so use `quote()` instead.
 
 When creating single line expressions, you can just provide the expression directly within the `quote()` function:
-  
-  ```{r}
+
+```{r}
 quote(x + 10)
 ```
 
 When providing multiple line expressions, wrap the argument in `{}` like this:
-  
-  ```{r}
+
+```{r}
 quote({
   x + 10
   y - 5
@@ -36,7 +46,7 @@ rlang::is_expression(
 ## Evaluating expressions
 
 Once you've created your expression, you can evaluate it using the `eval()` function:
-  ```{r}
+```{r}
 my_expr <- quote(1 + 1)
 eval(my_expr)
 ```
@@ -74,7 +84,7 @@ eval(quote(col_1), env = test_df)
 ```
 
 I won't go into quasiquotation here because [Hadley's chapters on the subject](https://adv-r.hadley.nz/quasiquotation.html) in his Advanced R book summarises the topic much better than I ever could. But if you're interested, I would recommend using the `tidyverse` packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.
-                                             
+
 ## Questions {#questions-expressions}
 1. Why might an expression like this `fun(x)` be useful? Particularly, when paired with `substitute()`.
 2. What's the difference between

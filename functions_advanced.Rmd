@@ -1,3 +1,12 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
 # Functions {#functions-teachers}
 
 In the "For Students" section, we looked at what a function is and how to use one. In this section, we're going to look more at the structure of a function and how you might go about writing your own functions.
@@ -5,8 +14,8 @@ In the "For Students" section, we looked at what a function is and how to use on
 When you start writing our own functions, you'll start to see a massive improvement in your efficiency. By extracting out common tasks to functions and by keeping your functions simple, you can easily expand and debug your project. A rough rule of thumb is that if you've copied some code more than twice, think about extracting it out to a function. 
 
 Let's take a look at an example of where it may be appropriate to shorten your workflow by using a function. Let's say you've got 2 datasets, and you want to get the standard deviation and mean of one column and then create a normal distribution based on those values:
-  
-  ```{r}
+
+```{r}
 dataset1 <- data.frame(
   observation_number = c(1,2,3,4,5),
   value = c(10,35,13,20,40)
@@ -18,8 +27,8 @@ dataset2 <- data.frame(
 ```
 
 Without using functions, our workflow might look like this:
-  
-  ```{r}
+
+```{r}
 mean_ds1 <- mean(dataset1$value)
 sd_ds1 <- sd(dataset1$value)
 normal_dist_ds1 <- rnorm(1000, mean = mean_ds1, sd = sd_ds1)
@@ -57,8 +66,8 @@ my_first_function <- function() {}
 Notice how we've got two sets of brackets here. The first (`()`) is where we define our input parameters. The second (`{}`) is where we define the body of our function.
 
 Let's do a simple example. Let's create a function that adds two numbers together:
-  
-  ```{r}
+
+```{r}
 my_sum_function <- function(x, y) {
   x + y
 }
@@ -69,8 +78,8 @@ So in this example, I've defined that when anyone uses the function, they need t
 In the body of the function, we can see that we're just doing something really simple: we're adding `x` and `y` together with `+`.
 
 Once I've run the code to **define** my function, I can then **call** it like I would any other function:
-  
-  ```{r}
+
+```{r}
 my_sum_function(x = 5, y = 6)
 ```
 ### Input Parameters
@@ -78,8 +87,8 @@ my_sum_function(x = 5, y = 6)
 #### Optional input parameters
 
 When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:
-  
-  ```{r}
+
+```{r}
 add_mostly_2 <- function(x, y = 2){
   x + y
 }
@@ -113,7 +122,7 @@ greet_me("wassup") # This will error because 1 wasn't an options for y
 #### ...
 
 You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
-  ```{r,eval=FALSE}
+```{r,eval=FALSE}
 dot_dot_dot_function <- function(...) {
   .
   .
@@ -122,8 +131,8 @@ dot_dot_dot_function <- function(...) {
 ```
 
 The `...` works particularly well when you might be creating a function that *wraps* around another one. A wrapping function is just a function that makes a call to another one within it, like this:
-  
-  ```{r}
+
+```{r}
 sum_and_add_2 <- function(...){
   sum(...) + 2
 }
@@ -164,8 +173,8 @@ When you're defining your input parameters, you can define optional parameters (
 ##### Lazy evaluation
 
 What happens if you define a required input parameter (i.e. it doesn't have a default value), but then you don't use it? Do we see an error, or does R carry on like normal?
-                                                         
-                                                         Let's have a look:
+
+Let's have a look:
 
 ```{r}
 use_me_please <- function(x, y, w) {
@@ -197,8 +206,8 @@ Personally, I try and stay away from using this approach in my functions. By not
 As I mentioned in the "For Students" section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our `my_sum_function` example, our last evaluation was `x + y`, so the output of that was what was returned by the function.
 
 You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
-  
-  ```{r}
+
+```{r}
 early_return_function <- function(x,y, return_x  = TRUE) {
   if (return_x) {
     return(x)
@@ -230,8 +239,8 @@ Linked with the idea that functions are just another type of an object, there is
 `substr`
 and
 `substr()`. The first will return the `substr` *object*. That is, not the result of applying inputs to the `substr` function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it's definition): 
-  
-  ```{r}
+
+```{r}
 substr
 ```
 
@@ -250,8 +259,8 @@ Because some functions accept functions as an argument, there is the concept of 
 lapply(sum_list, FUN = function(x) max(x) - min(x))
 ```
 Anonymous functions mean that you don't have to define your function in the traditional way. However, if you're going to use that function more than once, it's advisable to extract it out to a named function and then reference it:
-  
-  ```{r}
+
+```{r}
 diff <- function(x) {
   max(x) - min(x)
 }
@@ -261,8 +270,8 @@ lapply(sum_list, FUN = diff)
 ## Example function
 
 Going back to our [previous example](functions-teachers) of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
-  
-  ```{r}
+
+```{r}
 create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
   ds_mean <- mean(dataset[[column_name]])
   ds_sd <- sd(dataset[[column_name]])
@@ -302,8 +311,8 @@ Make your guesses...
 substr(c("hello", "there"), start = 1, stop = c(4,3))
 ```
 R has used the first value in each vector for the first time it runs (`hello` and `4`), and then it's used the second values from each vector when it runs the second time. What about the `start` parameter though? Well because it's only got a length of 1 but the other parameters have a length of 2, the 1 gets **recycled** until it's the same length as the other parameters. If the length of the larger vector isn't a multiple of the smaller one, then the smaller vector is recycled until it's the same length and any extra values are discarded. So the above example is the same as:
-  
-  ```{r, eval = FALSE}
+
+```{r, eval = FALSE}
 substr(c("hello", "there"), start = c(1,1), stop = c(4,3))
 ```
 This idea of repeating an operation again and again is very common in programming, and it's something that we'll look at in more detail in the [Iteration](iteration) chapter.
@@ -311,9 +320,8 @@ This idea of repeating an operation again and again is very common in programmin
 ## Questions {#questions-functions-teachers}
 
 1. How are `mean()` and `sum()` different in their implementation of `...`?
-  2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
-  3. Look at the `ellipsis` package. What issue does this package look to solve?
-  4. What issues might arise when passing `...` to multiple functions inside your function?
-  5. How could you solve these issues using the `do.call()` function?
-  6. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?
-  
+2. If functions are objects, how would you construct a function that returns a function? What might be a use for this?
+3. Look at the `ellipsis` package. What issue does this package look to solve?
+4. What issues might arise when passing `...` to multiple functions inside your function?
+5. How could you solve these issues using the `do.call()` function?
+6. Why might one use the `missing()` approach instead of assigning a default value? What are the drawbacks of this?

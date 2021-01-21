@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Subsetting
 
 There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a *subset*. The way to do that is slightly different depending on the data structure you're using.

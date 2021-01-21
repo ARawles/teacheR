@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # If / Else
 
 Building on our logical operators, there will often be times where you want to split the logic of your code depending on a criteria. For example, if you've created a function that can accept a character string or a number, you might want to split the body of the function to do something slightly different depending on the class of the provided argument.
@@ -5,7 +15,7 @@ Building on our logical operators, there will often be times where you want to s
 ## Structure
 
 If / else statements in R has a simple structure:
-  ```{r, eval = FALSE}
+```{r, eval = FALSE}
 if (criteria_statement) {
   what_you_want_to_do
 } else if (other_criteria) {
@@ -16,8 +26,8 @@ if (criteria_statement) {
 ```
 
 Putting this into practice, a real If / else block may look like this:
-  
-  ```{r}
+
+```{r}
 x <- 1
 if (x == 1) {
   return("x is 1")
@@ -29,8 +39,8 @@ if (x == 1) {
 ```
 
 Implementing this in a function could look like this:
-  
-  ```{r}
+
+```{r}
 what_is_it <- function(x) {
   if (is.character(x)) {
     return("x is a character")
@@ -49,4 +59,4 @@ what_is_it(TRUE)
 ## Questions {#questions-if-else}
 
 1. Rather than writing `if (x == 1 | x == 2 | x == 3)`, how could you use the `%in%` operator to make it shorter?
-  2. How does the `switch()` function relate to if / else statements?
+2. How does the `switch()` function relate to if / else statements?

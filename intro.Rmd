@@ -96,7 +96,7 @@ Some great examples of R packages are:
 * [dplyr](https://dplyr.tidyverse.org/) for data manipulation
 * [shiny](https://shiny.rstudio.com/) for creating web apps
 * [BMRSr](http://bmrsr.arawles.co.uk) for extracting energy data   
-    + Truth be told, this isn't a *great* example of a package, it's just the one I've made so that's why it's here.
++ Truth be told, this isn't a *great* example of a package, it's just the one I've made so that's why it's here.
 
 The thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out. 
 

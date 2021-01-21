@@ -1,3 +1,13 @@
+```{r include = FALSE}
+if(!knitr:::is_html_output())
+{
+  options("width"=56)
+  knitr::opts_chunk$set(tidy.opts=list(width.cutoff=56, indent = 2), tidy = TRUE)
+  knitr::opts_chunk$set(fig.pos = 'H')
+}
+```
+
+
 # Iteration
 
 Functions are an important stepping stone in reducing the amount of code you need to do something (they make your code less **verbose**). Another tool in acheiving this goal is the idea of iteration. Iteration is just the process of doing something more than once.
@@ -22,7 +32,7 @@ For loops are almost completely ubiquitous across different programming language
 
 ```{r, eval = FALSE}
 for (identifier in list) {
-do_something_with_it(identifier)
+  do_something_with_it(identifier)
 }
 ```
 
@@ -39,21 +49,21 @@ This isn't a particular useful example. Let's look at more realistic example. Le
 
 ```{r}
 dataframe_list <- list(
-data.frame(
-obs = c(1,2,3),
-value = c(10,11,9)
-),
-data.frame(
-obs = c(1,2,3),
-value = c(100,200,150)
-)
+  data.frame(
+    obs = c(1,2,3),
+    value = c(10,11,9)
+  ),
+  data.frame(
+    obs = c(1,2,3),
+    value = c(100,200,150)
+  )
 )
 ```
 And you want to calculate the mean for the `value` column for each one:
 
 ```{r}
 for (df in dataframe_list) {
-mean(df$value)
+  mean(df$value)
 }
 ```
 
@@ -62,7 +72,7 @@ Or, if we refer back to our [function example](#example-answer) from the Functio
 ```{r}
 output_list <- list()
 for (df in seq_along(dataframe_list)) {
-output_list[[df]] <- create_norm_dist_from_column(dataframe_list[[df]], "value")
+  output_list[[df]] <- create_norm_dist_from_column(dataframe_list[[df]], "value")
 }
 head(output_list[[1]], 5)
 ```
@@ -123,9 +133,9 @@ We've already seen an example of the `lapply` (list-apply) function in [action](
 
 ```{r}
 number_list <- list(
-c(1,2,3,4),
-c(500,250,100,10),
-c(1000,1001,1001,1000)
+  c(1,2,3,4),
+  c(500,250,100,10),
+  c(1000,1001,1001,1000)
 )
 ```
 
