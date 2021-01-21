@@ -53,7 +53,7 @@ If we extract out the commonalities to a function, then not only do we reduce th
 We'll look more specifically out how we create functions in the next few sections, but for now let's imagine what we'd want our function to look like.
 It'd need to calculate the mean and standard deviation of a column, but that column name or position in the dataframe might change - the column is called 'value' in the first dataset but is called 'income' in the second, and even though they're both the second column in the dataset, we don't want to rely on that in case we have a new dataset where the column we want to use isn't in that position.
 
-Let's revisit this once we understand how we create functions in R a bit better. If you're comfortable with creating functions in R, then you can skip to the [solution](#example-answer).
+Let's revisit this once we understand how we create functions in R a bit better. If you're comfortable with creating functions in R, then you can skip to the [solution](#example-function).
 
 ### Creating functions
 
@@ -877,7 +877,7 @@ Imperative programming is a programming paradigm that focuses on *how* an operat
 
 For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:
 
-```
+```{r, eval = FALSE}
 for (identifier in list) {
  do_something_with_it(identifier)
 }
