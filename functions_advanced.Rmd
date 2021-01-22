@@ -156,7 +156,7 @@ function_without_check(x = 2, y = "error for me please")
 
 ```{r, warning = TRUE}
 function_with_check <- function(x, y) {
-  if (!is.numeric(x) || !is.numeric(y)) {
+  if (!is.numeric(x) | !is.numeric(y)) {
     warning("x or y isn't numeric. Returning NA")
     NA_integer_
   } else {
@@ -184,7 +184,7 @@ use_me_please <- function(x, y, w) {
 use_me_please(x = 1, y = 2)
 ```
 
-As you can see, we don't get an error. This is due to something called **lazy evaluation**. Lazy evaluation just means that objects don't get evaluated until they're actually used. This is in contrast to strict or direct evaluation, in which objects are evaluated before they're called.
+As you can see, we don't get an error even though we didn't define a value for `w`. This is due to something called **lazy evaluation**. Lazy evaluation just means that objects don't get evaluated until they're actually used. This is in contrast to strict or direct evaluation, in which objects are evaluated before they're called. If R used strict evaluation, then we would get an error if we didn't define `w`.
 
 ##### `missing()`
 
@@ -221,7 +221,29 @@ Here, we can see more clearly that `x` is returned when `return_x` is TRUE and `
 
 Certain style guides suggest that you should **only** use `return()` statements for early returns. In other words, the "normal" return value for your function should be defined by what's evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit `return()` values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.
 
-### Functions as objects
+## Example function
+
+Going back to our [previous example](functions-teachers) of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
+
+```{r}
+create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
+  ds_mean <- mean(dataset[[column_name]])
+  ds_sd <- sd(dataset[[column_name]])
+  rnorm(n = n, mean = ds_mean, sd = ds_sd)
+}
+
+normal_dist_ds1 <- create_norm_dist_from_column(dataset1, "value")
+normal_dist_ds2 <- create_norm_dist_from_column(dataset2, "income")
+
+head(normal_dist_ds1, 5)
+```
+
+Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.
+
+This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.
+
+
+## Functions as objects
 
 Functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the `apply` logic, the `lapply()` (list-apply) function requires a `FUN` parameter that is the function the be applied to each value in the provided list.
 
@@ -266,28 +288,6 @@ diff <- function(x) {
 }
 lapply(sum_list, FUN = diff)
 ```
-
-## Example function
-
-Going back to our [previous example](functions-teachers) of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we've just learnt, let's have a go:
-
-```{r}
-create_norm_dist_from_column <- function(dataset, column_name, n = 1000) {
-  ds_mean <- mean(dataset[[column_name]])
-  ds_sd <- sd(dataset[[column_name]])
-  rnorm(n = n, mean = ds_mean, sd = ds_sd)
-}
-
-normal_dist_ds1 <- create_norm_dist_from_column(dataset1, "value")
-normal_dist_ds2 <- create_norm_dist_from_column(dataset2, "income")
-
-head(normal_dist_ds1, 5)
-```
-
-Now, instead of copying the code each time we need it, we've extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.
-
-This is an example of the concept of abstraction, which is a common theme in programming. If you're interested in learning more about abstraction, the [opeRate](https://operate.arawles.co.uk) book that I wrote to turn the understanding you've hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.
-
 
 ## Vectorised functions
 

@@ -48,9 +48,9 @@ new_env$first_object
 ```
 ### Environment inheritance
 
-Environments have parents and children. In other words, there is a hierarchy of environments, with environments being encapsulated in other environments while also encapsulated other environments.
+Environments have parents and children. In other words, there is a hierarchy of environments, with environments being encapsulated in other environments while also encapsulating other environments.
 
-Every environment (with the exception of what we call the empty environment) has a parent. For example, when I created my `new_env` environment before, this was created in the **global environment**. The global environment is the environment that objects are assigned to when working in R interactively. The global environment's parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function. These package environments will contain everything that the package developer included with the package (i.e. functions, maybe some datasets, etc.).
+Every environment (with the exception of what we call the empty environment which is right at the top) has a parent. For example, when I created my `new_env` environment before, this was created in the **global environment**. The global environment is the environment that objects are assigned to when working in R interactively. The global environment's parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function. These package environments will contain everything that the package developer included with the package (i.e. functions, maybe some datasets, etc.).
 
 At the top of the environments of packages you've loaded will be the **base environment** which is the environment of base R. Finally, the base environment's parent is the **empty environment** which does not have a parent.
 
@@ -166,11 +166,40 @@ count
 ```
 Note how when we assign `0` to our `count` variable outside of the function, we don't need to use `<<-`. This is because we're already assigning to the global environment.
 
-Use the `<<-` with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in your global environment without ever realising it.
+More specifically, the `<<-` operator will search through the parent environments for the variable that its assigning. If it finds the variable in one of these environments, then it will replace the existing definition with the one specified via the `<<-`. Let's do a quick example to show how that works:
+
+```{r}
+overwrite_me <- 10
+parent_env <- new.env()
+parent_env$overwrite_me <- 1
+
+child_env <- new.env()
+parent.env(child_env) <- parent_env
+
+overwrite_function  <- function() {
+  overwrite_me <<- overwrite_me + 1  
+}
+environment(overwrite_function) <- child_env
+
+```
+
+
+Here we've first created a variable in the global environment called `overwrite_me` with a value of 10. Then we've created a new environment that will be a child of the global environment called `parent_env`. We've assigned a variable called `overwrite_me` in that environment with a value of 1. We've then created a new child environment called `child_env` and we've set that environment to be a child environment of `parent_env`. Finally we've created a function called `overwrite_function` and set the enclosing environment (its path for finding values) to the `child_env`.
+
+Now, when I call my `overwrite_function` from the `child_env`, it will look in its parent environments for a variable called `overwrite_me`. Because that variable exists in the immediate parent environment `parent_env`, it will reassign that variable in that environment to the new value. Because it found the variable in its first parent environment, it won't keep looking and so the variable of the same name that we assigned in the global environment will be untouched.
+
+```{r}
+do.call(overwrite_function, args = list(), envir = child_env)
+overwrite_me # This will still be 10
+parent_env$overwrite_me # This will have changed
+```
+If `overwrite_me` didn't exist in either environment, then it would have been assigned to the global environment - although in this case, the function would have failed because there wouldn't have been a `overwrite_me` value to add to in the first place.
+
+The takeaway - use the `<<-` with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in other environments without ever realising it.
 
 ## Questions {#questions-environments}
 
 1. In what situations can we have two environments with the same name? Why is this?
 2. Search 'namespacing'. How does that concept relate to environments?
-  + Hint: This is heavily related to question 1
+    + Hint: This is heavily related to question 1
 3. What might be an issue with create a function that uses superassignment on an object with the name `x`?
