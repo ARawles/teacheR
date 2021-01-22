@@ -1,7 +1,7 @@
 fig:unnamed-chunk-121
-fig:unnamed-chunk-129
 fig:unnamed-chunk-131
 fig:unnamed-chunk-133
+fig:unnamed-chunk-135
 teacher-1st-edition
 overview
 acknowledgements
@@ -70,6 +70,7 @@ questions-subsetting
 functions
 functions-in-r
 inputs
+section
 explicit-input-parameters
 optional-input-parameters
 outputs
@@ -81,15 +82,15 @@ creating-functions
 function-structure
 input-parameters
 optional-input-parameters-1
-section
+section-1
 input-validation
 missing-inputs
 lazy-evaluation
 missing
 return-values
+example-function
 functions-as-objects
 anonymous-functions
-example-function
 vectorised-functions
 recycling
 questions-functions-teachers
@@ -102,7 +103,6 @@ mutability
 super-assignment
 questions-environments
 objects-and-classes
-what-is-a-class
 what-is-an-object
 objects-and-classes-in-r
 inheritance
