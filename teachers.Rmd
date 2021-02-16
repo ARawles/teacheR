@@ -7,7 +7,7 @@ if(!knitr:::is_html_output())
 }
 ```
 
-# Introduction
+# Introduction {#for-teachers-intro}
 
 Now we have a basic understanding of some of the core concepts in R, let's have a look at them in a bit more detail. In contrast to the previous section, here were going to focus on the underpinnings of R. You can kind of think of this section as being less practical and more theoretical.
 

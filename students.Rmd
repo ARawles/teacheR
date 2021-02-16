@@ -7,7 +7,7 @@ if(!knitr:::is_html_output())
 }
 ```
 
-# Introduction
+# Introduction {#for-students-intro}
 
 This section of the book is aimed at those who are either complete beginners in data analysis and statistical computing or who have some prior experience with another language or software package and want to learn more about R.
 
