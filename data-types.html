@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Data types | teacheR</title>
   <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Data types | teacheR" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="variable-assignment.html"/>
 <link rel="next" href="data-structures.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,73 +49,44 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -131,80 +101,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
-<li class="chapter" data-level="3" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
-<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a>
-<ul>
+<li class="chapter" data-level="3" data-path="for-students-intro.html"><a href="for-students-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
 <li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>4.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>4.2</b> Logical operators</a></li>
 <li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>4.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a>
-<ul>
+<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a><ul>
 <li class="chapter" data-level="5.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>5.1</b> Creating variables</a></li>
-<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#valid-names"><i class="fa fa-check"></i><b>5.2.1</b> Valid names</a></li>
 <li class="chapter" data-level="5.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming-conventions"><i class="fa fa-check"></i><b>5.2.2</b> Naming conventions</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>5.3</b> Reassigning variables</a></li>
 <li class="chapter" data-level="5.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>5.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a>
-<ul>
+<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>6.1</b> Logical</a></li>
 <li class="chapter" data-level="6.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>6.2</b> Double</a></li>
 <li class="chapter" data-level="6.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>6.3</b> Integer</a></li>
 <li class="chapter" data-level="6.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>6.4</b> Character</a></li>
-<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a>
-<ul>
+<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
 <li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct)</a></li>
-<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a>
-<ul>
+<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a><ul>
 <li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
 <li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
 <li class="chapter" data-level="6.8.3" data-path="data-types.html"><a href="data-types.html#dealing-with-nas"><i class="fa fa-check"></i><b>6.8.3</b> Dealing with NAs</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>6.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a>
-<ul>
+<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a><ul>
 <li class="chapter" data-level="6.10.1" data-path="data-types.html"><a href="data-types.html#dangers-of-implicit-conversion"><i class="fa fa-check"></i><b>6.10.1</b> Dangers of implicit conversion</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>6.11</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a>
-<ul>
+<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures.html"><a href="data-structures.html#coercion"><i class="fa fa-check"></i><b>7.1.1</b> Coercion</a></li>
-<li class="chapter" data-level="7.1.2" data-path="data-structures.html"><a href="data-structures.html#naming-1"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
+<li class="chapter" data-level="7.1.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
 <li class="chapter" data-level="7.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>7.3</b> Lists vs Vectors</a></li>
@@ -212,34 +168,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
 <li class="chapter" data-level="7.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>7.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
-<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
-<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
-<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
+<li class="chapter" data-level="8.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
+<li class="chapter" data-level="8.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
 <li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>8.5</b> Subsetting by criteria</a></li>
 <li class="chapter" data-level="8.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>8.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a>
-<ul>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a><ul>
 <li class="chapter" data-level="9.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>9.1</b> Functions in R</a></li>
-<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="functions.html"><a href="functions.html#explicit-input-parameters"><i class="fa fa-check"></i><b>9.2.1</b> Explicit input parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a>
-<ul>
+<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="functions.html"><a href="functions.html#reassigning-outputs"><i class="fa fa-check"></i><b>9.3.1</b> Reassigning outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>9.4</b> Questions</a></li>
 </ul></li>
 <li class="part"><span><b>II For Teachers</b></span></li>
-<li class="chapter" data-level="10" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
-<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a>
-<ul>
+<li class="chapter" data-level="10" data-path="for-teachers-intro.html"><a href="for-teachers-intro.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
+<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a><ul>
+<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#function-structure"><i class="fa fa-check"></i><b>11.1.1</b> Function structure</a></li>
 <li class="chapter" data-level="11.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-parameters"><i class="fa fa-check"></i><b>11.1.2</b> Input Parameters</a></li>
 <li class="chapter" data-level="11.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#return-values"><i class="fa fa-check"></i><b>11.1.3</b> Return values</a></li>
@@ -247,36 +197,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="functions-teachers.html"><a href="functions-teachers.html#example-function"><i class="fa fa-check"></i><b>11.2</b> Example function</a></li>
 <li class="chapter" data-level="11.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>11.3</b> Functions as objects</a></li>
 <li class="chapter" data-level="11.4" data-path="functions-teachers.html"><a href="functions-teachers.html#anonymous-functions"><i class="fa fa-check"></i><b>11.4</b> Anonymous functions</a></li>
-<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a>
-<ul>
+<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a><ul>
 <li class="chapter" data-level="11.5.1" data-path="functions-teachers.html"><a href="functions-teachers.html#recycling"><i class="fa fa-check"></i><b>11.5.1</b> Recycling</a></li>
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>11.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a>
-<ul>
+<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a><ul>
+<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a><ul>
 <li class="chapter" data-level="12.1.1" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>12.1.1</b> Environment inheritance</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
-<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a>
-<ul>
+<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a>
-<ul>
+<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a><ul>
 <li class="chapter" data-level="13.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>13.1</b> What is an object?</a></li>
-<li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.2</b> Objects and Classes in R</a>
-<ul>
+<li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.2</b> Objects and Classes in R</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>13.2.1</b> Inheritance</a></li>
 <li class="chapter" data-level="13.2.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>13.2.2</b> Object-Oriented Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.3</b> Creating classes</a>
-<ul>
+<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.3</b> Creating classes</a><ul>
 <li class="chapter" data-level="13.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#class-attribute"><i class="fa fa-check"></i><b>13.3.1</b> Class attribute</a></li>
 <li class="chapter" data-level="13.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor-functions"><i class="fa fa-check"></i><b>13.3.2</b> Constructor functions</a></li>
 <li class="chapter" data-level="13.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-methods"><i class="fa fa-check"></i><b>13.3.3</b> Creating methods</a></li>
@@ -284,43 +227,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>13.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a>
-<ul>
+<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a><ul>
 <li class="chapter" data-level="14.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>14.1</b> Creating expressions</a></li>
 <li class="chapter" data-level="14.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>14.2</b> Evaluating expressions</a></li>
 <li class="chapter" data-level="14.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>14.3</b> Substitution</a></li>
 <li class="chapter" data-level="14.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>14.4</b> Quasiquotation</a></li>
 <li class="chapter" data-level="14.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>14.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a>
-<ul>
+<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a><ul>
 <li class="chapter" data-level="15.1" data-path="if-else.html"><a href="if-else.html#structure"><i class="fa fa-check"></i><b>15.1</b> Structure</a></li>
 <li class="chapter" data-level="15.2" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>15.2</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a>
-<ul>
+<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a><ul>
+<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a><ul>
 <li class="chapter" data-level="16.1.1" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>16.1.1</b> For loops</a></li>
 <li class="chapter" data-level="16.1.2" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>16.1.2</b> While loops</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a>
-<ul>
+<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a><ul>
 <li class="chapter" data-level="16.2.1" data-path="iteration.html"><a href="iteration.html#declarative-vs-imperative"><i class="fa fa-check"></i><b>16.2.1</b> Declarative vs Imperative</a></li>
 <li class="chapter" data-level="16.2.2" data-path="iteration.html"><a href="iteration.html#applying-functions"><i class="fa fa-check"></i><b>16.2.2</b> Applying functions</a></li>
 <li class="chapter" data-level="16.2.3" data-path="iteration.html"><a href="iteration.html#purrr"><i class="fa fa-check"></i><b>16.2.3</b> purrr</a></li>
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>16.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a>
-<ul>
+<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a><ul>
+<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a><ul>
 <li class="chapter" data-level="17.1.1" data-path="summary.html"><a href="summary.html#for-students"><i class="fa fa-check"></i><b>17.1.1</b> For Students</a></li>
 <li class="chapter" data-level="17.1.2" data-path="summary.html"><a href="summary.html#for-teachers"><i class="fa fa-check"></i><b>17.1.2</b> For Teachers</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a>
-<ul>
+<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a><ul>
 <li class="chapter" data-level="17.2.1" data-path="summary.html"><a href="summary.html#operate"><i class="fa fa-check"></i><b>17.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
@@ -341,9 +276,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-types" class="section level1" number="6">
+<div id="data-types" class="section level1">
 <h1><span class="header-section-number">6</span> Data types</h1>
-<p>Data can be stored in lots of different forms. For example, <code>"TRUE"</code> and <code>TRUE</code> are stored as two different types, even though they look very similar to us.</p>
+<p>Data can be stored in lots of different forms. For example, <code>&quot;TRUE&quot;</code> and <code>TRUE</code> are stored as two different types, even though they look very similar to us.</p>
 <p>The main different data types are:</p>
 <ul>
 <li>logical
@@ -364,8 +299,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>character
 <ul>
-<li>“hello”</li>
-<li>“my name is”</li>
+<li>&quot;hello&quot;</li>
+<li>&quot;my name is&quot;</li>
 </ul></li>
 <li>factors</li>
 <li>dates
@@ -377,244 +312,240 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>2019-06-01 12:00:00</li>
 </ul></li>
 </ul>
-<p>Let’s have a look at each one in detail:</p>
-<div id="logical" class="section level2" number="6.1">
+<p>Let's have a look at each one in detail:</p>
+<div id="logical" class="section level2">
 <h2><span class="header-section-number">6.1</span> Logical</h2>
-<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that’s true of any data type. We look at <code>NA</code> values a <a href="data-types.html#na-and-null">little bit later on</a>.</p>
-<p>Logical variables are used a lot in response questionnaires, where the answer to the question is either “Yes” or “No” (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like “Yes” or “No” or “TRUE” or “FALSE” to a logical variable rather than leaving them as characters, because it’ll make your analysis less verbose (use fewer lines of code), even if it doesn’t change the underlying logic.</p>
+<p>A logical variable can only have two <em>real</em> values, <code>TRUE</code> or <code>FALSE</code>. I say two <em>real</em> values, because you can also have things like <code>NA</code>, but that's true of any data type. We look at <code>NA</code> values a <a href="data-types.html#na-and-null">little bit later on</a>.</p>
+<p>Logical variables are used a lot in response questionnaires, where the answer to the question is either &quot;Yes&quot; or &quot;No&quot; (<code>TRUE</code> or <code>FALSE</code>). I would recommend converting any character strings like &quot;Yes&quot; or &quot;No&quot; or &quot;TRUE&quot; or &quot;FALSE&quot; to a logical variable rather than leaving them as characters, because it'll make your analysis less verbose (use fewer lines of code), even if it doesn't change the underlying logic.</p>
 <p>To test whether something is stored as logical, we use the <code>is.logical()</code> function:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-types.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-types.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To convert a value to logical, use the <code>as.logical()</code> function:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-types.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">1</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">0</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-types.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;TRUE&quot;</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-types.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="st">&quot;FALSE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;FALSE&quot;</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>Be careful though, just because a conversion seems obvious to you, doesn’t mean you’ll get the expected result! For instance, what do you think <code>as.logical(2)</code> should return? See for yourself.</p>
+<p>Be careful though, just because a conversion seems obvious to you, doesn't mean you'll get the expected result! For instance, what do you think <code>as.logical(2)</code> should return? See for yourself.</p>
 </div>
-<div id="double" class="section level2" number="6.2">
+<div id="double" class="section level2">
 <h2><span class="header-section-number">6.2</span> Double</h2>
 <p>The best way to think of a <code>double</code> value is as a number. It can be a whole number (but see <a href="data-types.html#integer">Integers</a>) or a decimal. R will often take care of any implicit number conversion that needs to be done under the hood, so the only thing you really need to keep in mind is that when you assign a number, be it a whole number or decimal, it will be stored as double by default.</p>
-<p>As an aside, it’s called double because it’s stored using <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision</a>.</p>
+<p>As an aside, it's called double because it's stored using <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">double precision</a>.</p>
 <p>To check whether a value is stored as double (or more generally numeric), use the <code>is.double()</code> and <code>is.numeric()</code> functions:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-types.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-types.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(<span class="st">&quot;not numeric&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(<span class="st">&quot;not numeric&quot;</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-types.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(2L) <span class="co"># see the next section for why this returns FALSE</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.double</span>(2L) <span class="co"># see the next section for why this returns FALSE</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To convert a value to a double, use the <code>as.double()</code> or <code>as.numeric()</code> functions:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-types.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.double</span>(<span class="st">&quot;5&quot;</span>)</code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-types.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;10&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="st">&quot;10&quot;</span>)</code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-types.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;im going to cause a warning&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.double</span>(<span class="st">&quot;im going to cause a warning&quot;</span>)</code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
-<div id="integer" class="section level2" number="6.3">
+<div id="integer" class="section level2">
 <h2><span class="header-section-number">6.3</span> Integer</h2>
-<p>Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: <code>number &lt;- 1</code>, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an <code>L</code>, like this: <code>number &lt;- 1L</code>. Attempting to store something that isn’t an integer as an integer will result in a warning:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.5</span>L</span></code></pre></div>
+<p>Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: <code>number &lt;- 1</code>, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an <code>L</code>, like this: <code>number &lt;- 1L</code>. Attempting to store something that isn't an integer as an integer will result in a warning:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.5</span>L</code></pre></div>
 <pre><code>## [1] 1.5</code></pre>
 <p>For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.</p>
 <p>To check if something is an integer, use the <code>is.integer()</code> function:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-types.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-types.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(2L)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(2L)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>To convert to an integer, use the <code>L</code> suffix or the <code>as.integer()</code> function:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-types.html#cb73-1" aria-hidden="true" tabindex="-1"></a>1L</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">1L</code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
-<div id="character" class="section level2" number="6.4">
+<div id="character" class="section level2">
 <h2><span class="header-section-number">6.4</span> Character</h2>
-<p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what’s inside the quotation marks, it will be stored as character. For example,
-<code>"5"</code> stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, <code>{r, error = TRUE} "5" + 5</code> doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
+<p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what's inside the quotation marks, it will be stored as character. For example, <code>&quot;5&quot;</code> stores a character string with the text &quot;5&quot;, not the number 5. This is particularly important when you want to start combining variables. For example, <code>{r, error = TRUE} &quot;5&quot; + 5</code> doesn't work, because you're trying to add text to a number, which doesn't make sense.</p>
 <p>To check whether something is stored as a character, use the <code>is.character()</code> function:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-types.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="st">&quot;hello&quot;</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-types.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>To convert something to a character, use the <code>as.character()</code> function:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-types.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] &quot;5&quot;</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-types.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] &quot;TRUE&quot;</code></pre>
 </div>
-<div id="factors" class="section level2" number="6.5">
+<div id="factors" class="section level2">
 <h2><span class="header-section-number">6.5</span> Factors</h2>
 <p>Factors are a unique but useful data type in R. Essentially, factors store different levels that represent some sort of grouping. For example, say you were collecting some information on people from different countries, the column that holds which country the respondent is from could be stored as a factor, with the levels England, Spain, France, etc.</p>
-<p>A factor level is made up of two things. A label and a number that represents that group. In my countries example, our factor would have the labels “England”, “Spain”, “France” and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.</p>
+<p>A factor level is made up of two things. A label and a number that represents that group. In my countries example, our factor would have the labels &quot;England&quot;, &quot;Spain&quot;, &quot;France&quot; and the values 1, 2, 3. This means that internally, a factor is essentially a collection of integers representing the level position and character strings representing the level label.</p>
 <p>To create a factor, we just use the <code>factor()</code> function:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-types.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Spain&quot;</span>))</code></pre></div>
 <pre><code>## [1] England France  Spain  
 ## Levels: England France Spain</code></pre>
-<p>It’s also worth remembering that you can have levels that don’t appear in the data you have. For example, in a questionnaire, you may provide the options “None”, “Some”, “All”. But in your responses, you may see that no-one chose the “None” option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
-<p>You can also specify whether a factor is <em>ordered</em>. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that “Some” is better than “None”, and “All” is better than “Some”. To create an ordered factor, just specify <code>ordered = TRUE</code> in your function. By default, the factor will be ordered in the order the values appear, unless you specify levels (see below).</p>
+<p>It's also worth remembering that you can have levels that don't appear in the data you have. For example, in a questionnaire, you may provide the options &quot;None&quot;, &quot;Some&quot;, &quot;All&quot;. But in your responses, you may see that no-one chose the &quot;None&quot; option. In that case, you would still create a factor with three levels, even though only two of them appear.</p>
+<p>You can also specify whether a factor is <em>ordered</em>. You would use an ordered factor when the levels have meaningful order. For instance, in the above example, it would make sense that &quot;Some&quot; is better than &quot;None&quot;, and &quot;All&quot; is better than &quot;Some&quot;. To create an ordered factor, just specify <code>ordered = TRUE</code> in your function. By default, the factor will be ordered in the order the values appear, unless you specify levels (see below).</p>
 <p>To convert something to a factor, use the <code>factor()</code> function if you want to specify levels and labels, or <code>as.factor()</code> to do it for you:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</code></pre></div>
 <pre><code>## [1] Some All 
 ## Levels: None Some All</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-types.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] Some All 
 ## Levels: None &lt; Some &lt; All</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;All&quot;</span>))</code></pre></div>
 <pre><code>## [1] Some All 
 ## Levels: All Some</code></pre>
-<p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
+<p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
 <p><em>Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using <code>data.frame()</code> or <code>read.table()</code>. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.</em></p>
-<div id="converting-from-factors" class="section level3" number="6.5.1">
+<div id="converting-from-factors" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Converting from factors</h3>
-<p>Sometimes you’ll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we’ve already seen:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;All&quot;</span>)))</span></code></pre></div>
+<p>Sometimes you'll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we've already seen:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Some&quot;</span>, <span class="st">&quot;None&quot;</span>, <span class="st">&quot;All&quot;</span>)))</code></pre></div>
 <pre><code>## [1] &quot;Some&quot; &quot;None&quot; &quot;All&quot;</code></pre>
 </div>
 </div>
-<div id="dates" class="section level2" number="6.6">
+<div id="dates" class="section level2">
 <h2><span class="header-section-number">6.6</span> Dates</h2>
 <p>Dates in any language are tricky. Different countries store dates in different formats and different bits of software store dates in different ways (looking at you Excel). This can make storing values as dates tough.</p>
 <p>The most common way of creating a date is to use the <code>as.Date()</code> function. To use this function, you just need to provide your date as a character string:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-types.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;2019/01/01&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2019-01-01&quot;</code></pre>
-<p>But Adam, how does R know which one is the month and which is the day? Good question, thank you for asking. By default, R expects your character string to be in the order “Year/Month/Day”. If you don’t provide it in that format, you’ll get a nonsense output:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-types.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>)</span></code></pre></div>
+<p>But Adam, how does R know which one is the month and which is the day? Good question, thank you for asking. By default, R expects your character string to be in the order &quot;Year/Month/Day&quot;. If you don't provide it in that format, you'll get a nonsense output:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;1-12-20&quot;</code></pre>
 <p>If your data is in a different format however, you can specify the format:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-types.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;01/12/2019&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2019-12-01&quot;</code></pre>
-<p>Here, we’re telling R that the string is in the format “Day/Month/Year”. A list of the different codes that can be used in the format parameter can be found <a href="https://www.statmethods.net/input/dates.html">here</a>, or by typing “R date codes” into Google.</p>
-<p>Because nothing in life is simple, sometimes you’ll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it’s a number, our <code>as.Date(..., format = ...)</code> doesn’t work. Instead, we can still use the <code>as.Date()</code> function, but we need to specify what the origin date is that the number refers to.</p>
+<p>Here, we're telling R that the string is in the format &quot;Day/Month/Year&quot;. A list of the different codes that can be used in the format parameter can be found <a href="https://www.statmethods.net/input/dates.html">here</a>, or by typing &quot;R date codes&quot; into Google.</p>
+<p>Because nothing in life is simple, sometimes you'll get some data that has the date stored as a number. This is because the source of that data has the date stored as the number of days that have passed since an origin date. Because it's a number, our <code>as.Date(..., format = ...)</code> doesn't work. Instead, we can still use the <code>as.Date()</code> function, but we need to specify what the origin date is that the number refers to.</p>
 <p>By default, when importing from Excel in Windows, the origin date is December 31st 1899. More commonly, the date January 1st 1970 (also known as the epoch date) is used.</p>
 <p>Anyway, to specify your origin, we use the <code>origin</code> parameter, like this:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-types.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="dv">18262</span>, <span class="at">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
-<p>Notice the format I’ve provided the origin in. It’s the same as the default that R expects, and I would recommend copying that format wherever possible. If you’re someone who just wants to watch the world burn, then you can specify a format for your origin as well…’</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-types.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="dv">18262</span>, <span class="at">origin =</span> <span class="fu">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</span></code></pre></div>
+<p>Notice the format I've provided the origin in. It's the same as the default that R expects, and I would recommend copying that format wherever possible. If you're someone who just wants to watch the world burn, then you can specify a format for your origin as well...'</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="dv">18262</span>, <span class="dt">origin =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/1970&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01&quot;</code></pre>
-<p>but where’s the humanity in that?</p>
-<p>Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the <code>is()</code> or <code>class()</code> functions. If the first value returned is “Date”, then you know it’s a date:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-types.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
+<p>but where's the humanity in that?</p>
+<p>Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the <code>is()</code> or <code>class()</code> functions. If the first value returned is &quot;Date&quot;, then you know it's a date:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-types.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/01/01&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
 </div>
-<div id="datetimes-posixct" class="section level2" number="6.7">
+<div id="datetimes-posixct" class="section level2">
 <h2><span class="header-section-number">6.7</span> Datetimes (POSIXct)</h2>
-<p>If you thought dates were annoying, datetimes are like dates’ little brother who didn’t get enough attention as a child and so acts up all the time.
-One of the reasons for this is that datetimes aren’t actually called datetimes. They’re called POSIXct in R. So whenever you see that dreadful word, just remember “ah, Adam told me that means datetime” and you’ll be fine.</p>
-<p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you’re referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we’ll see below.</p>
-<p>With these annoyances aside however, creating datetimes isn’t all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-types.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</span></code></pre></div>
+<p>If you thought dates were annoying, datetimes are like dates' little brother who didn't get enough attention as a child and so acts up all the time. One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember &quot;ah, Adam told me that means datetime&quot; and you'll be fine.</p>
+<p>Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the <code>Sys.setlocale()</code> function, or you can use the <code>tz</code> parameter when creating your datetime as we'll see below.</p>
+<p>With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the <code>as.POSIXct()</code> function instead. We just provide a character string (with a <code>format</code> specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="data-types.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;NZ&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>, <span class="dt">tz =</span> <span class="st">&quot;NZ&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 NZDT&quot;</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="data-types.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="at">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="dv">1577880000</span>, <span class="dt">origin =</span> <span class="st">&quot;1970/01/01&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2020-01-01 12:00:00 UTC&quot;</code></pre>
 <p>Similar to dates, there is no <code>as.POSIXct()</code> function in base R, so we use the <code>is()</code> and <code>class()</code> functions instead:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="data-types.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot;  &quot;POSIXt&quot;   &quot;oldClass&quot;</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="data-types.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2020/01/01 12:00:00&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
 </div>
-<div id="na-and-null" class="section level2" number="6.8">
+<div id="na-and-null" class="section level2">
 <h2><span class="header-section-number">6.8</span> NA and NULL</h2>
 <p>The R language has two kind of related values, <strong><code>NA</code></strong> and <strong><code>NULL</code></strong>.</p>
-<div id="null" class="section level3" number="6.8.1">
+<div id="null" class="section level3">
 <h3><span class="header-section-number">6.8.1</span> NULL</h3>
-<p><em><code>NULL</code></em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no ‘type’ because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="data-types.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(<span class="cn">NULL</span>)</span></code></pre></div>
+<p><em><code>NULL</code></em> indicates the absence of a value. It means that a value is missing (or has length zero). A null value has no 'type' because it represents an absence of something, so passing a null value to any of the <code>is.[type]()</code> functions will return FALSE. Instead, checking whether a value is NULL is done with the <code>is.null()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.character</span>(<span class="ot">NULL</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="data-types.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(<span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.null</span>(<span class="ot">NULL</span>)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p><code>is.character()</code> returns <code>FALSE</code> because <code>NULL</code> doesn’t have a data type (it’s the absence of a value), whereas <code>is.null()</code> returns <code>TRUE</code> because it is <code>NULL</code>.</p>
-<p>What happens when you compare values to <code>NULL</code> using our logical operators? Well, this is where the idea of <code>NULL</code> having a length of 0 comes in. If you type <code>length(NULL)</code>, you’ll see it will return 0. So when you’re comparing a value against <code>NULL</code> like this:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="data-types.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Am I NULL?&quot;</span> <span class="sc">==</span> <span class="cn">NULL</span></span></code></pre></div>
+<p><code>is.character()</code> returns <code>FALSE</code> because <code>NULL</code> doesn't have a data type (it's the absence of a value), whereas <code>is.null()</code> returns <code>TRUE</code> because it is <code>NULL</code>.</p>
+<p>What happens when you compare values to <code>NULL</code> using our logical operators? Well, this is where the idea of <code>NULL</code> having a length of 0 comes in. If you type <code>length(NULL)</code>, you'll see it will return 0. So when you're comparing a value against <code>NULL</code> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;Am I NULL?&quot;</span> <span class="op">==</span><span class="st"> </span><span class="ot">NULL</span></code></pre></div>
 <pre><code>## logical(0)</code></pre>
-<p>You get an output that is of length 0. And that makes sense, because <code>NULL</code> is missing/has 0 zero length. So basically you’re then comparing something (<code>"Am I NULL?"</code>) to nothing (<code>NULL</code>). Therefore, your output is nothing (or length 0).</p>
-<p>Dealing with <code>NULL</code> can be a bit tricky, so the important thing to remember is that <code>NULL</code> represents something missing, and have length 0. Unlike, <code>NA</code>…</p>
+<p>You get an output that is of length 0. And that makes sense, because <code>NULL</code> is missing/has 0 zero length. So basically you're then comparing something (<code>&quot;Am I NULL?&quot;</code>) to nothing (<code>NULL</code>). Therefore, your output is nothing (or length 0).</p>
+<p>Dealing with <code>NULL</code> can be a bit tricky, so the important thing to remember is that <code>NULL</code> represents something missing, and have length 0. Unlike, <code>NA</code>...</p>
 </div>
-<div id="na" class="section level3" number="6.8.2">
+<div id="na" class="section level3">
 <h3><span class="header-section-number">6.8.2</span> NA</h3>
-<p>On the other hand, <em><code>NA</code></em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can’t assign an appropriate value.</p>
-<p><code>NA</code> isn’t of length 0 like <code>NULL</code> because it is a value, it’s just invalid. In other words, there’s something there, but it doesn’t really make sense what it is.</p>
-<p>For example, attempting to parse a character string to a date format that doesn’t match will result in a <code>NA</code> value:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="data-types.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span></code></pre></div>
+<p>On the other hand, <em><code>NA</code></em> (not available) represents an invalid value. This most often occurs when you try to convert one datatype to another where R can't assign an appropriate value.</p>
+<p><code>NA</code> isn't of length 0 like <code>NULL</code> because it is a value, it's just invalid. In other words, there's something there, but it doesn't really make sense what it is.</p>
+<p>For example, attempting to parse a character string to a date format that doesn't match will result in a <code>NA</code> value:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>R has tried to parse a value from one type into another. The value isn’t <code>NULL</code> because it clearly isn’t missing, but it couldn’t be converted to a date type, so it’s <code>NA</code>.
-Unlike NULL, there are different <code>NA</code> values for each datatype (although they’ll all look like <code>NA</code> in the console). In the example above, we actually created a <code>NA</code> that has the Date type:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="data-types.html#cb127-1" aria-hidden="true" tabindex="-1"></a>errant_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="at">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)</span>
-<span id="cb127-2"><a href="data-types.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(errant_date)</span></code></pre></div>
+<p>R has tried to parse a value from one type into another. The value isn't <code>NULL</code> because it clearly isn't missing, but it couldn't be converted to a date type, so it's <code>NA</code>. Unlike NULL, there are different <code>NA</code> values for each datatype (although they'll all look like <code>NA</code> in the console). In the example above, we actually created a <code>NA</code> that has the Date type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">errant_date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;10/01/20&quot;</span>, <span class="dt">format =</span> <span class="st">&quot;%m%Y%d&quot;</span>)
+<span class="kw">is</span>(errant_date)</code></pre></div>
 <pre><code>## [1] &quot;Date&quot;     &quot;oldClass&quot;</code></pre>
-<p>This is because R knows what type the <code>NA</code> <em>should</em> be, but it couldn’t assign in a proper value.</p>
+<p>This is because R knows what type the <code>NA</code> <em>should</em> be, but it couldn't assign in a proper value.</p>
 <p>The same behaviour can be observed for other data types:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="data-types.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>)</code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="data-types.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>)</code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="data-types.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.numeric</span>(<span class="st">&quot;not a number&quot;</span>))</code></pre></div>
 <pre><code>## Warning in is(as.numeric(&quot;not a number&quot;)): NAs introduced by coercion</code></pre>
 <pre><code>## [1] &quot;numeric&quot; &quot;vector&quot;</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data-types.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is</span>(<span class="fu">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">as.logical</span>(<span class="st">&quot;not a logical&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;logical&quot; &quot;vector&quot;</code></pre>
-<p>To test whether something is <code>NA</code>, we use the <code>is.na()</code> function. You don’t need to worry about what type the <code>NA</code> is, this will test if it is an <code>NA</code> of any type.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data-types.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_character_</span>) <span class="co"># this will be an NA that is of type &#39;character&#39;</span></span></code></pre></div>
+<p>To test whether something is <code>NA</code>, we use the <code>is.na()</code> function. You don't need to worry about what type the <code>NA</code> is, this will test if it is an <code>NA</code> of any type.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(<span class="ot">NA_character_</span>) <span class="co"># this will be an NA that is of type &#39;character&#39;</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data-types.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(<span class="cn">NA_integer_</span>) <span class="co"># this will be an NA that is of type &#39;integer&#39;</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.na</span>(<span class="ot">NA_integer_</span>) <span class="co"># this will be an NA that is of type &#39;integer&#39;</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="dealing-with-nas" class="section level3" number="6.8.3">
+<div id="dealing-with-nas" class="section level3">
 <h3><span class="header-section-number">6.8.3</span> Dealing with NAs</h3>
 <p>Dealing with <code>NA</code>s is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one <code>NA</code> will often return <code>NA</code>:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data-types.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="ot">NA</span>)</code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data-types.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>))</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="ot">NA</span>))</code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data-types.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>In some cases, those <code>NA</code>s will represent real issues with the values and so removing the NAs or converting them to 0 will just mask the error without fixing it.</p>
 <p>Alternatively, data imports can often return <code>NA</code> values because of differing data types or similar and so converting those values to 0 or removing them outright may be appropriate.</p>
-<p>Ultimately, how you deal with <code>NA</code> values is a question that you’ll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the <code>NA</code> values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the <code>NA</code> values from the supplied list of values:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data-types.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Ultimately, how you deal with <code>NA</code> values is a question that you'll need to answer when it happens and depending on the situation. I will give you a helping hand though and say that if you want to just remove the <code>NA</code> values when summing or calculating an average or similar, then these functions often have an <code>na.rm</code> parameter than can be used to remove the <code>NA</code> values from the supplied list of values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="ot">NA</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 </div>
-<div id="nan-and-infinity" class="section level2" number="6.9">
+<div id="nan-and-infinity" class="section level2">
 <h2><span class="header-section-number">6.9</span> NaN and Infinity</h2>
 <p>A special case is <code>NaN</code> (not a number). NaNs are distinct to <code>NA</code> in that they represent a valid value. More precisely, <code>NaN</code> represents not real numbers (numeric values that cannot be represented with numbers). For example, dividing 0/0.</p>
 <p><code>Inf</code> and <code>-Inf</code> are similar constructs. They represent infinity and minus infinity respectively. They are valid values but they are not representable with numbers, so they have their own reserved words.</p>
 <p><code>NaN</code>, <code>Inf</code> and <code>-Inf</code> are all of the numeric type and do not have equivalent values in other data types.</p>
 </div>
-<div id="implicit-conversion" class="section level2" number="6.10">
+<div id="implicit-conversion" class="section level2">
 <h2><span class="header-section-number">6.10</span> Implicit Conversion</h2>
-<p>Converting between types using the <code>as.x()</code> functions is nice and easy because the type that you’re converting to is explicitly defined. However, there is also <em>implicit conversion</em> in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let’s look at a proper example.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data-types.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">&quot;I&#39;m a character&quot;</span>, <span class="dv">100</span>)</span></code></pre></div>
+<p>Converting between types using the <code>as.x()</code> functions is nice and easy because the type that you're converting to is explicitly defined. However, there is also <em>implicit conversion</em> in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let's look at a proper example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste0</span>(<span class="st">&quot;I&#39;m a character&quot;</span>, <span class="dv">100</span>)</code></pre></div>
 <pre><code>## [1] &quot;I&#39;m a character100&quot;</code></pre>
-<p>The <code>paste0()</code> function provides a pretty good example of implicit conversion in the wild. <code>paste0()</code> expects character strings when it’s called, so what happens when you provide it with a number like we did above? Why doesn’t it complain?
-Well it’s because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it’s a bit like a programming autocorrect.</p>
-<div id="dangers-of-implicit-conversion" class="section level3" number="6.10.1">
+<p>The <code>paste0()</code> function provides a pretty good example of implicit conversion in the wild. <code>paste0()</code> expects character strings when it's called, so what happens when you provide it with a number like we did above? Why doesn't it complain? Well it's because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it's a bit like a programming autocorrect.</p>
+<div id="dangers-of-implicit-conversion" class="section level3">
 <h3><span class="header-section-number">6.10.1</span> Dangers of implicit conversion</h3>
-<p>As you can imagine, this automatic conversion between types when the user didn’t specifically ask for it can cause problems. For example, when I teach R courses I often ask the attendees what they think <code>R</code> is going to return when I type <code>"TRUE" == TRUE</code>. Without fail, the majority will say that it’s going to be <code>FALSE</code>; one is a character string and the other is a logical value.</p>
-<p>My heart always dies a little bit then when I show them that it actually returns <code>TRUE</code>. “But why?”, they rightly ask. And it’s all because of implicit conversion. When we use the <code>==</code> operator, R will try and coerce the variables so that they’re the same type. In this case, it successfully coerces <code>"TRUE"</code> to <code>TRUE</code>, and so returns <code>TRUE</code>.</p>
-<p>There are, of course, going to be cases where this makes things easier. For instance, say you’ve got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.</p>
-<p>So my advice is simply to be aware of it. Don’t fight it, don’t worry about it unduly, just keep it in the back of your mind for that one time where you can’t seem to figure out why you can divide things by <code>TRUE</code>.</p>
+<p>As you can imagine, this automatic conversion between types when the user didn't specifically ask for it can cause problems. For example, when I teach R courses I often ask the attendees what they think <code>R</code> is going to return when I type <code>&quot;TRUE&quot; == TRUE</code>. Without fail, the majority will say that it's going to be <code>FALSE</code>; one is a character string and the other is a logical value.</p>
+<p>My heart always dies a little bit then when I show them that it actually returns <code>TRUE</code>. &quot;But why?&quot;, they rightly ask. And it's all because of implicit conversion. When we use the <code>==</code> operator, R will try and coerce the variables so that they're the same type. In this case, it successfully coerces <code>&quot;TRUE&quot;</code> to <code>TRUE</code>, and so returns <code>TRUE</code>.</p>
+<p>There are, of course, going to be cases where this makes things easier. For instance, say you've got some data where there are two columns of logical values but one has incorrectly been imported as a character column. This implicit conversion will save you from having to change the character column. But implicit conversion will inevitably cause you problems in the future.</p>
+<p>So my advice is simply to be aware of it. Don't fight it, don't worry about it unduly, just keep it in the back of your mind for that one time where you can't seem to figure out why you can divide things by <code>TRUE</code>.</p>
 </div>
 </div>
-<div id="questions-data-types" class="section level2" number="6.11">
+<div id="questions-data-types" class="section level2">
 <h2><span class="header-section-number">6.11</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>Why are <code>2</code> and <code>2L</code> different?</li>
 <li>What is an ordered factor and how is it different to a character string?</li>
-<li>Why does <code>as.Date("19/01/2019", format = "%d/%m/%y")</code> return the date 19th Jan 2020 and not 19th Jan 2019?</li>
+<li>Why does <code>as.Date(&quot;19/01/2019&quot;, format = &quot;%d/%m/%y&quot;)</code> return the date 19th Jan 2020 and not 19th Jan 2019?</li>
 <li>Why does <code>as.numeric(TRUE)</code> return 1? What will <code>as.logical(2)</code> return?</li>
 <li>Look at the <code>identical()</code> function. How is that different from <code>==</code>?</li>
 </ol>
@@ -682,7 +613,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

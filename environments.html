@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>12 Environments | teacheR</title>
   <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="12 Environments | teacheR" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="functions-teachers.html"/>
 <link rel="next" href="objects-and-classes.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,73 +49,44 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -131,80 +101,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction.html"><a href="introduction.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
-<li class="chapter" data-level="3" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
-<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a>
-<ul>
+<li class="chapter" data-level="3" data-path="for-students-intro.html"><a href="for-students-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
 <li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>4.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>4.2</b> Logical operators</a></li>
 <li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>4.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a>
-<ul>
+<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a><ul>
 <li class="chapter" data-level="5.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>5.1</b> Creating variables</a></li>
-<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#valid-names"><i class="fa fa-check"></i><b>5.2.1</b> Valid names</a></li>
 <li class="chapter" data-level="5.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming-conventions"><i class="fa fa-check"></i><b>5.2.2</b> Naming conventions</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>5.3</b> Reassigning variables</a></li>
 <li class="chapter" data-level="5.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>5.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a>
-<ul>
+<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a><ul>
 <li class="chapter" data-level="6.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>6.1</b> Logical</a></li>
 <li class="chapter" data-level="6.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>6.2</b> Double</a></li>
 <li class="chapter" data-level="6.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>6.3</b> Integer</a></li>
 <li class="chapter" data-level="6.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>6.4</b> Character</a></li>
-<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a>
-<ul>
+<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a><ul>
 <li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
 <li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct)</a></li>
-<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a>
-<ul>
+<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a><ul>
 <li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
 <li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
 <li class="chapter" data-level="6.8.3" data-path="data-types.html"><a href="data-types.html#dealing-with-nas"><i class="fa fa-check"></i><b>6.8.3</b> Dealing with NAs</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>6.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a>
-<ul>
+<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a><ul>
 <li class="chapter" data-level="6.10.1" data-path="data-types.html"><a href="data-types.html#dangers-of-implicit-conversion"><i class="fa fa-check"></i><b>6.10.1</b> Dangers of implicit conversion</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>6.11</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a>
-<ul>
+<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures.html"><a href="data-structures.html#coercion"><i class="fa fa-check"></i><b>7.1.1</b> Coercion</a></li>
-<li class="chapter" data-level="7.1.2" data-path="data-structures.html"><a href="data-structures.html#naming-1"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
+<li class="chapter" data-level="7.1.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
 <li class="chapter" data-level="7.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>7.3</b> Lists vs Vectors</a></li>
@@ -212,34 +168,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
 <li class="chapter" data-level="7.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>7.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
-<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
-<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
-<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
+<li class="chapter" data-level="8.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
+<li class="chapter" data-level="8.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
 <li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>8.5</b> Subsetting by criteria</a></li>
 <li class="chapter" data-level="8.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>8.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a>
-<ul>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a><ul>
 <li class="chapter" data-level="9.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>9.1</b> Functions in R</a></li>
-<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a>
-<ul>
+<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="functions.html"><a href="functions.html#explicit-input-parameters"><i class="fa fa-check"></i><b>9.2.1</b> Explicit input parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a>
-<ul>
+<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a><ul>
 <li class="chapter" data-level="9.3.1" data-path="functions.html"><a href="functions.html#reassigning-outputs"><i class="fa fa-check"></i><b>9.3.1</b> Reassigning outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>9.4</b> Questions</a></li>
 </ul></li>
 <li class="part"><span><b>II For Teachers</b></span></li>
-<li class="chapter" data-level="10" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
-<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a>
-<ul>
+<li class="chapter" data-level="10" data-path="for-teachers-intro.html"><a href="for-teachers-intro.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
+<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a><ul>
+<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a><ul>
 <li class="chapter" data-level="11.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#function-structure"><i class="fa fa-check"></i><b>11.1.1</b> Function structure</a></li>
 <li class="chapter" data-level="11.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-parameters"><i class="fa fa-check"></i><b>11.1.2</b> Input Parameters</a></li>
 <li class="chapter" data-level="11.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#return-values"><i class="fa fa-check"></i><b>11.1.3</b> Return values</a></li>
@@ -247,36 +197,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="functions-teachers.html"><a href="functions-teachers.html#example-function"><i class="fa fa-check"></i><b>11.2</b> Example function</a></li>
 <li class="chapter" data-level="11.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>11.3</b> Functions as objects</a></li>
 <li class="chapter" data-level="11.4" data-path="functions-teachers.html"><a href="functions-teachers.html#anonymous-functions"><i class="fa fa-check"></i><b>11.4</b> Anonymous functions</a></li>
-<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a>
-<ul>
+<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a><ul>
 <li class="chapter" data-level="11.5.1" data-path="functions-teachers.html"><a href="functions-teachers.html#recycling"><i class="fa fa-check"></i><b>11.5.1</b> Recycling</a></li>
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>11.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a>
-<ul>
+<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a><ul>
+<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a><ul>
 <li class="chapter" data-level="12.1.1" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>12.1.1</b> Environment inheritance</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
-<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a>
-<ul>
+<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a>
-<ul>
+<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a><ul>
 <li class="chapter" data-level="13.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>13.1</b> What is an object?</a></li>
-<li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.2</b> Objects and Classes in R</a>
-<ul>
+<li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.2</b> Objects and Classes in R</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>13.2.1</b> Inheritance</a></li>
 <li class="chapter" data-level="13.2.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>13.2.2</b> Object-Oriented Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.3</b> Creating classes</a>
-<ul>
+<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.3</b> Creating classes</a><ul>
 <li class="chapter" data-level="13.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#class-attribute"><i class="fa fa-check"></i><b>13.3.1</b> Class attribute</a></li>
 <li class="chapter" data-level="13.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor-functions"><i class="fa fa-check"></i><b>13.3.2</b> Constructor functions</a></li>
 <li class="chapter" data-level="13.3.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-methods"><i class="fa fa-check"></i><b>13.3.3</b> Creating methods</a></li>
@@ -284,43 +227,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>13.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a>
-<ul>
+<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a><ul>
 <li class="chapter" data-level="14.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>14.1</b> Creating expressions</a></li>
 <li class="chapter" data-level="14.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>14.2</b> Evaluating expressions</a></li>
 <li class="chapter" data-level="14.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>14.3</b> Substitution</a></li>
 <li class="chapter" data-level="14.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>14.4</b> Quasiquotation</a></li>
 <li class="chapter" data-level="14.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>14.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a>
-<ul>
+<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a><ul>
 <li class="chapter" data-level="15.1" data-path="if-else.html"><a href="if-else.html#structure"><i class="fa fa-check"></i><b>15.1</b> Structure</a></li>
 <li class="chapter" data-level="15.2" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>15.2</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a>
-<ul>
-<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a>
-<ul>
+<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a><ul>
+<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a><ul>
 <li class="chapter" data-level="16.1.1" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>16.1.1</b> For loops</a></li>
 <li class="chapter" data-level="16.1.2" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>16.1.2</b> While loops</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a>
-<ul>
+<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a><ul>
 <li class="chapter" data-level="16.2.1" data-path="iteration.html"><a href="iteration.html#declarative-vs-imperative"><i class="fa fa-check"></i><b>16.2.1</b> Declarative vs Imperative</a></li>
 <li class="chapter" data-level="16.2.2" data-path="iteration.html"><a href="iteration.html#applying-functions"><i class="fa fa-check"></i><b>16.2.2</b> Applying functions</a></li>
 <li class="chapter" data-level="16.2.3" data-path="iteration.html"><a href="iteration.html#purrr"><i class="fa fa-check"></i><b>16.2.3</b> purrr</a></li>
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>16.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a>
-<ul>
-<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a>
-<ul>
+<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a><ul>
+<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a><ul>
 <li class="chapter" data-level="17.1.1" data-path="summary.html"><a href="summary.html#for-students"><i class="fa fa-check"></i><b>17.1.1</b> For Students</a></li>
 <li class="chapter" data-level="17.1.2" data-path="summary.html"><a href="summary.html#for-teachers"><i class="fa fa-check"></i><b>17.1.2</b> For Teachers</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a>
-<ul>
+<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a><ul>
 <li class="chapter" data-level="17.2.1" data-path="summary.html"><a href="summary.html#operate"><i class="fa fa-check"></i><b>17.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
@@ -341,33 +276,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="environments" class="section level1" number="12">
+<div id="environments" class="section level1">
 <h1><span class="header-section-number">12</span> Environments</h1>
-<p>As your scripts become more complex, the number of variables and functions that you assign will start to increase. Pair this with the fact that you may be using lots of external packages that will all contain lots of functions and the number of objects you’re working with can easily get into the hundreds and even thousands.</p>
-<p>This presents a scoping issue: If I refer to the object <code>x</code>, what <code>x</code> do I mean if there’s more than one? In other words, in which scope should R search for the <code>x</code> object?</p>
+<p>As your scripts become more complex, the number of variables and functions that you assign will start to increase. Pair this with the fact that you may be using lots of external packages that will all contain lots of functions and the number of objects you're working with can easily get into the hundreds and even thousands.</p>
+<p>This presents a scoping issue: If I refer to the object <code>x</code>, what <code>x</code> do I mean if there's more than one? In other words, in which scope should R search for the <code>x</code> object?</p>
 <p>R uses environments to solve this issue. Environments are collections of objects that can be used to group similar objects and provides a replicable naming convention for retrieving objects that may have the same name from the appropriate environment.</p>
-<p>In this chapter, we’re going to understand the concepts underpinning environments and scope in R.</p>
-<div id="environment-basics" class="section level2" number="12.1">
+<p>In this chapter, we're going to understand the concepts underpinning environments and scope in R.</p>
+<div id="environment-basics" class="section level2">
 <h2><span class="header-section-number">12.1</span> Environment basics</h2>
 <p>At its core, an environment is a collection of objects. A bit like a list, environments store multiple objects in a single structure.</p>
 <p>To create a new environment, we use the <code>new.env()</code> function.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="environments.html#cb281-1" aria-hidden="true" tabindex="-1"></a>new_env <span class="ot">&lt;-</span> <span class="fu">new.env</span>()</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</code></pre></div>
 <p>To add items to our environment, we can add them like we would a list using the <code>$</code> operator:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="environments.html#cb282-1" aria-hidden="true" tabindex="-1"></a>new_env<span class="sc">$</span>first_object <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;hello&quot;</span></code></pre></div>
 <p>To list all of the objects in an environment, we use the <code>ls()</code> function:</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="environments.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(new_env)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>(new_env)</code></pre></div>
 <pre><code>## [1] &quot;first_object&quot;</code></pre>
-<p>Importantly, you can’t have two objects in the same environment with the same name. If you try, you’ll just overwrite the previous value:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="environments.html#cb285-1" aria-hidden="true" tabindex="-1"></a>new_env<span class="sc">$</span>first_object <span class="ot">&lt;-</span> <span class="st">&quot;world&quot;</span></span>
-<span id="cb285-2"><a href="environments.html#cb285-2" aria-hidden="true" tabindex="-1"></a>new_env<span class="sc">$</span>first_object</span></code></pre></div>
+<p>Importantly, you can't have two objects in the same environment with the same name. If you try, you'll just overwrite the previous value:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;world&quot;</span>
+new_env<span class="op">$</span>first_object</code></pre></div>
 <pre><code>## [1] &quot;world&quot;</code></pre>
-<div id="environment-inheritance" class="section level3" number="12.1.1">
+<div id="environment-inheritance" class="section level3">
 <h3><span class="header-section-number">12.1.1</span> Environment inheritance</h3>
 <p>Environments have parents and children. In other words, there is a hierarchy of environments, with environments being encapsulated in other environments while also encapsulating other environments.</p>
-<p>Every environment (with the exception of what we call the empty environment which is right at the top) has a parent. For example, when I created my <code>new_env</code> environment before, this was created in the <strong>global environment</strong>. The global environment is the environment that objects are assigned to when working in R interactively. The global environment’s parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function. These package environments will contain everything that the package developer included with the package (i.e. functions, maybe some datasets, etc.).</p>
-<p>At the top of the environments of packages you’ve loaded will be the <strong>base environment</strong> which is the environment of base R. Finally, the base environment’s parent is the <strong>empty environment</strong> which does not have a parent.</p>
+<p>Every environment (with the exception of what we call the empty environment which is right at the top) has a parent. For example, when I created my <code>new_env</code> environment before, this was created in the <strong>global environment</strong>. The global environment is the environment that objects are assigned to when working in R interactively. The global environment's parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function. These package environments will contain everything that the package developer included with the package (i.e. functions, maybe some datasets, etc.).</p>
+<p>At the top of the environments of packages you've loaded will be the <strong>base environment</strong> which is the environment of base R. Finally, the base environment's parent is the <strong>empty environment</strong> which does not have a parent.</p>
 <p>The hierarchy of these environments looks like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-121"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-124"></span>
 <img src="diagrams/environments.png" alt="Environment hierarchy" width="50%" />
 <p class="caption">
 Figure 12.1: Environment hierarchy
@@ -375,107 +310,107 @@ Figure 12.1: Environment hierarchy
 </div>
 </div>
 </div>
-<div id="scope" class="section level2" number="12.2">
+<div id="scope" class="section level2">
 <h2><span class="header-section-number">12.2</span> Scope</h2>
-<p>So we know that objects in the same environment can’t have the same name, but what happens when two different environments happen to have objects with the same name? This is where the concept of <strong>scope</strong> comes in. <strong>Scoping</strong> is the set of rules that governs where R will look for a value.</p>
-<p>R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called <code>sum()</code>. But, if I define a new function in the global environment called <code>sum</code> then which function will be called when I type <code>sum(...)</code>. Well, because we know that the search path starts from the most specific environment, R will look for <code>sum</code> in the global environment first and it’ll find the <code>sum</code> that I’ve just defined. At this point, it’ll stop looking because <code>sum</code> has been found.</p>
-<p>For this reason, it’s a good idea to use a package like <code>conflicted</code> to manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.</p>
+<p>So we know that objects in the same environment can't have the same name, but what happens when two different environments happen to have objects with the same name? This is where the concept of <strong>scope</strong> comes in. <strong>Scoping</strong> is the set of rules that governs where R will look for a value.</p>
+<p>R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called <code>sum()</code>. But, if I define a new function in the global environment called <code>sum</code> then which function will be called when I type <code>sum(...)</code>. Well, because we know that the search path starts from the most specific environment, R will look for <code>sum</code> in the global environment first and it'll find the <code>sum</code> that I've just defined. At this point, it'll stop looking because <code>sum</code> has been found.</p>
+<p>For this reason, it's a good idea to use a package like <code>conflicted</code> to manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.</p>
 <p>Alternatively, you can specific with which environment R should look for a particular function by prefixing the function with its package and <code>::</code>. For example, if I decided against my better judgement to define a function called <code>sum</code> in my environment, and then I wanted to call the base function, I could do so like this:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="environments.html#cb287-1" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">base<span class="op">::</span><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
-<div id="function-environments" class="section level2" number="12.3">
+<div id="function-environments" class="section level2">
 <h2><span class="header-section-number">12.3</span> Function environments</h2>
 <p>Functions, when they are called, create their own more specific environment. The parent of this environment will be the environment in which it was called (most often this will be the global environment).</p>
-<p>This breeds some specific behaviours. For example, say you’ve written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
-<p>Let’s see what happens.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="environments.html#cb289-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
-<span id="cb289-2"><a href="environments.html#cb289-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
-<span id="cb289-3"><a href="environments.html#cb289-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb289-4"><a href="environments.html#cb289-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-5"><a href="environments.html#cb289-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb289-6"><a href="environments.html#cb289-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb289-7"><a href="environments.html#cb289-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-8"><a href="environments.html#cb289-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p>This breeds some specific behaviours. For example, say you've written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
+<p>Let's see what happens.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+x &lt;-<span class="st"> </span><span class="dv">10</span>
+y &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn’t really make much difference. The function creates its own more specific environment when it’s called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
-<p>But what happens if a variable doesn’t exist in the more specific function environment? Let’s take a look.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="environments.html#cb291-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
-<span id="cb291-2"><a href="environments.html#cb291-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y <span class="sc">+</span> w</span>
-<span id="cb291-3"><a href="environments.html#cb291-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb291-4"><a href="environments.html#cb291-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb291-5"><a href="environments.html#cb291-5" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb291-6"><a href="environments.html#cb291-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb291-7"><a href="environments.html#cb291-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn't really make much difference. The function creates its own more specific environment when it's called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
+<p>But what happens if a variable doesn't exist in the more specific function environment? Let's take a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
+  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w
+}
+
+w &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn’t exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we’ve provided. So when R doesn’t find it in the more specific environment, it looks in the less-specific global environment. It finds it, and so it uses the value it finds.</p>
-<p>This can be a dangerous thing, so always make sure that you’re function is accessing the values you think it is.</p>
+<p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn't exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we've provided. So when R doesn't find it in the more specific environment, it looks in the less-specific global environment. It finds it, and so it uses the value it finds.</p>
+<p>This can be a dangerous thing, so always make sure that you're function is accessing the values you think it is.</p>
 <p>So does R work the other way? Does it ever look in a more specific environment? Nope.</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="environments.html#cb293-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
-<span id="cb293-2"><a href="environments.html#cb293-2" aria-hidden="true" tabindex="-1"></a>  im_a_sneaky_variable <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb293-3"><a href="environments.html#cb293-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
-<span id="cb293-4"><a href="environments.html#cb293-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb293-5"><a href="environments.html#cb293-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb293-6"><a href="environments.html#cb293-6" aria-hidden="true" tabindex="-1"></a>im_a_sneaky_variable</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){
+  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span>
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+im_a_sneaky_variable</code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
 <p>Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.</p>
-<div id="mutability" class="section level3" number="12.3.1">
+<div id="mutability" class="section level3">
 <h3><span class="header-section-number">12.3.1</span> Mutability</h3>
-<p>Linked with the idea of function environments is mutability. An object is either mutable or immutable. If it is mutable, then it can be edited from within a function environment. If an object is immutable, then it can’t. This might seem like an arbitrary distinction, but it has important consequences. If an object is mutable, then calling the same function on that object twice in a row is going to provide different results (because the object will have changed after the first call). If an object is immutable, then calling the same function on the same object will always return the same value.</p>
+<p>Linked with the idea of function environments is mutability. An object is either mutable or immutable. If it is mutable, then it can be edited from within a function environment. If an object is immutable, then it can't. This might seem like an arbitrary distinction, but it has important consequences. If an object is mutable, then calling the same function on that object twice in a row is going to provide different results (because the object will have changed after the first call). If an object is immutable, then calling the same function on the same object will always return the same value.</p>
 <p>In R, values are immutable. In other words, when you pass an object to a function, that function operates on a <strong>copy</strong> of the object you provided - the object is not changed in place.</p>
 <p>You can replace the value you passed to the function by assigning it to the returned value:</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="environments.html#cb295-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb295-2"><a href="environments.html#cb295-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
-<p>But this hasn’t changed the original value of <code>x</code>. It’s actually just changed the binded value - you’ve created a new one and told <code>x</code> to be of that value now, you haven’t changed the original value.</p>
-<p>For the most, this exact distinction isn’t too important. The important thing to remember is that when you pass an object to a function, <strong>you are operating on a copy of the object, not the original</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
+x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p>But this hasn't changed the original value of <code>x</code>. It's actually just changed the binded value - you've created a new one and told <code>x</code> to be of that value now, you haven't changed the original value.</p>
+<p>For the most, this exact distinction isn't too important. The important thing to remember is that when you pass an object to a function, <strong>you are operating on a copy of the object, not the original</strong>.</p>
 </div>
-<div id="super-assignment" class="section level3" number="12.3.2">
-<h3><span class="header-section-number">12.3.2</span> ‘Super’ assignment</h3>
-<p>There will be occasions, however, when you need to make changes to the global environment regardless of what environment you are currently in. For instance, say you want to increment a counter every time a function is called, regardless of where it’s called from. In these cases, you can use the <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe…</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="environments.html#cb296-1" aria-hidden="true" tabindex="-1"></a>sum_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
-<span id="cb296-2"><a href="environments.html#cb296-2" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb296-3"><a href="environments.html#cb296-3" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
-<span id="cb296-4"><a href="environments.html#cb296-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb296-5"><a href="environments.html#cb296-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-6"><a href="environments.html#cb296-6" aria-hidden="true" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb296-7"><a href="environments.html#cb296-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-8"><a href="environments.html#cb296-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div id="super-assignment" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> 'Super' assignment</h3>
+<p>There will be occasions, however, when you need to make changes to the global environment regardless of what environment you are currently in. For instance, say you want to increment a counter every time a function is called, regardless of where it's called from. In these cases, you can use the <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe...</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {
+  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  x <span class="op">+</span><span class="st"> </span>y
+}
+
+count &lt;-<span class="st"> </span><span class="dv">0</span>
+
+<span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="environments.html#cb298-1" aria-hidden="true" tabindex="-1"></a>count</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count</code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="environments.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="environments.html#cb302-1" aria-hidden="true" tabindex="-1"></a>count</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">count</code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don’t need to use <code>&lt;&lt;-</code>. This is because we’re already assigning to the global environment.</p>
-<p>More specifically, the <code>&lt;&lt;-</code> operator will search through the parent environments for the variable that its assigning. If it finds the variable in one of these environments, then it will replace the existing definition with the one specified via the <code>&lt;&lt;-</code>. Let’s do a quick example to show how that works:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="environments.html#cb304-1" aria-hidden="true" tabindex="-1"></a>overwrite_me <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb304-2"><a href="environments.html#cb304-2" aria-hidden="true" tabindex="-1"></a>parent_env <span class="ot">&lt;-</span> <span class="fu">new.env</span>()</span>
-<span id="cb304-3"><a href="environments.html#cb304-3" aria-hidden="true" tabindex="-1"></a>parent_env<span class="sc">$</span>overwrite_me <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb304-4"><a href="environments.html#cb304-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb304-5"><a href="environments.html#cb304-5" aria-hidden="true" tabindex="-1"></a>child_env <span class="ot">&lt;-</span> <span class="fu">new.env</span>()</span>
-<span id="cb304-6"><a href="environments.html#cb304-6" aria-hidden="true" tabindex="-1"></a><span class="fu">parent.env</span>(child_env) <span class="ot">&lt;-</span> parent_env</span>
-<span id="cb304-7"><a href="environments.html#cb304-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb304-8"><a href="environments.html#cb304-8" aria-hidden="true" tabindex="-1"></a>overwrite_function  <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb304-9"><a href="environments.html#cb304-9" aria-hidden="true" tabindex="-1"></a>  overwrite_me <span class="ot">&lt;&lt;-</span> overwrite_me <span class="sc">+</span> <span class="dv">1</span>  </span>
-<span id="cb304-10"><a href="environments.html#cb304-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb304-11"><a href="environments.html#cb304-11" aria-hidden="true" tabindex="-1"></a><span class="fu">environment</span>(overwrite_function) <span class="ot">&lt;-</span> child_env</span></code></pre></div>
-<p>Here we’ve first created a variable in the global environment called <code>overwrite_me</code> with a value of 10. Then we’ve created a new environment that will be a child of the global environment called <code>parent_env</code>. We’ve assigned a variable called <code>overwrite_me</code> in that environment with a value of 1. We’ve then created a new child environment called <code>child_env</code> and we’ve set that environment to be a child environment of <code>parent_env</code>. Finally we’ve created a function called <code>overwrite_function</code> and set the enclosing environment (its path for finding values) to the <code>child_env</code>.</p>
-<p>Now, when I call my <code>overwrite_function</code> from the <code>child_env</code>, it will look in its parent environments for a variable called <code>overwrite_me</code>. Because that variable exists in the immediate parent environment <code>parent_env</code>, it will reassign that variable in that environment to the new value. Because it found the variable in its first parent environment, it won’t keep looking and so the variable of the same name that we assigned in the global environment will be untouched.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="environments.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(overwrite_function, <span class="at">args =</span> <span class="fu">list</span>(), <span class="at">envir =</span> child_env)</span>
-<span id="cb305-2"><a href="environments.html#cb305-2" aria-hidden="true" tabindex="-1"></a>overwrite_me <span class="co"># This will still be 10</span></span></code></pre></div>
+<p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don't need to use <code>&lt;&lt;-</code>. This is because we're already assigning to the global environment.</p>
+<p>More specifically, the <code>&lt;&lt;-</code> operator will search through the parent environments for the variable that its assigning. If it finds the variable in one of these environments, then it will replace the existing definition with the one specified via the <code>&lt;&lt;-</code>. Let's do a quick example to show how that works:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">overwrite_me &lt;-<span class="st"> </span><span class="dv">10</span>
+parent_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()
+parent_env<span class="op">$</span>overwrite_me &lt;-<span class="st"> </span><span class="dv">1</span>
+
+child_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()
+<span class="kw">parent.env</span>(child_env) &lt;-<span class="st"> </span>parent_env
+
+overwrite_function  &lt;-<span class="st"> </span><span class="cf">function</span>() {
+  overwrite_me &lt;&lt;-<span class="st"> </span>overwrite_me <span class="op">+</span><span class="st"> </span><span class="dv">1</span>  
+}
+<span class="kw">environment</span>(overwrite_function) &lt;-<span class="st"> </span>child_env</code></pre></div>
+<p>Here we've first created a variable in the global environment called <code>overwrite_me</code> with a value of 10. Then we've created a new environment that will be a child of the global environment called <code>parent_env</code>. We've assigned a variable called <code>overwrite_me</code> in that environment with a value of 1. We've then created a new child environment called <code>child_env</code> and we've set that environment to be a child environment of <code>parent_env</code>. Finally we've created a function called <code>overwrite_function</code> and set the enclosing environment (its path for finding values) to the <code>child_env</code>.</p>
+<p>Now, when I call my <code>overwrite_function</code> from the <code>child_env</code>, it will look in its parent environments for a variable called <code>overwrite_me</code>. Because that variable exists in the immediate parent environment <code>parent_env</code>, it will reassign that variable in that environment to the new value. Because it found the variable in its first parent environment, it won't keep looking and so the variable of the same name that we assigned in the global environment will be untouched.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">do.call</span>(overwrite_function, <span class="dt">args =</span> <span class="kw">list</span>(), <span class="dt">envir =</span> child_env)
+overwrite_me <span class="co"># This will still be 10</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="environments.html#cb307-1" aria-hidden="true" tabindex="-1"></a>parent_env<span class="sc">$</span>overwrite_me <span class="co"># This will have changed</span></span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">parent_env<span class="op">$</span>overwrite_me <span class="co"># This will have changed</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<p>If <code>overwrite_me</code> didn’t exist in either environment, then it would have been assigned to the global environment - although in this case, the function would have failed because there wouldn’t have been a <code>overwrite_me</code> value to add to in the first place.</p>
+<p>If <code>overwrite_me</code> didn't exist in either environment, then it would have been assigned to the global environment - although in this case, the function would have failed because there wouldn't have been a <code>overwrite_me</code> value to add to in the first place.</p>
 <p>The takeaway - use the <code>&lt;&lt;-</code> with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in other environments without ever realising it.</p>
 </div>
 </div>
-<div id="questions-environments" class="section level2" number="12.4">
+<div id="questions-environments" class="section level2">
 <h2><span class="header-section-number">12.4</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>In what situations can we have two environments with the same name? Why is this?</li>
-<li>Search ‘namespacing’. How does that concept relate to environments?
+<li>Search 'namespacing'. How does that concept relate to environments?
 <ul>
 <li>Hint: This is heavily related to question 1</li>
 </ul></li>
@@ -545,7 +480,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
