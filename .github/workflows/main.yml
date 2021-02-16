@@ -31,7 +31,7 @@ jobs:
           r-version: '4.0.2' # The R version to download (if necessary) and use.
 
       - name: Install libcurl and v8
-        run: sudo apt-get install libcurl4-openssl-dev libv8-dev calibre librsvg2-dev pandoc curl
+        run: sudo apt-get install libcurl4-openssl-dev libv8-dev calibre librsvg2-dev pandoc pandoc-citeproc curl
           
       - name: Cache Renv packages
         uses: actions/cache@v2
