@@ -7,7 +7,7 @@ if(!knitr:::is_html_output())
 }
 ```
 
-# Introduction #{intro}
+# Introduction {#intro}
 
 This chapter gives a brief intro into what R is and whether you should use it. For many of you, you may already be aware of the vast majority of this information, but for those who are brand new to R or even to data analysis and programming, this is a good place to start.
 
