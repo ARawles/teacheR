@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -108,16 +133,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
@@ -209,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
 <li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
@@ -278,69 +303,69 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="subsetting" class="section level1">
 <h1><span class="header-section-number">8</span> Subsetting</h1>
-<p>There will be occasions where you don't want all the values in a vector/list/matrix/dataframe. Instead, you'll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you're using.</p>
+<p>There will be occasions where you don’t want all the values in a vector/list/matrix/dataframe. Instead, you’ll only want a <em>subset</em>. The way to do that is slightly different depending on the data structure you’re using.</p>
 <p><strong>Note</strong>: In some programming languages, an index starts from 0. This means that you have a list or array or similar, the first value is at position 0, then 1, then 2, etc. In R, the first value is at position 1. In other words, we index from 1 in R.</p>
 <div id="vectors" class="section level2">
 <h2><span class="header-section-number">8.1</span> Vectors</h2>
 <p>Vectors are simple. Just use square brackets (<code>[]</code> or <code>[[]]</code>) after your vector and provide the index or indices of the values that you want:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</a></code></pre></div>
 <pre><code>## [1] 10 40</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] 10 20 30</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" title="1"><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[[&quot;value_1&quot;]]</code>.</p>
+<p>P.S. If you have a vector of named values, you can also use the names instead of the indices. Like <code>c(value_1 = 1)[["value_1"]]</code>.</p>
 <p>But Adam, I hear you ask, <code>c(10,20,30,40)[1]</code> and <code>c(10,20,30,40)[[1]]</code> just gave us the same thing, so are the interchangeable?</p>
-<p>Well, they kind of returned the same thing, but they didn't. So no, they're not interchangeable.</p>
-<p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Another way of thinking about it is that <code>[]</code> is a subsetting operator (you're taking a subset of the original set) whereas <code>[[]]</code> is an extraction operator (you're extracting a value out of the vector). As a real-world analogy, say you have ten salt shakers lined up in a row with salt in each one. Using the <code>[]</code> operator will give you the salt shaker (and the salt) you asked for. Using <code>[[]]</code> will give you just the salt inside the shaker, but not the shaker.</p>
-<p>Let's see a practical example in R of the difference:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,
-  <span class="dt">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</code></pre></div>
+<p>Well, they kind of returned the same thing, but they didn’t. So no, they’re not interchangeable.</p>
+<p>Essentially, <code>[]</code> returns the <em>container</em> at the provided index, where <code>[[]]</code> returns the <em>value</em> at the provided index. Another way of thinking about it is that <code>[]</code> is a subsetting operator (you’re taking a subset of the original set) whereas <code>[[]]</code> is an extraction operator (you’re extracting a value out of the vector). As a real-world analogy, say you have ten salt shakers lined up in a row with salt in each one. Using the <code>[]</code> operator will give you the salt shaker (and the salt) you asked for. Using <code>[[]]</code> will give you just the salt inside the shaker, but not the shaker.</p>
+<p>Let’s see a practical example in R of the difference:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" title="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb186-2" title="2">  <span class="dt">value_2 =</span> <span class="dv">20</span>)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## value_1 
 ##      10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,
-  <span class="dt">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" title="1"><span class="kw">c</span>(<span class="dt">value_1 =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb188-2" title="2">  <span class="dt">value_2 =</span> <span class="dv">20</span>)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<p>In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we've essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we've just been given the value. What we've done here is extracted the value out from that position.</p>
-<p>As a result of this difference, <strong><code>[]</code> can be used with more that one index (e.g. <code>[1:5]</code> or <code>[c(1,3)]</code>) whereas <code>[[]]</code> can only be used with a single index</strong>.</p>
-<p>It's a very subtle difference, but it is an important one. Make sure that if you want the value, use <code>[[]]</code>, and if you want the whole part of the vector, use <code>[]</code>.</p>
+<p>In the first call, we get the name of the value and the value itself. In other words, rather than just returning the value at that index, we’ve essentially just chopped up the vector to only returning everything from the first position. Conversely, in the second call, we’ve just been given the value. What we’ve done here is extracted the value out from that position.</p>
+<p>As a result of this difference, <strong><code>[]</code> can be used with more that one index (e.g. <code>[1:5]</code> or <code>[c(1,3)]</code>) whereas <code>[[]]</code> can only be used with a single index</strong>.</p>
+<p>It’s a very subtle difference, but it is an important one. Make sure that if you want the value, use <code>[[]]</code>, and if you want the whole part of the vector, use <code>[]</code>.</p>
 </div>
 <div id="lists" class="section level2">
 <h2><span class="header-section-number">8.2</span> Lists</h2>
 <p>Lists can be subsetted in the same way as vectors - <code>[]</code> returns the container at the index provided and <code>[[]]</code> returns just the value:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
-)[[<span class="dv">1</span>]]</code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb190-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb190-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb190-4" title="4">)[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
-)[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb192-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb192-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb192-4" title="4">)[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## $value_1
 ## [1] 1 2 3</code></pre>
 <p>A key difference with lists however, is that you can also subset based on the name of the value in the list using the <code>$</code> operator:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
-)<span class="op">$</span>value_<span class="dv">1</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb194-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb194-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb194-4" title="4">)<span class="op">$</span>value_<span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>This is equivalent to:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)
-)[[<span class="st">&quot;value_1&quot;</span>]]</code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb196-2" title="2">  <span class="dt">value_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb196-3" title="3">  <span class="dt">value_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everyone&quot;</span>)</a>
+<a class="sourceLine" id="cb196-4" title="4">)[[<span class="st">&quot;value_1&quot;</span>]]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Another key difference is that lists can, of course, hold recursive values. This means that subsetting a list can return another list, that can also be subsetted and so on:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="dt">list_1 =</span> <span class="kw">list</span>(
-    <span class="dt">list_2 =</span> <span class="kw">list</span>(
-      <span class="dt">list_3 =</span> <span class="st">&quot;hello&quot;</span>
-    )
-  )
-)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb198-2" title="2">  <span class="dt">list_1 =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb198-3" title="3">    <span class="dt">list_2 =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb198-4" title="4">      <span class="dt">list_3 =</span> <span class="st">&quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb198-5" title="5">    )</a>
+<a class="sourceLine" id="cb198-6" title="6">  )</a>
+<a class="sourceLine" id="cb198-7" title="7">)[<span class="dv">1</span>][<span class="dv">1</span>][<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## $list_1
 ## $list_1$list_2
 ## $list_1$list_2$list_3
@@ -349,30 +374,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="matrices" class="section level2">
 <h2><span class="header-section-number">8.3</span> Matrices</h2>
-<p>Matrices are two dimension, meaning they can't be subsetted with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values: one for the row and another for the column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<p>Matrices are two dimension, meaning they can’t be subsetted with a single value. Instead, we still use the <code>[]</code> operator, but we provide two values: one for the row and another for the column:</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
 ## [2,]    2    7
 ## [3,]    3    8
 ## [4,]    4    9
 ## [5,]    5   10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>If we want all the rows (or columns), we just leave that part of the bracket blank, like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[,<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,]</code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="dv">4</span>,]</a></code></pre></div>
 <pre><code>## [1] 4 9</code></pre>
 <p>We can also subset consecutive or non-consecutive rows and columns in a single call by providing a vector of locations we want:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># Columns 1 to 2</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># Columns 1 to 2</span></a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
 ## [2,]    2    7
 ## [3,]    3    8
 ## [4,]    4    9
 ## [5,]    5   10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),] <span class="co"># Rows 1 and 3</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),] <span class="co"># Rows 1 and 3</span></a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
 ## [2,]    3    8</code></pre>
@@ -380,47 +405,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="dataframes" class="section level2">
 <h2><span class="header-section-number">8.4</span> Dataframes</h2>
 <p>Dataframes can be subsetted in the same way as matrices (using the <code>[]</code> operator):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
-  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)
-)[,<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb212-2" title="2">  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb212-3" title="3">  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)</a>
+<a class="sourceLine" id="cb212-4" title="4">)[,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>However, dataframes can also be subsetted (like lists), using the <code>$</code> operator and the name of the column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
-  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)
-)<span class="op">$</span>col_<span class="dv">1</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" title="1"><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb214-2" title="2">  <span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb214-3" title="3">  <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>, <span class="st">&quot;everybody&quot;</span>)</a>
+<a class="sourceLine" id="cb214-4" title="4">)<span class="op">$</span>col_<span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Why does this approach work for dataframes? Well, as I alluded to <a href="data-structures.html#dataframes">before</a>, dataframes store columns as lists. But technically, the dataframe itself is also stored as a kind of list, with each column being another entry in that list. So, just like we can subset lists using <code>$</code>, we can subset dataframes with it as well because a dataframe is like a fancy list.</p>
 </div>
 <div id="subsetting-by-criteria" class="section level2">
 <h2><span class="header-section-number">8.5</span> Subsetting by criteria</h2>
-<p>Sometimes, you might not know the indices of the items you want to extract from a datastructure. Instead, you might want to do something like &quot;extract all numbers from a vector that are less than three&quot;. To do this, we essentially find the indices of the values that match our criteria and then subset the data structure like we learned previously.</p>
-<p>Let's look at subsetting a vector as an example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vector1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">14</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">50</span>)</code></pre></div>
-<p>Let's say want to extract all of the values below 20. To find the indices of the values that match our criteria, we just use our logical operators:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vector1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span></code></pre></div>
+<p>Sometimes, you might not know the indices of the items you want to extract from a datastructure. Instead, you might want to do something like “extract all numbers from a vector that are less than three”. To do this, we essentially find the indices of the values that match our criteria and then subset the data structure like we learned previously.</p>
+<p>Let’s look at subsetting a vector as an example:</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1">vector1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">14</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">50</span>)</a></code></pre></div>
+<p>Let’s say want to extract all of the values below 20. To find the indices of the values that match our criteria, we just use our logical operators:</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1">vector1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span></a></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE</code></pre>
-<p>This returns TRUE if the value is less than 20, and FALSE if it isn't. We can then pass this vector of TRUE and FALSEs in <code>[]</code> after the vector to only return the values we want:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vector1[vector1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>]</code></pre></div>
+<p>This returns TRUE if the value is less than 20, and FALSE if it isn’t. We can then pass this vector of TRUE and FALSEs in <code>[]</code> after the vector to only return the values we want:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1">vector1[vector1 <span class="op">&lt;</span><span class="st"> </span><span class="dv">20</span>]</a></code></pre></div>
 <pre><code>## [1] 10 15 14</code></pre>
-<p>Other data structures can also be subsetted in the same way, but for matrices or dataframes, it's easier to use something like <code>subset</code> or <code>dplyr::filter()</code> (although <code>subset</code> has its own limitations).</p>
-<p>You'll notice that this is ever so slightly different to the way we were subsetting before. Previously, we were providing just the indices of the values we wanted (e.g. 1,2 and 4). But here, we're actually providing a vector of TRUE and FALSE values to indicate which values we want. The structure is slightly different, but the logic is the same.</p>
+<p>Other data structures can also be subsetted in the same way, but for matrices or dataframes, it’s easier to use something like <code>subset</code> or <code>dplyr::filter()</code> (although <code>subset</code> has its own limitations).</p>
+<p>You’ll notice that this is ever so slightly different to the way we were subsetting before. Previously, we were providing just the indices of the values we wanted (e.g. 1,2 and 4). But here, we’re actually providing a vector of TRUE and FALSE values to indicate which values we want. The structure is slightly different, but the logic is the same.</p>
 <p>This does mean however, that you can also provide a vector of TRUEs and FALSEs yourself manually if you wish. There are two reasons why I would avoid this however:</p>
 <ol style="list-style-type: decimal">
 <li>It takes longer to write out</li>
-<li>If you don't provide the same number of logical values (i.e. TRUEs and FALSEs) as there are values in the vector, then the logical values are <strong>recycled</strong>. That means that if you have a vector that's 6 values long, and you provide a logical vector to subset it that is only three values long, then your logical vector is going to be repeated. This can lead to unwanted results:</li>
+<li>If you don’t provide the same number of logical values (i.e. TRUEs and FALSEs) as there are values in the vector, then the logical values are <strong>recycled</strong>. That means that if you have a vector that’s 6 values long, and you provide a logical vector to subset it that is only three values long, then your logical vector is going to be repeated. This can lead to unwanted results:</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vector1[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1">vector1[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)]</a></code></pre></div>
 <pre><code>## [1] 10 14 21</code></pre>
-<p>Here, because I've only specified two logical values, when it comes to subsetting time, those two values will be recycled to create a vector like this <code>c(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE)</code>. This is why we get three values returned instead of the expected one.</p>
-<p>So while you can manually subset with a vector of logical values indicating whether to return that value as is returned, it's best to stay away from it.</p>
+<p>Here, because I’ve only specified two logical values, when it comes to subsetting time, those two values will be recycled to create a vector like this <code>c(TRUE, FALSE, TRUE, FALSE, TRUE, FALSE)</code>. This is why we get three values returned instead of the expected one.</p>
+<p>So while you can manually subset with a vector of logical values indicating whether to return that value as is returned, it’s best to stay away from it.</p>
 </div>
 <div id="questions-subsetting" class="section level2">
 <h2><span class="header-section-number">8.6</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>Why can dataframes and lists be subsetted in a similar way?</li>
-<li>What happens if you miss the last character off when subsetting a dataframe column with <code>$</code> (e.g. <code>df$co</code> instea of <code>df$col</code>)? Does the same thing happen when subsetting using <code>[[]]</code>?</li>
+<li>What happens if you miss the last character off when subsetting a dataframe column with <code>$</code> (e.g. <code>df$co</code> instea of <code>df$col</code>)? Does the same thing happen when subsetting using <code>[[]]</code>?</li>
 </ol>
 
 </div>
@@ -486,7 +511,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

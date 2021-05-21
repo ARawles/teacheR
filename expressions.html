@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -108,16 +133,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
@@ -209,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
 <li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
@@ -280,75 +305,75 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">14</span> Expressions</h1>
 <p>When we use R, we write code which is then passed to the console to be executed (evaluated). Before the code is executed though, it is just an <strong>expression</strong>.</p>
 <p>An expression can therefore be defined as a section of R code that has not yet been fully evaluated. That does not mean that all expressions have to be <em>valid</em>. For example, a piece of code like this <code>mean()</code> is a valid expression, but will error when it is evaluated because <code>mean</code> is missing its required arguments.</p>
-<p>Expressions themselves are made up of 4 constituent parts: calls, constants, names and pairlists. For now though, we're not going to look at the bits that make up expressions, but instead we'll focus on expressions as a whole.</p>
+<p>Expressions themselves are made up of 4 constituent parts: calls, constants, names and pairlists. For now though, we’re not going to look at the bits that make up expressions, but instead we’ll focus on expressions as a whole.</p>
 <div id="creating-expressions" class="section level2">
 <h2><span class="header-section-number">14.1</span> Creating expressions</h2>
-<p>Creating an expression (an unevaluated piece of code) is done in base R using the <code>quote()</code> function. Unfortunately, the <code>expression()</code> function in R doesn't actually create an expression in the sense we're talking about, so use <code>quote()</code> instead.</p>
+<p>Creating an expression (an unevaluated piece of code) is done in base R using the <code>quote()</code> function. Unfortunately, the <code>expression()</code> function in R doesn’t actually create an expression in the sense we’re talking about, so use <code>quote()</code> instead.</p>
 <p>When creating single line expressions, you can just provide the expression directly within the <code>quote()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" title="1"><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## x + 10</code></pre>
 <p>When providing multiple line expressions, wrap the argument in <code>{}</code> like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>({
-  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
-  y <span class="op">-</span><span class="st"> </span><span class="dv">5</span>
-})</code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1"><span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb354-2" title="2">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb354-3" title="3">  y <span class="op">-</span><span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb354-4" title="4">})</a></code></pre></div>
 <pre><code>## {
 ##     x + 10
 ##     y - 5
 ## }</code></pre>
-<p>Unfortunately, testing whether something is an expression in R isn't that easy, because the base R functions are made for the constituent parts of the expression (e.g. <code>is.call()</code>, <code>is.name()</code>, etc.). Instead, you can use the <code>is_expression()</code> function from the <code>rlang</code> package to test whether something is an expression:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rlang<span class="op">::</span><span class="kw">is_expression</span>(
-  <span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
-)</code></pre></div>
+<p>Unfortunately, testing whether something is an expression in R isn’t that easy, because the base R functions are made for the constituent parts of the expression (e.g. <code>is.call()</code>, <code>is.name()</code>, etc.). Instead, you can use the <code>is_expression()</code> function from the <code>rlang</code> package to test whether something is an expression:</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1">rlang<span class="op">::</span><span class="kw">is_expression</span>(</a>
+<a class="sourceLine" id="cb356-2" title="2">  <span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb356-3" title="3">)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="evaluating-expressions" class="section level2">
 <h2><span class="header-section-number">14.2</span> Evaluating expressions</h2>
-<p>Once you've created your expression, you can evaluate it using the <code>eval()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)
-<span class="kw">eval</span>(my_expr)</code></pre></div>
+<p>Once you’ve created your expression, you can evaluate it using the <code>eval()</code> function:</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb358-2" title="2"><span class="kw">eval</span>(my_expr)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<p>Of course in this example, this is essentially just the same as <code>1 + 1</code> as we're evaluating the expression in the same environment in which it was created. However, the <code>eval()</code> function accepts an <code>envir</code> parameter where you can pass an environment for the expression to be evaluated in:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_environ &lt;-<span class="st"> </span><span class="kw">new.env</span>()
-new_environ<span class="op">$</span>num &lt;-<span class="st"> </span><span class="dv">10</span>
-my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(num <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)
-<span class="kw">eval</span>(my_expr) <span class="co"># this will error because num doesn&#39;t exist in our parent environment</span></code></pre></div>
+<p>Of course in this example, this is essentially just the same as <code>1 + 1</code> as we’re evaluating the expression in the same environment in which it was created. However, the <code>eval()</code> function accepts an <code>envir</code> parameter where you can pass an environment for the expression to be evaluated in:</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1">new_environ &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
+<a class="sourceLine" id="cb360-2" title="2">new_environ<span class="op">$</span>num &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb360-3" title="3">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(num <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb360-4" title="4"><span class="kw">eval</span>(my_expr) <span class="co"># this will error because num doesn&#39;t exist in our parent environment</span></a></code></pre></div>
 <pre><code>## Error in eval(my_expr): object &#39;num&#39; not found</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">eval</span>(my_expr, new_environ) <span class="co"># this won&#39;t error because num exists in new_environ</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1"><span class="kw">eval</span>(my_expr, new_environ) <span class="co"># this won&#39;t error because num exists in new_environ</span></a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <p>Using this, you can create expressions in one environment without evaluating them, and then evaluate them later in different environments to where they were created.</p>
 </div>
 <div id="substitution" class="section level2">
 <h2><span class="header-section-number">14.3</span> Substitution</h2>
 <p>As well as hard coding in the objects and names in our expression, we can substitute in values from our environment. For example, lets say we wanted to create an <code>x &lt;- y + 1</code> expression, but we wanted to change what the value of <code>y</code> was when we created it. We could acheive this by using the <code>substitute()</code> function. <code>substitute()</code> requires two parameters, <code>expr</code> which must be an expression, and <code>env</code> which must be an environment or a list and contains the objects you want to substitute.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substitute</span>(x &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="kw">list</span>(<span class="dt">y =</span> <span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1"><span class="kw">substitute</span>(x &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="kw">list</span>(<span class="dt">y =</span> <span class="dv">1</span>))</a></code></pre></div>
 <pre><code>## x &lt;- 1 + 1</code></pre>
-<p>As you can see, this doesn't <em>evaluate</em> the expression, it simple substitutes the provided names with the values provided in the <code>env</code> parameter. This can be a really powerful tool for building up expressions.</p>
+<p>As you can see, this doesn’t <em>evaluate</em> the expression, it simple substitutes the provided names with the values provided in the <code>env</code> parameter. This can be a really powerful tool for building up expressions.</p>
 </div>
 <div id="quasiquotation" class="section level2">
 <h2><span class="header-section-number">14.4</span> Quasiquotation</h2>
 <p>A related subject to expressions and substitution is the idea of <strong>quasiquotation</strong>, used heavily in the <code>tidyverse</code> packages. Quasiquotation is the process of quoting (creating expressions) and unquoting (evaluating) parts of that expression.</p>
-<p>A good example of quasiquotation in action is the <code>dplyr</code> package. Within the <code>dplyr</code> package functions, you'll provide column names to various analysis and data manipulation functions. When you provide those names however, you provide them as raw names (i.e. not in quotation marks): <code>dplyr::mutate(data, new_column = old_column + 1)</code>. Those column names are then quoted (as in <code>quote()</code>) and then evaluated in the context of the dataset that you've provided:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">test_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))
-<span class="kw">eval</span>(<span class="kw">quote</span>(col_<span class="dv">1</span>), <span class="dt">env =</span> test_df)</code></pre></div>
+<p>A good example of quasiquotation in action is the <code>dplyr</code> package. Within the <code>dplyr</code> package functions, you’ll provide column names to various analysis and data manipulation functions. When you provide those names however, you provide them as raw names (i.e. not in quotation marks): <code>dplyr::mutate(data, new_column = old_column + 1)</code>. Those column names are then quoted (as in <code>quote()</code>) and then evaluated in the context of the dataset that you’ve provided:</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1">test_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb366-2" title="2"><span class="kw">eval</span>(<span class="kw">quote</span>(col_<span class="dv">1</span>), <span class="dt">env =</span> test_df)</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<p>I won't go into quasiquotation here because <a href="https://adv-r.hadley.nz/quasiquotation.html">Hadley's chapters on the subject</a> in his Advanced R book summarises the topic much better than I ever could. But if you're interested, I would recommend using the <code>tidyverse</code> packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.</p>
+<p>I won’t go into quasiquotation here because <a href="https://adv-r.hadley.nz/quasiquotation.html">Hadley’s chapters on the subject</a> in his Advanced R book summarises the topic much better than I ever could. But if you’re interested, I would recommend using the <code>tidyverse</code> packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.</p>
 </div>
 <div id="questions-expressions" class="section level2">
 <h2><span class="header-section-number">14.5</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.</li>
-<li>What's the difference between</li>
+<li>What’s the difference between</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>({
-  x &lt;-<span class="st"> </span><span class="dv">1</span>
-  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
-})</code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1"><span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb368-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb368-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb368-4" title="4">})</a></code></pre></div>
 <p>and</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),
-  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)
-)</code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb369-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb369-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb369-4" title="4">)</a></code></pre></div>
 <p>Why do they evaluate to different things?</p>
 
 </div>
@@ -414,7 +439,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -108,16 +133,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
@@ -209,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
 <li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
@@ -278,51 +303,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="functions" class="section level1">
 <h1><span class="header-section-number">9</span> Functions</h1>
-<p>Being a functional programming language, functions are at the heart of R. We've already used lots of functions in the previous chapters, but now we're going to look in more detail about what a function is.</p>
+<p>Being a functional programming language, functions are at the heart of R. We’ve already used lots of functions in the previous chapters, but now we’re going to look in more detail about what a function is.</p>
 <p>John Chambers, creator of the S programming language upon which R is based and core member of the R programming language project, said this:</p>
 <blockquote>
-<p>&quot;To understand computations in R, two slogans are helpful:</p>
+<p>"To understand computations in R, two slogans are helpful:</p>
 <ul>
 <li>Everything that exists is an object.</li>
 <li>Everything that happens is a function call.</li>
 </ul>
-<p>--- John Chambers&quot;</p>
+<p>— John Chambers"</p>
 </blockquote>
-<p>For now, we're going to focus on that second statement. What does it mean?</p>
-<p>Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing <code>print(1)</code> into the console and hitting enter. You've given an input, there was a calculation, and now there's an output. Something's happened (1 was printed in the console) and it was done by calling a function (<code>print</code>).</p>
-<p>If you're well-versed in mathematics, you'll know that functions in maths are the same. <span class="math inline">\(f(x) = {3x}\)</span> means that the to get <code>y</code>, you take <code>x</code> and multiply it by three. In this case, our input is <code>x</code>, our bit in the middle is multiplying by three, and then our output is <code>y</code>.</p>
-<p>If you haven't used functions in mathematics then don't worry. Even by getting this far in the book, you've already used functions loads of times. For example, how do you create a vector? If you remember, you use the <code>c()</code> function, which we know stands for &quot;concatenate&quot;. So, every time you've created a vector, you've used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.</p>
+<p>For now, we’re going to focus on that second statement. What does it mean?</p>
+<p>Well, a function is quite simple. It has an input, it does something, and then it gives an output. A really simple example of this is just typing <code>print(1)</code> into the console and hitting enter. You’ve given an input, there was a calculation, and now there’s an output. Something’s happened (1 was printed in the console) and it was done by calling a function (<code>print</code>).</p>
+<p>If you’re well-versed in mathematics, you’ll know that functions in maths are the same. <span class="math inline">\(f(x) = {3x}\)</span> means that the to get <code>y</code>, you take <code>x</code> and multiply it by three. In this case, our input is <code>x</code>, our bit in the middle is multiplying by three, and then our output is <code>y</code>.</p>
+<p>If you haven’t used functions in mathematics then don’t worry. Even by getting this far in the book, you’ve already used functions loads of times. For example, how do you create a vector? If you remember, you use the <code>c()</code> function, which we know stands for “concatenate”. So, every time you’ve created a vector, you’ve used a function without even knowing it. The input was whatever you provided in the brackets. The computation was to concatenate everything together. And then the output was the vector.</p>
 <p>Similarly, whenever you created a factor or a matrix or a dataframe or whatever, you used a function. You provided an input, there was a computation to change that input, and then you got an output.</p>
-<p>As confusing as functions will inevitably become, just try to remember the core of what a function is: When you call a function, there's an input, something happens, and there's an output.</p>
+<p>As confusing as functions will inevitably become, just try to remember the core of what a function is:
+When you call a function, there’s an input, something happens, and there’s an output.</p>
 <div id="functions-in-r" class="section level2">
 <h2><span class="header-section-number">9.1</span> Functions in R</h2>
-<p>So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (<code>()</code>) when you use them. This helps make it clear what values you're providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
-<p>I say that nearly almost all functions are followed by <code>()</code>, because some aren't. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</code></pre></div>
+<p>So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (<code>()</code>) when you use them. This helps make it clear what values you’re providing as your inputs. For example, the <code>c()</code> function, the <code>data.frame()</code> function, the <code>sum()</code> function are all followed by <code>()</code>, which is how you provide your inputs.</p>
+<p>I say that nearly almost all functions are followed by <code>()</code>, because some aren’t. A simple example of this is <code>+</code>. <code>+</code> is still a function:</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" title="1"><span class="kw">is.function</span>(<span class="st">`</span><span class="dt">+</span><span class="st">`</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the backticks just mean I&#39;m referring</span>
-<span class="co"># to the + function without using it</span></code></pre></div>
-<p>But it doesn't have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" title="1"><span class="co"># the backticks just mean I&#39;m referring</span></a>
+<a class="sourceLine" id="cb225-2" title="2"><span class="co"># to the + function without using it</span></a></code></pre></div>
+<p>But it doesn’t have brackets. Instead, we can use a shorthand where we provide the values we want to give to the function either side of it (e.g. <code>1 + 2</code>). Importantly however, the logic is exactly the same, and you can still use the <code>+</code> like a normal function with brackets:</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="st">`</span><span class="dt">+</span><span class="st">`</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<p>It's just that this looks a little weird to us, so we often use the shorthand way. But the long and short of it is: an easy way to tell when someone is calling (using) a function is to look for the <code>()</code> after the function name.</p>
+<p>It’s just that this looks a little weird to us, so we often use the shorthand way. But the long and short of it is: an easy way to tell when someone is calling (using) a function is to look for the <code>()</code> after the function name.</p>
 </div>
 <div id="inputs" class="section level2">
 <h2><span class="header-section-number">9.2</span> Inputs</h2>
 <p>We know that to use a function in R, we have to provide inputs*. And we also know that we provide our inputs within the brackets after the function name. But how do we know what values are allowed?</p>
-<p>*Technically, sometimes you don't have to provide an input to a function (e.g. <code>Sys.Date()</code>, which gives us the current date without putting anything in the brackets). But most functions require at least one input.</p>
-<p>By typing a <code>?</code> followed by the name of the function into the console (e.g. <code>?length()</code>), you'll get a help page showing you the input parameters allowed by the function. So if we use <code>?length()</code> as an example, the help page tells us that the <code>length()</code> function expects one input parameter, <code>x</code>, and that needs to be an <code>R</code> object. Nice and simple.</p>
+<p>*Technically, sometimes you don’t have to provide an input to a function (e.g. <code>Sys.Date()</code>, which gives us the current date without putting anything in the brackets). But most functions require at least one input.</p>
+<p>By typing a <code>?</code> followed by the name of the function into the console (e.g. <code>?length()</code>), you’ll get a help page showing you the input parameters allowed by the function. So if we use <code>?length()</code> as an example, the help page tells us that the <code>length()</code> function expects one input parameter, <code>x</code>, and that needs to be an <code>R</code> object. Nice and simple.</p>
 <div id="section" class="section level4">
 <h4><span class="header-section-number">9.2.0.1</span> <code>...</code></h4>
-<p>In some cases, you'll see a <code>...</code> as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the <code>c()</code> function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the <code>c()</code> function basically bundles everything you provide to it into that <code>...</code> parameter.</p>
+<p>In some cases, you’ll see a <code>...</code> as one of the input parameters. This essentially means that you can provide an indeterminate number of values for that input. I know that sounds confusing, but the <code>c()</code> function is a good way of demonstrating this. When you create a vector, you can provide an (essentially) infinite number of values to the function. So the <code>c()</code> function basically bundles everything you provide to it into that <code>...</code> parameter.</p>
 </div>
 <div id="explicit-input-parameters" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Explicit input parameters</h3>
-<p>If you type <code>?c()</code> into the console however, you'll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we're explicit, we're saying exactly which input parameter we're referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let's look at the <code>substr()</code> function as an example.</p>
+<p>If you type <code>?c()</code> into the console however, you’ll see that there are also some other input parameters: <code>recursive</code> and <code>use.names</code>. Well Adam, if <code>...</code> just bundles everything I provide into a single input, then how do those work? Well this outlines the importance of providing <strong>explicit</strong> input parameters. When we’re explicit, we’re saying exactly which input parameter we’re referring to with each value we provide. And to do this, we just provide the name of the input parameter when we give it. Let’s look at the <code>substr()</code> function as an example.</p>
 <p>The <code>substr()</code> function simply returns part of a character string that you provide. So, if I was to type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;Hello&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
-<p>I get the first to the third characters in the string &quot;hello&quot;. With this function call however, I haven't been explicit. Instead, I've just provided the inputs in the order that they're listed in the documentation:</p>
+<p>I get the first to the third characters in the string “hello”. With this function call however, I haven’t been explicit. Instead, I’ve just provided the inputs in the order that they’re listed in the documentation:</p>
 <ul>
 <li><code>x</code>
 <ul>
@@ -339,22 +365,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>the last element to be extracted</li>
 </ul></li>
 </ul>
-<p>To be explicit, I need to provide the name of the input parameter that I'm referring to when I provide my inputs:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</code></pre></div>
+<p>To be explicit, I need to provide the name of the input parameter that I’m referring to when I provide my inputs:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="kw">substr</span>(<span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" title="1"><span class="kw">substr</span>(<span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">3</span>, <span class="dt">x =</span> <span class="st">&quot;Hello&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Hel&quot;</code></pre>
-<p>Notice how when I'm being explicit it doesn't matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
-<p>Also, notice how we're using <code>=</code> here and not anything else like <code>&lt;-</code>? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> and when we're providing input parameters and so it's good to keep them separate.</p>
-<p>So how does this link back with the <code>...</code>? Well, with the <code>c()</code> function, every unnamed parameter you provide is bundled into the <code>...</code> parameter. To give values for the <code>recursive</code> and <code>use.names</code> parameters, you'd need to provide them <em>explicitly</em> (e.g. <code>recursive = TRUE</code>). This will be true of many functions where you see a <code>...</code>. If you're not explicit with the parameters that you don't want to be included in the <code>...</code>, you're going to have a bad time.</p>
+<p>Notice how when I’m being explicit it doesn’t matter what order I provide my inputs in, R knows which value should be mapped to which input parameter.</p>
+<p>Also, notice how we’re using <code>=</code> here and not anything else like <code>&lt;-</code>? This is another reason why I suggest not using <code>=</code> for assignment: we use <code>=</code> and when we’re providing input parameters and so it’s good to keep them separate.</p>
+<p>So how does this link back with the <code>...</code>? Well, with the <code>c()</code> function, every unnamed parameter you provide is bundled into the <code>...</code> parameter. To give values for the <code>recursive</code> and <code>use.names</code> parameters, you’d need to provide them <em>explicitly</em> (e.g. <code>recursive = TRUE</code>). This will be true of many functions where you see a <code>...</code>. If you’re not explicit with the parameters that you don’t want to be included in the <code>...</code>, you’re going to have a bad time.</p>
 <div id="optional-input-parameters" class="section level4">
 <h4><span class="header-section-number">9.2.1.1</span> Optional input parameters</h4>
-<p>For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there's a default value, but you can override it if needed.</p>
+<p>For many functions, certain parameters have a predefined value that they will default to. This provides a level of flexibility whilst not requiring lines and lines of code for every function call; there’s a default value, but you can override it if needed.</p>
 <p>Optional parameters are easily distinguished in the documentation of a function because they will a value already assigned to them like this: <code>use.names = TRUE</code>.</p>
 <p>For instance, when we create a vector using the <code>c()</code> function, there are two optional parameters (<code>recursive</code> and <code>use.names</code>) that already have the values <code>TRUE</code> and <code>FALSE</code> assigned to them. To override these defaults, we just need to provide a new value to the parameter like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">15</span>, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">15</span>, <span class="dt">use.names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1]  1 10 15</code></pre>
-<p>Values without default values are often called <em>required parameters</em>. This is a bit of a misnomer because there will be instances where you won't provide a value to these parameters and the function will work just fine. This is down to two things that we'll look at in the For Teachers section: lazy evaluation and the <code>missing()</code> function. Most developers try and stay away from having required parameters that aren't actually required, but you'll still see them around (e.g. you can use the <code>download.file()</code> function without providing a value to the <code>method</code> parameter even though it doesn't have a default value.</p>
+<p>Values without default values are often called <em>required parameters</em>. This is a bit of a misnomer because there will be instances where you won’t provide a value to these parameters and the function will work just fine. This is down to two things that we’ll look at in the For Teachers section: lazy evaluation and the <code>missing()</code> function. Most developers try and stay away from having required parameters that aren’t actually required, but you’ll still see them around (e.g. you can use the <code>download.file()</code> function without providing a value to the <code>method</code> parameter even though it doesn’t have a default value.</p>
 </div>
 </div>
 </div>
@@ -363,27 +389,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>First and foremost, in R you can have as many input as you like to a function. However, a function will only ever return one <em>thing</em>. I say one <em>thing</em>, because functions can return a list which itself can contain multiple values, but just keep this in mind: <strong>Functions in R have a single return value</strong>.</p>
 <div id="reassigning-outputs" class="section level3">
 <h3><span class="header-section-number">9.3.1</span> Reassigning outputs</h3>
-<p>Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. We call this <strong>immutability</strong>. Here's a quick example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
-<span class="kw">sum</span>(x, <span class="dv">1</span>)</code></pre></div>
+<p>Functions in R do not edit the inputs you provide in place. Instead, they essentially work on copies of the inputs you provide. We call this <strong>immutability</strong>. Here’s a quick example:</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb236-2" title="2"><span class="kw">sum</span>(x, <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1">x</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>As you can see, when we call the <code>sum()</code> function with <code>x</code> as an input parameter, the value of <code>x</code> stays the same.</p>
-<p>If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it's quite simple:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span>
-x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)
-x</code></pre></div>
+<p>If you do want to edit your original value, you just need to reassign the output of the function call back to the variable. I know that sounds complicated, but it’s quite simple:</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb240-2" title="2">x &lt;-<span class="st"> </span><span class="kw">sum</span>(x,<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb240-3" title="3">x</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<p>This works because the right-hand side of the assignment line is executed first. In other words, when the <code>sum(x,1)</code> is evaluated, <code>x</code> is still equal to one. This makes sense because otherwise it'd be very hard to keep track of what <code>x</code> was equal to!</p>
-<p>This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you're coming from something like Python, you may be used to changing objects through methods: <code>object.AddNew</code> or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. To learn more about environments, there is an <a href="environments.html">environments</a> chapter in the &quot;For Teachers&quot; section.</p>
+<p>This works because the right-hand side of the assignment line is executed first. In other words, when the <code>sum(x,1)</code> is evaluated, <code>x</code> is still equal to one. This makes sense because otherwise it’d be very hard to keep track of what <code>x</code> was equal to!</p>
+<p>This behaviour (not changing the input parameter value in place) is a major point of difference between functions and what are called methods in other languages. If you’re coming from something like Python, you may be used to changing objects through methods: <code>object.AddNew</code> or something like that. In R, functions do not change variables in the global environment because they are executed in their own environment. To learn more about environments, there is an <a href="environments.html">environments</a> chapter in the “For Teachers” section.</p>
 </div>
 </div>
 <div id="questions-functions" class="section level2">
 <h2><span class="header-section-number">9.4</span> Questions</h2>
 <ol style="list-style-type: decimal">
 <li>Why does <code>`&lt;-`(test, 2)</code> work? What does this tell us about <code>&lt;-</code>?</li>
-<li>Why does <code>mean(1,2)</code> not return the output you'd expect but <code>sum(1,2)</code> does?
+<li>Why does <code>mean(1,2)</code> not return the output you’d expect but <code>sum(1,2)</code> does?
 <ul>
 <li>Hint: the documentation of both functions will help.</li>
 </ul></li>
@@ -457,7 +483,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

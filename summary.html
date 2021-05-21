@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -108,16 +133,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
@@ -209,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
 <li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
@@ -278,7 +303,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="summary" class="section level1">
 <h1><span class="header-section-number">17</span> Summary</h1>
-<p>Overall, I hope that this book has helped you grasp the basics of the R programming language. If you're a student, then I hope this was pitched at the correct level to challenge you. If you're a teacher, then I hope this book helped round out your knowledge of R such that you would feel comfortable imparting your knowledge onto those that want to hear it.</p>
+<p>Overall, I hope that this book has helped you grasp the basics of the R programming language. If you’re a student, then I hope this was pitched at the correct level to challenge you. If you’re a teacher, then I hope this book helped round out your knowledge of R such that you would feel comfortable imparting your knowledge onto those that want to hear it.</p>
 <p>If you feel that there are improvements to be made to the content or how it was taught, then please do let me know via a <a href="https://github.com/ARawles/teacheR/issues">GitHub issue on the teacheR</a> repository.</p>
 <div id="answers" class="section level2">
 <h2><span class="header-section-number">17.1</span> Answers</h2>
@@ -293,7 +318,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li>Reading the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html">R documentation</a> on logical operators, what is the difference between <code>|</code> and <code>||</code> (and <code>&amp;</code> and <code>&amp;&amp;</code>)?
 <ul>
-<li><code>|</code> and <code>&amp;</code> perform the comparison in a step-wise method for vectors. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns <code>TRUE</code> first (<code>1 == 1 &amp; 2 == 2</code>) and then <code>FALSE</code> (<code>2 == 1 &amp; 3 == 2</code>), because it evaluates the criteria for the first and second values in the vectors separately. <code>||</code> and <code>&amp;&amp;</code> operate on the first value in each vector only. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns only <code>TRUE</code> and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. <code>1 == 1 &amp; 2 == 2</code>).</li>
+<li><code>|</code> and <code>&amp;</code> perform the comparison in a step-wise method for vectors. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns <code>TRUE</code> first (<code>1 == 1 &amp; 2 == 2</code>) and then <code>FALSE</code> (<code>2 == 1 &amp; 3 == 2</code>), because it evaluates the criteria for the first and second values in the vectors separately. <code>||</code> and <code>&amp;&amp;</code> operate on the first value in each vector only. So <code>c(1,2) == 1 &amp; c(2,3) == 2</code> returns only <code>TRUE</code> and nothing else because it only evaluates the first values in each vector against the defined criteria (i.e. <code>1 == 1 &amp; 2 == 2</code>).</li>
 </ul></li>
 </ol>
 </div>
@@ -302,7 +327,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>Is <code>.2nd</code> a valid name? Why/why not?
 <ul>
-<li>It begins with a <code>.</code> which is valid, but the first character after the <code>.</code> is a digit which isn't allowed.</li>
+<li>It begins with a <code>.</code> which is valid, but the first character after the <code>.</code> is a digit which isn’t allowed.</li>
 </ul></li>
 <li>Why are names like <code>if</code>, <code>function</code>, and <code>TRUE</code> not allowed?
 <ul>
@@ -319,13 +344,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>Why are <code>2</code> and <code>2L</code> different?
 <ul>
-<li><code>2</code> is stored as a double, whereas because we've appended <code>L</code> to <code>2L</code>, we're telling R to store it as an integer. Although, both are numeric.</li>
+<li><code>2</code> is stored as a double, whereas because we’ve appended <code>L</code> to <code>2L</code>, we’re telling R to store it as an integer. Although, both are numeric.</li>
 </ul></li>
 <li>What is an ordered factor and how is it different to a character string?
 <ul>
 <li>An ordered factor stores a set of groups in a set order. A character string does not necessarily represent any type of grouping and has no inherent ordering.</li>
 </ul></li>
-<li>Why does <code>as.Date(&quot;19/01/2019&quot;, format = &quot;%d/%m/%y&quot;)</code> return the date 19th Jan 2020 and not 19th Jan 2019?
+<li>Why does <code>as.Date("19/01/2019", format = "%d/%m/%y")</code> return the date 19th Jan 2020 and not 19th Jan 2019?
 <ul>
 <li>The <code>%y</code> part of the <code>format</code> paramter tells R that the year value is 2 digits long. R therefore parses the date as <code>19/01/20</code> and ignores everything after it - resulting in 19th Jan 2020.</li>
 </ul></li>
@@ -352,7 +377,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li>What does <code>is(matrix())</code> return? What does this tell us about the underlying difference between matrices and dataframes?
 <ul>
-<li>Matrices don't store their columns as lists, but as vectors (and that's why <code>is(matrix())</code> returns <code>vector</code> but not <code>list</code>). As a vector stores atomic values that must all be of the same type, that's why matrices must have values of the same type whilst dataframes (that rely on columns as lists) can have values of any type.</li>
+<li>Matrices don’t store their columns as lists, but as vectors (and that’s why <code>is(matrix())</code> returns <code>vector</code> but not <code>list</code>). As a vector stores atomic values that must all be of the same type, that’s why matrices must have values of the same type whilst dataframes (that rely on columns as lists) can have values of any type.</li>
 </ul></li>
 </ol>
 </div>
@@ -363,9 +388,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Dataframes are essentially just lists of lists, so they can be subsetted like lists because they are lists!</li>
 </ul></li>
-<li>What happens if you miss the last character off when subsetting a dataframe column with <code>$</code> (e.g. <code>df$co</code> instea of <code>df$col</code>)? Does the same thing happen when subsetting using <code>[[]]</code>?
+<li>What happens if you miss the last character off when subsetting a dataframe column with <code>$</code> (e.g. <code>df$co</code> instea of <code>df$col</code>)? Does the same thing happen when subsetting using <code>[[]]</code>?
 <ul>
-<li>R will find the closest match when using <code>$</code>, but will not do the same with <code>[[]]</code>. <code>$</code> is therefore good for interactive use (when you're trying lots of things quickly), but not if you're programming, because you might accidently subset the wrong column without noticing.</li>
+<li>R will find the closest match when using <code>$</code>, but will not do the same with <code>[[]]</code>. <code>$</code> is therefore good for interactive use (when you’re trying lots of things quickly), but not if you’re programming, because you might accidently subset the wrong column without noticing.</li>
 </ul></li>
 </ol>
 </div>
@@ -376,7 +401,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><code>`&lt;-`(test, 2)</code> works because <code>&lt;-</code> is just another function. It assigns the second value to the first, and so we can use it like any other function (with brackets).</li>
 </ul></li>
-<li>Why does <code>mean(1,2)</code> not return the output you'd expect but <code>sum(1,2)</code> does?
+<li>Why does <code>mean(1,2)</code> not return the output you’d expect but <code>sum(1,2)</code> does?
 <ul>
 <li><code>mean()</code> is expecting a vector of values provided as the <code>x</code> argument. So the correct use of <code>mean</code> would be <code>mean(c(1,2))</code>. <code>sum()</code>, however, uses <code>...</code> to capture all arguments that are provided within the brackets and sum them together, so <code>sum(1,2)</code> is appropriate.</li>
 </ul></li>
@@ -394,21 +419,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: decimal">
 <li>How are <code>mean()</code> and <code>sum()</code> different in their implementation of <code>...</code>?
 <ul>
-<li><code>sum()</code> uses <code>...</code> to accept an indeterminate number of arguments to sum. <code>mean()</code> requires a vector of values to operate on, and uses <code>...</code> to pass on to its subsequent methods (i.e. how exactly it calculates the mean for different data structures).</li>
+<li><code>sum()</code> uses <code>...</code> to accept an indeterminate number of arguments to sum. <code>mean()</code> requires a vector of values to operate on, and uses <code>...</code> to pass on to its subsequent methods (i.e. how exactly it calculates the mean for different data structures).</li>
 </ul></li>
 <li>If functions are objects, how would you construct a function that returns a function? What might be a use for this?
 <ul>
 <li>Example function:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){
-  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
-   x <span class="op">^</span><span class="st"> </span>power
-  }
-  ret_function
-}
-
-square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)
-<span class="kw">square_function</span>(<span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1">function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb395-2" title="2">  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb395-3" title="3">   x <span class="op">^</span><span class="st"> </span>power</a>
+<a class="sourceLine" id="cb395-4" title="4">  }</a>
+<a class="sourceLine" id="cb395-5" title="5">  ret_function</a>
+<a class="sourceLine" id="cb395-6" title="6">}</a>
+<a class="sourceLine" id="cb395-7" title="7"></a>
+<a class="sourceLine" id="cb395-8" title="8">square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb395-9" title="9"><span class="kw">square_function</span>(<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 9</code></pre></li>
 <li>Look at the <code>ellipsis</code> package. What issue does this package look to solve?
 <ul>
@@ -433,15 +458,15 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 <ol style="list-style-type: decimal">
 <li>In what situations can we have two environments with the same name? Why is this?
 <ul>
-<li>As long as those two environments don't share the same parent environment, then they can have the same name. This is because they will still both have unique identifiers by virtue of having different inherited environments.</li>
+<li>As long as those two environments don’t share the same parent environment, then they can have the same name. This is because they will still both have unique identifiers by virtue of having different inherited environments.</li>
 </ul></li>
-<li>Search 'namespacing'. How does that concept relate to environments?
+<li>Search ‘namespacing’. How does that concept relate to environments?
 <ul>
-<li>Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn't unique, the pattern of inheritance and the name will be together, so the object will be uniquely identifiable.</li>
+<li>Namespacing is the concept of naming objects to allow them to be uniquely identifiable. Environments allow for namespacing by encapsulating names within a scope. Then, even if the name isn’t unique, the pattern of inheritance and the name will be together, so the object will be uniquely identifiable.</li>
 </ul></li>
 <li>What might be an issue with create a function that uses superassignment on an object with the name <code>x</code>?
 <ul>
-<li><code>x</code> is quite a common variable name. If someone is using your function and doesn't realise that you're using super assignment with an object named <code>x</code>, then you might overwrite their <code>x</code> variable.</li>
+<li><code>x</code> is quite a common variable name. If someone is using your function and doesn’t realise that you’re using super assignment with an object named <code>x</code>, then you might overwrite their <code>x</code> variable.</li>
 </ul></li>
 </ol>
 </div>
@@ -458,56 +483,58 @@ square_function &lt;-<span class="st"> </span><span class="kw">function_factory<
 </ul></li>
 <li>If we create a dataframe and then call <code>print.default()</code> on it, why do we get the output that we do? Why does it look more like a list than a dataframe?
 <ul>
-<li>When we print a data frame normally, <code>print.data.frame()</code> is called. When we call <code>print.default()</code>, we're using a different method that prints the object differently (more akin to a list).</li>
+<li>When we print a data frame normally, <code>print.data.frame()</code> is called. When we call <code>print.default()</code>, we’re using a different method that prints the object differently (more akin to a list).</li>
 </ul></li>
 <li>Why are constructors not a fool-proof way of making sure that all our objects of our class will have the same structure? How else might one create an object of class <code>address</code>?
 <ul>
-<li>Because we can change the class of an object with assignment, someone could create an object that didn't match your constructor function and then assign the class like this: <code>class(not_an_address) &lt;- &quot;address&quot;</code></li>
+<li>Because we can change the class of an object with assignment, someone could create an object that didn’t match your constructor function and then assign the class like this: <code>class(not_an_address) &lt;- "address"</code></li>
 </ul></li>
-<li><code>methods(&quot;mean&quot;)</code> returns methods for dates and datetimes (and <code>.default</code> which operates on numeric objects), but no other object. Why is this? What does this mean when constructing methods for a new generic?
+<li><code>methods("mean")</code> returns methods for dates and datetimes (and <code>.default</code> which operates on numeric objects), but no other object. Why is this? What does this mean when constructing methods for a new generic?
 <ul>
-<li>These are the only data types for which a <code>mean</code> function would make sense. For instance, finding the mean for a bunch of character strings wouldn't really make much sense (although you could build one if you wanted). This means that you only really need to create methods for your generic that <em>make sense</em> (i.e. that are appropriate for what you want your generic to do).</li>
+<li>These are the only data types for which a <code>mean</code> function would make sense. For instance, finding the mean for a bunch of character strings wouldn’t really make much sense (although you could build one if you wanted). This means that you only really need to create methods for your generic that <em>make sense</em> (i.e. that are appropriate for what you want your generic to do).</li>
 </ul></li>
 </ol>
 </div>
 <div id="expressions-answers" class="section level4">
 <h4><span class="header-section-number">17.1.2.4</span> Expressions</h4>
 <ol style="list-style-type: decimal">
-<li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>. + By using subsitute, we can replace <code>fun</code> with any function we like:</li>
+<li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.
++ By using subsitute, we can replace <code>fun</code> with any function we like:</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))
-quoted_fun</code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1">quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb397-2" title="2">quoted_fun</a></code></pre></div>
 <pre><code>## .Primitive(&quot;sum&quot;)(1)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">eval</span>(quoted_fun)</code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1"><span class="kw">eval</span>(quoted_fun)</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>What's the difference between</li>
+<li>What’s the difference between</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">quote</span>({
-  x &lt;-<span class="st"> </span><span class="dv">1</span>
-  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
-})</code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1"><span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb401-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb401-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb401-4" title="4">})</a></code></pre></div>
 <p>and</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),
-  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)
-)</code></pre></div>
-<p>and why do they evaluate to different things? + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">eval</span>(
-    <span class="kw">quote</span>({
-        x &lt;-<span class="st"> </span><span class="dv">1</span>
-        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
-    })
-)</code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb402-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb402-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb402-4" title="4">)</a></code></pre></div>
+<p>and why do they evaluate to different things?
++ The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time:</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1"><span class="kw">eval</span>(</a>
+<a class="sourceLine" id="cb403-2" title="2">    <span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb403-3" title="3">        x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb403-4" title="4">        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb403-5" title="5">    })</a>
+<a class="sourceLine" id="cb403-6" title="6">)</a></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <p>  + The second is a list of separate expressions. If we evaluate them using:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lapply</span>(
-    <span class="kw">list</span>(
-      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),
-      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)
-    ),
-    eval
-)</code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1"><span class="kw">lapply</span>(</a>
+<a class="sourceLine" id="cb405-2" title="2">    <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb405-3" title="3">      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb405-4" title="4">      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb405-5" title="5">    ),</a>
+<a class="sourceLine" id="cb405-6" title="6">    eval</a>
+<a class="sourceLine" id="cb405-7" title="7">)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -533,20 +560,20 @@ quoted_fun</code></pre></div>
 <ol style="list-style-type: decimal">
 <li>In what situation would you use <code>i in x</code> over <code>i in seq_along(x)</code>?
 <ul>
-<li><code>i in x</code> is used to access the value at each position in <code>x</code>, whereas <code>i in seq_along(x)</code> will go along the indices. So if you want to access the value (and you're not doing something like incrementing another variable)</li>
+<li><code>i in x</code> is used to access the value at each position in <code>x</code>, whereas <code>i in seq_along(x)</code> will go along the indices. So if you want to access the value (and you’re not doing something like incrementing another variable)</li>
 </ul></li>
 <li>Why is <code>seq_along(x)</code> preferable to <code>1:length(x)</code>?
 <ul>
-<li>If you have something that has a length of 0, then <code>1:length(x)</code> will return <code>1 0</code>, which isn't what you want as you'll go from the first index (which won't exist anyway and so will error) and then to the 0th index. <code>seq_along(x)</code> will return an empty integer object instead, which is preferable.</li>
+<li>If you have something that has a length of 0, then <code>1:length(x)</code> will return <code>1 0</code>, which isn’t what you want as you’ll go from the first index (which won’t exist anyway and so will error) and then to the 0th index. <code>seq_along(x)</code> will return an empty integer object instead, which is preferable.</li>
 </ul></li>
 <li>What would be the for loop code that would be required to replicate <code>lapply(number_list, FUN = max)</code>? Which would be easier to debug?
 <ul>
 <li>Loop code:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {
-  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])
-}</code></pre></div></li>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1">max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</a>
+<a class="sourceLine" id="cb407-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</a>
+<a class="sourceLine" id="cb407-3" title="3">  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</a>
+<a class="sourceLine" id="cb407-4" title="4">}</a></code></pre></div></li>
 </ol>
 </div>
 </div>
@@ -555,7 +582,7 @@ quoted_fun</code></pre></div>
 <h2><span class="header-section-number">17.2</span> Next Steps</h2>
 <div id="operate" class="section level3">
 <h3><span class="header-section-number">17.2.1</span> opeRate</h3>
-<p>To help you learn how to apply the skills and understanding you've acquired through this book, I've developed a second book, <a href="https://operate.arawles.co.uk">opeRate</a>. opeRate was developed in exactly the same way as teacheR, but focuses on applied data analysis and practical learning. If you're interested in applying your knowledge, then I would recommend giving it a read.</p>
+<p>To help you learn how to apply the skills and understanding you’ve acquired through this book, I’ve developed a second book, <a href="https://operate.arawles.co.uk">opeRate</a>. opeRate was developed in exactly the same way as teacheR, but focuses on applied data analysis and practical learning. If you’re interested in applying your knowledge, then I would recommend giving it a read.</p>
 
 </div>
 </div>
@@ -621,7 +648,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

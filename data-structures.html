@@ -52,41 +52,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -108,16 +133,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="introduction-intro.html"><a href="introduction-intro.html"><i class="fa fa-check"></i><b>2</b> Introduction #{intro}</a><ul>
-<li class="chapter" data-level="2.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-intro.html"><a href="introduction-intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-intro.html"><a href="introduction-intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-intro.html"><a href="introduction-intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-intro.html"><a href="introduction-intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-intro.html"><a href="introduction-intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-intro.html"><a href="introduction-intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-intro.html"><a href="introduction-intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
@@ -209,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
 <li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
-<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> 'Super' assignment</a></li>
+<li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
@@ -278,7 +303,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-structures" class="section level1">
 <h1><span class="header-section-number">7</span> Data structures</h1>
-<p>It's rare that you're ever going to be working on a single value in R. Instead, you're going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here's a list of the structures which we'll go into more detail:</p>
+<p>It’s rare that you’re ever going to be working on a single value in R. Instead, you’re going to want to work on collections of values, like a dataset or a list or something similar. So we need to know what data structures are available in R. Here’s a list of the structures which we’ll go into more detail:</p>
 <ul>
 <li>vectors</li>
 <li>lists</li>
@@ -288,18 +313,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="vectors" class="section level2">
 <h2><span class="header-section-number">7.1</span> Vectors</h2>
 <p>Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.</p>
-<p>One of the main things to remember about vectors however, is that they are atomic. That's basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we'll look at those next.</p>
-<p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we're pulling together lots of different values and concatenating them into one structure.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</code></pre></div>
+<p>One of the main things to remember about vectors however, is that they are atomic. That’s basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we’ll look at those next.</p>
+<p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we’re pulling together lots of different values and concatenating them into one structure.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
-<p>Technically speaking, even single values are stored as a vector in R, they just have length one. That's why if you type <code>is(1)</code>, the second things that pops up after &quot;numeric&quot; is &quot;vector&quot;. R is telling us that <code>1</code> is a number and that it's also a vector.</p>
+<p>Technically speaking, even single values are stored as a vector in R, they just have length one. That’s why if you type <code>is(1)</code>, the second things that pops up after “numeric” is “vector”. R is telling us that <code>1</code> is a number and that it’s also a vector.</p>
 <div id="coercion" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Coercion</h3>
-<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.). If you try and create a vector with different data types in it, you'll see that all the values will be coerced to the same type. This is because the type of a vector is stored at the structure level (i.e., what type is the vector?), not at the individual level (i.e. what type is the value in the vector?). Let's look at an example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>)</code></pre></div>
+<p>All the values in a vector must be of the same type (e.g. character, numeric, etc.). If you try and create a vector with different data types in it, you’ll see that all the values will be coerced to the same type. This is because the type of a vector is stored at the structure level (i.e., what type is the vector?), not at the individual level (i.e. what type is the value in the vector?). Let’s look at an example:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;1&quot;     &quot;hello&quot;</code></pre>
 <p>You can see that both values get coerced to character strings. If we try:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(1L, <span class="fl">1.5</span>)</code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">c</span>(1L, <span class="fl">1.5</span>)</a></code></pre></div>
 <pre><code>## [1] 1.0 1.5</code></pre>
 <p>We see that our integer (<code>1L</code>) becomes a double.</p>
 <p>This is related to the concept of <a href="data-types.html#implicit-conversion"><strong>implicit conversion</strong></a> in R. Roughly speaking, all of the values in your vector will get coerced to the most <em>complex</em> type.</p>
@@ -307,7 +332,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="naming" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Naming</h3>
 <p>You can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  this_is_the_first_value this_is_the_second_value 
 ##                        1                        2</code></pre>
 </div>
@@ -323,7 +348,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Lists do not have to be made up of values of the same type.</li>
 </ul>
 <p>So for instance, whilst a vector must always be the same, like <code>c(1,2,3)</code>, we could have a list that looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>, <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>, <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -333,10 +358,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [[3]]
 ## [1] TRUE</code></pre>
 <p>As you just saw, we create lists using the <code>list()</code> function, and providing names is done the same way as it is for vectors:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(
-  <span class="dt">first_value =</span> <span class="dv">1</span>,
-  <span class="dt">second_value =</span> <span class="st">&quot;hello&quot;</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb163-2" title="2">  <span class="dt">first_value =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb163-3" title="3">  <span class="dt">second_value =</span> <span class="st">&quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb163-4" title="4">)</a></code></pre></div>
 <pre><code>## $first_value
 ## [1] 1
 ## 
@@ -345,62 +370,62 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="lists-vs-vectors" class="section level2">
 <h2><span class="header-section-number">7.3</span> Lists vs Vectors</h2>
-<p>Given that lists and vectors are intrinsically linked, it's very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren't all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
-<p>I appreciate that this answer isn't particularly satisfactory, so let me give a real life example of when I've used each.</p>
+<p>Given that lists and vectors are intrinsically linked, it’s very natural to wonder when to use on over the other. Well, the basic answer is to use whichever one has the requirements you need. If all of your values are of the same type and are atomic (numeric, integer, logical, etc.). If they aren’t all the same, or you need to have a list of data structures like vectors and lists rather than just single values, then use a list.</p>
+<p>I appreciate that this answer isn’t particularly satisfactory, so let me give a real life example of when I’ve used each.</p>
 <p><u>Vector</u></p>
 <p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)
-<span class="co"># this is just shorthand for saying &quot;all of the numbers from 1 to 30&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb165-2" title="2"><span class="co"># this is just shorthand for saying &quot;all of the numbers from 1 to 30&quot;</span></a></code></pre></div>
 <p>So when I ran my simulation, I had all the values I wanted to run it for in a single structure.</p>
 <p><u>List</u></p>
 <p>When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:</p>
 <pre><code>model1 &lt;- model(...)
 model2 &lt;- model(...)
 model3 &lt;- model(...)</code></pre>
-<p>The problem with this however, is that if I then want to compare the models, I'll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn't just a numeric or character value) so they can't be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
-<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we'll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
+<p>The problem with this however, is that if I then want to compare the models, I’ll have to write out <code>modelX</code> each time. If I have 50 models or similar, it may take a while. So instead, I often store all my models in a list. The values are complex (i.e. a model isn’t just a numeric or character value) so they can’t be stored in a vector, but they can be stored in a list. This means that I keep all my models together, and if I then decide that actually I want to add more models to my list, this is significantly easier than typing out more <code>modelX &lt;- model(...)</code> lines and assigning each one as a new variable.</p>
+<p>Before moving onto the other data structures, I just want to quickly mention that in my learning experience, understanding vectors and lists is one of the most important parts of getting to grips with R. R for many is about automating analysis and reducing the amount of time taken to do something. And vectors and lists are at the heart of this. Later on, we’ll look at functions and for loops, which we can use to perform the same action or calculation on all the values in a list or vector. Together, these will be your strongest R tools.</p>
 </div>
 <div id="matrices" class="section level2">
 <h2><span class="header-section-number">7.4</span> Matrices</h2>
 <p>Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.</p>
 <p>I say watered down, because matrices can only contain values of the same type. In fact, a matrix is really just a vector in 2D. For example, if I had a vector of the numbers 1 to 10, I could easily convert it into a matrix just by setting what I wanted the dimensions to be with the <code>dim()</code> function like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">im_gunna_be_a_matrix &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
-<span class="kw">dim</span>(im_gunna_be_a_matrix) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)
-im_gunna_be_a_matrix</code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" title="1">im_gunna_be_a_matrix &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb167-2" title="2"><span class="kw">dim</span>(im_gunna_be_a_matrix) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb167-3" title="3">im_gunna_be_a_matrix</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    3    5    7    9
 ## [2,]    2    4    6    8   10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(im_gunna_be_a_matrix)</code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1"><span class="kw">is</span>(im_gunna_be_a_matrix)</a></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot;    &quot;array&quot;     &quot;structure&quot; &quot;vector&quot;</code></pre>
-<p>Matrices aren't really designed for storing complex datasets. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.</p>
+<p>Matrices aren’t really designed for storing complex datasets. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.</p>
 <p>Creating a matrix is easy. You can give a vector dimensions like we did above, or you can use the <code>matrix()</code> function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    3
 ## [2,]    2    4</code></pre>
-<p>By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use <code>byrow = TRUE</code>.</p>
+<p>By default, the matrix is filled by column first (i.e. it starts at column 1 and fills that column, then moves onto the next one). To change this, use <code>byrow = TRUE</code>.</p>
 </div>
 <div id="dataframes" class="section level2">
 <h2><span class="header-section-number">7.5</span> Dataframes</h2>
 <p>Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet or table than matrices do.</p>
 <p>To create a dataframe, we use the <code>data.frame()</code> function. To this function, we provide our values as columns:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
-           <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="st">&quot;howsitgoing&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb173-2" title="2">           <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="st">&quot;howsitgoing&quot;</span>))</a></code></pre></div>
 <pre><code>##   col_1       col_2
 ## 1     1       hello
 ## 2     2       world
 ## 3     3 howsitgoing</code></pre>
-<p>More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. It's <em>a tiny</em> bit like the relationship between vectors and matrices; matrices are built on vectors and dataframes are built on lists. To demonstrate this, when we type...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is</span>(<span class="kw">data.frame</span>())</code></pre></div>
+<p>More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. It’s <em>a tiny</em> bit like the relationship between vectors and matrices; matrices are built on vectors and dataframes are built on lists. To demonstrate this, when we type…</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1"><span class="kw">is</span>(<span class="kw">data.frame</span>())</a></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot; &quot;list&quot;       &quot;oldClass&quot;   &quot;vector&quot;</code></pre>
-<p>The second value in the returned vector is &quot;list&quot;.</p>
-<p>So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="subsetting.html#dataframes-1">subsetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data.frame</span>(
-  <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),
-  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...)))
-  <span class="co"># The I() just tells R to leave it as a list</span>
-)</code></pre></div>
-<p>For now though, don't worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they'll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you're ahead of the game.</p>
+<p>The second value in the returned vector is “list”.</p>
+<p>So at it’s heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="subsetting.html#dataframes-1">subsetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1"><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb177-2" title="2">  <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),</a>
+<a class="sourceLine" id="cb177-3" title="3">  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...)))</a>
+<a class="sourceLine" id="cb177-4" title="4">  <span class="co"># The I() just tells R to leave it as a list</span></a>
+<a class="sourceLine" id="cb177-5" title="5">)</a></code></pre></div>
+<p>For now though, don’t worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they’ll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you’re ahead of the game.</p>
 </div>
 <div id="questions-data-structures" class="section level2">
 <h2><span class="header-section-number">7.6</span> Questions</h2>
@@ -476,7 +501,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
