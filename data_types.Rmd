@@ -84,7 +84,7 @@ as.double("im going to cause a warning")
 
 ## Integer
 
-Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning:
+Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning, and you won't get an integer back:
 
 ```{r, warning=TRUE, message=TRUE}
 1.5L
@@ -103,6 +103,13 @@ To convert to an integer, use the `L` suffix or the `as.integer()` function:
 
 ```{r}
 1L
+```
+
+One small different between the `L` suffix and the `as.integer()` function though, is that the former will not convert values that would lose information as an integer to integer, it will keep it as a numeric. `as.integer()` will always return an integer however:
+
+```{r, warning=TRUE}
+is(1.5L)
+is(as.integer(1.5))
 
 ```
 
