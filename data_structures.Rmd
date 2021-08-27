@@ -153,7 +153,7 @@ More specifically, R stores dataframes as essentially a list of lists, with each
 ```{r}
 is(data.frame())
 ```
-The second value in the returned vector is "list".
+The second value in the returned vector is `list`.
 
 So at it's heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto [subsetting](subsetting.html#dataframes-1). Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn't be possible in something like Excel. For instance, we know that we can store models in a list. Well, let's say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:
 

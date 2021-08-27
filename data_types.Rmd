@@ -86,7 +86,7 @@ as.double("im going to cause a warning")
 
 Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning:
 
-```{r, warning = TRUE, message=TRUE}
+```{r, warning=TRUE, message=TRUE}
 1.5L
 ```
 
@@ -271,6 +271,9 @@ For example, attempting to parse a character string to a date format that doesn'
 as.Date("10/01/20", format = "%m%Y%d")
 ```
 R has tried to parse a value from one type into another. The value isn't `NULL` because it clearly isn't missing, but it couldn't be converted to a date type, so it's `NA`.
+
+#### NA Types
+
 Unlike NULL, there are different `NA` values for each datatype (although they'll all look like `NA` in the console). In the example above, we actually created a `NA` that has the Date type:
 
 ```{r, warning = TRUE}
@@ -282,9 +285,7 @@ This is because R knows what type the `NA` *should* be, but it couldn't assign i
 The same behaviour can be observed for other data types:
 
 ```{r, warning = TRUE}
-as.numeric("not a number")
 as.logical("not a logical")
-is(as.numeric("not a number"))
 is(as.logical("not a logical"))
 ```
 
@@ -294,7 +295,8 @@ To test whether something is `NA`, we use the `is.na()` function. You don't need
 is.na(NA_character_) # this will be an NA that is of type 'character'
 is.na(NA_integer_) # this will be an NA that is of type 'integer'
 ```
-### Dealing with NAs
+
+#### Dealing with NAs
 
 Dealing with `NA`s is often contextual. Attempting to perform a mathematical calculation on a vector of values that contains at least one `NA` will often return `NA`:
 
@@ -327,11 +329,13 @@ A special case is `NaN` (not a number). NaNs are distinct to `NA` in that they r
 Converting between types using the `as.x()` functions is nice and easy because the type that you're converting to is explicitly defined. However, there is also *implicit conversion* in R. That is where R basically avoids an error by converting a variable into a different data type so that the function can run correctly. Let's look at a proper example.
 
 ```{r}
-paste0("I'm a character", 100)
+paste("I'm a character", 100)
 ```
 
-The `paste0()` function provides a pretty good example of implicit conversion in the wild. `paste0()` expects character strings when it's called, so what happens when you provide it with a number like we did above? Why doesn't it complain?
-Well it's because R automtically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it's a bit like a programming autocorrect.
+The `paste()` function provides a pretty good example of implicit conversion in the wild. `paste()` expects character strings when it's called, so what happens when you provide it with a number like we did above? Why doesn't it complain?
+Well it's because R automatically converts it for us. It takes that number, converts it to a character and then pastes things together. This way, you can be a bit more fast and loose with your data types because R will do the type conversion for you. Maybe the best way to describe it is that it's a bit like a programming autocorrect.
+
+Remember this concept because we'll revisit it later when we look at [coercoin](#coercion).
 
 ### Dangers of implicit conversion
 

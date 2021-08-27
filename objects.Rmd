@@ -11,7 +11,7 @@ if(!knitr:::is_html_output())
 # Objects and Classes
 
 Objects and classes are a fairly ubiquitous concept across programming languages and data analysis tools. We'll briefly look at what an object is in R, but by no means is this an exhaustive description.
-opt
+
 ## What is a class?
 
 The world is complicated. Everything in the world is unique and defined by an infinite number of properties and features. For example, if you take a person, they can be defined by their name, where they're from, where their parents are from, their hair colour, their likes and dislikes, and so on and so on. When we want to store data in a structured and formal way in a computer system, however, this isn't particularly helpful. Instead, we need to store data in a predefined structure. This is essentially what a class is; a pre-defined structure to store important attributes or features of a **thing**. We can't store everything about a thing, so we choose a select few important attributes.
@@ -86,7 +86,7 @@ In the S3 system, we rely on generic functions and methods. Generics are functio
 
 As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of **communicating** as being the **generic** - it's the eventual goal. And **talking in the appropriate language** as being the **method**.
 
-Going back to R, if you type `print.` into the console, the autocompleter will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter. If there isn't a specific method for the object you've provided, then it will use the default `print.default()` method.
+Going back to R, if you type `print.` into the console (or run `methods(print)`), the auto-completer will show you lots and lots of `print.something()` functions. These are all of the **methods** for all of the different printable objects in R. `print.date()` will print a date object, `print.data.frame()` will print a dataframe object and so on. But when you just use the `print()` function on an object, R will automatically choose which method it needs for the object you've passed as an input parameter. If there isn't a specific method for the object you've provided, then it will use the default `print.default()` method.
 
 ```{r}
 # here we're using the generic
@@ -99,7 +99,7 @@ If an object inherits multiple classes, then R will look for the correct method 
 
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 
 
-**Note:** In some languages, methods are essentially functions or sub-routines that are tied to an class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
+**Note:** In some languages, methods are essentially functions or sub-routines that are tied to a class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account, like this: `Account.Balance()`. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
 
 ## Creating classes
 
