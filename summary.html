@@ -425,15 +425,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Example function:</li>
 </ul>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" title="1">function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</a>
-<a class="sourceLine" id="cb389-2" title="2">  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb389-3" title="3">   x <span class="op">^</span><span class="st"> </span>power</a>
-<a class="sourceLine" id="cb389-4" title="4">  }</a>
-<a class="sourceLine" id="cb389-5" title="5">  ret_function</a>
-<a class="sourceLine" id="cb389-6" title="6">}</a>
-<a class="sourceLine" id="cb389-7" title="7"></a>
-<a class="sourceLine" id="cb389-8" title="8">square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb389-9" title="9"><span class="kw">square_function</span>(<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" title="1">function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</a>
+<a class="sourceLine" id="cb393-2" title="2">  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb393-3" title="3">   x <span class="op">^</span><span class="st"> </span>power</a>
+<a class="sourceLine" id="cb393-4" title="4">  }</a>
+<a class="sourceLine" id="cb393-5" title="5">  ret_function</a>
+<a class="sourceLine" id="cb393-6" title="6">}</a>
+<a class="sourceLine" id="cb393-7" title="7"></a>
+<a class="sourceLine" id="cb393-8" title="8">square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb393-9" title="9"><span class="kw">square_function</span>(<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 9</code></pre></li>
 <li>Look at the <code>ellipsis</code> package. What issue does this package look to solve?
 <ul>
@@ -501,40 +501,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.
 + By using subsitute, we can replace <code>fun</code> with any function we like:</li>
 </ol>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" title="1">quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb391-2" title="2">quoted_fun</a></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1">quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb395-2" title="2">quoted_fun</a></code></pre></div>
 <pre><code>## .Primitive(&quot;sum&quot;)(1)</code></pre>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" title="1"><span class="kw">eval</span>(quoted_fun)</a></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1"><span class="kw">eval</span>(quoted_fun)</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>What’s the difference between</li>
 </ol>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1"><span class="kw">quote</span>({</a>
-<a class="sourceLine" id="cb395-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb395-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb395-4" title="4">})</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1"><span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb399-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb399-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb399-4" title="4">})</a></code></pre></div>
 <p>and</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb396-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb396-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb396-4" title="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb400-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb400-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb400-4" title="4">)</a></code></pre></div>
 <p>and why do they evaluate to different things?
 + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time:</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1"><span class="kw">eval</span>(</a>
-<a class="sourceLine" id="cb397-2" title="2">    <span class="kw">quote</span>({</a>
-<a class="sourceLine" id="cb397-3" title="3">        x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb397-4" title="4">        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb397-5" title="5">    })</a>
-<a class="sourceLine" id="cb397-6" title="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1"><span class="kw">eval</span>(</a>
+<a class="sourceLine" id="cb401-2" title="2">    <span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb401-3" title="3">        x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb401-4" title="4">        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb401-5" title="5">    })</a>
+<a class="sourceLine" id="cb401-6" title="6">)</a></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <p>  + The second is a list of separate expressions. If we evaluate them using:</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1"><span class="kw">lapply</span>(</a>
-<a class="sourceLine" id="cb399-2" title="2">    <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb399-3" title="3">      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb399-4" title="4">      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb399-5" title="5">    ),</a>
-<a class="sourceLine" id="cb399-6" title="6">    eval</a>
-<a class="sourceLine" id="cb399-7" title="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1"><span class="kw">lapply</span>(</a>
+<a class="sourceLine" id="cb403-2" title="2">    <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb403-3" title="3">      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb403-4" title="4">      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb403-5" title="5">    ),</a>
+<a class="sourceLine" id="cb403-6" title="6">    eval</a>
+<a class="sourceLine" id="cb403-7" title="7">)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -570,10 +570,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Loop code:</li>
 </ul>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1">max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</a>
-<a class="sourceLine" id="cb401-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</a>
-<a class="sourceLine" id="cb401-3" title="3">  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</a>
-<a class="sourceLine" id="cb401-4" title="4">}</a></code></pre></div></li>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1">max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</a>
+<a class="sourceLine" id="cb405-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</a>
+<a class="sourceLine" id="cb405-3" title="3">  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</a>
+<a class="sourceLine" id="cb405-4" title="4">}</a></code></pre></div></li>
 </ol>
 </div>
 </div>

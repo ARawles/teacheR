@@ -310,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s take the person instance again. Let’s say we’re going to store data on a number of individuals, we won’t be able to store everything about them. So we’ll choose a subset of their attributes or features to store that are relevant to what we need. But to make things more efficient, we’re going to store the same information for each one so we have a kind of ‘person template’. So lets say we’re going to do some geographical analysis, we might want to include a person’s name, their nationality, and perhaps their ethnicity. So for each person we want to store information on, we can store these three attributes. And we might call this data structure a “person”. Well this is exactly what an class is; a collection of attributes and features that is shared across objects instances of the same type.</p>
 <p>So our class is “person”, and it has the attributes “name”, “nationality”, and “ethnicity”. Now this obviously doesn’t capture everything about a person, but it’s enough for what we want to do.</p>
 <p>Graphing that object might look something like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-134"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-135"></span>
 <img src="diagrams/objects.png" alt="Example `Person` object" width="50%" />
 <p class="caption">
 Figure 13.1: Example <code>Person</code> object
@@ -335,28 +335,28 @@ Figure 13.1: Example <code>Person</code> object
 </blockquote>
 <p>So every function, dataframe, plot, list, vector, integer, everything is an object.</p>
 <p>To see the class of an object in R, use the <code>class()</code> function.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1"><span class="kw">class</span>(<span class="kw">data.frame</span>()) <span class="co"># here we&#39;re finding the class of an empty data.frame</span></a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="kw">class</span>(<span class="kw">data.frame</span>()) <span class="co"># here we&#39;re finding the class of an empty data.frame</span></a></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1"><span class="kw">class</span>(data.frame) <span class="co"># here we&#39;re finding the class of the data.frame() function</span></a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1"><span class="kw">class</span>(data.frame) <span class="co"># here we&#39;re finding the class of the data.frame() function</span></a></code></pre></div>
 <pre><code>## [1] &quot;function&quot;</code></pre>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="kw">class</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" title="1"><span class="kw">class</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <div id="inheritance" class="section level3">
 <h3><span class="header-section-number">13.3.1</span> Inheritance</h3>
 <p>Sometimes, different classes are interrelated. For example, if you were storing data on vehicle, then you might have a “vehicle” class. But if you’re storing data on lots of different vehicles, you might also have classes for each type of vehicle (e.g. “car”, “motorbike”, etc.). All of these classes are still vehicles, and so you don’t want to have to repeat yourself when you define each of those classes. In other words, all of those classes are going to have some common attributes like colour, horsepower and so on. Similarly, each different type of vehicle will have some attributes that are unique to that type of vehicle. For instance, motorbikes can have sidecars but vans and cars don’t. Cars and vans have doors but motorbikes don’t. This highlights the benefits of inheritance. By creating a “vehicle” class and allowing your subsequent classes to inherit all of the attributes of the “vehicle” class, you can avoid duplication while allowing distinct classes. This way, when you want to add any attributes to all of your vehicles, you can just do it via the “vehicle” class rather than changing each type of vehicle class.</p>
 <p>Diagramming this relationship:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-136"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-137"></span>
 <img src="diagrams/inheritance_cars.png" alt="Example of inheritance using cars" width="50%" />
 <p class="caption">
 Figure 13.2: Example of inheritance using cars
 </p>
 </div>
 <p>Inheritance is an extremely deep topic which we won’t go into here, but R objects also use inheritance. To see the inheritance tree of an object, use the <code>is()</code> function:</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1"><span class="kw">is</span>(1L)</a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" title="1"><span class="kw">is</span>(1L)</a></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;             &quot;double&quot;              &quot;numeric&quot;            
 ## [4] &quot;vector&quot;              &quot;data.frameRowLabels&quot;</code></pre>
 <p>Diagramming this like our “vehicle” example would look like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-138"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-139"></span>
 <img src="diagrams/inheritance_numeric.png" alt="Inheritance of the integer class" width="20%" />
 <p class="caption">
 Figure 13.3: Inheritance of the integer class
@@ -372,12 +372,12 @@ Figure 13.3: Inheritance of the integer class
 <p>In the S3 system, we rely on generic functions and methods. Generics are functions that have a single common goal, but that can be used for objects that might be very different. For example, <code>print()</code>-ing a dataframe is going to be different to <code>print()</code>-ing a plot or an API response or whatever. But <code>print()</code> always seems to know what to do. The reason it does is that the <code>print()</code> function is a <strong>generic</strong> function that actually uses a more specific function to achieve it’s goal. In other words, we achieve a fairly high level goal like printing by calling a function that is specific to the object we’re working on under the hood. These more specific functions are called <strong>methods</strong>.</p>
 <p>As a real world analogy, think of the process of talking to someone. The common goal in talking is to communicate. But, depending on the language that someone speaks, the actual act of talking is going to be slightly different for different people you talk to. In this case, you can think of <strong>communicating</strong> as being the <strong>generic</strong> - it’s the eventual goal. And <strong>talking in the appropriate language</strong> as being the <strong>method</strong>.</p>
 <p>Going back to R, if you type <code>print.</code> into the console (or run <code>methods(print)</code>), the auto-completer will show you lots and lots of <code>print.something()</code> functions. These are all of the <strong>methods</strong> for all of the different printable objects in R. <code>print.date()</code> will print a date object, <code>print.data.frame()</code> will print a dataframe object and so on. But when you just use the <code>print()</code> function on an object, R will automatically choose which method it needs for the object you’ve passed as an input parameter. If there isn’t a specific method for the object you’ve provided, then it will use the default <code>print.default()</code> method.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" title="1"><span class="co"># here we&#39;re using the generic</span></a>
-<a class="sourceLine" id="cb321-2" title="2"><span class="kw">print</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" title="1"><span class="co"># here we&#39;re using the generic</span></a>
+<a class="sourceLine" id="cb325-2" title="2"><span class="kw">print</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>)) </a></code></pre></div>
 <pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" title="1"><span class="co"># because we&#39;re printing a Date object,</span></a>
-<a class="sourceLine" id="cb323-2" title="2"><span class="co"># this is the method that is actually used</span></a>
-<a class="sourceLine" id="cb323-3" title="3"><span class="kw">print.Date</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" title="1"><span class="co"># because we&#39;re printing a Date object,</span></a>
+<a class="sourceLine" id="cb327-2" title="2"><span class="co"># this is the method that is actually used</span></a>
+<a class="sourceLine" id="cb327-3" title="3"><span class="kw">print.Date</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2020/06/10&quot;</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;2020-06-10&quot;</code></pre>
 <p>If an object inherits multiple classes, then R will look for the correct method starting from it’s most specific class. So for example, if an object has classes <code>c("class_1", "class_2")</code>, then R would look for <code>print.class_1()</code> and only look for <code>print.class_2()</code> (and then <code>print.default()</code>) if it couldn’t find <code>print.class_1()</code>.</p>
 <p>While you can often tell if something is an S3 method by it being a generic followed by a <code>.</code> and then an object name, don’t rely on this, because people often use <code>.</code> to separate words in functions that can make them look like S3 methods when they’re not.</p>
@@ -391,18 +391,18 @@ Figure 13.3: Inheritance of the integer class
 <div id="class-attribute" class="section level3">
 <h3><span class="header-section-number">13.4.1</span> Class attribute</h3>
 <p>In S3, the class of an object is defined by its <code>class</code> attribute, which stores a vector of class names. To see an object’s class, we use the <code>class()</code> function:</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" title="1"><span class="kw">class</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" title="1"><span class="kw">class</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" title="1"><span class="kw">class</span>(<span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" title="1"><span class="kw">class</span>(<span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <p>This class attribute will determine what method is dispatched when we call a generic on this object. So here, if we called <code>print()</code> on <code>1</code>, then it would look for <code>print.numeric()</code> and dispatch that method to print the object. Technically, this just calls <code>print.default()</code> because the default method knows how to print numeric values but the logic remains.</p>
 <p>Something which will make OO programmers everywhere cringe, is that the class attribute for an R object is modifiable:</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" title="1">var_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb329-2" title="2"><span class="kw">class</span>(var_<span class="dv">1</span>) &lt;-<span class="st"> &quot;custom_class&quot;</span></a>
-<a class="sourceLine" id="cb329-3" title="3"><span class="kw">class</span>(var_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" title="1">var_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb333-2" title="2"><span class="kw">class</span>(var_<span class="dv">1</span>) &lt;-<span class="st"> &quot;custom_class&quot;</span></a>
+<a class="sourceLine" id="cb333-3" title="3"><span class="kw">class</span>(var_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;custom_class&quot;</code></pre>
 <p>Now, when we attempt to print the <code>var_1</code> variable, R will look for the appropriate method based on it’s class (<code>custom_class</code>), which would be <code>print.custom_class()</code>. In this case, a <code>print.custom_class</code> method doesn’t exist, so it’ll default to the <code>print.default()</code> method:</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" title="1"><span class="kw">print</span>(var_<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" title="1"><span class="kw">print</span>(var_<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 1
 ## attr(,&quot;class&quot;)
 ## [1] &quot;custom_class&quot;</code></pre>
@@ -411,31 +411,31 @@ Figure 13.3: Inheritance of the integer class
 <div id="constructor-functions" class="section level3">
 <h3><span class="header-section-number">13.4.2</span> Constructor functions</h3>
 <p>To ensure our objects in the same class all have a similar structure, we want to make a constructor function that requires certain values. For example, let’s create a class to store addresses, and we’ll say that we need the house name, the road and the city. Our constructor function might look like this:</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" title="1">address &lt;-<span class="st"> </span><span class="cf">function</span>(house_name, road, city) {</a>
-<a class="sourceLine" id="cb333-2" title="2">  address &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb333-3" title="3">    <span class="dt">house_name =</span> house_name,</a>
-<a class="sourceLine" id="cb333-4" title="4">    <span class="dt">road =</span> road,</a>
-<a class="sourceLine" id="cb333-5" title="5">    <span class="dt">city =</span> city</a>
-<a class="sourceLine" id="cb333-6" title="6">  )</a>
-<a class="sourceLine" id="cb333-7" title="7">  <span class="kw">class</span>(address) &lt;-<span class="st"> &quot;address&quot;</span></a>
-<a class="sourceLine" id="cb333-8" title="8">  <span class="kw">return</span>(address)</a>
-<a class="sourceLine" id="cb333-9" title="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" title="1">address &lt;-<span class="st"> </span><span class="cf">function</span>(house_name, road, city) {</a>
+<a class="sourceLine" id="cb337-2" title="2">  address &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb337-3" title="3">    <span class="dt">house_name =</span> house_name,</a>
+<a class="sourceLine" id="cb337-4" title="4">    <span class="dt">road =</span> road,</a>
+<a class="sourceLine" id="cb337-5" title="5">    <span class="dt">city =</span> city</a>
+<a class="sourceLine" id="cb337-6" title="6">  )</a>
+<a class="sourceLine" id="cb337-7" title="7">  <span class="kw">class</span>(address) &lt;-<span class="st"> &quot;address&quot;</span></a>
+<a class="sourceLine" id="cb337-8" title="8">  <span class="kw">return</span>(address)</a>
+<a class="sourceLine" id="cb337-9" title="9">}</a></code></pre></div>
 <p>Now to create an object from my constructor function, I just need to use the <code>address()</code> function:</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" title="1">my_address &lt;-<span class="st"> </span><span class="kw">address</span>(<span class="st">&quot;4&quot;</span>, <span class="st">&quot;Pleasant Drive&quot;</span>, <span class="st">&quot;London&quot;</span>)</a>
-<a class="sourceLine" id="cb334-2" title="2"><span class="kw">class</span>(my_address)</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" title="1">my_address &lt;-<span class="st"> </span><span class="kw">address</span>(<span class="st">&quot;4&quot;</span>, <span class="st">&quot;Pleasant Drive&quot;</span>, <span class="st">&quot;London&quot;</span>)</a>
+<a class="sourceLine" id="cb338-2" title="2"><span class="kw">class</span>(my_address)</a></code></pre></div>
 <pre><code>## [1] &quot;address&quot;</code></pre>
 <p>Now, if I called <code>print(my_address)</code>, R would look for a <code>print.address()</code> method. But, it wouldn’t find one and so would turn to <code>print.default()</code> which would print our object like any other list. Therefore, we might want to write our own method to print our new object how we want to.</p>
 </div>
 <div id="creating-methods" class="section level3">
 <h3><span class="header-section-number">13.4.3</span> Creating methods</h3>
 <p>To create a method, all we need to do is create a function with the name of our generic followed by a ‘.’ and then name of our class. So from our previous example, our method would look like this:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" title="1">print.address &lt;-<span class="st"> </span><span class="cf">function</span>(address) {</a>
-<a class="sourceLine" id="cb336-2" title="2"><span class="kw">cat</span>(<span class="st">&quot;The house name is: &quot;</span>, address<span class="op">$</span>house_name, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
-<a class="sourceLine" id="cb336-3" title="3"><span class="kw">cat</span>(<span class="st">&quot;The road is: &quot;</span>, address<span class="op">$</span>road, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
-<a class="sourceLine" id="cb336-4" title="4"><span class="kw">cat</span>(<span class="st">&quot;The city is: &quot;</span>, address<span class="op">$</span>city, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
-<a class="sourceLine" id="cb336-5" title="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1">print.address &lt;-<span class="st"> </span><span class="cf">function</span>(address) {</a>
+<a class="sourceLine" id="cb340-2" title="2"><span class="kw">cat</span>(<span class="st">&quot;The house name is: &quot;</span>, address<span class="op">$</span>house_name, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb340-3" title="3"><span class="kw">cat</span>(<span class="st">&quot;The road is: &quot;</span>, address<span class="op">$</span>road, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb340-4" title="4"><span class="kw">cat</span>(<span class="st">&quot;The city is: &quot;</span>, address<span class="op">$</span>city, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb340-5" title="5">}</a></code></pre></div>
 <p>Now when we call <code>print()</code> on our new object, it will find the <code>print.address()</code> method and use that to print our object:</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" title="1"><span class="kw">print</span>(my_address)</a></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" title="1"><span class="kw">print</span>(my_address)</a></code></pre></div>
 <pre><code>## The house name is:  4 
 ## The road is:  Pleasant Drive 
 ## The city is:  London</code></pre>
@@ -443,23 +443,23 @@ Figure 13.3: Inheritance of the integer class
 <div id="creating-generics" class="section level3">
 <h3><span class="header-section-number">13.4.4</span> Creating generics</h3>
 <p>You can also create your own generic functions for your classes. Generic functions have a very simple structure. Let’s say we want to create a new generic called <code>post</code>:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" title="1">post &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb339-2" title="2">  <span class="kw">UseMethod</span>(<span class="st">&quot;post&quot;</span>)</a>
-<a class="sourceLine" id="cb339-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" title="1">post &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb343-2" title="2">  <span class="kw">UseMethod</span>(<span class="st">&quot;post&quot;</span>)</a>
+<a class="sourceLine" id="cb343-3" title="3">}</a></code></pre></div>
 <p>This is just telling R that when the <code>post()</code> function is called on an object, look for the appropriate <code>post</code> method to use. Without us writing any methods, this would be useless because R wouldn’t have any methods to use!</p>
 <p>Let’s create a default method that can be applied if we don’t have a more specific class:</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" title="1">post.default &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb340-2" title="2"><span class="kw">cat</span>(<span class="st">&quot;Your object is now in the post! Expect it in 5 to 10 weeks&quot;</span>)</a>
-<a class="sourceLine" id="cb340-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1">post.default &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb344-2" title="2"><span class="kw">cat</span>(<span class="st">&quot;Your object is now in the post! Expect it in 5 to 10 weeks&quot;</span>)</a>
+<a class="sourceLine" id="cb344-3" title="3">}</a></code></pre></div>
 <p>In our example, this default method isn’t going to be very useful but it demonstrates that we need a default method to be dispatched if we haven’t written a specific method for that object class.</p>
 <p>Let’s write a method for our <code>address</code> object:</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" title="1">post.address &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb341-2" title="2">  <span class="kw">cat</span>(<span class="st">&quot;Your object has been posted to &quot;</span>, x<span class="op">$</span>house_name, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>road, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>city, <span class="st">&quot;!&quot;</span>)</a>
-<a class="sourceLine" id="cb341-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" title="1">post.address &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb345-2" title="2">  <span class="kw">cat</span>(<span class="st">&quot;Your object has been posted to &quot;</span>, x<span class="op">$</span>house_name, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>road, <span class="st">&quot; &quot;</span>, x<span class="op">$</span>city, <span class="st">&quot;!&quot;</span>)</a>
+<a class="sourceLine" id="cb345-3" title="3">}</a></code></pre></div>
 <p>Now, if we call our new generic on two different classes of object and compare:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1"><span class="kw">post</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" title="1"><span class="kw">post</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## Your object is now in the post! Expect it in 5 to 10 weeks</code></pre>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1"><span class="kw">post</span>(my_address)</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" title="1"><span class="kw">post</span>(my_address)</a></code></pre></div>
 <pre><code>## Your object has been posted to  4   Pleasant Drive   London !</code></pre>
 <p>We can see that in the top example, <code>post()</code> has dispatched the <code>post.default()</code> method. In the second example though, it’s dispatched the <code>post.address()</code> method.</p>
 <p>As you can see, the S3 system is quick and easy. For smaller projects, this should be more than enough to get you by. Because it’s quick and easy though, it’s not particularly sturdy. You can change the class of any object, which will change the methods that are called on it and so can really mess things up. If you’re careful though, creating custom objects in your projects can be very powerful.</p>
