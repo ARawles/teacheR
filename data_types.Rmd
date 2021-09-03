@@ -84,13 +84,7 @@ as.double("im going to cause a warning")
 
 ## Integer
 
-Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `number <- 1`, R will store that value as double rather than as an integer. To store something explicitly as an integer, suffix the value with an `L`, like this: `number <- 1L`. Attempting to store something that isn't an integer as an integer will result in a warning, and you won't get an integer back:
-
-```{r, warning=TRUE, message=TRUE}
-1.5L
-```
-
-For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.
+Whilst also storing numeric data (like double), integers are specific to whole numbers. Also, by default, even when you assign a whole number, like this: `number <- 1`, R will store that value as double rather than as an integer. For the most part, I let R take care of how it stores numbers, unless I explicitly need it to be of a certain type. That is pretty rare though.
 
 To check if something is an integer, use the `is.integer()` function:
 
@@ -103,15 +97,25 @@ To convert to an integer, use the `L` suffix or the `as.integer()` function:
 
 ```{r}
 1L
+as.integer(1)
 ```
 
-One small different between the `L` suffix and the `as.integer()` function though, is that the former will not convert values that would lose information as an integer to integer, it will keep it as a numeric. `as.integer()` will always return an integer however:
+One small different between the `L` suffix and the `as.integer()` function though, is that the former will not convert values that would lose information as an integer to integer, it will keep it as a numeric. `as.integer()` will always return an integer:
 
 ```{r, warning=TRUE}
+1.5L # This will still return 1.5
 is(1.5L)
+as.integer(1.5) # This will return 1 as an integer
 is(as.integer(1.5))
-
 ```
+
+Some of the keen-eyed among you may have noticed something. The `as.integer()` function doesn't round the value, it gives you the "floor" value:
+
+```{r}
+as.integer(1.9999999999999)
+```
+
+This is something to bear in mind, converting a non-integer into an integer **will not** give you the closest integer to the value you provided. Instead, it will essentially take the value you've provided and always round down the nearest whole number.
 
 ## Character
 
