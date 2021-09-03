@@ -321,39 +321,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="for-loops" class="section level3">
 <h3><span class="header-section-number">16.1.1</span> For loops</h3>
 <p>For loops are almost completely ubiquitous across different programming languages. They allow us to perform actions over a list or set of objects. They are flexible and explicit even if they can be difficult to understand. A simple for loop in R follows a simple structure:</p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" title="1"><span class="cf">for</span> (identifier <span class="cf">in</span> list) {</a>
-<a class="sourceLine" id="cb381-2" title="2">  <span class="kw">do_something_with_it</span>(identifier)</a>
-<a class="sourceLine" id="cb381-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" title="1"><span class="cf">for</span> (identifier <span class="cf">in</span> list) {</a>
+<a class="sourceLine" id="cb387-2" title="2">  <span class="kw">do_something_with_it</span>(identifier)</a>
+<a class="sourceLine" id="cb387-3" title="3">}</a></code></pre></div>
 <p>In the above, the identifier is used to access the value that is currently being iterated upon. Let’s look at a practical example:</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" title="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</a>
-<a class="sourceLine" id="cb382-2" title="2">  <span class="kw">print</span>(i)</a>
-<a class="sourceLine" id="cb382-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" title="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</a>
+<a class="sourceLine" id="cb388-2" title="2">  <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb388-3" title="3">}</a></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3</code></pre>
 <p>In this loop, we go through the vector of values 1, 2 and 3, and we print it using the <code>i</code> identifier that we’ve assigned to the value we’re currently iterating upon. So the code inside the loop will run three times (once for each value in the vector we’ve provided). The first time, <code>i</code> will equal 1. The code will execute, and then <code>i</code> will take the value of 2 and so on.</p>
 <p>This isn’t a particular useful example. Let’s look at more realistic example. Let’s say you’ve got a list with 2 dataframes in that have the same structure:</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" title="1">dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb384-2" title="2">  <span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb384-3" title="3">    <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb384-4" title="4">    <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)</a>
-<a class="sourceLine" id="cb384-5" title="5">  ),</a>
-<a class="sourceLine" id="cb384-6" title="6">  <span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb384-7" title="7">    <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb384-8" title="8">    <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)</a>
-<a class="sourceLine" id="cb384-9" title="9">  )</a>
-<a class="sourceLine" id="cb384-10" title="10">)</a></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" title="1">dataframe_list &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb390-2" title="2">  <span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb390-3" title="3">    <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb390-4" title="4">    <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb390-5" title="5">  ),</a>
+<a class="sourceLine" id="cb390-6" title="6">  <span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb390-7" title="7">    <span class="dt">obs =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb390-8" title="8">    <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>)</a>
+<a class="sourceLine" id="cb390-9" title="9">  )</a>
+<a class="sourceLine" id="cb390-10" title="10">)</a></code></pre></div>
 <p>And you want to calculate the mean for the <code>value</code> column for each one:</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" title="1"><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {</a>
-<a class="sourceLine" id="cb385-2" title="2">  <span class="kw">mean</span>(df<span class="op">$</span>value)</a>
-<a class="sourceLine" id="cb385-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" title="1"><span class="cf">for</span> (df <span class="cf">in</span> dataframe_list) {</a>
+<a class="sourceLine" id="cb391-2" title="2">  <span class="kw">mean</span>(df<span class="op">$</span>value)</a>
+<a class="sourceLine" id="cb391-3" title="3">}</a></code></pre></div>
 <p>Or, if we refer back to our <a href="#example-answer">function example</a> from the Functions chapter, we could apply our function to each dataset to get a normal distribution for each. Rather than just printing those numbers, we’ll also construct a list to store the output:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" title="1">output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb386-2" title="2"><span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {</a>
-<a class="sourceLine" id="cb386-3" title="3">  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</a>
-<a class="sourceLine" id="cb386-4" title="4">}</a>
-<a class="sourceLine" id="cb386-5" title="5"><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## [1] 11.156972  9.703139 10.080896  9.625482  9.216716</code></pre>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" title="1">output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb392-2" title="2"><span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dataframe_list)) {</a>
+<a class="sourceLine" id="cb392-3" title="3">  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</a>
+<a class="sourceLine" id="cb392-4" title="4">}</a>
+<a class="sourceLine" id="cb392-5" title="5"><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## [1] 10.058089 11.650418 10.286035 11.560104  9.916808</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
 Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
@@ -361,11 +361,11 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <div id="while-loops" class="section level3">
 <h3><span class="header-section-number">16.1.2</span> While loops</h3>
 <p>While loops are closely related to for loops. Instead of looping through an object or through the indices of an object, a while loop runs when a criteria is fulfilled:</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" title="1">x &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb388-2" title="2"><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {</a>
-<a class="sourceLine" id="cb388-3" title="3">  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb388-4" title="4">  <span class="kw">print</span>(x)</a>
-<a class="sourceLine" id="cb388-5" title="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" title="1">x &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb394-2" title="2"><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {</a>
+<a class="sourceLine" id="cb394-3" title="3">  x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb394-4" title="4">  <span class="kw">print</span>(x)</a>
+<a class="sourceLine" id="cb394-5" title="5">}</a></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2</code></pre>
 </div>
@@ -374,18 +374,18 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <h2><span class="header-section-number">16.2</span> Declarative and functional programming</h2>
 <p>For loops and its derivatives are very powerful, but they are arguably less important in functional languages like R than they are in other languages purely imperative languages like C and Python.</p>
 <p>Instead, within R we can leverage functions to wrap the loops. This means that we can spend less time writing exactly how something should be done and focus on what we want out of it. By using functions to move away from writing out for loops, we start to shift paradigms from the <em>imperative</em> to the <em>declarative</em>. With imperative programming, you define <em>how</em> things should happen. With declarative programming, you focus more on the <em>what</em> you want to happen. For example, let’s look back at our <code>dataframe_list</code> example. We can turn our loop into a function that we can call whenever we have a list of dataframes:</p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" title="1">norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {</a>
-<a class="sourceLine" id="cb390-2" title="2">  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb390-3" title="3">  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {</a>
-<a class="sourceLine" id="cb390-4" title="4">    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)</a>
-<a class="sourceLine" id="cb390-5" title="5">  }</a>
-<a class="sourceLine" id="cb390-6" title="6">  output_list</a>
-<a class="sourceLine" id="cb390-7" title="7">}</a>
-<a class="sourceLine" id="cb390-8" title="8"></a>
-<a class="sourceLine" id="cb390-9" title="9"><span class="kw">head</span>(</a>
-<a class="sourceLine" id="cb390-10" title="10">  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></a>
-<a class="sourceLine" id="cb390-11" title="11">)</a></code></pre></div>
-<pre><code>## [1] 10.32109</code></pre>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" title="1">norm_dists &lt;-<span class="st"> </span><span class="cf">function</span>(dfs, <span class="dt">column =</span> <span class="st">&quot;value&quot;</span>) {</a>
+<a class="sourceLine" id="cb396-2" title="2">  output_list &lt;-<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb396-3" title="3">  <span class="cf">for</span> (df <span class="cf">in</span> <span class="kw">seq_along</span>(dfs)) {</a>
+<a class="sourceLine" id="cb396-4" title="4">    output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dfs[[df]], column)</a>
+<a class="sourceLine" id="cb396-5" title="5">  }</a>
+<a class="sourceLine" id="cb396-6" title="6">  output_list</a>
+<a class="sourceLine" id="cb396-7" title="7">}</a>
+<a class="sourceLine" id="cb396-8" title="8"></a>
+<a class="sourceLine" id="cb396-9" title="9"><span class="kw">head</span>(</a>
+<a class="sourceLine" id="cb396-10" title="10">  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></a>
+<a class="sourceLine" id="cb396-11" title="11">)</a></code></pre></div>
+<pre><code>## [1] 8.634822</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. We don’t need to write a new for loop for our new datasets, we can just apply them to our function. We’ve moved from the imperative (exactly what should happen to calculate each distribution) to the declarative (give me the normal distribution and I’m not bothered how you do it). Although we haven’t actually changed how the normal distribution is created, we have changed how we get that distribution.</p>
 <p>Declarative programming in R is very closely related to the idea of vectorized functions, which we looked at the in <a href="functions-teachers.html#vectorised-functions">Functions</a>. Vectorised functions abstract away the complexities of writing imperative code but they still utilise control stuctures at their core.</p>
 <div id="declarative-vs-imperative" class="section level3">
@@ -398,13 +398,13 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <p>Because of its importance in R, applying multiple values to the same function and keeping track of the output has bred its own functions and methodology. More specifically, it’s led to the development of the <code>apply</code> set of functions. These act as syntactic sugar to decrease the number of for loops present in your code*.</p>
 <p>* A common argument is that <code>apply</code> functions are faster than for loops. Generally speaking, this is not true. Most times the function is just an implementation of a for loop at its core, meaning the <code>apply</code> functions aren’t more efficient or faster. Instead, the benefit comes from the readability and cleanliness of the code.</p>
 <p>We’ve already seen an example of the <code>lapply</code> (list-apply) function in <a href="functions-teachers.html#functions-as-objects">action</a>, but lets do another one. Let’s say we have a list of vectors containing numbers and we want the maximum for each.</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" title="1">number_list &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb392-2" title="2">  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb392-3" title="3">  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb392-4" title="4">  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb392-5" title="5">)</a></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" title="1">number_list &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb398-2" title="2">  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb398-3" title="3">  <span class="kw">c</span>(<span class="dv">500</span>,<span class="dv">250</span>,<span class="dv">100</span>,<span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb398-4" title="4">  <span class="kw">c</span>(<span class="dv">1000</span>,<span class="dv">1001</span>,<span class="dv">1001</span>,<span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb398-5" title="5">)</a></code></pre></div>
 <p>We can apply the <code>max()</code> function to each item in our list:</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" title="1"><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1"><span class="kw">lapply</span>(number_list, <span class="dt">FUN =</span> max)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 4
 ## 
@@ -415,7 +415,7 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 ## [1] 1001</code></pre>
 <p>As you can see, this is much shorter than writing out a for loop to acheive the same goal.</p>
 <p>Another function is the <code>apply</code> family is <code>sapply()</code> that will attempt to simplify its output. Using the previous example and the <code>sapply()</code> function, we get a vector instead of a list:</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1"><span class="kw">sapply</span>(number_list, <span class="dt">FUN =</span> max)</a></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1"><span class="kw">sapply</span>(number_list, <span class="dt">FUN =</span> max)</a></code></pre></div>
 <pre><code>## [1]    4  500 1001</code></pre>
 <p>The <code>FUN</code> parameter for this set of functions accepts any function object (including anonymous functions), meaning that we can apply any function we like to each item in our list.</p>
 </div>

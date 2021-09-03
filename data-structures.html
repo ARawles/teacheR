@@ -317,16 +317,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Vectors are simple arrays of data in a single dimension. You can think of vectors as a like a very simple list. For instance, you can store the numbers 1 to 10 in a vector. Or each word in a string of text could be stored in a vector.</p>
 <p>One of the main things to remember about vectors however, is that they are atomic. That’s basically a fancy word to mean that each value in a vector must be a single unit. For instance, the number <code>1</code> is a single unit. But a vector containing all the numbers between 1 and 10 is not. This is in direct contrast to lists, which are recursive, and we’ll look at those next.</p>
 <p>To create a vector, we use the <code>c()</code> function, which is short for concatenate. In other words, we’re pulling together lots of different values and concatenating them into one structure.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 <p>Technically speaking, even single values are stored as a vector in R, they just have length one. That’s why if you type <code>is(1)</code>, the second things that pops up after “numeric” is “vector”. R is telling us that <code>1</code> is a number and that it’s also a vector.</p>
 <div id="coercion" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Coercion</h3>
 <p>All the values in a vector must be of the same type (e.g. character, numeric, etc.). If you try and create a vector with different data types in it, you’ll see that all the values will be coerced to the same type. This is because the type of a vector is stored at the structure level (i.e., what type is the vector?), not at the individual level (i.e. what type is the value in the vector?). Let’s look at an example:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;1&quot;     &quot;hello&quot;</code></pre>
 <p>You can see that both values get coerced to character strings. If we try:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" title="1"><span class="kw">c</span>(1L, <span class="fl">1.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">c</span>(1L, <span class="fl">1.5</span>)</a></code></pre></div>
 <pre><code>## [1] 1.0 1.5</code></pre>
 <p>We see that our integer (<code>1L</code>) becomes a double.</p>
 <p>This is related to the concept of <a href="data-types.html#implicit-conversion"><strong>implicit conversion</strong></a> in R. Roughly speaking, all of the values in your vector will get coerced to the most <em>complex</em> type.</p>
@@ -334,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="naming" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Naming</h3>
 <p>You can name the values in a vector. To give a value a name, you can simply provide one with a <code>=</code> sign when you create your vector:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" title="1"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" title="1"><span class="kw">c</span>(<span class="dt">this_is_the_first_value =</span> <span class="dv">1</span>, <span class="dt">this_is_the_second_value =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  this_is_the_first_value this_is_the_second_value 
 ##                        1                        2</code></pre>
 </div>
@@ -350,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Lists do not have to be made up of values of the same type.</li>
 </ul>
 <p>So for instance, whilst a vector must always be the same, like <code>c(1,2,3)</code>, we could have a list that looks like this:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" title="1"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>, <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;hello&quot;</span>, <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -360,10 +360,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [[3]]
 ## [1] TRUE</code></pre>
 <p>As you just saw, we create lists using the <code>list()</code> function, and providing names is done the same way as it is for vectors:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb165-2" title="2">  <span class="dt">first_value =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb165-3" title="3">  <span class="dt">second_value =</span> <span class="st">&quot;hello&quot;</span></a>
-<a class="sourceLine" id="cb165-4" title="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb171-2" title="2">  <span class="dt">first_value =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb171-3" title="3">  <span class="dt">second_value =</span> <span class="st">&quot;hello&quot;</span></a>
+<a class="sourceLine" id="cb171-4" title="4">)</a></code></pre></div>
 <pre><code>## $first_value
 ## [1] 1
 ## 
@@ -376,8 +376,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I appreciate that this answer isn’t particularly satisfactory, so let me give a real life example of when I’ve used each.</p>
 <p><u>Vector</u></p>
 <p>I was recently producing a simulation that I needed to run multiple times with a different value each time. The value itself was a single number ranging between 1 and 30. So I used a vector like so:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" title="1">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)</a>
-<a class="sourceLine" id="cb167-2" title="2"><span class="co"># this is just shorthand for saying &quot;all of the numbers from 1 to 30&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1">my_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb173-2" title="2"><span class="co"># this is just shorthand for saying &quot;all of the numbers from 1 to 30&quot;</span></a></code></pre></div>
 <p>So when I ran my simulation, I had all the values I wanted to run it for in a single structure.</p>
 <p><u>List</u></p>
 <p>When doing data modelling, it can sometimes be helpful to create and evaluate multiple models. One way of doing that is to create multiple models and assign them to different variables:</p>
@@ -391,17 +391,17 @@ model3 &lt;- model(...)</code></pre>
 <h2><span class="header-section-number">7.4</span> Matrices</h2>
 <p>Unlike vectors, matrices are 2 dimensional. In fact, matrices resemble something a bit like a watered down version of a spreadsheet or table.</p>
 <p>I say watered down, because matrices can only contain values of the same type. In fact, a matrix is really just a vector in 2D. For example, if I had a vector of the numbers 1 to 10, I could easily convert it into a matrix just by setting what I wanted the dimensions to be with the <code>dim()</code> function like so:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" title="1">im_gunna_be_a_matrix &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb169-2" title="2"><span class="kw">dim</span>(im_gunna_be_a_matrix) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb169-3" title="3">im_gunna_be_a_matrix</a></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1">im_gunna_be_a_matrix &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb175-2" title="2"><span class="kw">dim</span>(im_gunna_be_a_matrix) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb175-3" title="3">im_gunna_be_a_matrix</a></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5]
 ## [1,]    1    3    5    7    9
 ## [2,]    2    4    6    8   10</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" title="1"><span class="kw">is</span>(im_gunna_be_a_matrix)</a></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1"><span class="kw">is</span>(im_gunna_be_a_matrix)</a></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot;    &quot;array&quot;     &quot;structure&quot; &quot;vector&quot;</code></pre>
 <p>Matrices aren’t really designed for storing complex datasets. Instead, matrices are an efficient way of storing and performing matrix mathematics on sets of numbers.</p>
 <p>Creating a matrix is easy. You can give a vector dimensions like we did above, or you can use the <code>matrix()</code> function. We provide the values we want to put into the matrix, and how many rows and columns they should be split into:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1"><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    3
 ## [2,]    2    4</code></pre>
@@ -411,22 +411,22 @@ model3 &lt;- model(...)</code></pre>
 <h2><span class="header-section-number">7.5</span> Dataframes</h2>
 <p>Dataframes are the more typical dataset storage medium. They can have columns of different types (although all of types within a column need to be the same), and they resemble more of an Excel spreadsheet or table than matrices do.</p>
 <p>To create a dataframe, we use the <code>data.frame()</code> function. To this function, we provide our values as columns:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" title="1"><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb175-2" title="2">           <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="st">&quot;howsitgoing&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" title="1"><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb181-2" title="2">           <span class="dt">col_2 =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>, <span class="st">&quot;howsitgoing&quot;</span>))</a></code></pre></div>
 <pre><code>##   col_1       col_2
 ## 1     1       hello
 ## 2     2       world
 ## 3     3 howsitgoing</code></pre>
 <p>More specifically, R stores dataframes as essentially a list of lists, with each list representing a different column. It’s <em>a tiny</em> bit like the relationship between vectors and matrices; matrices are built on vectors and dataframes are built on lists. To demonstrate this, when we type…</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" title="1"><span class="kw">is</span>(<span class="kw">data.frame</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" title="1"><span class="kw">is</span>(<span class="kw">data.frame</span>())</a></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot; &quot;list&quot;       &quot;oldClass&quot;   &quot;vector&quot;</code></pre>
 <p>The second value in the returned vector is <code>list</code>.</p>
 <p>So at it’s heart, a dataframe is a list, and each column within a dataframe is also a list. Why is that useful to know? Well, for one, this should make things make a bit more sense when we move onto <a href="subsetting.html#dataframes-1">subsetting</a>. Secondly, when you start to move onto more complicated analysis, you can utilise the features of a list to create datasets that wouldn’t be possible in something like Excel. For instance, we know that we can store models in a list. Well, let’s say we had a dataset that had data for lots of different countries and we wanted to create a separate model for each country. We could have a dataset that had the country in one column and then the model in another:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" title="1"><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb179-2" title="2">  <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),</a>
-<a class="sourceLine" id="cb179-3" title="3">  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...)))</a>
-<a class="sourceLine" id="cb179-4" title="4">  <span class="co"># The I() just tells R to leave it as a list</span></a>
-<a class="sourceLine" id="cb179-5" title="5">)</a></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" title="1"><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb185-2" title="2">  <span class="dt">country =</span> <span class="kw">c</span>(<span class="st">&quot;England&quot;</span>, <span class="st">&quot;Spain&quot;</span>, <span class="st">&quot;France&quot;</span>),</a>
+<a class="sourceLine" id="cb185-3" title="3">  <span class="dt">model =</span>  <span class="kw">I</span>(<span class="kw">list</span>(<span class="kw">model</span>(...), <span class="kw">model</span>(...), <span class="kw">model</span>(...)))</a>
+<a class="sourceLine" id="cb185-4" title="4">  <span class="co"># The I() just tells R to leave it as a list</span></a>
+<a class="sourceLine" id="cb185-5" title="5">)</a></code></pre></div>
 <p>For now though, don’t worry too much about the internals. Just remember that data frames are the most flexible dataset storage medium and they’ll be what you do most of your analysis with. And if you can remember that each column is technically a list, then you’re ahead of the game.</p>
 </div>
 <div id="questions-data-structures" class="section level2">
