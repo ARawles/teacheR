@@ -170,7 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
-<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixctlt"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct/lt)</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="data-types.html"><a href="data-types.html#posixct-posixlt"><i class="fa fa-check"></i><b>6.7.1</b> POSIXct &amp; POSIXlt</a></li>
+</ul></li>
 <li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a><ul>
 <li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
 <li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
@@ -311,15 +313,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.1</span> Environment basics</h2>
 <p>At its core, an environment is a collection of objects. A bit like a list, environments store multiple objects in a single structure.</p>
 <p>To create a new environment, we use the <code>new.env()</code> function.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1">new_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">new_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a></code></pre></div>
 <p>To add items to our environment, we can add them like we would a list using the <code>$</code> operator:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1">new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;hello&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1">new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;hello&quot;</span></a></code></pre></div>
 <p>To list all of the objects in an environment, we use the <code>ls()</code> function:</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1"><span class="kw">ls</span>(new_env)</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" title="1"><span class="kw">ls</span>(new_env)</a></code></pre></div>
 <pre><code>## [1] &quot;first_object&quot;</code></pre>
 <p>Importantly, you can’t have two objects in the same environment with the same name. If you try, you’ll just overwrite the previous value:</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1">new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;world&quot;</span></a>
-<a class="sourceLine" id="cb293-2" title="2">new_env<span class="op">$</span>first_object</a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" title="1">new_env<span class="op">$</span>first_object &lt;-<span class="st"> &quot;world&quot;</span></a>
+<a class="sourceLine" id="cb297-2" title="2">new_env<span class="op">$</span>first_object</a></code></pre></div>
 <pre><code>## [1] &quot;world&quot;</code></pre>
 <div id="environment-inheritance" class="section level3">
 <h3><span class="header-section-number">12.1.1</span> Environment inheritance</h3>
@@ -327,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Every environment (with the exception of what we call the empty environment which is right at the top) has a parent. For example, when I created my <code>new_env</code> environment before, this was created in the <strong>global environment</strong>. The global environment is the environment that objects are assigned to when working in R interactively. The global environment’s parent environment will be the environment of the last package you loaded. Packages have environments to avoid name conflicts with functions and to help R know where to look for a function. These package environments will contain everything that the package developer included with the package (i.e. functions, maybe some datasets, etc.).</p>
 <p>At the top of the environments of packages you’ve loaded will be the <strong>base environment</strong> which is the environment of base R. Finally, the base environment’s parent is the <strong>empty environment</strong> which does not have a parent.</p>
 <p>The hierarchy of these environments looks like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-125"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-126"></span>
 <img src="diagrams/environments.png" alt="Environment hierarchy" width="50%" />
 <p class="caption">
 Figure 12.1: Environment hierarchy
@@ -341,7 +343,7 @@ Figure 12.1: Environment hierarchy
 <p>R will search for the object in order of environment, starting at the most specific environment (so the global environment in the above diagram) and moving up. For example, we know that there is a function in base R called <code>sum()</code>. But, if I define a new function in the global environment called <code>sum</code> then which function will be called when I type <code>sum(...)</code>. Well, because we know that the search path starts from the most specific environment, R will look for <code>sum</code> in the global environment first and it’ll find the <code>sum</code> that I’ve just defined. At this point, it’ll stop looking because <code>sum</code> has been found.</p>
 <p>For this reason, it’s a good idea to use a package like <code>conflicted</code> to manage the packages you loaded, otherwise which function you use when you have two functions with the same name from different packages will be defined by which one you loaded later.</p>
 <p>Alternatively, you can specific with which environment R should look for a particular function by prefixing the function with its package and <code>::</code>. For example, if I decided against my better judgement to define a function called <code>sum</code> in my environment, and then I wanted to call the base function, I could do so like this:</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" title="1">base<span class="op">::</span><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1">base<span class="op">::</span><span class="kw">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 <div id="function-environments" class="section level2">
@@ -349,34 +351,34 @@ Figure 12.1: Environment hierarchy
 <p>Functions, when they are called, create their own more specific environment. The parent of this environment will be the environment in which it was called (most often this will be the global environment).</p>
 <p>This breeds some specific behaviours. For example, say you’ve written a function that expects two input parameters, <code>x</code> and <code>y</code>. Well, what would happen if someone had already defined an <code>x</code> and <code>y</code> variable in their script? Which value should R use?</p>
 <p>Let’s see what happens.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb297-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb297-3" title="3">}</a>
-<a class="sourceLine" id="cb297-4" title="4"></a>
-<a class="sourceLine" id="cb297-5" title="5">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb297-6" title="6">y &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb297-7" title="7"></a>
-<a class="sourceLine" id="cb297-8" title="8"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb301-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb301-3" title="3">}</a>
+<a class="sourceLine" id="cb301-4" title="4"></a>
+<a class="sourceLine" id="cb301-5" title="5">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb301-6" title="6">y &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb301-7" title="7"></a>
+<a class="sourceLine" id="cb301-8" title="8"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>In this case, the fact that there is already an <code>x</code> and <code>y</code> in the global environment doesn’t really make much difference. The function creates its own more specific environment when it’s called, and it looks for the <code>x</code> and <code>y</code> variables in here first. It finds them and uses those values (1 and 2).</p>
 <p>But what happens if a variable doesn’t exist in the more specific function environment? Let’s take a look.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb299-2" title="2">  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w</a>
-<a class="sourceLine" id="cb299-3" title="3">}</a>
-<a class="sourceLine" id="cb299-4" title="4"></a>
-<a class="sourceLine" id="cb299-5" title="5">w &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb299-6" title="6"></a>
-<a class="sourceLine" id="cb299-7" title="7"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb303-2" title="2">  x <span class="op">+</span><span class="st"> </span>y <span class="op">+</span><span class="st"> </span>w</a>
+<a class="sourceLine" id="cb303-3" title="3">}</a>
+<a class="sourceLine" id="cb303-4" title="4"></a>
+<a class="sourceLine" id="cb303-5" title="5">w &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb303-6" title="6"></a>
+<a class="sourceLine" id="cb303-7" title="7"><span class="kw">sum_custom</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>In this case, the function looks in the specific environment for <code>w</code>, but it doesn’t exist. The only objects that exist in the function environment are the <code>x</code> and <code>y</code> that we’ve provided. So when R doesn’t find it in the more specific environment, it looks in the less-specific global environment. It finds it, and so it uses the value it finds.</p>
 <p>This can be a dangerous thing, so always make sure that you’re function is accessing the values you think it is.</p>
 <p>So does R work the other way? Does it ever look in a more specific environment? Nope.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb301-2" title="2">  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb301-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb301-4" title="4">}</a>
-<a class="sourceLine" id="cb301-5" title="5"></a>
-<a class="sourceLine" id="cb301-6" title="6">im_a_sneaky_variable</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb305-2" title="2">  im_a_sneaky_variable &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb305-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb305-4" title="4">}</a>
+<a class="sourceLine" id="cb305-5" title="5"></a>
+<a class="sourceLine" id="cb305-6" title="6">im_a_sneaky_variable</a></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;im_a_sneaky_variable&#39; not found</code></pre>
 <p>Once the function is called, objects in its environment are inaccessible. The long and short of it is, R will start from specific environments and then look upwards, never downwards.</p>
 <div id="mutability" class="section level3">
@@ -384,48 +386,48 @@ Figure 12.1: Environment hierarchy
 <p>Linked with the idea of function environments is mutability. An object is either mutable or immutable. If it is mutable, then it can be edited from within a function environment. If an object is immutable, then it can’t. This might seem like an arbitrary distinction, but it has important consequences. If an object is mutable, then calling the same function on that object twice in a row is going to provide different results (because the object will have changed after the first call). If an object is immutable, then calling the same function on the same object will always return the same value.</p>
 <p>In R, values are immutable. In other words, when you pass an object to a function, that function operates on a <strong>copy</strong> of the object you provided - the object is not changed in place.</p>
 <p>You can replace the value you passed to the function by assigning it to the returned value:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb303-2" title="2">x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" title="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb307-2" title="2">x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <p>But this hasn’t changed the original value of <code>x</code>. It’s actually just changed the binded value - you’ve created a new one and told <code>x</code> to be of that value now, you haven’t changed the original value.</p>
 <p>For the most, this exact distinction isn’t too important. The important thing to remember is that when you pass an object to a function, <strong>you are operating on a copy of the object, not the original</strong>.</p>
 </div>
 <div id="super-assignment" class="section level3">
 <h3><span class="header-section-number">12.3.2</span> ‘Super’ assignment</h3>
 <p>There will be occasions, however, when you need to make changes to the global environment regardless of what environment you are currently in. For instance, say you want to increment a counter every time a function is called, regardless of where it’s called from. In these cases, you can use the <code>&lt;&lt;-</code> operator. This is used as an assignment operator to assign a value to the global environment. Observe…</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
-<a class="sourceLine" id="cb304-2" title="2">  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb304-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb304-4" title="4">}</a>
-<a class="sourceLine" id="cb304-5" title="5"></a>
-<a class="sourceLine" id="cb304-6" title="6">count &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb304-7" title="7"></a>
-<a class="sourceLine" id="cb304-8" title="8"><span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">sum_custom &lt;-<span class="st"> </span><span class="cf">function</span>(x,y) {</a>
+<a class="sourceLine" id="cb308-2" title="2">  count &lt;&lt;-<span class="st"> </span>count <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb308-3" title="3">  x <span class="op">+</span><span class="st"> </span>y</a>
+<a class="sourceLine" id="cb308-4" title="4">}</a>
+<a class="sourceLine" id="cb308-5" title="5"></a>
+<a class="sourceLine" id="cb308-6" title="6">count &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb308-7" title="7"></a>
+<a class="sourceLine" id="cb308-8" title="8"><span class="kw">sum_custom</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" title="1">count</a></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## [1] 5</code></pre>
 <div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" title="1">count</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1"><span class="kw">sum_custom</span>(<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1">count</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Note how when we assign <code>0</code> to our <code>count</code> variable outside of the function, we don’t need to use <code>&lt;&lt;-</code>. This is because we’re already assigning to the global environment.</p>
 <p>More specifically, the <code>&lt;&lt;-</code> operator will search through the parent environments for the variable that its assigning. If it finds the variable in one of these environments, then it will replace the existing definition with the one specified via the <code>&lt;&lt;-</code>. Let’s do a quick example to show how that works:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" title="1">overwrite_me &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb312-2" title="2">parent_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
-<a class="sourceLine" id="cb312-3" title="3">parent_env<span class="op">$</span>overwrite_me &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb312-4" title="4"></a>
-<a class="sourceLine" id="cb312-5" title="5">child_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
-<a class="sourceLine" id="cb312-6" title="6"><span class="kw">parent.env</span>(child_env) &lt;-<span class="st"> </span>parent_env</a>
-<a class="sourceLine" id="cb312-7" title="7"></a>
-<a class="sourceLine" id="cb312-8" title="8">overwrite_function  &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
-<a class="sourceLine" id="cb312-9" title="9">  overwrite_me &lt;&lt;-<span class="st"> </span>overwrite_me <span class="op">+</span><span class="st"> </span><span class="dv">1</span>  </a>
-<a class="sourceLine" id="cb312-10" title="10">}</a>
-<a class="sourceLine" id="cb312-11" title="11"><span class="kw">environment</span>(overwrite_function) &lt;-<span class="st"> </span>child_env</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" title="1">overwrite_me &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb316-2" title="2">parent_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
+<a class="sourceLine" id="cb316-3" title="3">parent_env<span class="op">$</span>overwrite_me &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb316-4" title="4"></a>
+<a class="sourceLine" id="cb316-5" title="5">child_env &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
+<a class="sourceLine" id="cb316-6" title="6"><span class="kw">parent.env</span>(child_env) &lt;-<span class="st"> </span>parent_env</a>
+<a class="sourceLine" id="cb316-7" title="7"></a>
+<a class="sourceLine" id="cb316-8" title="8">overwrite_function  &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb316-9" title="9">  overwrite_me &lt;&lt;-<span class="st"> </span>overwrite_me <span class="op">+</span><span class="st"> </span><span class="dv">1</span>  </a>
+<a class="sourceLine" id="cb316-10" title="10">}</a>
+<a class="sourceLine" id="cb316-11" title="11"><span class="kw">environment</span>(overwrite_function) &lt;-<span class="st"> </span>child_env</a></code></pre></div>
 <p>Here we’ve first created a variable in the global environment called <code>overwrite_me</code> with a value of 10. Then we’ve created a new environment that will be a child of the global environment called <code>parent_env</code>. We’ve assigned a variable called <code>overwrite_me</code> in that environment with a value of 1. We’ve then created a new child environment called <code>child_env</code> and we’ve set that environment to be a child environment of <code>parent_env</code>. Finally we’ve created a function called <code>overwrite_function</code> and set the enclosing environment (its path for finding values) to the <code>child_env</code>.</p>
 <p>Now, when I call my <code>overwrite_function</code> from the <code>child_env</code>, it will look in its parent environments for a variable called <code>overwrite_me</code>. Because that variable exists in the immediate parent environment <code>parent_env</code>, it will reassign that variable in that environment to the new value. Because it found the variable in its first parent environment, it won’t keep looking and so the variable of the same name that we assigned in the global environment will be untouched.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" title="1"><span class="kw">do.call</span>(overwrite_function, <span class="dt">args =</span> <span class="kw">list</span>(), <span class="dt">envir =</span> child_env)</a>
-<a class="sourceLine" id="cb313-2" title="2">overwrite_me <span class="co"># This will still be 10</span></a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" title="1"><span class="kw">do.call</span>(overwrite_function, <span class="dt">args =</span> <span class="kw">list</span>(), <span class="dt">envir =</span> child_env)</a>
+<a class="sourceLine" id="cb317-2" title="2">overwrite_me <span class="co"># This will still be 10</span></a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" title="1">parent_env<span class="op">$</span>overwrite_me <span class="co"># This will have changed</span></a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" title="1">parent_env<span class="op">$</span>overwrite_me <span class="co"># This will have changed</span></a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>If <code>overwrite_me</code> didn’t exist in either environment, then it would have been assigned to the global environment - although in this case, the function would have failed because there wouldn’t have been a <code>overwrite_me</code> value to add to in the first place.</p>
 <p>The takeaway - use the <code>&lt;&lt;-</code> with care and only assign something to the global environment if you really need to. Otherwise, you may start overwriting variables in other environments without ever realising it.</p>

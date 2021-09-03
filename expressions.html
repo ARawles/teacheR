@@ -170,7 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
-<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixct"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct)</a></li>
+<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixctlt"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct/lt)</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="data-types.html"><a href="data-types.html#posixct-posixlt"><i class="fa fa-check"></i><b>6.7.1</b> POSIXct &amp; POSIXlt</a></li>
+</ul></li>
 <li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a><ul>
 <li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
 <li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
@@ -310,43 +312,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.1</span> Creating expressions</h2>
 <p>Creating an expression (an unevaluated piece of code) is done in base R using the <code>quote()</code> function. Unfortunately, the <code>expression()</code> function in R doesn’t actually create an expression in the sense we’re talking about, so use <code>quote()</code> instead.</p>
 <p>When creating single line expressions, you can just provide the expression directly within the <code>quote()</code> function:</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" title="1"><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1"><span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## x + 10</code></pre>
 <p>When providing multiple line expressions, wrap the argument in <code>{}</code> like this:</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" title="1"><span class="kw">quote</span>({</a>
-<a class="sourceLine" id="cb352-2" title="2">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb352-3" title="3">  y <span class="op">-</span><span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb352-4" title="4">})</a></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1"><span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb356-2" title="2">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb356-3" title="3">  y <span class="op">-</span><span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb356-4" title="4">})</a></code></pre></div>
 <pre><code>## {
 ##     x + 10
 ##     y - 5
 ## }</code></pre>
 <p>Unfortunately, testing whether something is an expression in R isn’t that easy, because the base R functions are made for the constituent parts of the expression (e.g. <code>is.call()</code>, <code>is.name()</code>, etc.). Instead, you can use the <code>is_expression()</code> function from the <code>rlang</code> package to test whether something is an expression:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1">rlang<span class="op">::</span><span class="kw">is_expression</span>(</a>
-<a class="sourceLine" id="cb354-2" title="2">  <span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb354-3" title="3">)</a></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1">rlang<span class="op">::</span><span class="kw">is_expression</span>(</a>
+<a class="sourceLine" id="cb358-2" title="2">  <span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb358-3" title="3">)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="evaluating-expressions" class="section level2">
 <h2><span class="header-section-number">14.2</span> Evaluating expressions</h2>
 <p>Once you’ve created your expression, you can evaluate it using the <code>eval()</code> function:</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb356-2" title="2"><span class="kw">eval</span>(my_expr)</a></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb360-2" title="2"><span class="kw">eval</span>(my_expr)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Of course in this example, this is essentially just the same as <code>1 + 1</code> as we’re evaluating the expression in the same environment in which it was created. However, the <code>eval()</code> function accepts an <code>envir</code> parameter where you can pass an environment for the expression to be evaluated in:</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1">new_environ &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
-<a class="sourceLine" id="cb358-2" title="2">new_environ<span class="op">$</span>num &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb358-3" title="3">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(num <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb358-4" title="4"><span class="kw">eval</span>(my_expr) <span class="co"># this will error because num doesn&#39;t exist in our parent environment</span></a></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1">new_environ &lt;-<span class="st"> </span><span class="kw">new.env</span>()</a>
+<a class="sourceLine" id="cb362-2" title="2">new_environ<span class="op">$</span>num &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb362-3" title="3">my_expr &lt;-<span class="st"> </span><span class="kw">quote</span>(num <span class="op">+</span><span class="st"> </span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb362-4" title="4"><span class="kw">eval</span>(my_expr) <span class="co"># this will error because num doesn&#39;t exist in our parent environment</span></a></code></pre></div>
 <pre><code>## Error in eval(my_expr): object &#39;num&#39; not found</code></pre>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1"><span class="kw">eval</span>(my_expr, new_environ) <span class="co"># this won&#39;t error because num exists in new_environ</span></a></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1"><span class="kw">eval</span>(my_expr, new_environ) <span class="co"># this won&#39;t error because num exists in new_environ</span></a></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <p>Using this, you can create expressions in one environment without evaluating them, and then evaluate them later in different environments to where they were created.</p>
 </div>
 <div id="substitution" class="section level2">
 <h2><span class="header-section-number">14.3</span> Substitution</h2>
 <p>As well as hard coding in the objects and names in our expression, we can substitute in values from our environment. For example, lets say we wanted to create an <code>x &lt;- y + 1</code> expression, but we wanted to change what the value of <code>y</code> was when we created it. We could acheive this by using the <code>substitute()</code> function. <code>substitute()</code> requires two parameters, <code>expr</code> which must be an expression, and <code>env</code> which must be an environment or a list and contains the objects you want to substitute.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1"><span class="kw">substitute</span>(x &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="kw">list</span>(<span class="dt">y =</span> <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1"><span class="kw">substitute</span>(x &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="kw">list</span>(<span class="dt">y =</span> <span class="dv">1</span>))</a></code></pre></div>
 <pre><code>## x &lt;- 1 + 1</code></pre>
 <p>As you can see, this doesn’t <em>evaluate</em> the expression, it simple substitutes the provided names with the values provided in the <code>env</code> parameter. This can be a really powerful tool for building up expressions.</p>
 </div>
@@ -354,8 +356,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.4</span> Quasiquotation</h2>
 <p>A related subject to expressions and substitution is the idea of <strong>quasiquotation</strong>, used heavily in the <code>tidyverse</code> packages. Quasiquotation is the process of quoting (creating expressions) and unquoting (evaluating) parts of that expression.</p>
 <p>A good example of quasiquotation in action is the <code>dplyr</code> package. Within the <code>dplyr</code> package functions, you’ll provide column names to various analysis and data manipulation functions. When you provide those names however, you provide them as raw names (i.e. not in quotation marks): <code>dplyr::mutate(data, new_column = old_column + 1)</code>. Those column names are then quoted (as in <code>quote()</code>) and then evaluated in the context of the dataset that you’ve provided:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1">test_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb364-2" title="2"><span class="kw">eval</span>(<span class="kw">quote</span>(col_<span class="dv">1</span>), <span class="dt">env =</span> test_df)</a></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1">test_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col_1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb368-2" title="2"><span class="kw">eval</span>(<span class="kw">quote</span>(col_<span class="dv">1</span>), <span class="dt">env =</span> test_df)</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>I won’t go into quasiquotation here because <a href="https://adv-r.hadley.nz/quasiquotation.html">Hadley’s chapters on the subject</a> in his Advanced R book summarises the topic much better than I ever could. But if you’re interested, I would recommend using the <code>tidyverse</code> packages and trying to understand how quoting and unquoting has been implemented in those packages. If you can get your head round it and even implement similar ideas in your own projects, you can greatly expand your flexibility and efficiency.</p>
 </div>
@@ -365,15 +367,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.</li>
 <li>What’s the difference between</li>
 </ol>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1"><span class="kw">quote</span>({</a>
-<a class="sourceLine" id="cb366-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb366-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb366-4" title="4">})</a></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" title="1"><span class="kw">quote</span>({</a>
+<a class="sourceLine" id="cb370-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb370-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb370-4" title="4">})</a></code></pre></div>
 <p>and</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb367-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb367-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb367-4" title="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" title="1"><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb371-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb371-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb371-4" title="4">)</a></code></pre></div>
 <p>Why do they evaluate to different things?</p>
 
 </div>
