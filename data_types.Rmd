@@ -30,7 +30,7 @@ The main different data types are:
 * factors
 * dates
     + 2019-06-01
-* datetime (POSIXct)
+* datetime (POSIXct/POSIXlt)
     + 2019-06-01 12:00:00
 
 
@@ -213,21 +213,39 @@ as.Date(18262, origin = as.Date("01/01/1970", format = "%d/%m/%Y"))
 
 but where's the humanity in that?
 
-Testing whether something is a date is not as simple as the other data types unfortunately. Instead, we just use the `is()` or `class()` functions. If the first value returned is "Date", then you know it's a date:
+Testing whether something is a date is not as simple as the other data types unfortunately. Instead, can use the `inherits` function and ask if it inherits the class `date`:
+
+```{r}
+inherits(as.Date("2020/01/01"), 'Date')
+```
+Or can use the `is()` or `class()` functions. If the first value returned is "Date", then you know it's a date:
 
 ```{r}
 is(as.Date("2020/01/01"))
 class(as.Date("2020/01/01"))
 ```
 
-## Datetimes (POSIXct)
+## Datetimes (POSIXct/lt)
 
 If you thought dates were annoying, datetimes are like dates' little brother who didn't get enough attention as a child and so acts up all the time.
-One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
+One of the reasons for this is that datetimes aren't actually called datetimes. They're called POSIXct or POSIXlt (depending on how the date is stored internally) in R. So whenever you see that dreadful word, just remember "ah, Adam told me that means datetime" and you'll be fine.
 
 Another thing that makes datetimes tough is that in addition to dates, datetimes (as you may have guessed) also store the time. The issue with that is that time is a more relative concept - there are lots of different time zones, so how do you know which one you're referring to? By default, R has a locale for where you currently are and will use that location for your timezone. You override that default using the `Sys.setlocale()` function, or you can use the `tz` parameter when creating your datetime as we'll see below.
 
-With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` function instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. One important departure from dates though, is that now our origin is in seconds, not days, to allow us to calculate the time.
+### POSIXct & POSIXlt
+
+These two data types both store the same thing; dates and times. But there's a couple of differences in how they do it.
+
+Starting with POSIXct, the "ct" stands for "calendar time". The POSIXct datatype stores the number of seconds since the origin (just like our dates are stored as the number of days since an origin).
+
+For POSIXlt, the "lt" stands for "local time". Instead of storing the datetime as the number of seconds since a point in time, POSIXlt stores datetimes as a list of time attributes, like "year", "month", "day", "minute", "second", etc.
+
+Ultimately, they both store the same information. I personally use POSIXct when converting to/from datetimes, but it shouldn't make a great deal of difference which one you choose as the differences are just how R stores the value internally.
+
+**Note:**
+While the "ls" in POSIXlt __categorically does not stand for "list time"__, thinking about the POSIXlt datatype as being like a "list time" can be useful in remembering how the POSIXct and POSIXlt objects differ in how they represent datetimes; POSIXlt stores a 'list' of attributes, POSIXct doesn't.
+
+With these annoyances aside however, creating datetimes isn't all that different to creating dates except that we use the `as.POSIXct()` or `as.POSIXct()` functions instead. We just provide a character string (with a `format` specification if necessary), or a number with an origin. Remember though that now our difference from the origin should be in seconds, not days.
 
 ```{r}
 as.POSIXct("2020/01/01 12:00:00")
@@ -236,9 +254,10 @@ as.POSIXct(1577880000, origin = "1970/01/01")
 ```
 
 
-Similar to dates, there is no `as.POSIXct()` function in base R, so we use the `is()` and `class()` functions instead:
+Similar to dates, there is no `is.POSIXct()` function in base R, so we use the `inherits()` or `is()` and `class()` functions instead:
 
 ```{r}
+inherits(as.POSIXct("2020/01/01 12:00:00"), "POSIXct")
 is(as.POSIXct("2020/01/01 12:00:00"))
 class(as.POSIXct("2020/01/01 12:00:00"))
 ```
