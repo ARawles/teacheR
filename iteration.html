@@ -353,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb392-3" title="3">  output_list[[df]] &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataframe_list[[df]], <span class="st">&quot;value&quot;</span>)</a>
 <a class="sourceLine" id="cb392-4" title="4">}</a>
 <a class="sourceLine" id="cb392-5" title="5"><span class="kw">head</span>(output_list[[<span class="dv">1</span>]], <span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## [1] 10.003720 11.407529  9.630733  9.893856 11.228733</code></pre>
+<pre><code>## [1] 11.508570 10.816492  8.488806  8.914503  9.101349</code></pre>
 <p>In this case, rather than looping through the <em>values</em> in the <code>dataframe_list</code> list, we’re looping through the <em>indices</em> using <code>seq_along()</code>. <code>seq_along()</code> just creates a vector with all the indices in. So for a list with two values in it, this is <em>almost</em> equivalent to <code>1:2</code>.
 Using the <code>seq_along()</code> approach lets us keep track of where we are in the <code>dataframe_list</code>, as we know exactly how many times the loop as run at any given time, so we can assign the output to the right position in <code>output_list</code>.</p>
 <p><strong>Note:</strong> If you can avoid expanding a list (i.e. increasing the size of a list by one everytime to add to it), then this is preferable. However, for very small lists, expanding a list rather than pre-defining its size and filling those values isn’t really a big deal.</p>
@@ -385,7 +385,7 @@ Using the <code>seq_along()</code> approach lets us keep track of where we are i
 <a class="sourceLine" id="cb396-9" title="9"><span class="kw">head</span>(</a>
 <a class="sourceLine" id="cb396-10" title="10">  <span class="kw">norm_dists</span>(dataframe_list)[[<span class="dv">1</span>]], <span class="dv">1</span></a>
 <a class="sourceLine" id="cb396-11" title="11">)</a></code></pre></div>
-<pre><code>## [1] 9.511291</code></pre>
+<pre><code>## [1] 10.0918</code></pre>
 <p>Now, whenever we have a list of dataframes we can just use our <code>norm_dists()</code> function and provide the column name to the <code>column</code> parameter. We don’t need to write a new for loop for our new datasets, we can just apply them to our function. We’ve moved from the imperative (exactly what should happen to calculate each distribution) to the declarative (give me the normal distribution and I’m not bothered how you do it). Although we haven’t actually changed how the normal distribution is created, we have changed how we get that distribution.</p>
 <p>Declarative programming in R is very closely related to the idea of vectorized functions, which we looked at the in <a href="functions-teachers.html#vectorised-functions">Functions</a>. Vectorised functions abstract away the complexities of writing imperative code but they still utilise control stuctures at their core.</p>
 <div id="declarative-vs-imperative" class="section level3">
