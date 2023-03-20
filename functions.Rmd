@@ -36,7 +36,7 @@ When you call a function, there's an input, something happens, and there's an ou
 
 ## Functions in R
 
-So more specifically, what do functions looks like in R? Well, a good starting point is that when we call (use) a function, its almost always followed by brackets (`()`) when you use them. This helps make it clear what values you're providing as your inputs. For example, the `c()` function, the `data.frame()` function, the `sum()` function are all followed by `()`, which is how you provide your inputs.
+So more specifically, what do functions look like in R? Well, a good starting point is that when we call (use) a function, we provide the name and it's almost always followed by brackets (`()`). This helps make it clear what values you're providing as your inputs to the function.
 
 I say that nearly almost all functions are followed by `()`, because some aren't. A simple example of this is `+`. `+` is still a function:
 
@@ -106,7 +106,7 @@ Optional parameters are easily distinguished in the documentation of a function 
 
 For instance, when we create a vector using the `c()` function, there are two optional parameters (`recursive` and `use.names`) that already have the values `TRUE` and `FALSE` assigned to them. To override these defaults, we just need to provide a new value to the parameter like this:
 ```{r}
-c(1,10,15, use.names = FALSE)
+c('one'=1,'ten'=10,'fifteen'=15, use.names = FALSE)
 ```
 
 Values without default values are often called *required parameters*. This is a bit of a misnomer because there will be instances where you won't provide a value to these parameters and the function will work just fine. This is down to two things that we'll look at in the For Teachers section: lazy evaluation and the `missing()` function. Most developers try and stay away from having required parameters that aren't actually required, but you'll still see them around (e.g. you can use the `download.file()` function without providing a value to the `method` parameter even though it doesn't have a default value.

@@ -79,11 +79,9 @@ And in a roundabout way, that is part of the reason I decided to develop these m
 
 The only final note I have before we start learning how to use R is another bit of advice:
 
-**Don't believe everything you read**
+**Make bad things before you make good things**.
 
-Whilst this is probably a good thing to keep in mind for any type of training, I feel it's particularly relevant with R for two reasons. Firstly, when it comes to programming languages, lots of people have opinions. Some are true, most are not. Most things you read are a mix between fact and opinion, so take everything with a pinch of salt. For example, the developers of the `ggplot2` package are fervently against arbitrary second axes and so support for them in `ggplot2` is limited. I also share this view, but that doesn't mean that I'm right - read, learn, but question and make your own mind up.
-
-Secondly, R and particularly all of its packages are prone to change. For this reason, people may make statements relative to one version of R that aren't necessarily true in the future. Things have changed over the years, and so answers from a 10 year-old Stack Overflow question may not still be true when you come across them. A microcosmic version of this are some recent changes in the `tidyr` package. Historically, converting data from/to long and short formats was done using the `spread()` and `gather()` functions. However, in newer releases, these functions are deprecated in favour of `pivot_wider()` and `pivot_longer()`, which provide the same functionality but also some extra bits. The practical implication of this suggestion is don't always read one tutorial on a subject before you dive in.
+By this, I mean that not everything you do will be a work of art and that's okay. Perfectionism is the enemy of progress and often the best way to write code is write something bad at first and then improve it bit by bit. When I look back to code that I wrote when I first started R, it's a symphony of repitition, a lack of abstraction and terrible variable names. And as bad as it hurts my eyes when I look back at it, I love it. Because it's a signal that I didn't let embarassment or imposter syndrome get the better of me - I tried my best and got stuck in and now I can look back and know I've improved my R skills. So don't be scared or embarassed when you code - write bad things, look for improvements and advice and make it better.
 
 ## Why teacheR?
 

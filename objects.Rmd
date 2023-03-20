@@ -99,7 +99,7 @@ If an object inherits multiple classes, then R will look for the correct method 
 
 While you can often tell if something is an S3 method by it being a generic followed by a `.` and then an object name, don't rely on this, because people often use `.` to separate words in functions that can make them look like S3 methods when they're not. 
 
-**Note:** In some languages, methods are essentially functions or sub-routines that are tied to a class. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account, like this: `Account.Balance()`. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
+**Note:** In some object-oriented languages, methods are functions or sub-routines that are tied to a class similar to attributes. For instance, a class that represents a person's bank account might have the method `Balance()`, which will return how much money a person has in their account, like this: `Account.Balance()`. There are certainly some similarities between how methods are used in R and some other languages, they are a bit different. Mainly, in R, methods are not attributes of a class but are separate functions.
 
 ## Creating classes
 
