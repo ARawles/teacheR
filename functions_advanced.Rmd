@@ -57,7 +57,7 @@ Creating functions will also highlight an important delineation. Previously, we'
 
 ### Function structure
 
-If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the `function` keyword like this:
+If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to a variable with the `function` keyword like this:
 
 ```{r}
 my_first_function <- function() {}
@@ -124,9 +124,6 @@ greet_me("wassup") # This will error because 1 wasn't an options for y
 You'll notice a crucial distinction between R's `sum()` function and ours. The base function allows for an indeterminate number of input parameters, whereas we've only allowed 2 (`x` and `y`). This is because the base `sum()` function uses a `...`. This `...` is essentially shorthand for "as many or as few inputs as the user wants to provide". To use the `...`, just add it as in an input parameter:
 ```{r,eval=FALSE}
 dot_dot_dot_function <- function(...) {
-  .
-  .
-  .
 }
 ```
 
@@ -208,7 +205,7 @@ As I mentioned in the "For Students" section, functions have a single return val
 You can also be explicit with your return values by using the `return()` function. The `return()` function will return whatever is provided to the `return()` function. This can be useful if you want to return a value prematurely:
 
 ```{r}
-early_return_function <- function(x,y, return_x  = TRUE) {
+early_return_function <- function(x, y, return_x  = TRUE) {
   if (return_x) {
     return(x)
   }
