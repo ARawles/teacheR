@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>11 Functions | teacheR</title>
   <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="11 Functions | teacheR" />
   <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="cover.png" />
+  <meta property="og:image" content="/cover.png" />
   <meta property="og:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="github-repo" content="ARawles/teacheR" />
 
@@ -19,7 +18,7 @@
   <meta name="twitter:title" content="11 Functions | teacheR" />
   
   <meta name="twitter:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
-  <meta name="twitter:image" content="cover.png" />
+  <meta name="twitter:image" content="/cover.png" />
 
 <meta name="author" content="Adam Rawles" />
 
@@ -32,7 +31,8 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="for-teachers-intro.html"/>
 <link rel="next" href="environments.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,29 +48,33 @@
 
 
 
-
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,6 +118,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -126,67 +131,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
 <li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
 <li class="chapter" data-level="3" data-path="for-students-intro.html"><a href="for-students-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
-<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>4.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>4.2</b> Logical operators</a></li>
 <li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>4.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a><ul>
+<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>5.1</b> Creating variables</a></li>
-<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a><ul>
+<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#valid-names"><i class="fa fa-check"></i><b>5.2.1</b> Valid names</a></li>
 <li class="chapter" data-level="5.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming-conventions"><i class="fa fa-check"></i><b>5.2.2</b> Naming conventions</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>5.3</b> Reassigning variables</a></li>
 <li class="chapter" data-level="5.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>5.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a><ul>
+<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>6.1</b> Logical</a></li>
 <li class="chapter" data-level="6.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>6.2</b> Double</a></li>
 <li class="chapter" data-level="6.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>6.3</b> Integer</a></li>
 <li class="chapter" data-level="6.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>6.4</b> Character</a></li>
-<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a><ul>
+<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
-<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixctlt"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct/lt)</a><ul>
+<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixctlt"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct/lt)</a>
+<ul>
 <li class="chapter" data-level="6.7.1" data-path="data-types.html"><a href="data-types.html#posixct-posixlt"><i class="fa fa-check"></i><b>6.7.1</b> POSIXct &amp; POSIXlt</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a><ul>
+<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a>
+<ul>
 <li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
 <li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>6.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a><ul>
+<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a>
+<ul>
 <li class="chapter" data-level="6.10.1" data-path="data-types.html"><a href="data-types.html#dangers-of-implicit-conversion"><i class="fa fa-check"></i><b>6.10.1</b> Dangers of implicit conversion</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>6.11</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a><ul>
-<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a><ul>
+<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures.html"><a href="data-structures.html#coercion"><i class="fa fa-check"></i><b>7.1.1</b> Coercion</a></li>
-<li class="chapter" data-level="7.1.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures.html"><a href="data-structures.html#naming-1"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
 <li class="chapter" data-level="7.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>7.3</b> Lists vs Vectors</a></li>
@@ -194,28 +214,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
 <li class="chapter" data-level="7.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>7.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a><ul>
-<li class="chapter" data-level="8.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
-<li class="chapter" data-level="8.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
-<li class="chapter" data-level="8.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
-<li class="chapter" data-level="8.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
+<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
+<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
 <li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>8.5</b> Subsetting by criteria</a></li>
 <li class="chapter" data-level="8.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>8.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a><ul>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>9.1</b> Functions in R</a></li>
-<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a><ul>
+<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="functions.html"><a href="functions.html#explicit-input-parameters"><i class="fa fa-check"></i><b>9.2.1</b> Explicit input parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a><ul>
+<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="functions.html"><a href="functions.html#reassigning-outputs"><i class="fa fa-check"></i><b>9.3.1</b> Reassigning outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>9.4</b> Questions</a></li>
 </ul></li>
 <li class="part"><span><b>II For Teachers</b></span></li>
 <li class="chapter" data-level="10" data-path="for-teachers-intro.html"><a href="for-teachers-intro.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
-<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a><ul>
-<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a><ul>
+<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#function-structure"><i class="fa fa-check"></i><b>11.1.1</b> Function structure</a></li>
 <li class="chapter" data-level="11.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-parameters"><i class="fa fa-check"></i><b>11.1.2</b> Input Parameters</a></li>
 <li class="chapter" data-level="11.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#return-values"><i class="fa fa-check"></i><b>11.1.3</b> Return values</a></li>
@@ -223,30 +249,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="functions-teachers.html"><a href="functions-teachers.html#example-function"><i class="fa fa-check"></i><b>11.2</b> Example function</a></li>
 <li class="chapter" data-level="11.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>11.3</b> Functions as objects</a></li>
 <li class="chapter" data-level="11.4" data-path="functions-teachers.html"><a href="functions-teachers.html#anonymous-functions"><i class="fa fa-check"></i><b>11.4</b> Anonymous functions</a></li>
-<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a><ul>
+<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a>
+<ul>
 <li class="chapter" data-level="11.5.1" data-path="functions-teachers.html"><a href="functions-teachers.html#recycling"><i class="fa fa-check"></i><b>11.5.1</b> Recycling</a></li>
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>11.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a><ul>
-<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a><ul>
+<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a>
+<ul>
 <li class="chapter" data-level="12.1.1" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>12.1.1</b> Environment inheritance</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
-<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
+<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
 <li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>13.1</b> What is a class?</a></li>
 <li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>13.2</b> What is an object?</a></li>
-<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.3</b> Objects and Classes in R</a><ul>
+<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.3</b> Objects and Classes in R</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>13.3.1</b> Inheritance</a></li>
 <li class="chapter" data-level="13.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>13.3.2</b> Object-Oriented Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.4</b> Creating classes</a><ul>
+<li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.4</b> Creating classes</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#class-attribute"><i class="fa fa-check"></i><b>13.4.1</b> Class attribute</a></li>
 <li class="chapter" data-level="13.4.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor-functions"><i class="fa fa-check"></i><b>13.4.2</b> Constructor functions</a></li>
 <li class="chapter" data-level="13.4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-methods"><i class="fa fa-check"></i><b>13.4.3</b> Creating methods</a></li>
@@ -254,35 +287,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>13.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a><ul>
+<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>14.1</b> Creating expressions</a></li>
 <li class="chapter" data-level="14.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>14.2</b> Evaluating expressions</a></li>
 <li class="chapter" data-level="14.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>14.3</b> Substitution</a></li>
 <li class="chapter" data-level="14.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>14.4</b> Quasiquotation</a></li>
 <li class="chapter" data-level="14.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>14.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a><ul>
+<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="if-else.html"><a href="if-else.html#structure"><i class="fa fa-check"></i><b>15.1</b> Structure</a></li>
 <li class="chapter" data-level="15.2" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>15.2</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a><ul>
-<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a><ul>
+<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a>
+<ul>
 <li class="chapter" data-level="16.1.1" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>16.1.1</b> For loops</a></li>
 <li class="chapter" data-level="16.1.2" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>16.1.2</b> While loops</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a><ul>
+<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a>
+<ul>
 <li class="chapter" data-level="16.2.1" data-path="iteration.html"><a href="iteration.html#declarative-vs-imperative"><i class="fa fa-check"></i><b>16.2.1</b> Declarative vs Imperative</a></li>
 <li class="chapter" data-level="16.2.2" data-path="iteration.html"><a href="iteration.html#applying-functions"><i class="fa fa-check"></i><b>16.2.2</b> Applying functions</a></li>
 <li class="chapter" data-level="16.2.3" data-path="iteration.html"><a href="iteration.html#purrr"><i class="fa fa-check"></i><b>16.2.3</b> purrr</a></li>
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>16.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a><ul>
-<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a><ul>
+<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a>
+<ul>
 <li class="chapter" data-level="17.1.1" data-path="summary.html"><a href="summary.html#for-students"><i class="fa fa-check"></i><b>17.1.1</b> For Students</a></li>
 <li class="chapter" data-level="17.1.2" data-path="summary.html"><a href="summary.html#for-teachers"><i class="fa fa-check"></i><b>17.1.2</b> For Teachers</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a><ul>
+<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="summary.html"><a href="summary.html#operate"><i class="fa fa-check"></i><b>17.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
@@ -303,188 +344,185 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="functions-teachers" class="section level1">
-<h1><span class="header-section-number">11</span> Functions</h1>
+<div id="functions-teachers" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Functions<a href="functions-teachers.html#functions-teachers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In the “For Students” section, we looked at what a function is and how to use one. In this section, we’re going to look more at the structure of a function and how you might go about writing your own functions.</p>
 <p>When you start writing our own functions, you’ll start to see a massive improvement in your efficiency. By extracting out common tasks to functions and by keeping your functions simple, you can easily expand and debug your project. A rough rule of thumb is that if you’ve copied some code more than twice, think about extracting it out to a function.</p>
 <p>Let’s take a look at an example of where it may be appropriate to shorten your workflow by using a function. Let’s say you’ve got 2 datasets, and you want to get the standard deviation and mean of one column and then create a normal distribution based on those values:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" title="1">dataset1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb250-2" title="2">  <span class="dt">observation_number =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb250-3" title="3">  <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">35</span>,<span class="dv">13</span>,<span class="dv">20</span>,<span class="dv">40</span>)</a>
-<a class="sourceLine" id="cb250-4" title="4">)</a>
-<a class="sourceLine" id="cb250-5" title="5">dataset2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb250-6" title="6">  <span class="dt">observation_number =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb250-7" title="7">  <span class="dt">income =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>,<span class="dv">600</span>,<span class="dv">900</span>)</a>
-<a class="sourceLine" id="cb250-8" title="8">)</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="functions-teachers.html#cb250-1" aria-hidden="true"></a>dataset1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb250-2"><a href="functions-teachers.html#cb250-2" aria-hidden="true"></a>  <span class="dt">observation_number =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
+<span id="cb250-3"><a href="functions-teachers.html#cb250-3" aria-hidden="true"></a>  <span class="dt">value =</span> <span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">35</span>,<span class="dv">13</span>,<span class="dv">20</span>,<span class="dv">40</span>)</span>
+<span id="cb250-4"><a href="functions-teachers.html#cb250-4" aria-hidden="true"></a>)</span>
+<span id="cb250-5"><a href="functions-teachers.html#cb250-5" aria-hidden="true"></a>dataset2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb250-6"><a href="functions-teachers.html#cb250-6" aria-hidden="true"></a>  <span class="dt">observation_number =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
+<span id="cb250-7"><a href="functions-teachers.html#cb250-7" aria-hidden="true"></a>  <span class="dt">income =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">150</span>,<span class="dv">600</span>,<span class="dv">900</span>)</span>
+<span id="cb250-8"><a href="functions-teachers.html#cb250-8" aria-hidden="true"></a>)</span></code></pre></div>
 <p>Without using functions, our workflow might look like this:</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" title="1">mean_ds1 &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset1<span class="op">$</span>value)</a>
-<a class="sourceLine" id="cb251-2" title="2">sd_ds1 &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset1<span class="op">$</span>value)</a>
-<a class="sourceLine" id="cb251-3" title="3">normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dt">mean =</span> mean_ds1, <span class="dt">sd =</span> sd_ds1)</a>
-<a class="sourceLine" id="cb251-4" title="4"></a>
-<a class="sourceLine" id="cb251-5" title="5">mean_ds2 &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset2<span class="op">$</span>income)</a>
-<a class="sourceLine" id="cb251-6" title="6">sd_ds2 &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset2<span class="op">$</span>income)</a>
-<a class="sourceLine" id="cb251-7" title="7">normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dt">mean =</span> mean_ds2, <span class="dt">sd =</span> sd_ds2)</a></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="functions-teachers.html#cb251-1" aria-hidden="true"></a>mean_ds1 &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset1<span class="op">$</span>value)</span>
+<span id="cb251-2"><a href="functions-teachers.html#cb251-2" aria-hidden="true"></a>sd_ds1 &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset1<span class="op">$</span>value)</span>
+<span id="cb251-3"><a href="functions-teachers.html#cb251-3" aria-hidden="true"></a>normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dt">mean =</span> mean_ds1, <span class="dt">sd =</span> sd_ds1)</span>
+<span id="cb251-4"><a href="functions-teachers.html#cb251-4" aria-hidden="true"></a></span>
+<span id="cb251-5"><a href="functions-teachers.html#cb251-5" aria-hidden="true"></a>mean_ds2 &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset2<span class="op">$</span>income)</span>
+<span id="cb251-6"><a href="functions-teachers.html#cb251-6" aria-hidden="true"></a>sd_ds2 &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset2<span class="op">$</span>income)</span>
+<span id="cb251-7"><a href="functions-teachers.html#cb251-7" aria-hidden="true"></a>normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dt">mean =</span> mean_ds2, <span class="dt">sd =</span> sd_ds2)</span></code></pre></div>
 <p>This isn’t too bad, but what if we wanted to add another dataset? We’d have to copy and paste the code yet again. Then, say we wanted not to use the mean but the median, we’d have to replace each call to the <code>mean()</code> function with <code>median()</code> in each block of code.</p>
 <p>If we extract out the commonalities to a function, then not only do we reduce the amount of code we’re using, but this also makes future changes or fixes much easier.</p>
 <p>We’ll look more specifically out how we create functions in the next few sections, but for now let’s imagine what we’d want our function to look like.
 It’d need to calculate the mean and standard deviation of a column, but that column name or position in the dataframe might change - the column is called ‘value’ in the first dataset but is called ‘income’ in the second, and even though they’re both the second column in the dataset, we don’t want to rely on that in case we have a new dataset where the column we want to use isn’t in that position.</p>
 <p>Let’s revisit this once we understand how we create functions in R a bit better. If you’re comfortable with creating functions in R, then you can skip to the <a href="functions-teachers.html#example-function">solution</a>.</p>
-<div id="creating-functions" class="section level2">
-<h2><span class="header-section-number">11.1</span> Creating functions</h2>
+<div id="creating-functions" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Creating functions<a href="functions-teachers.html#creating-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R and its packages give you access to hundreds of thousands of different functions, all tailored to perform a particular task. Despite this wide array to choose from however, they will always be cases where there isn’t a function to do exactly what you need to do. For those of you coming over from Excel, this can often be a serious source of frustration where there isn’t an Excel function for you to use and there isn’t an easy way to create one without knowing VBA.</p>
 <p>R is different. Creating functions can be very simple and will really change the way you work.</p>
 <p>Creating functions will also highlight an important delineation. Previously, we’ve been focusing on <em>calling</em> functions. Calling a function is essentially using it. But in order to call a function, it needs to be <em>defined</em>. Base functions are already defined (i.e. someone has already written what the function is going to do), but when you’re creating your own functions, you are <em>defining</em> a new function that you’re presumably going to call later on.</p>
-<div id="function-structure" class="section level3">
-<h3><span class="header-section-number">11.1.1</span> Function structure</h3>
-<p>If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to an object with the <code>function</code> keyword like this:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" title="1">my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</a></code></pre></div>
+<div id="function-structure" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Function structure<a href="functions-teachers.html#function-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If we go back to the beginning of this chapter, we learned that everything that exists is an object. Functions are no exception, and so we create them like we do all our other objects. There is a slight diversion however. When we define a function, we assign it to a variable with the <code>function</code> keyword like this:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="functions-teachers.html#cb252-1" aria-hidden="true"></a>my_first_function &lt;-<span class="st"> </span><span class="cf">function</span>() {}</span></code></pre></div>
 <p>Notice how we’ve got two sets of brackets here. The first (<code>()</code>) is where we define our input parameters. The second (<code>{}</code>) is where we define the body of our function.</p>
 <p>Let’s do a simple example. Let’s create a function that adds two numbers together:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" title="1">my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb253-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb253-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="functions-teachers.html#cb253-1" aria-hidden="true"></a>my_sum_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb253-2"><a href="functions-teachers.html#cb253-2" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb253-3"><a href="functions-teachers.html#cb253-3" aria-hidden="true"></a>}</span></code></pre></div>
 <p>So in this example, I’ve defined that when anyone uses the function, they need to provide two input parameters named <code>x</code> and <code>y</code>. Something that people tend to struggle with is that the names of your input parameters have no real <em>meaning</em>. They are just used to reference the value provided in the body of the function and, hopefully, make it clear what kind of thing the user of the function should be providing. This is why in some functions that require a dataframe there will be an input parameter called <code>df</code> or similar. It can suggest at a glance that the value required for that parameter is a data frame. But just calling it <code>df</code> alone has no impact.</p>
 <p>In the body of the function, we can see that we’re just doing something really simple: we’re adding <code>x</code> and <code>y</code> together with <code>+</code>.</p>
 <p>Once I’ve run the code to <strong>define</strong> my function, I can then <strong>call</strong> it like I would any other function:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" title="1"><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="functions-teachers.html#cb254-1" aria-hidden="true"></a><span class="kw">my_sum_function</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 </div>
-<div id="input-parameters" class="section level3">
-<h3><span class="header-section-number">11.1.2</span> Input Parameters</h3>
-<div id="optional-input-parameters" class="section level4">
-<h4><span class="header-section-number">11.1.2.1</span> Optional input parameters</h4>
+<div id="input-parameters" class="section level3 hasAnchor" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Input Parameters<a href="functions-teachers.html#input-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="optional-input-parameters-1" class="section level4 hasAnchor" number="11.1.2.1">
+<h4><span class="header-section-number">11.1.2.1</span> Optional input parameters<a href="functions-teachers.html#optional-input-parameters-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When defining your function, you can define optional parameters. These will likely be values where most of the time you need it to be one thing, but there are edge cases where you need it to be something else. Defining optional parameters is really easy; whenever you define your function, just give it a value and that will be its default:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" title="1">add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){</a>
-<a class="sourceLine" id="cb256-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb256-3" title="3">}</a>
-<a class="sourceLine" id="cb256-4" title="4"></a>
-<a class="sourceLine" id="cb256-5" title="5"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions-teachers.html#cb256-1" aria-hidden="true"></a>add_mostly_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">y =</span> <span class="dv">2</span>){</span>
+<span id="cb256-2"><a href="functions-teachers.html#cb256-2" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb256-3"><a href="functions-teachers.html#cb256-3" aria-hidden="true"></a>}</span>
+<span id="cb256-4"><a href="functions-teachers.html#cb256-4" aria-hidden="true"></a></span>
+<span id="cb256-5"><a href="functions-teachers.html#cb256-5" aria-hidden="true"></a><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="functions-teachers.html#cb258-1" aria-hidden="true"></a><span class="kw">add_mostly_2</span>(<span class="dt">x =</span> <span class="dv">5</span>, <span class="dt">y =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>Sometimes you’ll want to provide users with a set of options. To do so, provide a default value of a vector and use the <code>match.arg()</code> function like this:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1">greet_me &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">greeting =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;welcome&quot;</span>)) {</a>
-<a class="sourceLine" id="cb260-2" title="2">  greeting &lt;-<span class="st"> </span><span class="kw">match.arg</span>(greeting)</a>
-<a class="sourceLine" id="cb260-3" title="3">  greeting</a>
-<a class="sourceLine" id="cb260-4" title="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="functions-teachers.html#cb260-1" aria-hidden="true"></a>greet_me &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">greeting =</span> <span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;welcome&quot;</span>)) {</span>
+<span id="cb260-2"><a href="functions-teachers.html#cb260-2" aria-hidden="true"></a>  greeting &lt;-<span class="st"> </span><span class="kw">match.arg</span>(greeting)</span>
+<span id="cb260-3"><a href="functions-teachers.html#cb260-3" aria-hidden="true"></a>  greeting</span>
+<span id="cb260-4"><a href="functions-teachers.html#cb260-4" aria-hidden="true"></a>}</span></code></pre></div>
 <p>This will ensure that users of the function can only provide one of the values in the vector. If they use the default, then the first value in the vector will be used:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" title="1"><span class="kw">greet_me</span>(<span class="st">&quot;welcome&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="functions-teachers.html#cb261-1" aria-hidden="true"></a><span class="kw">greet_me</span>(<span class="st">&quot;welcome&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;welcome&quot;</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="kw">greet_me</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="functions-teachers.html#cb263-1" aria-hidden="true"></a><span class="kw">greet_me</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;hello&quot;</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" title="1"><span class="kw">greet_me</span>(<span class="st">&quot;wassup&quot;</span>) <span class="co"># This will error because 1 wasn&#39;t an options for y</span></a></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="functions-teachers.html#cb265-1" aria-hidden="true"></a><span class="kw">greet_me</span>(<span class="st">&quot;wassup&quot;</span>) <span class="co"># This will error because 1 wasn&#39;t an options for y</span></span></code></pre></div>
 <pre><code>## Error in match.arg(greeting): &#39;arg&#39; should be one of &quot;hello&quot;, &quot;welcome&quot;</code></pre>
 <p><strong>Note:</strong> The <code>match.arg()</code> function only works with character vectors.</p>
 </div>
-<div id="section" class="section level4">
-<h4><span class="header-section-number">11.1.2.2</span> …</h4>
+<div id="section-1" class="section level4 hasAnchor" number="11.1.2.2">
+<h4><span class="header-section-number">11.1.2.2</span> …<a href="functions-teachers.html#section-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You’ll notice a crucial distinction between R’s <code>sum()</code> function and ours. The base function allows for an indeterminate number of input parameters, whereas we’ve only allowed 2 (<code>x</code> and <code>y</code>). This is because the base <code>sum()</code> function uses a <code>...</code>. This <code>...</code> is essentially shorthand for “as many or as few inputs as the user wants to provide”. To use the <code>...</code>, just add it as in an input parameter:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" title="1">dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(...) {</a>
-<a class="sourceLine" id="cb267-2" title="2">  .</a>
-<a class="sourceLine" id="cb267-3" title="3">  .</a>
-<a class="sourceLine" id="cb267-4" title="4">  .</a>
-<a class="sourceLine" id="cb267-5" title="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="functions-teachers.html#cb267-1" aria-hidden="true"></a>dot_dot_dot_function &lt;-<span class="st"> </span><span class="cf">function</span>(...) {</span>
+<span id="cb267-2"><a href="functions-teachers.html#cb267-2" aria-hidden="true"></a>}</span></code></pre></div>
 <p>The <code>...</code> works particularly well when you might be creating a function that <em>wraps</em> around another one. A wrapping function is just a function that makes a call to another one within it, like this:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1">sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){</a>
-<a class="sourceLine" id="cb268-2" title="2">  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb268-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="functions-teachers.html#cb268-1" aria-hidden="true"></a>sum_and_add_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="cf">function</span>(...){</span>
+<span id="cb268-2"><a href="functions-teachers.html#cb268-2" aria-hidden="true"></a>  <span class="kw">sum</span>(...) <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb268-3"><a href="functions-teachers.html#cb268-3" aria-hidden="true"></a>}</span></code></pre></div>
 <p>All we’re basically doing in the above wrapping around the <code>sum()</code> function to add some specific functionality.</p>
 <p>By using the <code>...</code> here, we can just pass everything that the user provides to the <code>sum()</code> function. This means we don’t have to worry about copying any input parameters.</p>
 </div>
-<div id="input-validation" class="section level4">
-<h4><span class="header-section-number">11.1.2.3</span> Input validation</h4>
+<div id="input-validation" class="section level4 hasAnchor" number="11.1.2.3">
+<h4><span class="header-section-number">11.1.2.3</span> Input validation<a href="functions-teachers.html#input-validation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Unlike some other languages, functions do not have a specific data type tied to each input parameter. Any requirements that are imposed on an input parameter (e.g. it should be numeric) are done by the function creator in the body of the function. So for instance, when you try to sum character strings, the error you get occurs because of type-checking in the body of the function, not when you provide the input parameters.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1">function_without_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb269-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb269-3" title="3">}</a>
-<a class="sourceLine" id="cb269-4" title="4"><span class="kw">function_without_check</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="st">&quot;error for me please&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="functions-teachers.html#cb269-1" aria-hidden="true"></a>function_without_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb269-2"><a href="functions-teachers.html#cb269-2" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb269-3"><a href="functions-teachers.html#cb269-3" aria-hidden="true"></a>}</span>
+<span id="cb269-4"><a href="functions-teachers.html#cb269-4" aria-hidden="true"></a><span class="kw">function_without_check</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="st">&quot;error for me please&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in x + y: non-numeric argument to binary operator</code></pre>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1">function_with_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</a>
-<a class="sourceLine" id="cb271-2" title="2">  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.numeric</span>(x) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(y)) {</a>
-<a class="sourceLine" id="cb271-3" title="3">    <span class="kw">warning</span>(<span class="st">&quot;x or y isn&#39;t numeric. Returning NA&quot;</span>)</a>
-<a class="sourceLine" id="cb271-4" title="4">    <span class="ot">NA_integer_</span></a>
-<a class="sourceLine" id="cb271-5" title="5">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb271-6" title="6">    x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb271-7" title="7">  }</a>
-<a class="sourceLine" id="cb271-8" title="8">}</a>
-<a class="sourceLine" id="cb271-9" title="9"><span class="kw">function_with_check</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="st">&quot;warn me please&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="functions-teachers.html#cb271-1" aria-hidden="true"></a>function_with_check &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb271-2"><a href="functions-teachers.html#cb271-2" aria-hidden="true"></a>  <span class="cf">if</span> (<span class="op">!</span><span class="kw">is.numeric</span>(x) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.numeric</span>(y)) {</span>
+<span id="cb271-3"><a href="functions-teachers.html#cb271-3" aria-hidden="true"></a>    <span class="kw">warning</span>(<span class="st">&quot;x or y isn&#39;t numeric. Returning NA&quot;</span>)</span>
+<span id="cb271-4"><a href="functions-teachers.html#cb271-4" aria-hidden="true"></a>    <span class="ot">NA_integer_</span></span>
+<span id="cb271-5"><a href="functions-teachers.html#cb271-5" aria-hidden="true"></a>  } <span class="cf">else</span> {</span>
+<span id="cb271-6"><a href="functions-teachers.html#cb271-6" aria-hidden="true"></a>    x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb271-7"><a href="functions-teachers.html#cb271-7" aria-hidden="true"></a>  }</span>
+<span id="cb271-8"><a href="functions-teachers.html#cb271-8" aria-hidden="true"></a>}</span>
+<span id="cb271-9"><a href="functions-teachers.html#cb271-9" aria-hidden="true"></a><span class="kw">function_with_check</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="st">&quot;warn me please&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in function_with_check(x = 2, y = &quot;warn me please&quot;): x or y isn&#39;t
 ## numeric. Returning NA</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
-<div id="missing-inputs" class="section level4">
-<h4><span class="header-section-number">11.1.2.4</span> Missing Inputs</h4>
+<div id="missing-inputs" class="section level4 hasAnchor" number="11.1.2.4">
+<h4><span class="header-section-number">11.1.2.4</span> Missing Inputs<a href="functions-teachers.html#missing-inputs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When you’re defining your input parameters, you can define optional parameters (i.e. they have a default value), or required parameters (i.e. they don’t have a default value). However, these ‘required’ parameters aren’t really strictly required for two reasons that we’ll look at now.</p>
-<div id="lazy-evaluation" class="section level5">
-<h5><span class="header-section-number">11.1.2.4.1</span> Lazy evaluation</h5>
+<div id="lazy-evaluation" class="section level5 hasAnchor" number="11.1.2.4.1">
+<h5><span class="header-section-number">11.1.2.4.1</span> Lazy evaluation<a href="functions-teachers.html#lazy-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>What happens if you define a required input parameter (i.e. it doesn’t have a default value), but then you don’t use it? Do we see an error, or does R carry on like normal?</p>
 <p>Let’s have a look:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" title="1">use_me_please &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, w) {</a>
-<a class="sourceLine" id="cb274-2" title="2">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb274-3" title="3">}</a>
-<a class="sourceLine" id="cb274-4" title="4"></a>
-<a class="sourceLine" id="cb274-5" title="5"><span class="kw">use_me_please</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="functions-teachers.html#cb274-1" aria-hidden="true"></a>use_me_please &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, w) {</span>
+<span id="cb274-2"><a href="functions-teachers.html#cb274-2" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb274-3"><a href="functions-teachers.html#cb274-3" aria-hidden="true"></a>}</span>
+<span id="cb274-4"><a href="functions-teachers.html#cb274-4" aria-hidden="true"></a></span>
+<span id="cb274-5"><a href="functions-teachers.html#cb274-5" aria-hidden="true"></a><span class="kw">use_me_please</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>As you can see, we don’t get an error even though we didn’t define a value for <code>w</code>. This is due to something called <strong>lazy evaluation</strong>. Lazy evaluation just means that objects don’t get evaluated until they’re actually used. This is in contrast to strict or direct evaluation, in which objects are evaluated before they’re called. If R used strict evaluation, then we would get an error if we didn’t define <code>w</code>.</p>
 </div>
-<div id="missing" class="section level5">
-<h5><span class="header-section-number">11.1.2.4.2</span> <code>missing()</code></h5>
+<div id="missing" class="section level5 hasAnchor" number="11.1.2.4.2">
+<h5><span class="header-section-number">11.1.2.4.2</span> <code>missing()</code><a href="functions-teachers.html#missing" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Missing ‘required’ parameters can also be caught and handled using the <code>missing()</code> function. The <code>missing()</code> function will return a logical value defining whether the argument was provided with a value:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" title="1">missed_that_one &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb276-2" title="2">  <span class="kw">missing</span>(x)</a>
-<a class="sourceLine" id="cb276-3" title="3">}</a>
-<a class="sourceLine" id="cb276-4" title="4"><span class="kw">missed_that_one</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="functions-teachers.html#cb276-1" aria-hidden="true"></a>missed_that_one &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb276-2"><a href="functions-teachers.html#cb276-2" aria-hidden="true"></a>  <span class="kw">missing</span>(x)</span>
+<span id="cb276-3"><a href="functions-teachers.html#cb276-3" aria-hidden="true"></a>}</span>
+<span id="cb276-4"><a href="functions-teachers.html#cb276-4" aria-hidden="true"></a><span class="kw">missed_that_one</span>()</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" title="1"><span class="kw">missed_that_one</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="functions-teachers.html#cb278-1" aria-hidden="true"></a><span class="kw">missed_that_one</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>You can therefore use the <code>missing()</code> function to check if a parameter has been supplied and reassign a new value or handle any errors.</p>
 <p>Personally, I try and stay away from using this approach in my functions. By not providing a default value, a user will need to more closely read your documentation to know if they actually have to provide a value to your function. If instead you assign your parameter a default value (such as <code>NA</code> or <code>NULL</code>) however, then the user knows for sure that that parameter isn’t required for the function to work. Most developers nowadays take a similar approach - make a required parameter required when is it actually required - but this isn’t a universal practice so be aware.</p>
 </div>
 </div>
 </div>
-<div id="return-values" class="section level3">
-<h3><span class="header-section-number">11.1.3</span> Return values</h3>
+<div id="return-values" class="section level3 hasAnchor" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Return values<a href="functions-teachers.html#return-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As I mentioned in the “For Students” section, functions have a single return value. By default, a function will return the last evaluated object in the function environment. In our <code>my_sum_function</code> example, our last evaluation was <code>x + y</code>, so the output of that was what was returned by the function.</p>
 <p>You can also be explicit with your return values by using the <code>return()</code> function. The <code>return()</code> function will return whatever is provided to the <code>return()</code> function. This can be useful if you want to return a value prematurely:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" title="1">early_return_function &lt;-<span class="st"> </span><span class="cf">function</span>(x,y, <span class="dt">return_x  =</span> <span class="ot">TRUE</span>) {</a>
-<a class="sourceLine" id="cb280-2" title="2">  <span class="cf">if</span> (return_x) {</a>
-<a class="sourceLine" id="cb280-3" title="3">    <span class="kw">return</span>(x)</a>
-<a class="sourceLine" id="cb280-4" title="4">  }</a>
-<a class="sourceLine" id="cb280-5" title="5">  x <span class="op">+</span><span class="st"> </span>y</a>
-<a class="sourceLine" id="cb280-6" title="6">}</a>
-<a class="sourceLine" id="cb280-7" title="7"><span class="kw">early_return_function</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">10</span>, <span class="dt">return_x =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="functions-teachers.html#cb280-1" aria-hidden="true"></a>early_return_function &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, <span class="dt">return_x  =</span> <span class="ot">TRUE</span>) {</span>
+<span id="cb280-2"><a href="functions-teachers.html#cb280-2" aria-hidden="true"></a>  <span class="cf">if</span> (return_x) {</span>
+<span id="cb280-3"><a href="functions-teachers.html#cb280-3" aria-hidden="true"></a>    <span class="kw">return</span>(x)</span>
+<span id="cb280-4"><a href="functions-teachers.html#cb280-4" aria-hidden="true"></a>  }</span>
+<span id="cb280-5"><a href="functions-teachers.html#cb280-5" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span>y</span>
+<span id="cb280-6"><a href="functions-teachers.html#cb280-6" aria-hidden="true"></a>}</span>
+<span id="cb280-7"><a href="functions-teachers.html#cb280-7" aria-hidden="true"></a><span class="kw">early_return_function</span>(<span class="dt">x =</span> <span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">10</span>, <span class="dt">return_x =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Here, we can see more clearly that <code>x</code> is returned when <code>return_x</code> is TRUE and <code>x + y</code> is returned otherwise.</p>
 <p>Certain style guides suggest that you should <strong>only</strong> use <code>return()</code> statements for early returns. In other words, the “normal” return value for your function should be defined by what’s evaluated last. Personally, I think you should use whatever makes it clearer for you. I quite like seeing explicit <code>return()</code> values in a function because I find it makes it clearer what all the possible return values are, but this is just personal preference.</p>
 </div>
 </div>
-<div id="example-function" class="section level2">
-<h2><span class="header-section-number">11.2</span> Example function</h2>
+<div id="example-function" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Example function<a href="functions-teachers.html#example-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Going back to our <a href="functions-teachers">previous example</a> of when we might want to make a function, what might our function actually look like? Recapping, we know we need to calculate the mean and standard deviation of a column, but that the name of the column might change. Using what we’ve just learnt, let’s have a go:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1">create_norm_dist_from_column &lt;-<span class="st"> </span><span class="cf">function</span>(dataset, column_name, <span class="dt">n =</span> <span class="dv">1000</span>) {</a>
-<a class="sourceLine" id="cb282-2" title="2">  ds_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset[[column_name]])</a>
-<a class="sourceLine" id="cb282-3" title="3">  ds_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset[[column_name]])</a>
-<a class="sourceLine" id="cb282-4" title="4">  <span class="kw">rnorm</span>(<span class="dt">n =</span> n, <span class="dt">mean =</span> ds_mean, <span class="dt">sd =</span> ds_sd)</a>
-<a class="sourceLine" id="cb282-5" title="5">}</a>
-<a class="sourceLine" id="cb282-6" title="6"></a>
-<a class="sourceLine" id="cb282-7" title="7">normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset1, <span class="st">&quot;value&quot;</span>)</a>
-<a class="sourceLine" id="cb282-8" title="8">normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</a>
-<a class="sourceLine" id="cb282-9" title="9"></a>
-<a class="sourceLine" id="cb282-10" title="10"><span class="kw">head</span>(normal_dist_ds1, <span class="dv">5</span>)</a></code></pre></div>
-<pre><code>## [1] 40.080991 13.573489 13.585986 23.042996  3.011989</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="functions-teachers.html#cb282-1" aria-hidden="true"></a>create_norm_dist_from_column &lt;-<span class="st"> </span><span class="cf">function</span>(dataset, column_name, <span class="dt">n =</span> <span class="dv">1000</span>) {</span>
+<span id="cb282-2"><a href="functions-teachers.html#cb282-2" aria-hidden="true"></a>  ds_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(dataset[[column_name]])</span>
+<span id="cb282-3"><a href="functions-teachers.html#cb282-3" aria-hidden="true"></a>  ds_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(dataset[[column_name]])</span>
+<span id="cb282-4"><a href="functions-teachers.html#cb282-4" aria-hidden="true"></a>  <span class="kw">rnorm</span>(<span class="dt">n =</span> n, <span class="dt">mean =</span> ds_mean, <span class="dt">sd =</span> ds_sd)</span>
+<span id="cb282-5"><a href="functions-teachers.html#cb282-5" aria-hidden="true"></a>}</span>
+<span id="cb282-6"><a href="functions-teachers.html#cb282-6" aria-hidden="true"></a></span>
+<span id="cb282-7"><a href="functions-teachers.html#cb282-7" aria-hidden="true"></a>normal_dist_ds1 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset1, <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb282-8"><a href="functions-teachers.html#cb282-8" aria-hidden="true"></a>normal_dist_ds2 &lt;-<span class="st"> </span><span class="kw">create_norm_dist_from_column</span>(dataset2, <span class="st">&quot;income&quot;</span>)</span>
+<span id="cb282-9"><a href="functions-teachers.html#cb282-9" aria-hidden="true"></a></span>
+<span id="cb282-10"><a href="functions-teachers.html#cb282-10" aria-hidden="true"></a><span class="kw">head</span>(normal_dist_ds1, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 16.376354 24.470819 23.087688  3.975926 26.567582</code></pre>
 <p>Now, instead of copying the code each time we need it, we’ve extracted the common computations to a function and then we call the function where we need. Hopefully this demonstrates the logic behind why functions can be so useful.</p>
 <p>This is an example of the concept of abstraction, which is a common theme in programming. If you’re interested in learning more about abstraction, the <a href="https://operate.arawles.co.uk">opeRate</a> book that I wrote to turn the understanding you’ve hopefully built up over this book into actual data analysis skills looks at abstraction in more detail.</p>
 </div>
-<div id="functions-as-objects" class="section level2">
-<h2><span class="header-section-number">11.3</span> Functions as objects</h2>
+<div id="functions-as-objects" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Functions as objects<a href="functions-teachers.html#functions-as-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Functions are technically just another object. This means that you can use functions like you would any other object. For instance, some functions will accept other functions as an input parameter. When we move onto the <code>apply</code> logic, the <code>lapply()</code> (list-apply) function requires a <code>FUN</code> parameter that is the function the be applied to each value in the provided list.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">sum_list &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb284-2" title="2">  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb284-3" title="3">  <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb284-4" title="4">  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">30</span>)</a>
-<a class="sourceLine" id="cb284-5" title="5">)</a>
-<a class="sourceLine" id="cb284-6" title="6"></a>
-<a class="sourceLine" id="cb284-7" title="7"><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> sum)</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="functions-teachers.html#cb284-1" aria-hidden="true"></a>sum_list &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb284-2"><a href="functions-teachers.html#cb284-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb284-3"><a href="functions-teachers.html#cb284-3" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">10</span>),</span>
+<span id="cb284-4"><a href="functions-teachers.html#cb284-4" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">30</span>)</span>
+<span id="cb284-5"><a href="functions-teachers.html#cb284-5" aria-hidden="true"></a>)</span>
+<span id="cb284-6"><a href="functions-teachers.html#cb284-6" aria-hidden="true"></a></span>
+<span id="cb284-7"><a href="functions-teachers.html#cb284-7" aria-hidden="true"></a><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> sum)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 3
 ## 
@@ -497,23 +535,23 @@ It’d need to calculate the mean and standard deviation of a column, but that c
 <code>substr</code>
 and
 <code>substr()</code>. The first will return the <code>substr</code> <em>object</em>. That is, not the result of applying inputs to the <code>substr</code> function, but the function itself. If you just type the name of the function into the console, it will show you the code for that function (it’s definition):</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1">substr</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="functions-teachers.html#cb286-1" aria-hidden="true"></a>substr</span></code></pre></div>
 <pre><code>## function (x, start, stop) 
 ## {
 ##     if (!is.character(x)) 
 ##         x &lt;- as.character(x)
 ##     .Internal(substr(x, as.integer(start), as.integer(stop)))
 ## }
-## &lt;bytecode: 0x55b6df1ab900&gt;
+## &lt;bytecode: 0x562d1281bfe8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <p>Conversely, <code>substr()</code> will <em>call</em> the <code>sum</code> function with the inputs provided in the brackets.</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" title="1"><span class="kw">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="functions-teachers.html#cb288-1" aria-hidden="true"></a><span class="kw">substr</span>(<span class="st">&quot;hey there&quot;</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hey&quot;</code></pre>
 </div>
-<div id="anonymous-functions" class="section level2">
-<h2><span class="header-section-number">11.4</span> Anonymous functions</h2>
+<div id="anonymous-functions" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Anonymous functions<a href="functions-teachers.html#anonymous-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Because some functions accept functions as an argument, there is the concept of <strong>anonymous functions</strong> in R. These are just functions that haven’t been assigned a name. For example, we might want to use an anonymous function in an <code>lapply</code> call:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1"><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x))</a></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="functions-teachers.html#cb290-1" aria-hidden="true"></a><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x))</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -523,10 +561,10 @@ and
 ## [[3]]
 ## [1] 10</code></pre>
 <p>Anonymous functions mean that you don’t have to define your function in the traditional way. However, if you’re going to use that function more than once, it’s advisable to extract it out to a named function and then reference it:</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1">diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb292-2" title="2">  <span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x)</a>
-<a class="sourceLine" id="cb292-3" title="3">}</a>
-<a class="sourceLine" id="cb292-4" title="4"><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> diff)</a></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="functions-teachers.html#cb292-1" aria-hidden="true"></a>diff &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb292-2"><a href="functions-teachers.html#cb292-2" aria-hidden="true"></a>  <span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x)</span>
+<span id="cb292-3"><a href="functions-teachers.html#cb292-3" aria-hidden="true"></a>}</span>
+<span id="cb292-4"><a href="functions-teachers.html#cb292-4" aria-hidden="true"></a><span class="kw">lapply</span>(sum_list, <span class="dt">FUN =</span> diff)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -536,26 +574,26 @@ and
 ## [[3]]
 ## [1] 10</code></pre>
 </div>
-<div id="vectorised-functions" class="section level2">
-<h2><span class="header-section-number">11.5</span> Vectorised functions</h2>
+<div id="vectorised-functions" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Vectorised functions<a href="functions-teachers.html#vectorised-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An important concept in R that differs from non-functional programming language is the presence of vectorised functions. Vectorised functions operate a bit like applying a set of values to a function over and over again without needing to use iterative loops (which we’ll look at later). For example, if we use the <code>substr()</code> function as an example, which creates a substring from a string, we can provide a vector of values to the <code>x</code> parameter instead of a single value and we’ll get a return value for each one:</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" title="1"><span class="kw">substr</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>), <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="functions-teachers.html#cb294-1" aria-hidden="true"></a><span class="kw">substr</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>), <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hell&quot; &quot;ther&quot;</code></pre>
 <p>Logically, this is quite easy to wrap your head around. R has just applied the same parameters (<code>start = 1, stop = 4</code>) to two different strings. In fact, when you provide a single value, you’re still providing a vector, it just has a length of 1, so R just applies it once.</p>
 <p>This makes repeating functions for multiple values much easier, because you don’t need to write any loops or <code>apply</code> statements.</p>
-<div id="recycling" class="section level3">
-<h3><span class="header-section-number">11.5.1</span> Recycling</h3>
+<div id="recycling" class="section level3 hasAnchor" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> Recycling<a href="functions-teachers.html#recycling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Things get a bit more complicated when you provide vectors to multiple arguments though. For example, what would happen if I provided <code>stop = c(4,3)</code> as a parameter to the above function call?</p>
 <p>Make your guesses…</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" title="1"><span class="kw">substr</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>), <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="functions-teachers.html#cb296-1" aria-hidden="true"></a><span class="kw">substr</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>), <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">stop =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;hell&quot; &quot;the&quot;</code></pre>
 <p>R has used the first value in each vector for the first time it runs (<code>hello</code> and <code>4</code>), and then it’s used the second values from each vector when it runs the second time. What about the <code>start</code> parameter though? Well because it’s only got a length of 1 but the other parameters have a length of 2, the 1 gets <strong>recycled</strong> until it’s the same length as the other parameters. If the length of the larger vector isn’t a multiple of the smaller one, then the smaller vector is recycled until it’s the same length and any extra values are discarded. So the above example is the same as:</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" title="1"><span class="kw">substr</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>), <span class="dt">start =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">stop =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="functions-teachers.html#cb298-1" aria-hidden="true"></a><span class="kw">substr</span>(<span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;there&quot;</span>), <span class="dt">start =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">stop =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>This idea of repeating an operation again and again is very common in programming, and it’s something that we’ll look at in more detail in the <a href="iteration">Iteration</a> chapter.</p>
 </div>
 </div>
-<div id="questions-functions-teachers" class="section level2">
-<h2><span class="header-section-number">11.6</span> Questions</h2>
+<div id="questions-functions-teachers" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Questions<a href="functions-teachers.html#questions-functions-teachers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>How are <code>mean()</code> and <code>sum()</code> different in their implementation of <code>...</code>?</li>
 <li>If functions are objects, how would you construct a function that returns a function? What might be a use for this?</li>
@@ -577,7 +615,6 @@ and
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -596,6 +633,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -616,6 +654,10 @@ gitbook.start({
 "text": null
 },
 "download": [["teacheR.pdf", "PDF"], ["teacheR.mobi", "Kindle EBook"], ["teacheR.epub", "EPUB EBook"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -629,7 +671,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

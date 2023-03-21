@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>17 Summary | teacheR</title>
   <meta name="description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
   <meta property="og:title" content="17 Summary | teacheR" />
   <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="cover.png" />
+  <meta property="og:image" content="/cover.png" />
   <meta property="og:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
   <meta name="github-repo" content="ARawles/teacheR" />
 
@@ -19,7 +18,7 @@
   <meta name="twitter:title" content="17 Summary | teacheR" />
   
   <meta name="twitter:description" content="Teach yourself or others R with this introduction to the fundamentals of the R language." />
-  <meta name="twitter:image" content="cover.png" />
+  <meta name="twitter:image" content="/cover.png" />
 
 <meta name="author" content="Adam Rawles" />
 
@@ -32,7 +31,8 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="iteration.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,29 +48,33 @@
 
 
 
-
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,6 +118,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -126,67 +131,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> teacheR (1<sup>st</sup> Edition)</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.1.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-me"><i class="fa fa-check"></i><b>1.2</b> About Me</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#why-teacher"><i class="fa fa-check"></i><b>1.3</b> Why teacheR?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-r"><i class="fa fa-check"></i><b>2.1</b> What is R?</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#should-i-use-r"><i class="fa fa-check"></i><b>2.2</b> Should I use R?</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a><ul>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#what-is-an-ide"><i class="fa fa-check"></i><b>2.4.1</b> What is an IDE?</a></li>
 <li class="chapter" data-level="2.4.2" data-path="intro.html"><a href="intro.html#using-rstudio"><i class="fa fa-check"></i><b>2.4.2</b> Using RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a><ul>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#installing-packages"><i class="fa fa-check"></i><b>2.5.1</b> Installing packages</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I For Students</b></span></li>
 <li class="chapter" data-level="3" data-path="for-students-intro.html"><a href="for-students-intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
-<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i><b>4.1</b> Arithmetic operators</a></li>
 <li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-operators"><i class="fa fa-check"></i><b>4.2</b> Logical operators</a></li>
 <li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#questions-operators"><i class="fa fa-check"></i><b>4.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a><ul>
+<li class="chapter" data-level="5" data-path="variable-assignment.html"><a href="variable-assignment.html"><i class="fa fa-check"></i><b>5</b> Variable assignment</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="variable-assignment.html"><a href="variable-assignment.html#creating-variables"><i class="fa fa-check"></i><b>5.1</b> Creating variables</a></li>
-<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a><ul>
+<li class="chapter" data-level="5.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>5.2</b> Naming</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="variable-assignment.html"><a href="variable-assignment.html#valid-names"><i class="fa fa-check"></i><b>5.2.1</b> Valid names</a></li>
 <li class="chapter" data-level="5.2.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming-conventions"><i class="fa fa-check"></i><b>5.2.2</b> Naming conventions</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="variable-assignment.html"><a href="variable-assignment.html#reassigning-variables"><i class="fa fa-check"></i><b>5.3</b> Reassigning variables</a></li>
 <li class="chapter" data-level="5.4" data-path="variable-assignment.html"><a href="variable-assignment.html#questions-variable-assignment"><i class="fa fa-check"></i><b>5.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a><ul>
+<li class="chapter" data-level="6" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>6</b> Data types</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>6.1</b> Logical</a></li>
 <li class="chapter" data-level="6.2" data-path="data-types.html"><a href="data-types.html#double"><i class="fa fa-check"></i><b>6.2</b> Double</a></li>
 <li class="chapter" data-level="6.3" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>6.3</b> Integer</a></li>
 <li class="chapter" data-level="6.4" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>6.4</b> Character</a></li>
-<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a><ul>
+<li class="chapter" data-level="6.5" data-path="data-types.html"><a href="data-types.html#factors"><i class="fa fa-check"></i><b>6.5</b> Factors</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="data-types.html"><a href="data-types.html#converting-from-factors"><i class="fa fa-check"></i><b>6.5.1</b> Converting from factors</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="data-types.html"><a href="data-types.html#dates"><i class="fa fa-check"></i><b>6.6</b> Dates</a></li>
-<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixctlt"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct/lt)</a><ul>
+<li class="chapter" data-level="6.7" data-path="data-types.html"><a href="data-types.html#datetimes-posixctlt"><i class="fa fa-check"></i><b>6.7</b> Datetimes (POSIXct/lt)</a>
+<ul>
 <li class="chapter" data-level="6.7.1" data-path="data-types.html"><a href="data-types.html#posixct-posixlt"><i class="fa fa-check"></i><b>6.7.1</b> POSIXct &amp; POSIXlt</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a><ul>
+<li class="chapter" data-level="6.8" data-path="data-types.html"><a href="data-types.html#na-and-null"><i class="fa fa-check"></i><b>6.8</b> NA and NULL</a>
+<ul>
 <li class="chapter" data-level="6.8.1" data-path="data-types.html"><a href="data-types.html#null"><i class="fa fa-check"></i><b>6.8.1</b> NULL</a></li>
 <li class="chapter" data-level="6.8.2" data-path="data-types.html"><a href="data-types.html#na"><i class="fa fa-check"></i><b>6.8.2</b> NA</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="data-types.html"><a href="data-types.html#nan-and-infinity"><i class="fa fa-check"></i><b>6.9</b> NaN and Infinity</a></li>
-<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a><ul>
+<li class="chapter" data-level="6.10" data-path="data-types.html"><a href="data-types.html#implicit-conversion"><i class="fa fa-check"></i><b>6.10</b> Implicit Conversion</a>
+<ul>
 <li class="chapter" data-level="6.10.1" data-path="data-types.html"><a href="data-types.html#dangers-of-implicit-conversion"><i class="fa fa-check"></i><b>6.10.1</b> Dangers of implicit conversion</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="data-types.html"><a href="data-types.html#questions-data-types"><i class="fa fa-check"></i><b>6.11</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a><ul>
-<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a><ul>
+<li class="chapter" data-level="7" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>7</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>7.1</b> Vectors</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures.html"><a href="data-structures.html#coercion"><i class="fa fa-check"></i><b>7.1.1</b> Coercion</a></li>
-<li class="chapter" data-level="7.1.2" data-path="variable-assignment.html"><a href="variable-assignment.html#naming"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures.html"><a href="data-structures.html#naming-1"><i class="fa fa-check"></i><b>7.1.2</b> Naming</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>7.2</b> Lists</a></li>
 <li class="chapter" data-level="7.3" data-path="data-structures.html"><a href="data-structures.html#lists-vs-vectors"><i class="fa fa-check"></i><b>7.3</b> Lists vs Vectors</a></li>
@@ -194,28 +214,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>7.5</b> Dataframes</a></li>
 <li class="chapter" data-level="7.6" data-path="data-structures.html"><a href="data-structures.html#questions-data-structures"><i class="fa fa-check"></i><b>7.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a><ul>
-<li class="chapter" data-level="8.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
-<li class="chapter" data-level="8.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
-<li class="chapter" data-level="8.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
-<li class="chapter" data-level="8.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
+<li class="chapter" data-level="8" data-path="subsetting.html"><a href="subsetting.html"><i class="fa fa-check"></i><b>8</b> Subsetting</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="subsetting.html"><a href="subsetting.html#vectors-1"><i class="fa fa-check"></i><b>8.1</b> Vectors</a></li>
+<li class="chapter" data-level="8.2" data-path="subsetting.html"><a href="subsetting.html#lists-1"><i class="fa fa-check"></i><b>8.2</b> Lists</a></li>
+<li class="chapter" data-level="8.3" data-path="subsetting.html"><a href="subsetting.html#matrices-1"><i class="fa fa-check"></i><b>8.3</b> Matrices</a></li>
+<li class="chapter" data-level="8.4" data-path="subsetting.html"><a href="subsetting.html#dataframes-1"><i class="fa fa-check"></i><b>8.4</b> Dataframes</a></li>
 <li class="chapter" data-level="8.5" data-path="subsetting.html"><a href="subsetting.html#subsetting-by-criteria"><i class="fa fa-check"></i><b>8.5</b> Subsetting by criteria</a></li>
 <li class="chapter" data-level="8.6" data-path="subsetting.html"><a href="subsetting.html#questions-subsetting"><i class="fa fa-check"></i><b>8.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a><ul>
+<li class="chapter" data-level="9" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>9</b> Functions</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="functions.html"><a href="functions.html#functions-in-r"><i class="fa fa-check"></i><b>9.1</b> Functions in R</a></li>
-<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a><ul>
+<li class="chapter" data-level="9.2" data-path="functions.html"><a href="functions.html#inputs"><i class="fa fa-check"></i><b>9.2</b> Inputs</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="functions.html"><a href="functions.html#explicit-input-parameters"><i class="fa fa-check"></i><b>9.2.1</b> Explicit input parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a><ul>
+<li class="chapter" data-level="9.3" data-path="functions.html"><a href="functions.html#outputs"><i class="fa fa-check"></i><b>9.3</b> Outputs</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="functions.html"><a href="functions.html#reassigning-outputs"><i class="fa fa-check"></i><b>9.3.1</b> Reassigning outputs</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="functions.html"><a href="functions.html#questions-functions"><i class="fa fa-check"></i><b>9.4</b> Questions</a></li>
 </ul></li>
 <li class="part"><span><b>II For Teachers</b></span></li>
 <li class="chapter" data-level="10" data-path="for-teachers-intro.html"><a href="for-teachers-intro.html"><i class="fa fa-check"></i><b>10</b> Introduction</a></li>
-<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a><ul>
-<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a><ul>
+<li class="chapter" data-level="11" data-path="functions-teachers.html"><a href="functions-teachers.html"><i class="fa fa-check"></i><b>11</b> Functions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="functions-teachers.html"><a href="functions-teachers.html#creating-functions"><i class="fa fa-check"></i><b>11.1</b> Creating functions</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="functions-teachers.html"><a href="functions-teachers.html#function-structure"><i class="fa fa-check"></i><b>11.1.1</b> Function structure</a></li>
 <li class="chapter" data-level="11.1.2" data-path="functions-teachers.html"><a href="functions-teachers.html#input-parameters"><i class="fa fa-check"></i><b>11.1.2</b> Input Parameters</a></li>
 <li class="chapter" data-level="11.1.3" data-path="functions-teachers.html"><a href="functions-teachers.html#return-values"><i class="fa fa-check"></i><b>11.1.3</b> Return values</a></li>
@@ -223,30 +249,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="functions-teachers.html"><a href="functions-teachers.html#example-function"><i class="fa fa-check"></i><b>11.2</b> Example function</a></li>
 <li class="chapter" data-level="11.3" data-path="functions-teachers.html"><a href="functions-teachers.html#functions-as-objects"><i class="fa fa-check"></i><b>11.3</b> Functions as objects</a></li>
 <li class="chapter" data-level="11.4" data-path="functions-teachers.html"><a href="functions-teachers.html#anonymous-functions"><i class="fa fa-check"></i><b>11.4</b> Anonymous functions</a></li>
-<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a><ul>
+<li class="chapter" data-level="11.5" data-path="functions-teachers.html"><a href="functions-teachers.html#vectorised-functions"><i class="fa fa-check"></i><b>11.5</b> Vectorised functions</a>
+<ul>
 <li class="chapter" data-level="11.5.1" data-path="functions-teachers.html"><a href="functions-teachers.html#recycling"><i class="fa fa-check"></i><b>11.5.1</b> Recycling</a></li>
 </ul></li>
 <li class="chapter" data-level="11.6" data-path="functions-teachers.html"><a href="functions-teachers.html#questions-functions-teachers"><i class="fa fa-check"></i><b>11.6</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a><ul>
-<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a><ul>
+<li class="chapter" data-level="12" data-path="environments.html"><a href="environments.html"><i class="fa fa-check"></i><b>12</b> Environments</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="environments.html"><a href="environments.html#environment-basics"><i class="fa fa-check"></i><b>12.1</b> Environment basics</a>
+<ul>
 <li class="chapter" data-level="12.1.1" data-path="environments.html"><a href="environments.html#environment-inheritance"><i class="fa fa-check"></i><b>12.1.1</b> Environment inheritance</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="environments.html"><a href="environments.html#scope"><i class="fa fa-check"></i><b>12.2</b> Scope</a></li>
-<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a><ul>
+<li class="chapter" data-level="12.3" data-path="environments.html"><a href="environments.html#function-environments"><i class="fa fa-check"></i><b>12.3</b> Function environments</a>
+<ul>
 <li class="chapter" data-level="12.3.1" data-path="environments.html"><a href="environments.html#mutability"><i class="fa fa-check"></i><b>12.3.1</b> Mutability</a></li>
 <li class="chapter" data-level="12.3.2" data-path="environments.html"><a href="environments.html#super-assignment"><i class="fa fa-check"></i><b>12.3.2</b> ‘Super’ assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="12.4" data-path="environments.html"><a href="environments.html#questions-environments"><i class="fa fa-check"></i><b>12.4</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a><ul>
+<li class="chapter" data-level="13" data-path="objects-and-classes.html"><a href="objects-and-classes.html"><i class="fa fa-check"></i><b>13</b> Objects and Classes</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-a-class"><i class="fa fa-check"></i><b>13.1</b> What is a class?</a></li>
 <li class="chapter" data-level="13.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#what-is-an-object"><i class="fa fa-check"></i><b>13.2</b> What is an object?</a></li>
-<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.3</b> Objects and Classes in R</a><ul>
+<li class="chapter" data-level="13.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#objects-and-classes-in-r"><i class="fa fa-check"></i><b>13.3</b> Objects and Classes in R</a>
+<ul>
 <li class="chapter" data-level="13.3.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#inheritance"><i class="fa fa-check"></i><b>13.3.1</b> Inheritance</a></li>
 <li class="chapter" data-level="13.3.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#object-oriented-systems"><i class="fa fa-check"></i><b>13.3.2</b> Object-Oriented Systems</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.4</b> Creating classes</a><ul>
+<li class="chapter" data-level="13.4" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-classes"><i class="fa fa-check"></i><b>13.4</b> Creating classes</a>
+<ul>
 <li class="chapter" data-level="13.4.1" data-path="objects-and-classes.html"><a href="objects-and-classes.html#class-attribute"><i class="fa fa-check"></i><b>13.4.1</b> Class attribute</a></li>
 <li class="chapter" data-level="13.4.2" data-path="objects-and-classes.html"><a href="objects-and-classes.html#constructor-functions"><i class="fa fa-check"></i><b>13.4.2</b> Constructor functions</a></li>
 <li class="chapter" data-level="13.4.3" data-path="objects-and-classes.html"><a href="objects-and-classes.html#creating-methods"><i class="fa fa-check"></i><b>13.4.3</b> Creating methods</a></li>
@@ -254,35 +287,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.5" data-path="objects-and-classes.html"><a href="objects-and-classes.html#questions-objects-and-classes"><i class="fa fa-check"></i><b>13.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a><ul>
+<li class="chapter" data-level="14" data-path="expressions.html"><a href="expressions.html"><i class="fa fa-check"></i><b>14</b> Expressions</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="expressions.html"><a href="expressions.html#creating-expressions"><i class="fa fa-check"></i><b>14.1</b> Creating expressions</a></li>
 <li class="chapter" data-level="14.2" data-path="expressions.html"><a href="expressions.html#evaluating-expressions"><i class="fa fa-check"></i><b>14.2</b> Evaluating expressions</a></li>
 <li class="chapter" data-level="14.3" data-path="expressions.html"><a href="expressions.html#substitution"><i class="fa fa-check"></i><b>14.3</b> Substitution</a></li>
 <li class="chapter" data-level="14.4" data-path="expressions.html"><a href="expressions.html#quasiquotation"><i class="fa fa-check"></i><b>14.4</b> Quasiquotation</a></li>
 <li class="chapter" data-level="14.5" data-path="expressions.html"><a href="expressions.html#questions-expressions"><i class="fa fa-check"></i><b>14.5</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a><ul>
+<li class="chapter" data-level="15" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>15</b> If / Else</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="if-else.html"><a href="if-else.html#structure"><i class="fa fa-check"></i><b>15.1</b> Structure</a></li>
 <li class="chapter" data-level="15.2" data-path="if-else.html"><a href="if-else.html#questions-if-else"><i class="fa fa-check"></i><b>15.2</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a><ul>
-<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a><ul>
+<li class="chapter" data-level="16" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>16</b> Iteration</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="iteration.html"><a href="iteration.html#imperative-programming"><i class="fa fa-check"></i><b>16.1</b> Imperative programming</a>
+<ul>
 <li class="chapter" data-level="16.1.1" data-path="iteration.html"><a href="iteration.html#for-loops"><i class="fa fa-check"></i><b>16.1.1</b> For loops</a></li>
 <li class="chapter" data-level="16.1.2" data-path="iteration.html"><a href="iteration.html#while-loops"><i class="fa fa-check"></i><b>16.1.2</b> While loops</a></li>
 </ul></li>
-<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a><ul>
+<li class="chapter" data-level="16.2" data-path="iteration.html"><a href="iteration.html#declarative-and-functional-programming"><i class="fa fa-check"></i><b>16.2</b> Declarative and functional programming</a>
+<ul>
 <li class="chapter" data-level="16.2.1" data-path="iteration.html"><a href="iteration.html#declarative-vs-imperative"><i class="fa fa-check"></i><b>16.2.1</b> Declarative vs Imperative</a></li>
 <li class="chapter" data-level="16.2.2" data-path="iteration.html"><a href="iteration.html#applying-functions"><i class="fa fa-check"></i><b>16.2.2</b> Applying functions</a></li>
 <li class="chapter" data-level="16.2.3" data-path="iteration.html"><a href="iteration.html#purrr"><i class="fa fa-check"></i><b>16.2.3</b> purrr</a></li>
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="iteration.html"><a href="iteration.html#questions-iteration"><i class="fa fa-check"></i><b>16.3</b> Questions</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a><ul>
-<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a><ul>
+<li class="chapter" data-level="17" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>17</b> Summary</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="summary.html"><a href="summary.html#answers"><i class="fa fa-check"></i><b>17.1</b> Answers</a>
+<ul>
 <li class="chapter" data-level="17.1.1" data-path="summary.html"><a href="summary.html#for-students"><i class="fa fa-check"></i><b>17.1.1</b> For Students</a></li>
 <li class="chapter" data-level="17.1.2" data-path="summary.html"><a href="summary.html#for-teachers"><i class="fa fa-check"></i><b>17.1.2</b> For Teachers</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a><ul>
+<li class="chapter" data-level="17.2" data-path="summary.html"><a href="summary.html#next-steps"><i class="fa fa-check"></i><b>17.2</b> Next Steps</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="summary.html"><a href="summary.html#operate"><i class="fa fa-check"></i><b>17.2.1</b> opeRate</a></li>
 </ul></li>
 </ul></li>
@@ -303,16 +344,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="summary" class="section level1">
-<h1><span class="header-section-number">17</span> Summary</h1>
+<div id="summary" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">17</span> Summary<a href="summary.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Overall, I hope that this book has helped you grasp the basics of the R programming language. If you’re a student, then I hope this was pitched at the correct level to challenge you. If you’re a teacher, then I hope this book helped round out your knowledge of R such that you would feel comfortable imparting your knowledge onto those that want to hear it.</p>
 <p>If you feel that there are improvements to be made to the content or how it was taught, then please do let me know via a <a href="https://github.com/ARawles/teacheR/issues">GitHub issue on the teacheR</a> repository.</p>
-<div id="answers" class="section level2">
-<h2><span class="header-section-number">17.1</span> Answers</h2>
-<div id="for-students" class="section level3">
-<h3><span class="header-section-number">17.1.1</span> For Students</h3>
-<div id="operators-answers" class="section level4">
-<h4><span class="header-section-number">17.1.1.1</span> Operators</h4>
+<div id="answers" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Answers<a href="summary.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="for-students" class="section level3 hasAnchor" number="17.1.1">
+<h3><span class="header-section-number">17.1.1</span> For Students<a href="summary.html#for-students" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="operators-answers" class="section level4 hasAnchor" number="17.1.1.1">
+<h4><span class="header-section-number">17.1.1.1</span> Operators<a href="summary.html#operators-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Why do <code>1 != 2</code> and <code>!(1 == 2)</code> both equal true?
 <ul>
@@ -324,8 +365,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="variable-assignments-answers" class="section level4">
-<h4><span class="header-section-number">17.1.1.2</span> Variable Assigment</h4>
+<div id="variable-assignments-answers" class="section level4 hasAnchor" number="17.1.1.2">
+<h4><span class="header-section-number">17.1.1.2</span> Variable Assigment<a href="summary.html#variable-assignments-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Is <code>.2nd</code> a valid name? Why/why not?
 <ul>
@@ -341,8 +382,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="data-types-answers" class="section level4">
-<h4><span class="header-section-number">17.1.1.3</span> Data Types</h4>
+<div id="data-types-answers" class="section level4 hasAnchor" number="17.1.1.3">
+<h4><span class="header-section-number">17.1.1.3</span> Data Types<a href="summary.html#data-types-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Why are <code>2</code> and <code>2L</code> different?
 <ul>
@@ -366,8 +407,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="data-structures-answers" class="section level4">
-<h4><span class="header-section-number">17.1.1.4</span> Data Structures</h4>
+<div id="data-structures-answers" class="section level4 hasAnchor" number="17.1.1.4">
+<h4><span class="header-section-number">17.1.1.4</span> Data Structures<a href="summary.html#data-structures-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>If I want to store a set of integers, what data structure should I use and why?
 <ul>
@@ -383,8 +424,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="subsetting-answers" class="section level4">
-<h4><span class="header-section-number">17.1.1.5</span> Subsetting</h4>
+<div id="subsetting-answers" class="section level4 hasAnchor" number="17.1.1.5">
+<h4><span class="header-section-number">17.1.1.5</span> Subsetting<a href="summary.html#subsetting-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Why can dataframes and lists be subsetted in a similar way?
 <ul>
@@ -396,8 +437,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="functions-answers" class="section level4">
-<h4><span class="header-section-number">17.1.1.6</span> Functions (students)</h4>
+<div id="functions-answers" class="section level4 hasAnchor" number="17.1.1.6">
+<h4><span class="header-section-number">17.1.1.6</span> Functions (students)<a href="summary.html#functions-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Why does <code>`&lt;-`(test, 2)</code> work? What does this tell us about <code>&lt;-</code>?
 <ul>
@@ -414,10 +455,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 </div>
-<div id="for-teachers" class="section level3">
-<h3><span class="header-section-number">17.1.2</span> For Teachers</h3>
-<div id="functions-teachers-answers" class="section level4">
-<h4><span class="header-section-number">17.1.2.1</span> Functions (teachers)</h4>
+<div id="for-teachers" class="section level3 hasAnchor" number="17.1.2">
+<h3><span class="header-section-number">17.1.2</span> For Teachers<a href="summary.html#for-teachers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="functions-teachers-answers" class="section level4 hasAnchor" number="17.1.2.1">
+<h4><span class="header-section-number">17.1.2.1</span> Functions (teachers)<a href="summary.html#functions-teachers-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>How are <code>mean()</code> and <code>sum()</code> different in their implementation of <code>...</code>?
 <ul>
@@ -427,15 +468,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Example function:</li>
 </ul>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1">function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</a>
-<a class="sourceLine" id="cb403-2" title="2">  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb403-3" title="3">   x <span class="op">^</span><span class="st"> </span>power</a>
-<a class="sourceLine" id="cb403-4" title="4">  }</a>
-<a class="sourceLine" id="cb403-5" title="5">  ret_function</a>
-<a class="sourceLine" id="cb403-6" title="6">}</a>
-<a class="sourceLine" id="cb403-7" title="7"></a>
-<a class="sourceLine" id="cb403-8" title="8">square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb403-9" title="9"><span class="kw">square_function</span>(<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="summary.html#cb403-1" aria-hidden="true"></a>function_factory &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">power =</span> <span class="dv">2</span>){</span>
+<span id="cb403-2"><a href="summary.html#cb403-2" aria-hidden="true"></a>  ret_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb403-3"><a href="summary.html#cb403-3" aria-hidden="true"></a>   x <span class="op">^</span><span class="st"> </span>power</span>
+<span id="cb403-4"><a href="summary.html#cb403-4" aria-hidden="true"></a>  }</span>
+<span id="cb403-5"><a href="summary.html#cb403-5" aria-hidden="true"></a>  ret_function</span>
+<span id="cb403-6"><a href="summary.html#cb403-6" aria-hidden="true"></a>}</span>
+<span id="cb403-7"><a href="summary.html#cb403-7" aria-hidden="true"></a></span>
+<span id="cb403-8"><a href="summary.html#cb403-8" aria-hidden="true"></a>square_function &lt;-<span class="st"> </span><span class="kw">function_factory</span>(<span class="dt">power =</span> <span class="dv">2</span>)</span>
+<span id="cb403-9"><a href="summary.html#cb403-9" aria-hidden="true"></a><span class="kw">square_function</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre></li>
 <li>Look at the <code>ellipsis</code> package. What issue does this package look to solve?
 <ul>
@@ -455,8 +496,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="environments-answers" class="section level4">
-<h4><span class="header-section-number">17.1.2.2</span> Environments</h4>
+<div id="environments-answers" class="section level4 hasAnchor" number="17.1.2.2">
+<h4><span class="header-section-number">17.1.2.2</span> Environments<a href="summary.html#environments-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>In what situations can we have two environments with the same name? Why is this?
 <ul>
@@ -472,8 +513,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="objects-and-classes-answers" class="section level4">
-<h4><span class="header-section-number">17.1.2.3</span> Objects and classes</h4>
+<div id="objects-and-classes-answers" class="section level4 hasAnchor" number="17.1.2.3">
+<h4><span class="header-section-number">17.1.2.3</span> Objects and classes<a href="summary.html#objects-and-classes-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Why does <code>is(1L)</code> return integer, then double, then numeric in that order?
 <ul>
@@ -497,46 +538,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="expressions-answers" class="section level4">
-<h4><span class="header-section-number">17.1.2.4</span> Expressions</h4>
+<div id="expressions-answers" class="section level4 hasAnchor" number="17.1.2.4">
+<h4><span class="header-section-number">17.1.2.4</span> Expressions<a href="summary.html#expressions-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Why might an expression like this <code>fun(x)</code> be useful? Particularly, when paired with <code>substitute()</code>.
 + By using subsitute, we can replace <code>fun</code> with any function we like:</li>
 </ol>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1">quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb405-2" title="2">quoted_fun</a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="summary.html#cb405-1" aria-hidden="true"></a>quoted_fun &lt;-<span class="st"> </span><span class="kw">substitute</span>(<span class="kw">fun</span>(x), <span class="dt">env =</span> <span class="kw">list</span>(<span class="dt">fun =</span> sum, <span class="dt">x =</span> <span class="dv">1</span>))</span>
+<span id="cb405-2"><a href="summary.html#cb405-2" aria-hidden="true"></a>quoted_fun</span></code></pre></div>
 <pre><code>## .Primitive(&quot;sum&quot;)(1)</code></pre>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" title="1"><span class="kw">eval</span>(quoted_fun)</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="summary.html#cb407-1" aria-hidden="true"></a><span class="kw">eval</span>(quoted_fun)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>What’s the difference between</li>
 </ol>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1"><span class="kw">quote</span>({</a>
-<a class="sourceLine" id="cb409-2" title="2">  x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb409-3" title="3">  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb409-4" title="4">})</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="summary.html#cb409-1" aria-hidden="true"></a><span class="kw">quote</span>({</span>
+<span id="cb409-2"><a href="summary.html#cb409-2" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb409-3"><a href="summary.html#cb409-3" aria-hidden="true"></a>  x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb409-4"><a href="summary.html#cb409-4" aria-hidden="true"></a>})</span></code></pre></div>
 <p>and</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" title="1"><span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb410-2" title="2">  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb410-3" title="3">  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb410-4" title="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="summary.html#cb410-1" aria-hidden="true"></a><span class="kw">list</span>(</span>
+<span id="cb410-2"><a href="summary.html#cb410-2" aria-hidden="true"></a>  <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</span>
+<span id="cb410-3"><a href="summary.html#cb410-3" aria-hidden="true"></a>  <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb410-4"><a href="summary.html#cb410-4" aria-hidden="true"></a>)</span></code></pre></div>
 <p>and why do they evaluate to different things?
 + The first is a single expression. When we evaluate the first, both lines <code>x &lt;- 1</code> and <code>x + 10</code> are evaluated at (roughly) the same time:</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" title="1"><span class="kw">eval</span>(</a>
-<a class="sourceLine" id="cb411-2" title="2">    <span class="kw">quote</span>({</a>
-<a class="sourceLine" id="cb411-3" title="3">        x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb411-4" title="4">        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb411-5" title="5">    })</a>
-<a class="sourceLine" id="cb411-6" title="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="summary.html#cb411-1" aria-hidden="true"></a><span class="kw">eval</span>(</span>
+<span id="cb411-2"><a href="summary.html#cb411-2" aria-hidden="true"></a>    <span class="kw">quote</span>({</span>
+<span id="cb411-3"><a href="summary.html#cb411-3" aria-hidden="true"></a>        x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb411-4"><a href="summary.html#cb411-4" aria-hidden="true"></a>        x <span class="op">+</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb411-5"><a href="summary.html#cb411-5" aria-hidden="true"></a>    })</span>
+<span id="cb411-6"><a href="summary.html#cb411-6" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 <p>  + The second is a list of separate expressions. If we evaluate them using:</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1"><span class="kw">lapply</span>(</a>
-<a class="sourceLine" id="cb413-2" title="2">    <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb413-3" title="3">      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb413-4" title="4">      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb413-5" title="5">    ),</a>
-<a class="sourceLine" id="cb413-6" title="6">    eval</a>
-<a class="sourceLine" id="cb413-7" title="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="summary.html#cb413-1" aria-hidden="true"></a><span class="kw">lapply</span>(</span>
+<span id="cb413-2"><a href="summary.html#cb413-2" aria-hidden="true"></a>    <span class="kw">list</span>(</span>
+<span id="cb413-3"><a href="summary.html#cb413-3" aria-hidden="true"></a>      <span class="kw">quote</span>(x &lt;-<span class="st"> </span><span class="dv">1</span>),</span>
+<span id="cb413-4"><a href="summary.html#cb413-4" aria-hidden="true"></a>      <span class="kw">quote</span>(x <span class="op">+</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb413-5"><a href="summary.html#cb413-5" aria-hidden="true"></a>    ),</span>
+<span id="cb413-6"><a href="summary.html#cb413-6" aria-hidden="true"></a>    eval</span>
+<span id="cb413-7"><a href="summary.html#cb413-7" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -544,8 +585,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 11</code></pre>
 <p>Then each line is evaluated separately, resulting in two lines instead of 1.</p>
 </div>
-<div id="if-else-answers" class="section level4">
-<h4><span class="header-section-number">17.1.2.5</span> If / Else</h4>
+<div id="if-else-answers" class="section level4 hasAnchor" number="17.1.2.5">
+<h4><span class="header-section-number">17.1.2.5</span> If / Else<a href="summary.html#if-else-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>Rather than writing <code>if (x == 1 | x == 2 | x == 3)</code>, how could you use the <code>%in%</code> operator to make it shorter?
 <ul>
@@ -557,8 +598,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 </div>
-<div id="iteration-answers" class="section level4">
-<h4><span class="header-section-number">17.1.2.6</span> Iteration</h4>
+<div id="iteration-answers" class="section level4 hasAnchor" number="17.1.2.6">
+<h4><span class="header-section-number">17.1.2.6</span> Iteration<a href="summary.html#iteration-answers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li>In what situation would you use <code>i in x</code> over <code>i in seq_along(x)</code>?
 <ul>
@@ -572,18 +613,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Loop code:</li>
 </ul>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" title="1">max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</a>
-<a class="sourceLine" id="cb415-2" title="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</a>
-<a class="sourceLine" id="cb415-3" title="3">  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</a>
-<a class="sourceLine" id="cb415-4" title="4">}</a></code></pre></div></li>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="summary.html#cb415-1" aria-hidden="true"></a>max_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">rep</span>(<span class="ot">NULL</span>, <span class="kw">length</span>(number_list)))</span>
+<span id="cb415-2"><a href="summary.html#cb415-2" aria-hidden="true"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(number_list)) {</span>
+<span id="cb415-3"><a href="summary.html#cb415-3" aria-hidden="true"></a>  max_list[[i]] &lt;-<span class="st"> </span><span class="kw">max</span>(number_list[[i]])</span>
+<span id="cb415-4"><a href="summary.html#cb415-4" aria-hidden="true"></a>}</span></code></pre></div></li>
 </ol>
 </div>
 </div>
 </div>
-<div id="next-steps" class="section level2">
-<h2><span class="header-section-number">17.2</span> Next Steps</h2>
-<div id="operate" class="section level3">
-<h3><span class="header-section-number">17.2.1</span> opeRate</h3>
+<div id="next-steps" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Next Steps<a href="summary.html#next-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="operate" class="section level3 hasAnchor" number="17.2.1">
+<h3><span class="header-section-number">17.2.1</span> opeRate<a href="summary.html#operate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To help you learn how to apply the skills and understanding you’ve acquired through this book, I’ve developed a second book, <a href="https://operate.arawles.co.uk">opeRate</a>. opeRate was developed in exactly the same way as teacheR, but focuses on applied data analysis and practical learning. If you’re interested in applying your knowledge, then I would recommend giving it a read.</p>
 
 </div>
@@ -599,7 +640,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -618,6 +658,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -638,6 +679,10 @@ gitbook.start({
 "text": null
 },
 "download": [["teacheR.pdf", "PDF"], ["teacheR.mobi", "Kindle EBook"], ["teacheR.epub", "EPUB EBook"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -651,7 +696,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
