@@ -120,7 +120,7 @@ This is something to bear in mind, converting a non-integer into an integer **wi
 ## Character
 
 Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what's inside the quotation marks, it will be stored as character. For example,
-`"5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```{r, error = TRUE} "5" + 5``` doesn't work, because you're trying to add text to a number, which doesn't make sense.
+`"5"` stores a character string with the text "5", not the number 5. This is particularly important when you want to start combining variables. For example, ```"5" + 5``` doesn't work, because you're trying to add text to a number, which doesn't make sense.
 
 To check whether something is stored as a character, use the `is.character()` function:
 
@@ -164,7 +164,7 @@ as.factor(c("Some", "All"))
 
 Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.
 
-*Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using `data.frame()` or `read.table()`. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.*
+*Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using `data.frame()` or `read.table()`. Prior to 4.0.0, it would automatically convert strings to factors unless otherwise specified.*
 
 ### Converting from factors
 

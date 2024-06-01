@@ -48,7 +48,7 @@ To compare whether two things are equal, we use two equal signs (`==`) in R:
 1 == 1 # equal
 ```
 
-Why two I hear you say? Well, a bit later on we'll see that we use a single equals sign for something else.
+"Why two '='?", I hear you say? Well, a bit later on we'll see that we use a single equals sign for something else.
 
 To compare whether two things are different (not equal), we use `!=`:
 

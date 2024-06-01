@@ -60,6 +60,8 @@ RStudio is a massive part of how you interact with R however. For example, with 
 
 In the [previous section](#using-r), we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.
 
+RStudio is provided by a company called Posit. Previously, Posit was also called 'RStudio', which led to some confusion between the product and the company, hence the name change to Posit. But you may occasionally see the company still referred to as 'RStudio', so just bear in mind that it's different to the IDE we're describing here.
+
 ### What is an IDE?
 
 At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.
@@ -95,8 +97,6 @@ Some great examples of R packages are:
 * [ggplot2](https://ggplot2.tidyverse.org/) for creating plots
 * [dplyr](https://dplyr.tidyverse.org/) for data manipulation
 * [shiny](https://shiny.rstudio.com/) for creating web apps
-* [BMRSr](http://bmrsr.arawles.co.uk) for extracting energy data   
-+ Truth be told, this isn't a *great* example of a package, it's just the one I've made so that's why it's here.
 
 The thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out. 
 
@@ -107,7 +107,7 @@ You can think of installing a package as a bit like installing a program on your
 Installing packages is really easy; you just use the `install.packages()` function:
 
 ```{r, eval = FALSE}
-install.packages("BMRSr")
+install.packages("ggplot2")
 ```
 
 You can choose where the package installs by supplying a path to the `lib` parameter (e.g. `lib = "C:/me/desktop"`), but by default it will install it into your default library folder. You can find the path to this default library folder with the `.libPaths()` function.
