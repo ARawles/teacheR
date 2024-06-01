@@ -452,7 +452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="character" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Character<a href="data-types.html#character" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sometimes called characters, or character strings, or just strings, characters store text. If you assign a value within quotation marks, regardless of what’s inside the quotation marks, it will be stored as character. For example,
-<code>"5"</code> stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, <code>{r, error = TRUE} "5" + 5</code> doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
+<code>"5"</code> stores a character string with the text “5”, not the number 5. This is particularly important when you want to start combining variables. For example, <code>"5" + 5</code> doesn’t work, because you’re trying to add text to a number, which doesn’t make sense.</p>
 <p>To check whether something is stored as a character, use the <code>is.character()</code> function:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-types.html#cb85-1" aria-hidden="true"></a><span class="kw">is.character</span>(<span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
@@ -487,7 +487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] Some All 
 ## Levels: All Some</code></pre>
 <p>Notice the difference in the output of those three lines. The first allows us to specify the levels (i.e. the values that were possible). The second does the same but we also specify the ordering of the levels, and the third just converts the provided values and generates the levels based on that data.</p>
-<p><em>Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using <code>data.frame()</code> or <code>read.table()</code>. Prior to 4.0.0, it would automatically convert strings to characters unless otherwise specified.</em></p>
+<p><em>Note: An important change in R version 4.0.0 is that R will no longer automatically convert strings (characters) to factors when you import data using <code>data.frame()</code> or <code>read.table()</code>. Prior to 4.0.0, it would automatically convert strings to factors unless otherwise specified.</em></p>
 <div id="converting-from-factors" class="section level3 hasAnchor" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> Converting from factors<a href="data-types.html#converting-from-factors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes you’ll need to convert data from a factor to something else, usually a character. This is fairly straightforward using the tools we’ve already seen:</p>

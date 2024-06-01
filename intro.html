@@ -383,6 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>RStudio is separate from R. R is a programming language and RStudio is an integrated development environment or <em>IDE</em>. This means that RStudio doesn’t actually run any code, it just passes it to R for you, meaning that you’ll need R to really use RStudio.</p>
 <p>RStudio is a massive part of how you interact with R however. For example, with the exception of a few days when I was waiting for RStudio to be installed, I can’t ever remember using R without RStudio.</p>
 <p>In the <a href="intro.html#using-r">previous section</a>, we talked very briefly of the R console and scripts. RStudio helps with this workflow. It makes it easier to create scripts, providing extra tools to help write code quicker, and then acts as a window to R when you want to execute the script.</p>
+<p>RStudio is provided by a company called Posit. Previously, Posit was also called ‘RStudio’, which led to some confusion between the product and the company, hence the name change to Posit. But you may occasionally see the company still referred to as ‘RStudio’, so just bear in mind that it’s different to the IDE we’re describing here.</p>
 <div id="what-is-an-ide" class="section level3 hasAnchor" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> What is an IDE?<a href="intro.html#what-is-an-ide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>At its simplest definition, an IDE helps you get work done in your programming language of choice. It can help you save blocks of code, organise projects, save plots and everything in between. R comes with a basic user interface when you install it, but RStudio provides lot more functionality to help you interact with the R console.</p>
@@ -417,16 +418,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://ggplot2.tidyverse.org/">ggplot2</a> for creating plots</li>
 <li><a href="https://dplyr.tidyverse.org/">dplyr</a> for data manipulation</li>
 <li><a href="https://shiny.rstudio.com/">shiny</a> for creating web apps</li>
-<li><a href="http://bmrsr.arawles.co.uk">BMRSr</a> for extracting energy data<br />
-</li>
-<li>Truth be told, this isn’t a <em>great</em> example of a package, it’s just the one I’ve made so that’s why it’s here.</li>
 </ul>
 <p>The thing to remember is that R has a fantastic open source community and if you need to do something in R, somebody has probably written a package to help you out.</p>
 <div id="installing-packages" class="section level3 hasAnchor" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Installing packages<a href="intro.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can think of installing a package as a bit like installing a program on your computer. You only need to install it once, but then you’ll need to open it each time you use it.</p>
 <p>Installing packages is really easy; you just use the <code>install.packages()</code> function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;BMRSr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>You can choose where the package installs by supplying a path to the <code>lib</code> parameter (e.g. <code>lib = "C:/me/desktop"</code>), but by default it will install it into your default library folder. You can find the path to this default library folder with the <code>.libPaths()</code> function.</p>
 <p>Once the package has been installed, you only need to reinstall it if there’s a problem or you want to update it. Otherwise, you just need to load it every time you want to use it. The logic behind this is that you may have hundreds of packages installed and you don’t need all of them for every project you do. So instead, we load specific packages we want each time.</p>
 <p>To load a package, use the <code>library()</code> function. Place this somewhere near the start of your script so that it’s obvious which packages someone will need if they’re reading your code and want to do it for themselves. This will then load in all of the functions from that package for you to use.</p>
